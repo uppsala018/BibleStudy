@@ -18,7 +18,7 @@ const modules = [
     title: "Church Fathers",
     href: "/library/fathers",
     summary:
-      "Starter patristic library structure ready for larger public-domain text imports.",
+      "Browse structured father profiles, major works, and anchored public-domain excerpts.",
   },
   {
     title: "Church History",

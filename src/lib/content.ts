@@ -1,11 +1,12 @@
 import catholicReadingJson from "@/content/catholic/john-1.json";
-import fathersJson from "@/content/fathers.json";
+import fathersLibraryJson from "@/content/fathers-library.json";
 import historyJson from "@/content/history.json";
 import kjvChapterJson from "@/content/kjv/genesis-1.json";
 import strongsJson from "@/content/strongs.json";
 import type {
   ArticleCard,
   CatholicReading,
+  FatherProfile,
   LexiconEntry,
   ScriptureChapter,
   SearchResult,
@@ -13,7 +14,13 @@ import type {
 
 export const kjvChapter = kjvChapterJson as ScriptureChapter;
 export const catholicReading = catholicReadingJson as CatholicReading;
-export const fathers = fathersJson as ArticleCard[];
+export const fathersLibrary = fathersLibraryJson as FatherProfile[];
+export const fathers: ArticleCard[] = fathersLibrary.map((father) => ({
+  id: father.slug,
+  title: father.name,
+  summary: father.summary,
+  era: father.era,
+}));
 export const historyTopics = historyJson as ArticleCard[];
 export const strongsLexicon = strongsJson as Record<string, LexiconEntry>;
 
@@ -26,6 +33,10 @@ export function getCatholicVerse(verseId: string) {
     catholicReading.verses.find((verse) => verse.id === verseId) ??
     catholicReading.verses[0]
   );
+}
+
+export function getFatherProfile(slug: string) {
+  return fathersLibrary.find((father) => father.slug === slug) ?? null;
 }
 
 export const searchIndex: SearchResult[] = [

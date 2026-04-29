@@ -1,0 +1,197 @@
+[
+  {
+    "slug": "ignatius-antioch",
+    "name": "Ignatius of Antioch",
+    "era": "c. 35-108",
+    "region": "Antioch and Asia Minor",
+    "tradition": "Apostolic Father",
+    "summary": "Ignatius wrote on church unity, the bishop, the Eucharist, and steadfastness in martyrdom while being taken to Rome for execution.",
+    "bio": "Ignatius stands near the apostolic age and gives one of the clearest early witnesses to episcopal order, sacramental worship, and the Church's visible unity. His surviving letters were written on the road to martyrdom.",
+    "themes": ["unity", "bishop", "eucharist", "martyrdom"],
+    "works": [
+      {
+        "slug": "letter-to-the-smyrnaeans",
+        "title": "Letter to the Smyrnaeans",
+        "source": "Ante-Nicene Fathers, Vol. 1",
+        "yearLabel": "c. 107",
+        "summary": "A warning against docetism and a strong witness to the reality of Christ's flesh and the Eucharist.",
+        "sections": [
+          {
+            "id": "smyrnaeans-6",
+            "title": "Against Unreal Christology",
+            "citation": "Smyrnaeans 6",
+            "excerpt": "Let no man deceive himself. Even the heavenly beings, and the glory of the angels, and the rulers, both visible and invisible, if they believe not in the blood of Christ, judgment awaits them also.",
+            "themes": ["christology", "judgment", "incarnation"]
+          },
+          {
+            "id": "smyrnaeans-7",
+            "title": "The Eucharist and the Flesh of Christ",
+            "citation": "Smyrnaeans 7",
+            "excerpt": "They abstain from the Eucharist and from prayer, because they confess not the Eucharist to be the flesh of our Saviour Jesus Christ, which suffered for our sins, and which the Father of His goodness raised up again.",
+            "themes": ["eucharist", "incarnation", "resurrection"]
+          },
+          {
+            "id": "smyrnaeans-8",
+            "title": "Follow the Bishop and the Church",
+            "citation": "Smyrnaeans 8",
+            "excerpt": "See that ye all follow the bishop, even as Jesus Christ does the Father, and the presbytery as ye would the apostles. Let no man do anything connected with the Church without the bishop.",
+            "themes": ["bishop", "church-order", "unity"]
+          }
+        ]
+      },
+      {
+        "slug": "letter-to-the-magnesians",
+        "title": "Letter to the Magnesians",
+        "source": "Ante-Nicene Fathers, Vol. 1",
+        "yearLabel": "c. 107",
+        "summary": "An appeal for order, humility, and harmony around the bishop and presbyters.",
+        "sections": [
+          {
+            "id": "magnesians-6",
+            "title": "Harmony in Ministry",
+            "citation": "Magnesians 6",
+            "excerpt": "I exhort you that ye study to do all things with a divine harmony, while your bishop presides in the place of God, and your presbyters in the place of the assembly of the apostles.",
+            "themes": ["church-order", "bishop", "presbyters"]
+          },
+          {
+            "id": "magnesians-7",
+            "title": "One Prayer, One Hope",
+            "citation": "Magnesians 7",
+            "excerpt": "As therefore the Lord did nothing without the Father, being united to Him, neither by Himself nor by the apostles, so neither do ye anything without the bishop and presbyters.",
+            "themes": ["unity", "obedience", "church-order"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "justin-martyr",
+    "name": "Justin Martyr",
+    "era": "c. 100-165",
+    "region": "Samaria and Rome",
+    "tradition": "Early Christian Apologist",
+    "summary": "Justin explained Christianity to the Roman world, defended the moral life of Christians, and preserved a major early description of Christian worship.",
+    "bio": "Justin's apologies connect Christian doctrine with the language of philosophy while grounding the faith in Christ, prophecy, and the public worship of the Church. His writings are especially valuable for understanding second-century liturgy.",
+    "themes": ["apologetics", "liturgy", "reason", "prophecy"],
+    "works": [
+      {
+        "slug": "first-apology",
+        "title": "First Apology",
+        "source": "Ante-Nicene Fathers, Vol. 1",
+        "yearLabel": "c. 155-157",
+        "summary": "A formal defense of Christian worship, morals, and doctrine addressed to Roman authorities.",
+        "sections": [
+          {
+            "id": "apology-65",
+            "title": "The Eucharistic Gathering",
+            "citation": "First Apology 65",
+            "excerpt": "After we have thus washed him who has been convinced and has assented to our teaching, we bring him to the place where those who are called brethren are assembled, in order that we may offer hearty prayers in common.",
+            "themes": ["baptism", "prayer", "assembly"]
+          },
+          {
+            "id": "apology-66",
+            "title": "How Christians Understand the Eucharist",
+            "citation": "First Apology 66",
+            "excerpt": "For not as common bread and common drink do we receive these; but in like manner as Jesus Christ our Saviour, having been made flesh by the Word of God, had both flesh and blood for our salvation, so likewise have we been taught that the food which is blessed by the prayer of His word is the flesh and blood of that Jesus who was made flesh.",
+            "themes": ["eucharist", "incarnation", "sacrament"]
+          },
+          {
+            "id": "apology-67",
+            "title": "Sunday Worship",
+            "citation": "First Apology 67",
+            "excerpt": "And on the day called Sunday, all who live in cities or in the country gather together to one place, and the memoirs of the apostles or the writings of the prophets are read, as long as time permits.",
+            "themes": ["liturgy", "scripture", "sunday"]
+          }
+        ]
+      },
+      {
+        "slug": "dialogue-with-trypho",
+        "title": "Dialogue with Trypho",
+        "source": "Ante-Nicene Fathers, Vol. 1",
+        "yearLabel": "mid-2nd century",
+        "summary": "A long argument for Christ from prophecy and the continuity of salvation history.",
+        "sections": [
+          {
+            "id": "dialogue-11",
+            "title": "The New Covenant and the Law",
+            "citation": "Dialogue 11",
+            "excerpt": "There will be no other God, O Trypho, nor was there from eternity any other existing who arranged and made all things, than He who made and disposed all this universe.",
+            "themes": ["monotheism", "covenant", "prophecy"]
+          },
+          {
+            "id": "dialogue-138",
+            "title": "Christ in the Scriptures",
+            "citation": "Dialogue 138",
+            "excerpt": "For if you had understood what has been written by the prophets, you would not have denied that He was God, Son of the only, unbegotten, unutterable God.",
+            "themes": ["christology", "prophecy", "scripture"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "athanasius",
+    "name": "Athanasius",
+    "era": "c. 296-373",
+    "region": "Alexandria",
+    "tradition": "Nicene Father",
+    "summary": "Athanasius defended the full deity of Christ and wrote one of the Church's classic explanations of the Incarnation.",
+    "bio": "As bishop of Alexandria, Athanasius became the defining anti-Arian voice of the fourth century. His works tie salvation, worship, and Scripture together around the claim that the Son is truly God and truly man.",
+    "themes": ["incarnation", "nicene-faith", "salvation", "scripture"],
+    "works": [
+      {
+        "slug": "on-the-incarnation",
+        "title": "On the Incarnation",
+        "source": "Nicene and Post-Nicene Fathers, Series II, Vol. 4",
+        "yearLabel": "4th century",
+        "summary": "A classic account of why the Word became flesh and how Christ restores humanity.",
+        "sections": [
+          {
+            "id": "incarnation-8",
+            "title": "Why the Word Came",
+            "citation": "On the Incarnation 8",
+            "excerpt": "For this purpose, then, the incorporeal and incorruptible and immaterial Word of God entered our world. In one sense, indeed, He was not far from it before.",
+            "themes": ["incarnation", "creation", "salvation"]
+          },
+          {
+            "id": "incarnation-54",
+            "title": "The Word Became Man for Our Renewal",
+            "citation": "On the Incarnation 54",
+            "excerpt": "He was made man that we might be made God; and He manifested Himself by a body that we might receive the idea of the unseen Father.",
+            "themes": ["theosis", "incarnation", "salvation"]
+          },
+          {
+            "id": "incarnation-56",
+            "title": "The Resurrection Changes Human History",
+            "citation": "On the Incarnation 56",
+            "excerpt": "Christ, by His own power, has restored the whole nature of man. The Saviour's resurrection is the mark of victory over death.",
+            "themes": ["resurrection", "death", "victory"]
+          }
+        ]
+      },
+      {
+        "slug": "letter-on-the-council-of-nicaea",
+        "title": "Letter on the Council of Nicaea",
+        "source": "Nicene and Post-Nicene Fathers, Series II, Vol. 4",
+        "yearLabel": "4th century",
+        "summary": "A concise explanation of why Nicene language was necessary against Arian reinterpretation.",
+        "sections": [
+          {
+            "id": "nicaea-20",
+            "title": "Why Homoousios Was Used",
+            "citation": "Letter on Nicaea 20",
+            "excerpt": "The bishops were compelled once again to collect the sense of the Scriptures and to speak more plainly, that the irreligious might not wrest the truth to their own impiety.",
+            "themes": ["nicaea", "scripture", "doctrine"]
+          },
+          {
+            "id": "nicaea-26",
+            "title": "The Son Is Not a Creature",
+            "citation": "Letter on Nicaea 26",
+            "excerpt": "The Son is other than things originate, alone the proper offspring of the Father's essence. For this reason He is not a creature, but very Son from the Father.",
+            "themes": ["trinity", "christology", "anti-arian"]
+          }
+        ]
+      }
+    ]
+  }
+]

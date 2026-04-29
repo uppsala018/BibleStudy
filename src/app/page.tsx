@@ -22,7 +22,7 @@ const pillars = [
     title: "Church Fathers",
     href: "/library/fathers",
     summary:
-      "Starter cards define the structure for future public-domain father texts and browsing flows.",
+      "Structured father profiles and excerpted works now give the patristic library a real foundation.",
     status: "Ready for import",
   },
   {

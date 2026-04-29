@@ -48,6 +48,35 @@ export type ArticleCard = {
   era: string;
 };
 
+export type FatherSection = {
+  id: string;
+  title: string;
+  citation: string;
+  excerpt: string;
+  themes: string[];
+};
+
+export type FatherWork = {
+  slug: string;
+  title: string;
+  source: string;
+  yearLabel: string;
+  summary: string;
+  sections: FatherSection[];
+};
+
+export type FatherProfile = {
+  slug: string;
+  name: string;
+  era: string;
+  region: string;
+  tradition: string;
+  summary: string;
+  bio: string;
+  themes: string[];
+  works: FatherWork[];
+};
+
 export type SearchResult = {
   id: string;
   title: string;

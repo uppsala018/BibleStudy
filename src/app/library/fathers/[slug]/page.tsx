@@ -1,0 +1,124 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import AppHeader from "@/components/app-header";
+import { fathersLibrary, getFatherProfile } from "@/lib/content";
+
+export function generateStaticParams() {
+  return fathersLibrary.map((father) => ({
+    slug: father.slug,
+  }));
+}
+
+export default async function FatherDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const father = getFatherProfile(slug);
+
+  if (!father) {
+    notFound();
+  }
+
+  return (
+    <>
+      <AppHeader />
+      <main className="mx-auto max-w-6xl px-6 py-14 sm:px-8 lg:px-12">
+        <Link
+          href="/library/fathers"
+          className="inline-flex rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-soft)]"
+        >
+          Back to Fathers
+        </Link>
+
+        <section className="mt-8 rounded-[2.4rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-8">
+          <p className="text-xs uppercase tracking-[0.3em] text-[var(--color-highlight)]">
+            {father.tradition}
+          </p>
+          <div className="mt-4 flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <h1 className="font-[family-name:var(--font-display)] text-5xl text-[var(--color-ink)]">
+                {father.name}
+              </h1>
+              <p className="mt-3 text-sm uppercase tracking-[0.18em] text-[var(--color-soft)]">
+                {father.era} - {father.region}
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {father.themes.map((theme) => (
+                <span
+                  key={theme}
+                  className="rounded-full border border-[var(--color-border)] px-3 py-1 text-xs text-[var(--color-soft)]"
+                >
+                  {theme}
+                </span>
+              ))}
+            </div>
+          </div>
+          <p className="mt-6 max-w-4xl text-base leading-8 text-[var(--color-muted)]">
+            {father.bio}
+          </p>
+        </section>
+
+        <section className="mt-10 space-y-8">
+          {father.works.map((work) => (
+            <article
+              key={work.slug}
+              className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6"
+            >
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.26em] text-[var(--color-highlight)]">
+                    {work.source}
+                  </p>
+                  <h2 className="mt-3 font-[family-name:var(--font-display)] text-4xl text-[var(--color-ink)]">
+                    {work.title}
+                  </h2>
+                </div>
+                <span className="rounded-full border border-[var(--color-border)] px-3 py-1 text-xs uppercase tracking-[0.18em] text-[var(--color-soft)]">
+                  {work.yearLabel}
+                </span>
+              </div>
+
+              <p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--color-muted)]">
+                {work.summary}
+              </p>
+
+              <div className="mt-6 grid gap-5">
+                {work.sections.map((section) => (
+                  <section
+                    key={section.id}
+                    className="rounded-[1.5rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.52)] p-5"
+                  >
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <h3 className="font-semibold text-[var(--color-highlight)]">
+                        {section.title}
+                      </h3>
+                      <span className="text-xs uppercase tracking-[0.18em] text-[var(--color-soft)]">
+                        {section.citation}
+                      </span>
+                    </div>
+                    <p className="mt-4 text-sm leading-8 text-[var(--color-ink)]">
+                      {section.excerpt}
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {section.themes.map((theme) => (
+                        <span
+                          key={theme}
+                          className="rounded-full border border-[var(--color-border)] px-3 py-1 text-xs text-[var(--color-soft)]"
+                        >
+                          {theme}
+                        </span>
+                      ))}
+                    </div>
+                  </section>
+                ))}
+              </div>
+            </article>
+          ))}
+        </section>
+      </main>
+    </>
+  );
+}
