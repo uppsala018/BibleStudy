@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Logos & Legacy
 
-## Getting Started
+Logos & Legacy is a PWA-first Bible study and church history app built from free and redistributable Christian sources. The current codebase establishes the visual system, installable app shell, and implementation direction recovered from the saved Manus concept artwork.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 App Router
+- TypeScript
+- Tailwind CSS 4
+- Vercel-friendly static-first deployment
+
+## Current State
+
+- Product landing shell rebuilt from the recovered design language
+- Recovered mockups and artwork imported into `public/assets`
+- Web app manifest and service worker registration added for installability
+- Route-based library pages for scripture, Catholic study, fathers, history, and notes
+- Persistence abstraction added with local-first storage and Supabase-ready sync path
+- Import scripts added for growing seeded content into larger structured text datasets
+- Build and lint verified locally
+
+## Run Locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Optional Supabase env:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+copy .env.example .env.local
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Build
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `src/app/page.tsx`: current product shell and MVP framing
+- `src/app/library/*`: dedicated study routes
+- `src/app/manifest.ts`: installable app metadata
+- `src/components/pwa-boot.tsx`: service worker registration
+- `src/components/study-workspace.tsx`: route-aware interactive study experience
+- `src/lib/content.ts`: structured content loader and search index
+- `src/lib/persistence.ts`: local-first persistence plus Supabase-ready sync hook
+- `public/assets/mockups`: recovered Manus screen mockups
+- `public/assets/art`: recovered artwork reused in the coded interface
+- `docs/build-plan.md`: content, platform, and roadmap notes
+- `imports/raw`: staging area for incoming public-domain text files
+- `supabase/study_state.sql`: starter schema for cloud note and bookmark sync
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Product Direction
 
-## Deploy on Vercel
+The recommended path is:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Build the reader and content platform as a web app first.
+2. Store redistributable Bible and study content in your own content layer or database.
+3. Add Supabase for sync, notes, bookmarks, and optional account features.
+4. Package the mature web app with Capacitor for Google Play and App Store submission.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Source Rules
+
+Only use public-domain or otherwise redistributable content inside the app bundle or database. Third-party APIs may help import or enrich data, but they should not be the licensing backbone of the product.
+
+## Import Commands
+
+```bash
+npm run import:kjv
+npm run import:catholic
+```
