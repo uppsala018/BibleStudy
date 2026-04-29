@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getLexiconEntry, searchBible } from "@/lib/server/full-kjv";
+import { getLexiconEntry, resolveReference, searchBible } from "@/lib/server/full-kjv";
 
 export const runtime = "nodejs";
 
@@ -10,8 +10,31 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ results: [] });
   }
 
+  const exactReference = await resolveReference(q);
   const results = await searchBible(q, 20);
   const upper = q.toUpperCase();
+  const mappedResults = results
+    .filter((item) => item.id !== exactReference?.id)
+    .map((item) => ({
+      kind: "kjv-search",
+      ...item,
+      title: item.reference,
+      detail: item.text,
+    }));
+
+  const exactReferenceResult = exactReference
+    ? [
+        {
+          kind: "kjv-search" as const,
+          ...exactReference,
+          title: exactReference.reference,
+          detail:
+            exactReference.verse === 1 && !q.includes(":")
+              ? `Jump to ${exactReference.chapterReference}`
+              : exactReference.text,
+        },
+      ]
+    : [];
 
   if (/^[GH]\d+$/.test(upper)) {
     const entry = await getLexiconEntry(upper);
@@ -26,23 +49,14 @@ export async function GET(request: NextRequest) {
             detail: entry.definition,
             strongsId: entry.id,
           },
-          ...results.map((item) => ({
-            kind: "kjv-search",
-            ...item,
-            title: item.reference,
-            detail: item.text,
-          })),
+          ...exactReferenceResult,
+          ...mappedResults,
         ],
       });
     }
   }
 
   return NextResponse.json({
-    results: results.map((item) => ({
-      kind: "kjv-search",
-      ...item,
-      title: item.reference,
-      detail: item.text,
-    })),
+    results: [...exactReferenceResult, ...mappedResults],
   });
 }

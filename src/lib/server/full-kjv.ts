@@ -38,6 +38,11 @@ type SearchHit = {
   text: string;
 };
 
+type ResolvedReference = SearchHit & {
+  chapterReference: string;
+  matchedQuery: string;
+};
+
 const dataRoot = path.join(process.cwd(), "data");
 let booksPromise: Promise<BookMeta[]> | null = null;
 let searchPromise: Promise<SearchHit[]> | null = null;
@@ -87,6 +92,50 @@ function maybeRepairEncoding(value: string) {
 
 function sanitizeText(value: string) {
   return maybeRepairEncoding(stripMarkup(value));
+}
+
+function normalizeReferenceKey(value: string) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, "");
+}
+
+function createBookAliases(book: BookMeta) {
+  const aliases = new Set<string>();
+  const normalizedName = normalizeReferenceKey(book.name);
+  const normalizedCode = normalizeReferenceKey(book.code);
+  aliases.add(normalizedName);
+  aliases.add(normalizedCode);
+
+  if (book.name === "Psalms") {
+    aliases.add("psalm");
+    aliases.add("psalms");
+    aliases.add("ps");
+    aliases.add("psa");
+  }
+
+  if (book.name === "Song of Songs") {
+    aliases.add("songofsolomon");
+    aliases.add("song");
+    aliases.add("sos");
+    aliases.add("songofsongs");
+  }
+
+  if (book.name === "Revelation") {
+    aliases.add("revelations");
+    aliases.add("rev");
+  }
+
+  if (/^\d/.test(book.name)) {
+    const compact = normalizedName;
+    aliases.add(compact);
+
+    const spaced = book.name
+      .toLowerCase()
+      .replace(/\s+/g, "")
+      .replace(/[^a-z0-9]/g, "");
+    aliases.add(spaced);
+  }
+
+  return aliases;
 }
 
 function sanitizeVerse(verse: Verse): Verse {
@@ -176,6 +225,58 @@ export async function searchBible(query: string, limit = 20) {
       text: stripMarkup(item.text),
     }))
     .slice(0, limit);
+}
+
+export async function resolveReference(query: string): Promise<ResolvedReference | null> {
+  const trimmed = query.trim();
+  const match = trimmed.match(/^(.+?)\s+(\d+)(?::(\d+))?$/i);
+
+  if (!match) {
+    return null;
+  }
+
+  const [, rawBook, rawChapter, rawVerse] = match;
+  const chapterNumber = Number(rawChapter);
+  const verseNumber = rawVerse ? Number(rawVerse) : null;
+
+  if (!Number.isFinite(chapterNumber) || (verseNumber !== null && !Number.isFinite(verseNumber))) {
+    return null;
+  }
+
+  const books = await getBookCatalog();
+  const requestedBook = normalizeReferenceKey(rawBook);
+  const matchedBook = books.find((book) => createBookAliases(book).has(requestedBook));
+
+  if (!matchedBook) {
+    return null;
+  }
+
+  const chapter = await getChapterData(matchedBook.code, chapterNumber);
+
+  if (!chapter) {
+    return null;
+  }
+
+  const verse =
+    verseNumber === null
+      ? chapter.verses[0]
+      : chapter.verses.find((item) => item.number === verseNumber);
+
+  if (!verse) {
+    return null;
+  }
+
+  return {
+    id: verse.id,
+    reference: verse.reference,
+    chapterReference: `${chapter.book} ${chapter.chapter}`,
+    matchedQuery: trimmed,
+    bookCode: matchedBook.code,
+    book: chapter.book,
+    chapter: chapter.chapter,
+    verse: verse.number,
+    text: verse.text,
+  };
 }
 
 export async function getLexiconEntry(id: string) {

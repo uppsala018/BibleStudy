@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import AppHeader from "@/components/app-header";
 import {
@@ -121,19 +122,33 @@ function isRemoteSearchResult(result: WorkspaceSearchResult): result is RemoteSe
 
 export default function StudyWorkspace({
   initialTab = "reader",
+  initialReference,
 }: {
   initialTab?: WorkspaceTab;
+  initialReference?: {
+    book?: string;
+    chapter?: string;
+    verse?: string;
+  };
 }) {
   const persistence = useMemo(() => createStudyPersistence(), []);
+  const router = useRouter();
+  const pathname = usePathname();
+  const initialChapter = Number(initialReference?.chapter);
+  const initialVerse = Number(initialReference?.verse);
   const [activeTab, setActiveTab] = useState<WorkspaceTab>(initialTab);
   const [bookCatalog, setBookCatalog] = useState<BookMeta[]>([]);
-  const [selectedBookCode, setSelectedBookCode] = useState("Gen");
-  const [selectedChapterNumber, setSelectedChapterNumber] = useState(1);
+  const [selectedBookCode, setSelectedBookCode] = useState(initialReference?.book || "Gen");
+  const [selectedChapterNumber, setSelectedChapterNumber] = useState(
+    Number.isFinite(initialChapter) && initialChapter > 0 ? initialChapter : 1,
+  );
   const [chapterData, setChapterData] = useState<ChapterData | null>(null);
   const [chapterLoading, setChapterLoading] = useState(true);
   const [chapterError, setChapterError] = useState<string | null>(null);
   const [selectedVerseId, setSelectedVerseId] = useState<string | null>(null);
-  const [pendingVerseId, setPendingVerseId] = useState<string | null>(null);
+  const [pendingVerseNumber, setPendingVerseNumber] = useState<number | null>(
+    Number.isFinite(initialVerse) && initialVerse > 0 ? initialVerse : null,
+  );
   const [selectedStrongsId, setSelectedStrongsId] = useState("H430");
   const [selectedEntry, setSelectedEntry] = useState<LexiconEntry | null>(null);
   const [lexiconLoading, setLexiconLoading] = useState(true);
@@ -176,9 +191,11 @@ export default function StudyWorkspace({
         const payload = (await response.json()) as ChapterData;
         setChapterData(payload);
 
-        const desiredVerseId = pendingVerseId;
+        const desiredVerseNumber = pendingVerseNumber;
         const matchingVerse =
-          payload.verses.find((verse) => verse.id === desiredVerseId) ?? payload.verses[0] ?? null;
+          payload.verses.find((verse) => verse.number === desiredVerseNumber) ??
+          payload.verses[0] ??
+          null;
         setSelectedVerseId(matchingVerse?.id ?? null);
         if (
           matchingVerse?.strongs?.length &&
@@ -187,7 +204,7 @@ export default function StudyWorkspace({
           setLexiconLoading(true);
           setSelectedStrongsId(matchingVerse.strongs[0].strongsId);
         }
-        setPendingVerseId(null);
+        setPendingVerseNumber(null);
       })
       .catch(() => {
         setChapterData(null);
@@ -197,7 +214,7 @@ export default function StudyWorkspace({
       .finally(() => {
         setChapterLoading(false);
       });
-  }, [pendingVerseId, selectedBookCode, selectedChapterNumber, selectedStrongsId]);
+  }, [pendingVerseNumber, selectedBookCode, selectedChapterNumber, selectedStrongsId]);
 
   useEffect(() => {
     if (!selectedStrongsId) {
@@ -303,12 +320,32 @@ export default function StudyWorkspace({
     chapterData?.verses.find((verse) => verse.id === selectedVerseId) ?? chapterData?.verses[0] ?? null;
   const selectedCatholicVerse = getCatholicVerse(selectedCatholicVerseId);
   const selectedBook = bookCatalog.find((book) => book.code === selectedBookCode);
+  const selectedBookIndex = bookCatalog.findIndex((book) => book.code === selectedBookCode);
   const chapterOptions = Array.from(
     { length: selectedBook?.chapterCount ?? chapterData?.chapterCount ?? 1 },
     (_, index) => index + 1,
   );
   const normalizedSearchTerm = searchTerm.trim();
   const visibleSearchResults = normalizedSearchTerm ? searchResults : [];
+  const selectedVerseNumber = selectedVerse?.number ?? null;
+  const previousChapterTarget =
+    selectedBook && selectedChapterNumber > 1
+      ? { book: selectedBook.code, chapter: selectedChapterNumber - 1 }
+      : selectedBookIndex > 0
+        ? {
+            book: bookCatalog[selectedBookIndex - 1].code,
+            chapter: bookCatalog[selectedBookIndex - 1].chapterCount,
+          }
+        : null;
+  const nextChapterTarget =
+    selectedBook && selectedChapterNumber < selectedBook.chapterCount
+      ? { book: selectedBook.code, chapter: selectedChapterNumber + 1 }
+      : selectedBookIndex >= 0 && selectedBookIndex < bookCatalog.length - 1
+        ? {
+            book: bookCatalog[selectedBookIndex + 1].code,
+            chapter: 1,
+          }
+        : null;
   const selectedNoteKey =
     activeTab === "reader"
       ? selectedVerse?.reference ??
@@ -343,7 +380,7 @@ export default function StudyWorkspace({
       setChapterError(null);
       setSelectedBookCode(result.bookCode);
       setSelectedChapterNumber(result.chapter);
-      setPendingVerseId(result.id);
+      setPendingVerseNumber(result.verse);
       return;
     }
 
@@ -364,6 +401,30 @@ export default function StudyWorkspace({
         break;
     }
   }
+
+  function jumpToChapter(target: { book: string; chapter: number }) {
+    setChapterLoading(true);
+    setChapterError(null);
+    setSelectedBookCode(target.book);
+    setSelectedChapterNumber(target.chapter);
+    setPendingVerseNumber(null);
+  }
+
+  useEffect(() => {
+    if (!pathname.startsWith("/library/kjv")) {
+      return;
+    }
+
+    const params = new URLSearchParams();
+    params.set("book", selectedBookCode);
+    params.set("chapter", String(selectedChapterNumber));
+
+    if (selectedVerseNumber) {
+      params.set("verse", String(selectedVerseNumber));
+    }
+
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+  }, [pathname, router, selectedBookCode, selectedChapterNumber, selectedVerseNumber]);
 
   return (
     <>
@@ -530,6 +591,7 @@ export default function StudyWorkspace({
                             setChapterError(null);
                             setSelectedBookCode(nextBookCode);
                             setSelectedChapterNumber(1);
+                            setPendingVerseNumber(null);
                           }}
                           className="w-full rounded-2xl border border-[var(--color-border)] bg-[rgba(5,17,34,0.78)] px-4 py-3 text-sm text-[var(--color-ink)] outline-none"
                         >
@@ -551,6 +613,7 @@ export default function StudyWorkspace({
                             setChapterLoading(true);
                             setChapterError(null);
                             setSelectedChapterNumber(Number(event.target.value));
+                            setPendingVerseNumber(null);
                           }}
                           className="w-full rounded-2xl border border-[var(--color-border)] bg-[rgba(5,17,34,0.78)] px-4 py-3 text-sm text-[var(--color-ink)] outline-none"
                         >
@@ -561,6 +624,30 @@ export default function StudyWorkspace({
                           ))}
                         </select>
                       </label>
+                    </div>
+
+                    <div className="flex flex-wrap gap-3">
+                      <button
+                        type="button"
+                        onClick={() => previousChapterTarget && jumpToChapter(previousChapterTarget)}
+                        disabled={!previousChapterTarget}
+                        className="rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-soft)] disabled:cursor-not-allowed disabled:opacity-40"
+                      >
+                        Previous chapter
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => nextChapterTarget && jumpToChapter(nextChapterTarget)}
+                        disabled={!nextChapterTarget}
+                        className="rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-soft)] disabled:cursor-not-allowed disabled:opacity-40"
+                      >
+                        Next chapter
+                      </button>
+                      {selectedVerse ? (
+                        <span className="rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-soft)]">
+                          {selectedVerse.reference}
+                        </span>
+                      ) : null}
                     </div>
                   </div>
 
