@@ -741,9 +741,9 @@ export default function StudyWorkspace({
                           </p>
                           {verse.strongs?.length ? (
                             <span className="mt-4 flex flex-wrap gap-2">
-                              {verse.strongs.map((word) => (
+                              {verse.strongs.map((word, index) => (
                                 <span
-                                  key={`${verse.id}-${word.strongsId}-${word.label}`}
+                                  key={`${verse.id}-${word.strongsId}-${word.label}-${index}`}
                                   onClick={(event) => {
                                     event.stopPropagation();
                                     setLexiconLoading(true);
