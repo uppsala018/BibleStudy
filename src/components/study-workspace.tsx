@@ -7,17 +7,77 @@ import {
   catholicReading,
   fathers,
   getCatholicVerse,
-  getKjvVerse,
   historyTopics,
-  kjvChapter,
-  searchIndex,
-  strongsLexicon,
 } from "@/lib/content";
-import type { ArticleCard } from "@/lib/content-types";
+import type {
+  ArticleCard,
+  LexiconEntry,
+  SearchResult,
+  Verse,
+} from "@/lib/content-types";
 import { createStudyPersistence } from "@/lib/persistence";
 import { hasSupabaseEnv, subscribeToAuthChanges } from "@/lib/supabase";
 
 export type WorkspaceTab = "reader" | "catholic" | "fathers" | "history" | "notes";
+
+type BookMeta = {
+  code: string;
+  name: string;
+  chapterCount: number;
+};
+
+type ChapterData = {
+  work: string;
+  code: string;
+  book: string;
+  chapterCount: number;
+  chapter: number;
+  verses: Verse[];
+};
+
+type RemoteSearchResult =
+  | {
+      kind: "kjv-search";
+      id: string;
+      title: string;
+      detail: string;
+      reference: string;
+      bookCode: string;
+      book: string;
+      chapter: number;
+      verse: number;
+      text: string;
+    }
+  | {
+      kind: "strongs";
+      id: string;
+      title: string;
+      detail: string;
+      strongsId: string;
+    };
+
+type WorkspaceSearchResult = SearchResult | RemoteSearchResult;
+
+const supplementalSearchIndex: SearchResult[] = [
+  ...catholicReading.verses.map((verse) => ({
+    id: verse.id,
+    title: verse.reference,
+    detail: verse.text,
+    target: { kind: "catholic-verse", verseId: verse.id } as const,
+  })),
+  ...fathers.map((card) => ({
+    id: card.id,
+    title: card.title,
+    detail: card.summary,
+    target: { kind: "father", cardId: card.id } as const,
+  })),
+  ...historyTopics.map((card) => ({
+    id: card.id,
+    title: card.title,
+    detail: card.summary,
+    target: { kind: "history", cardId: card.id } as const,
+  })),
+];
 
 function CardShelf({
   title,
@@ -55,6 +115,10 @@ function CardShelf({
   );
 }
 
+function isRemoteSearchResult(result: WorkspaceSearchResult): result is RemoteSearchResult {
+  return "kind" in result;
+}
+
 export default function StudyWorkspace({
   initialTab = "reader",
 }: {
@@ -62,15 +126,100 @@ export default function StudyWorkspace({
 }) {
   const persistence = useMemo(() => createStudyPersistence(), []);
   const [activeTab, setActiveTab] = useState<WorkspaceTab>(initialTab);
-  const [selectedVerseId, setSelectedVerseId] = useState(kjvChapter.verses[0].id);
+  const [bookCatalog, setBookCatalog] = useState<BookMeta[]>([]);
+  const [selectedBookCode, setSelectedBookCode] = useState("Gen");
+  const [selectedChapterNumber, setSelectedChapterNumber] = useState(1);
+  const [chapterData, setChapterData] = useState<ChapterData | null>(null);
+  const [chapterLoading, setChapterLoading] = useState(true);
+  const [chapterError, setChapterError] = useState<string | null>(null);
+  const [selectedVerseId, setSelectedVerseId] = useState<string | null>(null);
+  const [pendingVerseId, setPendingVerseId] = useState<string | null>(null);
   const [selectedStrongsId, setSelectedStrongsId] = useState("H430");
+  const [selectedEntry, setSelectedEntry] = useState<LexiconEntry | null>(null);
+  const [lexiconLoading, setLexiconLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState<WorkspaceSearchResult[]>([]);
+  const [searchLoading, setSearchLoading] = useState(false);
   const [selectedCatholicVerseId, setSelectedCatholicVerseId] = useState(
     catholicReading.verses[0].id,
   );
-  const [searchTerm, setSearchTerm] = useState("");
   const [bookmarks, setBookmarks] = useState<string[]>([]);
   const [notes, setNotes] = useState<Record<string, string>>({});
   const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    void fetch("/api/kjv/books")
+      .then(async (response) => {
+        if (!response.ok) {
+          throw new Error("Unable to load Bible books.");
+        }
+
+        const payload = (await response.json()) as { books: BookMeta[] };
+        setBookCatalog(payload.books);
+      })
+      .catch(() => {
+        setBookCatalog([]);
+      });
+  }, []);
+
+  useEffect(() => {
+    void fetch(
+      `/api/kjv/chapter?book=${encodeURIComponent(
+        selectedBookCode,
+      )}&chapter=${selectedChapterNumber}`,
+    )
+      .then(async (response) => {
+        if (!response.ok) {
+          throw new Error("Unable to load chapter.");
+        }
+
+        const payload = (await response.json()) as ChapterData;
+        setChapterData(payload);
+
+        const desiredVerseId = pendingVerseId;
+        const matchingVerse =
+          payload.verses.find((verse) => verse.id === desiredVerseId) ?? payload.verses[0] ?? null;
+        setSelectedVerseId(matchingVerse?.id ?? null);
+        if (
+          matchingVerse?.strongs?.length &&
+          !matchingVerse.strongs.some((word) => word.strongsId === selectedStrongsId)
+        ) {
+          setLexiconLoading(true);
+          setSelectedStrongsId(matchingVerse.strongs[0].strongsId);
+        }
+        setPendingVerseId(null);
+      })
+      .catch(() => {
+        setChapterData(null);
+        setSelectedVerseId(null);
+        setChapterError("This chapter could not be loaded.");
+      })
+      .finally(() => {
+        setChapterLoading(false);
+      });
+  }, [pendingVerseId, selectedBookCode, selectedChapterNumber, selectedStrongsId]);
+
+  useEffect(() => {
+    if (!selectedStrongsId) {
+      return;
+    }
+
+    void fetch(`/api/strongs/${encodeURIComponent(selectedStrongsId)}`)
+      .then(async (response) => {
+        if (!response.ok) {
+          throw new Error("Unable to load Strong's entry.");
+        }
+
+        const payload = (await response.json()) as LexiconEntry;
+        setSelectedEntry(payload);
+      })
+      .catch(() => {
+        setSelectedEntry(null);
+      })
+      .finally(() => {
+        setLexiconLoading(false);
+      });
+  }, [selectedStrongsId]);
 
   useEffect(() => {
     void persistence.load().then((state) => {
@@ -102,23 +251,71 @@ export default function StudyWorkspace({
     void persistence.save({ bookmarks, notes });
   }, [bookmarks, hydrated, notes, persistence]);
 
-  const selectedVerse = getKjvVerse(selectedVerseId);
-  const selectedEntry = strongsLexicon[selectedStrongsId];
+  useEffect(() => {
+    const normalized = searchTerm.trim().toLowerCase();
+
+    if (!normalized) {
+      return;
+    }
+
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => {
+      setSearchLoading(true);
+
+      const localResults = supplementalSearchIndex.filter((item) => {
+        const haystack = `${item.title} ${item.detail}`.toLowerCase();
+        return haystack.includes(normalized);
+      });
+
+      void fetch(`/api/kjv/search?q=${encodeURIComponent(searchTerm.trim())}`, {
+        signal: controller.signal,
+      })
+        .then(async (response) => {
+          if (!response.ok) {
+            throw new Error("Search failed.");
+          }
+
+          const payload = (await response.json()) as { results: RemoteSearchResult[] };
+          setSearchResults([...payload.results, ...localResults].slice(0, 8));
+        })
+        .catch((error: unknown) => {
+          if (
+            error instanceof DOMException &&
+            error.name === "AbortError"
+          ) {
+            return;
+          }
+
+          setSearchResults(localResults.slice(0, 8));
+        })
+        .finally(() => {
+          setSearchLoading(false);
+        });
+    }, 250);
+
+    return () => {
+      controller.abort();
+      window.clearTimeout(timeoutId);
+    };
+  }, [searchTerm]);
+
+  const selectedVerse =
+    chapterData?.verses.find((verse) => verse.id === selectedVerseId) ?? chapterData?.verses[0] ?? null;
   const selectedCatholicVerse = getCatholicVerse(selectedCatholicVerseId);
+  const selectedBook = bookCatalog.find((book) => book.code === selectedBookCode);
+  const chapterOptions = Array.from(
+    { length: selectedBook?.chapterCount ?? chapterData?.chapterCount ?? 1 },
+    (_, index) => index + 1,
+  );
+  const normalizedSearchTerm = searchTerm.trim();
+  const visibleSearchResults = normalizedSearchTerm ? searchResults : [];
   const selectedNoteKey =
     activeTab === "reader"
-      ? selectedVerse.reference
+      ? selectedVerse?.reference ??
+        `${chapterData?.book ?? selectedBook?.name ?? "KJV"} ${selectedChapterNumber}`
       : activeTab === "catholic"
         ? selectedCatholicVerse.reference
         : "general";
-
-  const filteredResults = searchTerm
-    ? searchIndex.filter((item) => {
-        const haystack = `${item.title} ${item.detail}`.toLowerCase();
-        return haystack.includes(searchTerm.toLowerCase());
-      })
-    : [];
-
   const bookmarkSet = new Set(bookmarks);
 
   function toggleBookmark(reference: string) {
@@ -129,27 +326,41 @@ export default function StudyWorkspace({
     );
   }
 
-  function handleSearchSelection(result: (typeof searchIndex)[number]) {
+  function handleSearchSelection(result: WorkspaceSearchResult) {
     setSearchTerm("");
+    setSearchResults([]);
+
+    if (isRemoteSearchResult(result)) {
+      if (result.kind === "strongs") {
+        setActiveTab("reader");
+        setLexiconLoading(true);
+        setSelectedStrongsId(result.strongsId);
+        return;
+      }
+
+      setActiveTab("reader");
+      setChapterLoading(true);
+      setChapterError(null);
+      setSelectedBookCode(result.bookCode);
+      setSelectedChapterNumber(result.chapter);
+      setPendingVerseId(result.id);
+      return;
+    }
 
     switch (result.target.kind) {
-      case "kjv-verse":
-        setActiveTab("reader");
-        setSelectedVerseId(result.target.verseId);
-        break;
       case "catholic-verse":
         setActiveTab("catholic");
         setSelectedCatholicVerseId(result.target.verseId);
-        break;
-      case "strongs":
-        setActiveTab("reader");
-        setSelectedStrongsId(result.target.strongsId);
         break;
       case "father":
         setActiveTab("fathers");
         break;
       case "history":
         setActiveTab("history");
+        break;
+      case "kjv-verse":
+      case "strongs":
+        setActiveTab("reader");
         break;
     }
   }
@@ -171,6 +382,9 @@ export default function StudyWorkspace({
               ? "Supabase ready"
               : "Local only"}
           </span>
+          <span className="rounded-full border border-[var(--color-border)] bg-[var(--color-panel)] px-4 py-2">
+            KJV corpus: {bookCatalog.length === 66 ? "Full library loaded" : "Loading"}
+          </span>
         </div>
 
         <div className="grid gap-10 lg:grid-cols-[0.38fr_0.62fr]">
@@ -180,12 +394,12 @@ export default function StudyWorkspace({
                 Study Workspace
               </p>
               <h2 className="mt-4 font-[family-name:var(--font-display)] text-4xl text-[var(--color-ink)]">
-                Reader, search, bookmarks, and notes.
+                Full KJV, Strong&apos;s, bookmarks, and notes.
               </h2>
               <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
-                The app now runs on structured content files and a persistence
-                adapter. You can keep working locally now and switch to
-                Supabase-backed sync once project keys and tables are configured.
+                The reader now pulls the full imported KJV corpus with Strong&apos;s links
+                through local API routes, while your notes and bookmarks continue to save
+                locally or through Supabase sync.
               </p>
             </div>
 
@@ -200,15 +414,19 @@ export default function StudyWorkspace({
                 id="search"
                 value={searchTerm}
                 onChange={(event) => setSearchTerm(event.target.value)}
-                placeholder="Search verses, Strong's, fathers, history"
+                placeholder="Search the full KJV, Strong's, fathers, history"
                 className="mt-4 w-full rounded-2xl border border-[var(--color-border)] bg-[rgba(5,17,34,0.78)] px-4 py-3 text-sm text-[var(--color-ink)] outline-none placeholder:text-[var(--color-soft)]"
               />
 
-              {filteredResults.length > 0 ? (
+              {normalizedSearchTerm && searchLoading ? (
+                <p className="mt-4 text-sm text-[var(--color-muted)]">Searching...</p>
+              ) : null}
+
+              {visibleSearchResults.length > 0 ? (
                 <div className="mt-4 space-y-3">
-                  {filteredResults.slice(0, 6).map((result) => (
+                  {visibleSearchResults.map((result) => (
                     <button
-                      key={result.id}
+                      key={isRemoteSearchResult(result) ? `${result.kind}-${result.id}` : result.id}
                       type="button"
                       onClick={() => handleSearchSelection(result)}
                       className="w-full rounded-2xl border border-[var(--color-border)] bg-[rgba(5,17,34,0.58)] px-4 py-3 text-left transition hover:bg-[rgba(7,22,44,0.92)]"
@@ -275,74 +493,140 @@ export default function StudyWorkspace({
             {activeTab === "reader" ? (
               <div className="grid gap-6 xl:grid-cols-[0.58fr_0.42fr]">
                 <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-highlight)]">
-                        {kjvChapter.work}
-                      </p>
-                      <h3 className="mt-3 font-[family-name:var(--font-display)] text-4xl text-[var(--color-ink)]">
-                        {kjvChapter.book} {kjvChapter.chapter}
-                      </h3>
+                  <div className="flex flex-col gap-5">
+                    <div className="flex flex-wrap items-start justify-between gap-4">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-highlight)]">
+                          {chapterData?.work ?? "KJV + Strong's"}
+                        </p>
+                        <h3 className="mt-3 font-[family-name:var(--font-display)] text-4xl text-[var(--color-ink)]">
+                          {chapterData?.book ?? selectedBook?.name ?? "Loading"}{" "}
+                          {chapterData?.chapter ?? selectedChapterNumber}
+                        </h3>
+                      </div>
+                      {selectedVerse ? (
+                        <button
+                          type="button"
+                          onClick={() => toggleBookmark(selectedVerse.reference)}
+                          className="rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-soft)]"
+                        >
+                          {bookmarkSet.has(selectedVerse.reference)
+                            ? "Bookmarked"
+                            : "Bookmark"}
+                        </button>
+                      ) : null}
                     </div>
-                    <button
-                      type="button"
-                      onClick={() => toggleBookmark(selectedVerse.reference)}
-                      className="rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-soft)]"
-                    >
-                      {bookmarkSet.has(selectedVerse.reference)
-                        ? "Bookmarked"
-                        : "Bookmark"}
-                    </button>
+
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <label className="text-sm text-[var(--color-soft)]">
+                        <span className="mb-2 block text-xs uppercase tracking-[0.25em] text-[var(--color-highlight)]">
+                          Book
+                        </span>
+                        <select
+                          value={selectedBookCode}
+                          onChange={(event) => {
+                            const nextBookCode = event.target.value;
+                            setChapterLoading(true);
+                            setChapterError(null);
+                            setSelectedBookCode(nextBookCode);
+                            setSelectedChapterNumber(1);
+                          }}
+                          className="w-full rounded-2xl border border-[var(--color-border)] bg-[rgba(5,17,34,0.78)] px-4 py-3 text-sm text-[var(--color-ink)] outline-none"
+                        >
+                          {bookCatalog.map((book) => (
+                            <option key={book.code} value={book.code}>
+                              {book.name}
+                            </option>
+                          ))}
+                        </select>
+                      </label>
+
+                      <label className="text-sm text-[var(--color-soft)]">
+                        <span className="mb-2 block text-xs uppercase tracking-[0.25em] text-[var(--color-highlight)]">
+                          Chapter
+                        </span>
+                        <select
+                          value={selectedChapterNumber}
+                          onChange={(event) => {
+                            setChapterLoading(true);
+                            setChapterError(null);
+                            setSelectedChapterNumber(Number(event.target.value));
+                          }}
+                          className="w-full rounded-2xl border border-[var(--color-border)] bg-[rgba(5,17,34,0.78)] px-4 py-3 text-sm text-[var(--color-ink)] outline-none"
+                        >
+                          {chapterOptions.map((chapterNumber) => (
+                            <option key={chapterNumber} value={chapterNumber}>
+                              Chapter {chapterNumber}
+                            </option>
+                          ))}
+                        </select>
+                      </label>
+                    </div>
                   </div>
 
-                  <div className="mt-6 space-y-4">
-                    {kjvChapter.verses.map((verse) => (
-                      <button
-                        key={verse.id}
-                        type="button"
-                        onClick={() => setSelectedVerseId(verse.id)}
-                        className={`w-full rounded-[1.5rem] border p-5 text-left transition ${
-                          selectedVerseId === verse.id
-                            ? "border-[var(--color-highlight)] bg-[rgba(10,28,55,0.96)]"
-                            : "border-[var(--color-border)] bg-[rgba(5,17,34,0.5)]"
-                        }`}
-                      >
-                        <p className="text-sm leading-8 text-[var(--color-ink)]">
-                          <span className="mr-3 font-[family-name:var(--font-display)] text-3xl text-[var(--color-highlight)]">
-                            {verse.number}
-                          </span>
-                          {verse.text}
-                        </p>
-                        {verse.strongs ? (
-                          <span className="mt-4 flex flex-wrap gap-2">
-                            {verse.strongs.map((word) => (
-                              <span
-                                key={`${verse.id}-${word.strongsId}`}
-                                onClick={(event) => {
-                                  event.stopPropagation();
-                                  setSelectedStrongsId(word.strongsId);
-                                }}
-                                onKeyDown={(event) => {
-                                  if (
-                                    event.key === "Enter" ||
-                                    event.key === " "
-                                  ) {
-                                    event.preventDefault();
+                  {chapterLoading ? (
+                    <p className="mt-6 text-sm text-[var(--color-muted)]">Loading chapter...</p>
+                  ) : null}
+
+                  {chapterError ? (
+                    <p className="mt-6 text-sm text-[#f3b3a6]">{chapterError}</p>
+                  ) : null}
+
+                  {chapterData ? (
+                    <div className="mt-6 space-y-4">
+                      {chapterData.verses.map((verse) => (
+                        <button
+                          key={verse.id}
+                          type="button"
+                          onClick={() => {
+                            setSelectedVerseId(verse.id);
+                            if (verse.strongs?.length) {
+                              setLexiconLoading(true);
+                              setSelectedStrongsId(verse.strongs[0].strongsId);
+                            }
+                          }}
+                          className={`w-full rounded-[1.5rem] border p-5 text-left transition ${
+                            selectedVerseId === verse.id
+                              ? "border-[var(--color-highlight)] bg-[rgba(10,28,55,0.96)]"
+                              : "border-[var(--color-border)] bg-[rgba(5,17,34,0.5)]"
+                          }`}
+                        >
+                          <p className="text-sm leading-8 text-[var(--color-ink)]">
+                            <span className="mr-3 font-[family-name:var(--font-display)] text-3xl text-[var(--color-highlight)]">
+                              {verse.number}
+                            </span>
+                            {verse.text}
+                          </p>
+                          {verse.strongs?.length ? (
+                            <span className="mt-4 flex flex-wrap gap-2">
+                              {verse.strongs.map((word) => (
+                                <span
+                                  key={`${verse.id}-${word.strongsId}-${word.label}`}
+                                  onClick={(event) => {
+                                    event.stopPropagation();
+                                    setLexiconLoading(true);
                                     setSelectedStrongsId(word.strongsId);
-                                  }
-                                }}
-                                role="button"
-                                tabIndex={0}
-                                className="rounded-full border border-[var(--color-border)] px-3 py-1 text-xs text-[var(--color-highlight)]"
-                              >
-                                {word.label} {word.strongsId}
-                              </span>
-                            ))}
-                          </span>
-                        ) : null}
-                      </button>
-                    ))}
-                  </div>
+                                  }}
+                                  onKeyDown={(event) => {
+                                    if (event.key === "Enter" || event.key === " ") {
+                                      event.preventDefault();
+                                      setLexiconLoading(true);
+                                      setSelectedStrongsId(word.strongsId);
+                                    }
+                                  }}
+                                  role="button"
+                                  tabIndex={0}
+                                  className="rounded-full border border-[var(--color-border)] px-3 py-1 text-xs text-[var(--color-highlight)]"
+                                >
+                                  {word.label} {word.strongsId}
+                                </span>
+                              ))}
+                            </span>
+                          ) : null}
+                        </button>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
 
                 <div className="space-y-6">
@@ -350,33 +634,43 @@ export default function StudyWorkspace({
                     <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-highlight)]">
                       Strong&apos;s Concordance
                     </p>
-                    <h3 className="mt-3 font-[family-name:var(--font-display)] text-4xl text-[var(--color-ink)]">
-                      {selectedEntry.id} {selectedEntry.transliteration}
-                    </h3>
-                    <p className="mt-2 text-sm uppercase tracking-[0.18em] text-[var(--color-soft)]">
-                      {selectedEntry.language} - {selectedEntry.pronunciation}
-                    </p>
-                    <p className="mt-5 text-sm leading-7 text-[var(--color-muted)]">
-                      {selectedEntry.definition}
-                    </p>
-                    <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                      <div className="rounded-[1.5rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.56)] p-4">
-                        <p className="text-xs uppercase tracking-[0.25em] text-[var(--color-soft)]">
-                          Lemma
+                    {selectedEntry ? (
+                      <>
+                        <h3 className="mt-3 font-[family-name:var(--font-display)] text-4xl text-[var(--color-ink)]">
+                          {selectedEntry.id} {selectedEntry.transliteration}
+                        </h3>
+                        <p className="mt-2 text-sm uppercase tracking-[0.18em] text-[var(--color-soft)]">
+                          {selectedEntry.language} - {selectedEntry.pronunciation}
                         </p>
-                        <p className="mt-2 text-2xl text-[var(--color-highlight)]">
-                          {selectedEntry.lemma}
+                        <p className="mt-5 text-sm leading-7 text-[var(--color-muted)]">
+                          {selectedEntry.definition}
                         </p>
-                      </div>
-                      <div className="rounded-[1.5rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.56)] p-4">
-                        <p className="text-xs uppercase tracking-[0.25em] text-[var(--color-soft)]">
-                          Root Note
-                        </p>
-                        <p className="mt-2 text-sm leading-7 text-[var(--color-muted)]">
-                          {selectedEntry.root}
-                        </p>
-                      </div>
-                    </div>
+                        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                          <div className="rounded-[1.5rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.56)] p-4">
+                            <p className="text-xs uppercase tracking-[0.25em] text-[var(--color-soft)]">
+                              Lemma
+                            </p>
+                            <p className="mt-2 text-2xl text-[var(--color-highlight)]">
+                              {selectedEntry.lemma}
+                            </p>
+                          </div>
+                          <div className="rounded-[1.5rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.56)] p-4">
+                            <p className="text-xs uppercase tracking-[0.25em] text-[var(--color-soft)]">
+                              Root Note
+                            </p>
+                            <p className="mt-2 text-sm leading-7 text-[var(--color-muted)]">
+                              {selectedEntry.root}
+                            </p>
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
+                        {lexiconLoading
+                          ? "Loading Strong's entry..."
+                          : "Select a Strong's tag to inspect the lexicon entry."}
+                      </p>
+                    )}
                   </div>
 
                   <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
@@ -413,9 +707,7 @@ export default function StudyWorkspace({
                     </div>
                     <button
                       type="button"
-                      onClick={() =>
-                        toggleBookmark(selectedCatholicVerse.reference)
-                      }
+                      onClick={() => toggleBookmark(selectedCatholicVerse.reference)}
                       className="rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-soft)]"
                     >
                       {bookmarkSet.has(selectedCatholicVerse.reference)
@@ -516,8 +808,7 @@ export default function StudyWorkspace({
                 <div className="mt-6 space-y-4">
                   {Object.entries(notes).length === 0 ? (
                     <p className="text-sm leading-7 text-[var(--color-muted)]">
-                      No notes saved yet. Add notes from the KJV or Catholic
-                      study tabs.
+                      No notes saved yet. Add notes from the KJV or Catholic study tabs.
                     </p>
                   ) : (
                     Object.entries(notes).map(([reference, note]) => (

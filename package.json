@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "import:kjv": "node scripts/import-kjv.mjs",
-    "import:catholic": "node scripts/import-catholic.mjs"
+    "import:catholic": "node scripts/import-catholic.mjs",
+    "import:full-kjv": "node scripts/import-full-kjv.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.105.1",
