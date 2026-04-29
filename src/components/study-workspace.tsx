@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import AppHeader from "@/components/app-header";
 import {
   catholicReading,
@@ -16,7 +16,7 @@ import type {
   SearchResult,
   Verse,
 } from "@/lib/content-types";
-import { createStudyPersistence } from "@/lib/persistence";
+import { createStudyPersistence, type StudyState } from "@/lib/persistence";
 import { hasSupabaseEnv, subscribeToAuthChanges } from "@/lib/supabase";
 
 export type WorkspaceTab = "reader" | "catholic" | "fathers" | "history" | "notes";
@@ -160,7 +160,31 @@ export default function StudyWorkspace({
   );
   const [bookmarks, setBookmarks] = useState<string[]>([]);
   const [notes, setNotes] = useState<Record<string, string>>({});
+  const [progress, setProgress] = useState<StudyState["progress"]>(null);
   const [hydrated, setHydrated] = useState(false);
+
+  const applyLoadedStudyState = useCallback((state: StudyState) => {
+    setBookmarks(state.bookmarks);
+    setNotes(state.notes);
+    setProgress(state.progress);
+
+    if (
+      !initialReference?.book &&
+      !initialReference?.chapter &&
+      initialTab === "reader" &&
+      state.progress?.book &&
+      state.progress.chapter
+    ) {
+      setSelectedBookCode(state.progress.book);
+      setSelectedChapterNumber(state.progress.chapter);
+      setPendingVerseNumber(state.progress.verse ?? null);
+
+      if (state.progress.strongsId) {
+        setLexiconLoading(true);
+        setSelectedStrongsId(state.progress.strongsId);
+      }
+    }
+  }, [initialReference?.book, initialReference?.chapter, initialTab]);
 
   useEffect(() => {
     void fetch("/api/kjv/books")
@@ -197,12 +221,27 @@ export default function StudyWorkspace({
           payload.verses[0] ??
           null;
         setSelectedVerseId(matchingVerse?.id ?? null);
+        const nextStrongsId =
+          matchingVerse?.strongs?.some((word) => word.strongsId === selectedStrongsId)
+            ? selectedStrongsId
+            : matchingVerse?.strongs?.[0]?.strongsId;
         if (
-          matchingVerse?.strongs?.length &&
-          !matchingVerse.strongs.some((word) => word.strongsId === selectedStrongsId)
+          nextStrongsId &&
+          nextStrongsId !== selectedStrongsId
         ) {
           setLexiconLoading(true);
-          setSelectedStrongsId(matchingVerse.strongs[0].strongsId);
+          setSelectedStrongsId(nextStrongsId);
+        }
+        if (matchingVerse) {
+          setProgress({
+            tab: "reader",
+            book: payload.code,
+            chapter: payload.chapter,
+            verse: matchingVerse.number,
+            reference: matchingVerse.reference,
+            strongsId: nextStrongsId,
+            updatedAt: new Date().toISOString(),
+          });
         }
         setPendingVerseNumber(null);
       })
@@ -240,11 +279,10 @@ export default function StudyWorkspace({
 
   useEffect(() => {
     void persistence.load().then((state) => {
-      setBookmarks(state.bookmarks);
-      setNotes(state.notes);
+      applyLoadedStudyState(state);
       setHydrated(true);
     });
-  }, [persistence]);
+  }, [applyLoadedStudyState, persistence]);
 
   useEffect(() => {
     if (!hasSupabaseEnv()) {
@@ -253,20 +291,19 @@ export default function StudyWorkspace({
 
     return subscribeToAuthChanges(() => {
       void persistence.load().then((state) => {
-        setBookmarks(state.bookmarks);
-        setNotes(state.notes);
+        applyLoadedStudyState(state);
         setHydrated(true);
       });
     });
-  }, [persistence]);
+  }, [applyLoadedStudyState, persistence]);
 
   useEffect(() => {
     if (!hydrated) {
       return;
     }
 
-    void persistence.save({ bookmarks, notes });
-  }, [bookmarks, hydrated, notes, persistence]);
+    void persistence.save({ bookmarks, notes, progress });
+  }, [bookmarks, hydrated, notes, persistence, progress]);
 
   useEffect(() => {
     const normalized = searchTerm.trim().toLowerCase();
@@ -508,6 +545,14 @@ export default function StudyWorkspace({
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-highlight)]">
                 Saved
               </p>
+              {progress?.reference ? (
+                <div className="mt-4 rounded-2xl border border-[var(--color-border)] bg-[rgba(5,17,34,0.58)] px-4 py-3">
+                  <p className="text-xs uppercase tracking-[0.22em] text-[var(--color-soft)]">
+                    Resume
+                  </p>
+                  <p className="mt-2 text-sm text-[var(--color-ink)]">{progress.reference}</p>
+                </div>
+              ) : null}
               <div className="mt-4 space-y-3">
                 {bookmarks.length === 0 ? (
                   <p className="text-sm leading-7 text-[var(--color-muted)]">
@@ -667,10 +712,20 @@ export default function StudyWorkspace({
                           type="button"
                           onClick={() => {
                             setSelectedVerseId(verse.id);
+                            const nextStrongsId = verse.strongs?.[0]?.strongsId;
                             if (verse.strongs?.length) {
                               setLexiconLoading(true);
-                              setSelectedStrongsId(verse.strongs[0].strongsId);
+                              setSelectedStrongsId(nextStrongsId!);
                             }
+                            setProgress({
+                              tab: "reader",
+                              book: selectedBookCode,
+                              chapter: selectedChapterNumber,
+                              verse: verse.number,
+                              reference: verse.reference,
+                              strongsId: nextStrongsId,
+                              updatedAt: new Date().toISOString(),
+                            });
                           }}
                           className={`w-full rounded-[1.5rem] border p-5 text-left transition ${
                             selectedVerseId === verse.id
