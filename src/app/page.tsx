@@ -29,8 +29,8 @@ const pillars = [
     title: "Church History",
     href: "/library/history",
     summary:
-      "History modules now have dedicated navigation and are ready for richer content ingestion.",
-    status: "Ready for import",
+      "History topics now have structured pages, sectioned reading, and linked follow-up topics.",
+    status: "Working library",
   },
 ];
 

@@ -77,6 +77,25 @@ export type FatherProfile = {
   works: FatherWork[];
 };
 
+export type HistorySection = {
+  id: string;
+  title: string;
+  summary: string;
+  detail: string;
+  tags: string[];
+};
+
+export type HistoryTopic = {
+  slug: string;
+  title: string;
+  era: string;
+  summary: string;
+  overview: string;
+  significance: string;
+  sections: HistorySection[];
+  relatedTopics: string[];
+};
+
 export type SearchResult = {
   id: string;
   title: string;

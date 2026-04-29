@@ -1,0 +1,98 @@
+[
+  {
+    "slug": "nicaea",
+    "title": "Council of Nicaea",
+    "era": "325",
+    "summary": "The first ecumenical council confronted Arianism, articulated the Son's full divinity, and gave the Church a creed that shaped later orthodoxy.",
+    "overview": "Nicaea gathered bishops from across the empire to answer the claim that the Son was a creature. Its importance lies not only in one disputed term, but in how the Church publicly clarified the relation of the Father and the Son for worship, salvation, and scriptural reading.",
+    "significance": "Nicaea became a hinge point for later Trinitarian theology and a reference standard for Catholic, Orthodox, and many Protestant accounts of classical Christian doctrine.",
+    "sections": [
+      {
+        "id": "nicaea-background",
+        "title": "Doctrinal Background",
+        "summary": "The crisis centered on Arius and the claim that the Son was not eternal in the same way as the Father.",
+        "detail": "The controversy was not merely semantic. If the Son were a created being, then Christian worship and salvation would be radically reframed. The bishops treated the issue as central because the Church baptized in Christ's name, prayed to Him, and read Scripture as testifying to His divine identity.",
+        "tags": ["arianism", "christology", "trinity"]
+      },
+      {
+        "id": "nicaea-creed",
+        "title": "The Creed and Homoousios",
+        "summary": "The council used stronger language to prevent evasive reinterpretation of biblical terms.",
+        "detail": "The Nicene Creed declared the Son to be begotten, not made, and of one substance with the Father. This language served as a doctrinal fence: it was chosen because looser formulas had already been bent to non-Nicene meanings.",
+        "tags": ["creed", "homoousios", "doctrine"]
+      },
+      {
+        "id": "nicaea-aftermath",
+        "title": "Aftermath and Reception",
+        "summary": "Nicaea did not end the controversy immediately; its formula had to be defended and interpreted over decades.",
+        "detail": "The post-Nicene period shows that councils settle matters only as they are received, explained, and defended. Athanasius and the Cappadocians were crucial in showing how Nicene language preserved both biblical worship and coherent Trinitarian confession.",
+        "tags": ["athanasius", "reception", "post-nicene"]
+      }
+    ],
+    "relatedTopics": ["great-schism", "reformation"]
+  },
+  {
+    "slug": "great-schism",
+    "title": "Great Schism",
+    "era": "1054 and after",
+    "summary": "The break between Eastern and Western Christianity grew from long-standing tensions in authority, language, liturgy, and political life, then hardened over time.",
+    "overview": "The schism is best understood as a process rather than a single moment. The events of 1054 were significant, but they sat within deeper disputes over papal claims, regional identity, the Filioque, and the competing trajectories of Greek East and Latin West.",
+    "significance": "The rupture shaped medieval Christianity, later confessional identity, and the modern theological vocabulary of Catholic-Orthodox relations.",
+    "sections": [
+      {
+        "id": "schism-causes",
+        "title": "Long-Building Causes",
+        "summary": "Political and cultural distance made doctrinal conflict harder to resolve.",
+        "detail": "As the Roman Empire's eastern and western centers diverged, so did habits of governance, liturgical expression, and theological style. Mutual unfamiliarity increased suspicion, especially when local customs became symbols of wider authority claims.",
+        "tags": ["east-west", "authority", "culture"]
+      },
+      {
+        "id": "schism-1054",
+        "title": "The 1054 Confrontation",
+        "summary": "The mutual excommunications of 1054 were dramatic but not the only cause of division.",
+        "detail": "The legation of Cardinal Humbert and the conflict with Patriarch Michael Cerularius made separation visible, but communion had already been strained. The later memory of 1054 often simplifies a more layered breakdown of trust and jurisdiction.",
+        "tags": ["1054", "excommunication", "cerularius"]
+      },
+      {
+        "id": "schism-memory",
+        "title": "How the Break Hardened",
+        "summary": "Later conflicts, especially the sack of Constantinople, deepened the rupture beyond immediate doctrinal dispute.",
+        "detail": "The Fourth Crusade and Latin occupation of Constantinople intensified ecclesial and civil resentment. After that, the split was reinforced by memory, wounded trust, and competing institutional worlds, not merely by one unresolved theological formula.",
+        "tags": ["crusades", "constantinople", "memory"]
+      }
+    ],
+    "relatedTopics": ["nicaea", "reformation"]
+  },
+  {
+    "slug": "reformation",
+    "title": "Protestant Reformation",
+    "era": "1517 onward",
+    "summary": "The Reformation challenged late medieval Western Christianity on authority, justification, sacramental practice, and institutional reform.",
+    "overview": "What began as a reform controversy in the Latin West became a durable reconfiguration of Christian life. The Reformation is not one event or one figure, but a series of disputes over doctrine, ecclesial power, preaching, and the shape of the Christian life.",
+    "significance": "Its consequences include confessional fragmentation, new patterns of biblical interpretation, and a transformed relationship between church, state, and public religion.",
+    "sections": [
+      {
+        "id": "reformation-causes",
+        "title": "Late Medieval Crisis",
+        "summary": "Calls for reform drew energy from real abuses, weak trust in institutions, and anxieties about salvation.",
+        "detail": "The Reformation cannot be reduced to indulgences alone. It emerged in a context of clerical criticism, educational change, humanist scholarship, and pastoral concern. Questions about grace, penance, and authority found a wide audience because institutional trust was already fragile.",
+        "tags": ["late-medieval", "reform", "authority"]
+      },
+      {
+        "id": "reformation-doctrine",
+        "title": "Doctrinal Flashpoints",
+        "summary": "Justification, Scripture, sacramental theology, and church authority became central dividing lines.",
+        "detail": "Disputes quickly expanded from discipline into doctrine. The status of Scripture, the place of tradition, the meaning of justification, and the number and efficacy of the sacraments all became markers of emerging confessional identities.",
+        "tags": ["justification", "scripture", "sacraments"]
+      },
+      {
+        "id": "reformation-aftermath",
+        "title": "Confessionalization and Response",
+        "summary": "The Reformation produced parallel reform movements, including Catholic reform and confessional state-building.",
+        "detail": "Trent, Protestant confessions, catechisms, and new educational networks all show that the Reformation era was constructive as well as divisive. The period reorganized doctrine, worship, and governance across Europe in lasting ways.",
+        "tags": ["trent", "confessions", "catholic-reform"]
+      }
+    ],
+    "relatedTopics": ["nicaea", "great-schism"]
+  }
+]

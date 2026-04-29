@@ -24,7 +24,7 @@ const modules = [
     title: "Church History",
     href: "/library/history",
     summary:
-      "Structured history guides for councils, schism, and reform movements.",
+      "Browse structured history topics with dedicated pages for councils, schism, and reform.",
   },
   {
     title: "Notes Archive",
