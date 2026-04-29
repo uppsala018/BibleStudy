@@ -41,6 +41,14 @@ export type CatholicReading = ScriptureChapter & {
   crossReferences: CrossReference[];
 };
 
+export type CatholicStudyEntry = CatholicReading & {
+  slug: string;
+  title: string;
+  focus: string;
+  source: string;
+  summary: string;
+};
+
 export type ArticleCard = {
   id: string;
   title: string;

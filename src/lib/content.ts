@@ -1,4 +1,4 @@
-import catholicReadingJson from "@/content/catholic/john-1.json";
+import catholicLibraryJson from "@/content/catholic-library.json";
 import fathersLibraryJson from "@/content/fathers-library.json";
 import historyLibraryJson from "@/content/history-library.json";
 import kjvChapterJson from "@/content/kjv/genesis-1.json";
@@ -6,6 +6,7 @@ import strongsJson from "@/content/strongs.json";
 import type {
   ArticleCard,
   CatholicReading,
+  CatholicStudyEntry,
   FatherProfile,
   HistoryTopic,
   LexiconEntry,
@@ -14,7 +15,14 @@ import type {
 } from "@/lib/content-types";
 
 export const kjvChapter = kjvChapterJson as ScriptureChapter;
-export const catholicReading = catholicReadingJson as CatholicReading;
+export const catholicLibrary = catholicLibraryJson as CatholicStudyEntry[];
+export const catholicReading = catholicLibrary[0] as CatholicReading;
+export const catholicTopics: ArticleCard[] = catholicLibrary.map((entry) => ({
+  id: entry.slug,
+  title: entry.title,
+  summary: entry.summary,
+  era: entry.translation,
+}));
 export const fathersLibrary = fathersLibraryJson as FatherProfile[];
 export const fathers: ArticleCard[] = fathersLibrary.map((father) => ({
   id: father.slug,
@@ -42,6 +50,10 @@ export function getCatholicVerse(verseId: string) {
   );
 }
 
+export function getCatholicStudyEntry(slug: string) {
+  return catholicLibrary.find((entry) => entry.slug === slug) ?? null;
+}
+
 export function getFatherProfile(slug: string) {
   return fathersLibrary.find((father) => father.slug === slug) ?? null;
 }
@@ -63,12 +75,14 @@ export const searchIndex: SearchResult[] = [
     detail: entry.definition,
     target: { kind: "strongs", strongsId: entry.id } as const,
   })),
-  ...catholicReading.verses.map((verse) => ({
-    id: verse.id,
-    title: verse.reference,
-    detail: verse.text,
-    target: { kind: "catholic-verse", verseId: verse.id } as const,
-  })),
+  ...catholicLibrary.flatMap((entry) =>
+    entry.verses.map((verse) => ({
+      id: verse.id,
+      title: verse.reference,
+      detail: `${verse.text} (${entry.title})`,
+      target: { kind: "catholic-verse", verseId: verse.id } as const,
+    })),
+  ),
   ...fathers.map((card) => ({
     id: card.id,
     title: card.title,

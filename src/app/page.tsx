@@ -15,8 +15,8 @@ const pillars = [
     title: "Catholic Study",
     href: "/library/catholic",
     summary:
-      "Douay-Rheims sample content, Roman Catechism context, and cross-references are now route-based.",
-    status: "Working route",
+      "Catholic study now has a real library structure with doctrine-focused readings and catechism-linked pages.",
+    status: "Working library",
   },
   {
     title: "Church Fathers",

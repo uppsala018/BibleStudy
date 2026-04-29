@@ -12,7 +12,7 @@ const modules = [
     title: "Catholic Study",
     href: "/library/catholic",
     summary:
-      "Read Douay-Rheims sample content with Roman Catechism references and cross-links.",
+      "Browse structured Catholic study entries with scripture, catechism references, and cross-links.",
   },
   {
     title: "Church Fathers",
