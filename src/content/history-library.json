@@ -93,6 +93,45 @@
         "tags": ["trent", "confessions", "catholic-reform"]
       }
     ],
-    "relatedTopics": ["nicaea", "great-schism"]
+    "relatedTopics": ["great-schism", "charismatic-movement"]
+  },
+  {
+    "slug": "charismatic-movement",
+    "title": "Charismatic Movement",
+    "era": "1906 onward",
+    "summary": "The modern Pentecostal and Charismatic movements emphasized baptism in the Holy Spirit, spiritual gifts, healing, renewal, and expressive worship, influencing Protestant, Catholic, and mainline churches.",
+    "overview": "The Charismatic Movement is best understood in stages: early Pentecostal revival, denominational formation, mid-century healing and evangelistic networks, and later renewal inside Catholic, Anglican, Lutheran, Methodist, Baptist, and non-denominational churches. It arose from Protestant revivalism but became a wider trans-denominational force.",
+    "significance": "Much of global Protestant Christianity today is Pentecostal or charismatic in worship, mission, prayer, and expectations of spiritual gifts. Catholic Charismatic Renewal and mainline renewal movements also show that the movement reached beyond its Protestant origins.",
+    "sections": [
+      {
+        "id": "charismatic-origins",
+        "title": "Origins and Azusa Street",
+        "summary": "The Azusa Street Revival became a major symbol of modern Pentecostal beginnings.",
+        "detail": "Led by William J. Seymour in Los Angeles, the revival emphasized baptism in the Holy Spirit, speaking in tongues, healing, interracial worship, and urgent mission. Earlier holiness and revival streams prepared the ground, but Azusa became the most famous center of global spread.",
+        "tags": ["azusa", "pentecostal", "revival"]
+      },
+      {
+        "id": "charismatic-leaders",
+        "title": "Key Leaders and Figures",
+        "summary": "Figures such as Charles Parham, William J. Seymour, Aimee Semple McPherson, and Oral Roberts shaped Pentecostal and charismatic identity.",
+        "detail": "Parham helped popularize tongues as a sign associated with Spirit baptism. Seymour gave Azusa its missionary and interracial power. McPherson built a public evangelistic and media presence. Roberts helped connect healing evangelism, media, and later charismatic networks.",
+        "tags": ["leaders", "healing", "mission"]
+      },
+      {
+        "id": "charismatic-denominations",
+        "title": "Major Denominations and Networks",
+        "summary": "Pentecostal denominations and later charismatic networks became major global Christian forces.",
+        "detail": "Assemblies of God, Church of God in Christ, Foursquare Church, Vineyard, independent charismatic networks, and many non-denominational churches carried charismatic spirituality into global worship, mission, and church planting.",
+        "tags": ["assemblies-of-god", "cogic", "vineyard"]
+      },
+      {
+        "id": "charismatic-renewal",
+        "title": "Renewal in Traditional Churches",
+        "summary": "From the 1960s onward, charismatic spirituality entered Catholic, Anglican, Lutheran, Methodist, and other established churches.",
+        "detail": "Catholic Charismatic Renewal and mainline charismatic renewal brought prayer meetings, healing prayer, praise music, and teaching on spiritual gifts into older church structures. This created both renewal and controversy, especially around discernment, authority, and worship style.",
+        "tags": ["catholic-renewal", "mainline", "spiritual-gifts"]
+      }
+    ],
+    "relatedTopics": ["reformation", "great-schism"]
   }
 ]

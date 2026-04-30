@@ -1,12 +1,236 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import AppHeader from "@/components/app-header";
+import MobileBottomNav from "@/components/mobile-bottom-nav";
 import { getHistoryTopic, historyLibrary } from "@/lib/content";
+
+const tabs = [
+  { slug: "great-schism", label: "East-West Schism", icon: "♜" },
+  { slug: "reformation", label: "Reformation", icon: "▰" },
+  { slug: "charismatic-movement", label: "Charismatic", icon: "♨" },
+];
+
+const reformers = [
+  {
+    name: "Martin Luther",
+    years: "1483-1546",
+    note: "German monk whose protest against indulgences became a wider reform movement.",
+    doctrine: "Justification, Scripture, reform of abuses",
+  },
+  {
+    name: "John Calvin",
+    years: "1509-1564",
+    note: "French theologian whose work shaped Reformed theology and church order.",
+    doctrine: "Sovereignty of God, covenant, disciplined church life",
+  },
+  {
+    name: "Huldrych Zwingli",
+    years: "1484-1531",
+    note: "Swiss reformer in Zurich who emphasized biblical reform of worship.",
+    doctrine: "Scripture, preaching, reform of worship",
+  },
+  {
+    name: "John Knox",
+    years: "1513-1572",
+    note: "Scottish reformer and major voice behind Presbyterian Christianity.",
+    doctrine: "Reformed preaching and Presbyterian order",
+  },
+];
+
+const charismaticFigures = [
+  ["Charles Parham", "1873-1929", "Pioneer of early Pentecostal teaching"],
+  ["William J. Seymour", "1870-1922", "Led the Azusa Street Revival"],
+  ["Aimee Semple McPherson", "1890-1944", "Founded Foursquare Church"],
+  ["Oral Roberts", "1918-2009", "Healing evangelist and media preacher"],
+];
 
 export function generateStaticParams() {
   return historyLibrary.map((topic) => ({
     slug: topic.slug,
   }));
+}
+
+function HistoryTabs({ activeSlug }: { activeSlug: string }) {
+  return (
+    <nav className="history-tabs" aria-label="Church history sections">
+      {tabs.map((tab) => (
+        <Link
+          key={tab.slug}
+          href={`/library/history/${tab.slug}`}
+          className={activeSlug === tab.slug ? "history-tabs__item history-tabs__item--active" : "history-tabs__item"}
+        >
+          <span>{tab.icon}</span>
+          {tab.label}
+        </Link>
+      ))}
+    </nav>
+  );
+}
+
+function SchismPanel() {
+  return (
+    <>
+      <section className="history-schism-map">
+        <div className="history-schism-map__top">
+          <span>♜</span>
+          <h2>The Great Schism of 1054</h2>
+        </div>
+        <div className="history-schism-map__split" aria-hidden="true">
+          <span />
+          <span />
+        </div>
+        <div className="history-schism-map__churches">
+          <article>
+            <div>☩</div>
+            <h3>Roman Catholic Church</h3>
+            <p>Rome</p>
+          </article>
+          <article>
+            <div>♜</div>
+            <h3>Eastern Orthodox Church</h3>
+            <p>Constantinople</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="history-card-grid">
+        <article className="history-mini-card">
+          <span>▤</span>
+          <h3>Key Causes</h3>
+          <ul>
+            <li>Filioque controversy</li>
+            <li>Papal authority disputes</li>
+            <li>Latin and Greek cultural distance</li>
+            <li>Political rivalry between Rome and Constantinople</li>
+          </ul>
+        </article>
+        <article className="history-mini-card">
+          <span>♟</span>
+          <h3>Key Figures</h3>
+          <ul>
+            <li>Pope Leo IX</li>
+            <li>Cardinal Humbert</li>
+            <li>Patriarch Michael Cerularius</li>
+            <li>Later crusader and imperial actors</li>
+          </ul>
+        </article>
+        <article className="history-mini-card">
+          <span>☍</span>
+          <h3>Current Status</h3>
+          <p>
+            Catholic and Orthodox churches remain distinct, but modern dialogue has continued,
+            especially after the lifting of mutual excommunications in 1965.
+          </p>
+        </article>
+      </section>
+    </>
+  );
+}
+
+function ReformationPanel() {
+  return (
+    <>
+      <section className="history-reformation-hero">
+        <p>1517 - Present</p>
+        <h2>The Protestant Reformation</h2>
+        <div className="history-reformation-hero__image" aria-hidden="true">
+          <span>95 Theses</span>
+        </div>
+      </section>
+
+      <section className="history-reformer-strip" aria-label="Major reformers">
+        {reformers.map((reformer) => (
+          <article key={reformer.name}>
+            <div>{reformer.name.charAt(0)}</div>
+            <h3>{reformer.name}</h3>
+            <p>({reformer.years})</p>
+            <p>{reformer.note}</p>
+            <strong>{reformer.doctrine}</strong>
+          </article>
+        ))}
+      </section>
+
+      <section className="history-wide-card">
+        <span>▤</span>
+        <h3>Key Causes of the Reformation</h3>
+        <ul>
+          <li>Sale of indulgences and disputes over penance</li>
+          <li>Criticism of clerical corruption and weak pastoral care</li>
+          <li>Desire for Scripture in vernacular languages</li>
+          <li>Humanist scholarship and printing press expansion</li>
+          <li>Political tensions between local rulers and Rome</li>
+        </ul>
+      </section>
+    </>
+  );
+}
+
+function CharismaticPanel() {
+  return (
+    <section className="history-charismatic-timeline">
+      <article className="history-charismatic-step history-charismatic-step--origin">
+        <span>1</span>
+        <div>
+          <h2>Origins - Azusa Street Revival (1906)</h2>
+          <div className="history-azusa-card">
+            <strong>Apostolic Faith Mission</strong>
+          </div>
+          <p>
+            Led by William J. Seymour in Los Angeles, with emphasis on baptism in the
+            Holy Spirit, tongues, divine healing, prayer, and mission.
+          </p>
+        </div>
+      </article>
+
+      <article className="history-charismatic-step">
+        <span>2</span>
+        <div>
+          <h2>Key Leaders and Figures</h2>
+          <div className="history-charismatic-figures">
+            {charismaticFigures.map(([name, years, note]) => (
+              <article key={name}>
+                <div>{name.charAt(0)}</div>
+                <h3>{name}</h3>
+                <p>({years})</p>
+                <small>{note}</small>
+              </article>
+            ))}
+          </div>
+        </div>
+      </article>
+
+      <article className="history-charismatic-step">
+        <span>3</span>
+        <div>
+          <h2>Major Denominations</h2>
+          <div className="history-denomination-list">
+            {["Assemblies of God", "Church of God in Christ", "Foursquare Church", "Vineyard Movement"].map((name) => (
+              <p key={name}>{name}<b>›</b></p>
+            ))}
+          </div>
+        </div>
+      </article>
+
+      <article className="history-charismatic-step">
+        <span>4</span>
+        <div>
+          <h2>Renewal in Traditional Churches</h2>
+          <p>
+            From the 1960s, charismatic renewal influenced Catholic and mainline churches
+            through prayer groups, healing prayer, praise music, and renewed teaching on
+            spiritual gifts.
+          </p>
+        </div>
+      </article>
+    </section>
+  );
+}
+
+function TopicPanel({ slug }: { slug: string }) {
+  if (slug === "great-schism") return <SchismPanel />;
+  if (slug === "reformation") return <ReformationPanel />;
+  if (slug === "charismatic-movement") return <CharismaticPanel />;
+
+  return null;
 }
 
 export default async function HistoryTopicPage({
@@ -22,106 +246,41 @@ export default async function HistoryTopicPage({
   }
 
   return (
-    <>
-      <AppHeader />
-      <main className="mx-auto max-w-6xl px-6 py-14 sm:px-8 lg:px-12">
-        <Link
-          href="/library/history"
-          className="inline-flex rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-soft)]"
-        >
-          Back to History
+    <main className="church-history-mobile mobile-app-shell">
+      <header className="mobile-section-header">
+        <Link href="/" aria-label="Back home" className="mobile-section-header__back">
+          ‹
         </Link>
+        <div>
+          <h1>Church History</h1>
+          <span>✦</span>
+        </div>
+      </header>
 
-        <section className="mt-8 rounded-[2.4rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-8">
-          <p className="text-xs uppercase tracking-[0.3em] text-[var(--color-highlight)]">
-            Church History Topic
-          </p>
-          <div className="mt-4 flex flex-wrap items-start justify-between gap-4">
+      <HistoryTabs activeSlug={topic.slug} />
+
+      <section className="history-topic-title">
+        <p>{topic.era}</p>
+        <h2>{topic.title === "Great Schism" ? "The Great Schism of 1054" : topic.title}</h2>
+        <p>{topic.summary}</p>
+      </section>
+
+      <TopicPanel slug={topic.slug} />
+
+      <section className="history-study-sections">
+        {topic.sections.map((section, index) => (
+          <article key={section.id}>
+            <span>{index + 1}</span>
             <div>
-              <h1 className="font-[family-name:var(--font-display)] text-5xl text-[var(--color-ink)]">
-                {topic.title}
-              </h1>
-              <p className="mt-3 text-sm uppercase tracking-[0.18em] text-[var(--color-soft)]">
-                {topic.era}
-              </p>
+              <h3>{section.title}</h3>
+              <p>{section.summary}</p>
+              <p>{section.detail}</p>
             </div>
-          </div>
-          <p className="mt-6 max-w-4xl text-base leading-8 text-[var(--color-muted)]">
-            {topic.overview}
-          </p>
-          <div className="mt-6 rounded-[1.5rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.52)] p-5">
-            <p className="text-xs uppercase tracking-[0.22em] text-[var(--color-highlight)]">
-              Why it matters
-            </p>
-            <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
-              {topic.significance}
-            </p>
-          </div>
-        </section>
+          </article>
+        ))}
+      </section>
 
-        <section className="mt-10 grid gap-5">
-          {topic.sections.map((section) => (
-            <article
-              key={section.id}
-              className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6"
-            >
-              <div className="flex flex-wrap items-start justify-between gap-4">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-highlight)]">
-                    Section
-                  </p>
-                  <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl text-[var(--color-ink)]">
-                    {section.title}
-                  </h2>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {section.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-[var(--color-border)] px-3 py-1 text-xs text-[var(--color-soft)]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <p className="mt-4 text-sm leading-7 text-[var(--color-highlight)]">
-                {section.summary}
-              </p>
-              <p className="mt-4 text-sm leading-8 text-[var(--color-muted)]">
-                {section.detail}
-              </p>
-            </article>
-          ))}
-        </section>
-
-        {topic.relatedTopics.length ? (
-          <section className="mt-10 rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
-            <p className="text-xs uppercase tracking-[0.26em] text-[var(--color-highlight)]">
-              Related Topics
-            </p>
-            <div className="mt-4 flex flex-wrap gap-3">
-              {topic.relatedTopics.map((relatedSlug) => {
-                const relatedTopic = getHistoryTopic(relatedSlug);
-
-                if (!relatedTopic) {
-                  return null;
-                }
-
-                return (
-                  <Link
-                    key={relatedTopic.slug}
-                    href={`/library/history/${relatedTopic.slug}`}
-                    className="rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-soft)]"
-                  >
-                    {relatedTopic.title}
-                  </Link>
-                );
-              })}
-            </div>
-          </section>
-        ) : null}
-      </main>
-    </>
+      <MobileBottomNav active="Home" />
+    </main>
   );
 }
