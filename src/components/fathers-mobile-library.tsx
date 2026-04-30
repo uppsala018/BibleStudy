@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import MobileBottomNav from "@/components/mobile-bottom-nav";
 import type { FatherProfile } from "@/lib/content-types";
@@ -108,14 +109,20 @@ export default function FathersMobileLibrary({ fathers }: { fathers: FatherProfi
       </div>
 
       <section className="fathers-mobile__list" aria-label="Church Fathers">
-        {visibleFathers.map((father, index) => (
+        {visibleFathers.map((father) => (
           <Link
             key={father.slug}
             href={`/library/fathers/${father.slug}`}
             className="fathers-mobile-card"
           >
             <div className="fathers-mobile-card__portrait" aria-hidden="true">
-              <span>{index + 1}</span>
+              <Image
+                src="/assets/art/church-father-thumbnail.png"
+                alt=""
+                width={96}
+                height={96}
+                sizes="84px"
+              />
             </div>
             <div>
               <h2>{displayName(father.name)}</h2>

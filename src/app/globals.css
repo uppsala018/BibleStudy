@@ -507,20 +507,20 @@ img {
 .fathers-mobile-card__portrait {
   width: 5.2rem;
   height: 5.2rem;
-  display: grid;
-  place-items: center;
+  overflow: hidden;
   border: 2px solid var(--color-highlight);
   border-radius: 999px;
-  background:
-    radial-gradient(circle, rgba(229, 197, 122, 0.4), transparent 57%),
-    rgba(12, 38, 76, 0.84);
-  box-shadow: inset 0 0 0 4px rgba(7, 31, 64, 0.84);
+  background: rgba(12, 38, 76, 0.84);
+  box-shadow:
+    inset 0 0 0 4px rgba(7, 31, 64, 0.84),
+    0 8px 18px rgba(0, 0, 0, 0.24);
 }
 
-.fathers-mobile-card__portrait span {
-  color: var(--color-highlight);
-  font-family: var(--font-display), serif;
-  font-size: 2rem;
+.fathers-mobile-card__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .fathers-mobile-card h2 {
