@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import AppHeader from "@/components/app-header";
 import MobileBottomNav from "@/components/mobile-bottom-nav";
 import SectionHeading from "@/components/section-heading";
@@ -146,18 +145,16 @@ export default function OrthodoxPage() {
             ‹
           </Link>
           <span className="orthodox-mobile__cross">☦</span>
-          <h1>Orthodox Study Library</h1>
+          <h1>Orthodox Resources</h1>
         </header>
 
-        <section className="orthodox-mobile__hero">
-          <Image
-            src="/assets/mockups/orthodox-study.png"
-            alt=""
-            fill
-            sizes="100vw"
-            priority
-          />
-          <div className="orthodox-mobile__hero-shade" />
+        <section className="orthodox-mobile__intro">
+          <p>Orthodox Resources</p>
+          <h2>Orthodox study hub for Scripture, liturgy, prayer, theology, and tradition.</h2>
+          <span>
+            Built from source-safe resources: Brenton LXX, Orthodox study pages, liturgical
+            guides, and public-domain fathers.
+          </span>
         </section>
 
         <section className="orthodox-mobile__sections" aria-label="Orthodox study sections">

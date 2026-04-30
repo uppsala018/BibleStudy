@@ -250,30 +250,43 @@ img {
   line-height: 1;
 }
 
-.orthodox-mobile__hero {
-  position: relative;
-  min-height: 18.8rem;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(229, 197, 122, 0.28);
-}
-
-.orthodox-mobile__hero img {
-  object-fit: cover;
-  object-position: center top;
-}
-
-.orthodox-mobile__hero-shade {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(4, 17, 38, 0.2), rgba(4, 17, 38, 0.12) 38%, rgba(4, 17, 38, 0.46)),
-    linear-gradient(180deg, transparent 62%, #041126 100%);
-}
-
 .orthodox-mobile__sections {
   display: grid;
   gap: 0.7rem;
   padding: 0.85rem 1rem 0;
+}
+
+.orthodox-mobile__intro {
+  margin: 1rem;
+  border: 1px solid rgba(229, 197, 122, 0.42);
+  border-radius: 1.35rem;
+  background:
+    radial-gradient(circle at top right, rgba(45, 91, 143, 0.28), transparent 54%),
+    rgba(7, 27, 55, 0.82);
+  padding: 1.25rem;
+}
+
+.orthodox-mobile__intro p {
+  color: var(--color-highlight);
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.orthodox-mobile__intro h2 {
+  margin-top: 0.55rem;
+  color: var(--color-ink);
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.75rem, 7vw, 2.65rem);
+  line-height: 1.05;
+}
+
+.orthodox-mobile__intro span {
+  display: block;
+  margin-top: 0.75rem;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
 }
 
 .orthodox-mobile-card {
