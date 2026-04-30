@@ -62,7 +62,7 @@
     "slug": "post-reformation-movements",
     "title": "Post-Reformation Movements",
     "era": "17th-19th centuries",
-    "summary": "A study entry on Puritanism, Pietism, Methodism, and the Holiness tradition.",
+    "summary": "A study entry on Puritanism, Pietism, Methodism, the Holiness tradition, and the later revival streams that shaped modern Protestantism.",
     "focus": "Personal holiness, revival, and devotional Protestantism",
     "source": "Historical Analysis of Protestantism: From the Reformation to the Present Day",
     "sections": [
@@ -91,12 +91,63 @@
           "Entire sanctification",
           "Direct preparation for Pentecostal theology"
         ]
+      },
+      {
+        "id": "section-3",
+        "title": "Revivalism and Missionary Protestantism",
+        "paragraphs": [
+          "The eighteenth and nineteenth centuries also saw waves of evangelical revivalism. These awakenings emphasized conversion, preaching, singing, missions, and public calls to decision.",
+          "That revival pattern helped shape new Protestant networks in Britain, North America, and the wider missionary world. In practice, it reinforced a style of Christianity that was mobile, voluntary, and evangelistically outward-facing."
+        ],
+        "bullets": [
+          "Conversion preaching",
+          "Missionary expansion",
+          "Voluntary association and revival meetings"
+        ]
+      },
+      {
+        "id": "section-4",
+        "title": "From Holiness to Pentecostalism",
+        "paragraphs": [
+          "Holiness teaching did not end with the nineteenth century. Its emphasis on sanctification, Spirit-filled living, and deepened devotion fed directly into Pentecostalism in the early twentieth century.",
+          "The later Pentecostal and Charismatic waves should be read as part of the same long Protestant story: reform, revival, holiness, and then Spirit-centered renewal."
+        ],
+        "bullets": [
+          "Holiness as a bridge to Pentecostalism",
+          "Early twentieth-century renewal movements",
+          "Continuation into charismatic Protestantism"
+        ]
+      },
+      {
+        "id": "section-5",
+        "title": "Protestant Family Tree After The Reformation",
+        "paragraphs": [
+          "By the time these movements mature, Protestantism is no longer just the original Lutheran, Reformed, and Anglican split. It has become a family of related but distinct traditions with different liturgical habits, ecclesial structures, and spiritual emphases.",
+          "That is why this section belongs next to the Reformation-era page: it shows how the original reform debate unfolded into centuries of doctrinal development and new denominations."
+        ],
+        "bullets": [
+          "Confessional Protestantism remains important",
+          "Revival and holiness movements create new branches",
+          "Pentecostal and charismatic Protestantism becomes a major modern stream"
+        ]
       }
     ],
     "links": [
       {
         "label": "Project Gutenberg - John Wesley",
         "href": "https://www.gutenberg.org/ebooks/author/31438"
+      },
+      {
+        "label": "John Wesley - Sermons and Notes",
+        "href": "https://www.ccel.org/ccel/wesley"
+      },
+      {
+        "label": "Post-Reformation Movements in Protestantism",
+        "href": "/library/protestant/major-protestant-groups-today"
+      },
+      {
+        "label": "Pentecostal and Charismatic Protestantism",
+        "href": "/library/protestant/pentecostal-and-charismatic"
       }
     ]
   },
