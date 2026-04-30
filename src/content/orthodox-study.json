@@ -95,31 +95,146 @@
     "slug": "liturgical-study",
     "title": "Divine Liturgy Study",
     "category": "Liturgy",
-    "summary": "A study page for Orthodox worship centered on the Divine Liturgy, prayer, Scripture, and sacramental life.",
-    "source": "App-authored Orthodox study overview with source-safe external reading links.",
+    "summary": "A structured Orthodox study page for the Divine Liturgy, moving from preparation and Scripture to the Eucharistic offering, epiklesis, communion, and practical study resources.",
+    "source": "App-authored study guide built from free Orthodox resources, especially OCA Orthodox Faith and GOARCH material.",
     "sections": [
       {
-        "id": "what-liturgy-does",
-        "title": "What The Divine Liturgy Teaches",
+        "id": "meaning",
+        "title": "What The Divine Liturgy Is",
         "paragraphs": [
-          "Orthodox theology is learned not only through doctrinal summaries but through prayer, hymnody, Scripture, icons, and Eucharistic worship. The Divine Liturgy forms the Church by repeatedly placing Scripture, thanksgiving, repentance, intercession, and communion at the center.",
-          "A good app section should therefore avoid treating liturgy as only a historical artifact. It should help the user see how biblical readings, prayers, hymns, and sacramental theology belong together."
+          "The Divine Liturgy is the central eucharistic worship of the Orthodox Church. It is not only a sermon service or private devotion, but the gathered action of the Church worshipping the Holy Trinity, hearing the Scriptures, giving thanks, offering bread and wine, and receiving communion.",
+          "Orthodox theology is learned not only through doctrinal summaries but through prayer, hymnody, Scripture, icons, and sacramental worship. The Divine Liturgy forms the Church by placing Scripture, thanksgiving, repentance, intercession, and communion at the center of Christian life."
         ],
         "bullets": [
-          "Add study cards for the Liturgy of St. John Chrysostom.",
-          "Add a second path for the Liturgy of St. Basil.",
-          "Connect Eucharistic theology to John 6, the Last Supper, Ignatius, Justin Martyr, and Chrysostom."
+          "Main service: the Liturgy of St. John Chrysostom, used most Sundays and feast days.",
+          "Related form: the Liturgy of St. Basil, used at appointed times in the church year.",
+          "Older form: the Liturgy of St. James, used in some Orthodox settings on his feast."
+        ]
+      },
+      {
+        "id": "preparation",
+        "title": "The Service Of Preparation",
+        "paragraphs": [
+          "Before the public beginning of the Liturgy, the gifts of bread and wine are prepared. This preparation is not a practical detail only; it gathers the offering of the people and places the whole Church around Christ, the Lamb of God.",
+          "The bread and wine are later carried in the Great Entrance and offered in thanksgiving. This movement helps the worshipper understand that the Liturgy is the offering of life back to God in Christ."
+        ],
+        "bullets": [
+          "Bread and wine are prepared for the Eucharist.",
+          "Names of the living and departed may be remembered.",
+          "The offering points toward Christ and the whole gathered Church."
+        ]
+      },
+      {
+        "id": "catechumens",
+        "title": "The Liturgy Of The Catechumens",
+        "paragraphs": [
+          "The first public part of the Divine Liturgy centers on gathering, prayer, hymns, and the proclamation of Scripture. It includes litanies, antiphons, the Little Entrance, the Trisagion, the Epistle, the Gospel, and preaching.",
+          "This section is called the Liturgy of the Catechumens because it historically instructed those preparing for baptism. In app study, it should connect directly to Bible reading, especially the Gospel and apostolic writings."
+        ],
+        "bullets": [
+          "Great Litany: prayer for peace, salvation, the Church, the world, the sick, travelers, and all in need.",
+          "Little Entrance: procession with the Gospel, directing attention to Christ speaking through Scripture.",
+          "Epistle and Gospel: the Church hears the apostolic and evangelical witness before the Eucharistic offering."
+        ]
+      },
+      {
+        "id": "faithful",
+        "title": "The Liturgy Of The Faithful",
+        "paragraphs": [
+          "The second major part centers on the Eucharistic offering. The Church prays, offers the gifts, gives thanks, remembers Christ's saving work, invokes the Holy Spirit, and receives communion.",
+          "The Great Entrance is a major transition. The gifts are carried solemnly, not as a theatrical scene, but as the Church prepares to offer thanksgiving and enter the Eucharistic mystery."
+        ],
+        "bullets": [
+          "Great Entrance: the gifts are brought forward in prayer and remembrance.",
+          "Creed: the faithful confess the apostolic faith before the Eucharistic prayer.",
+          "Lord's Prayer: the people approach communion as children of the Father."
+        ]
+      },
+      {
+        "id": "anaphora",
+        "title": "Anaphora And Thanksgiving",
+        "paragraphs": [
+          "The anaphora is the Eucharistic prayer of offering and thanksgiving. The Church lifts up the gifts to the Father and remembers creation, salvation, the Last Supper, the cross, the tomb, the resurrection, the ascension, and the kingdom to come.",
+          "This is the heart of Orthodox eucharistic theology. The Liturgy does not treat Christ's saving work as a distant memory only; it brings the faithful into grateful participation in the one saving work of Christ."
+        ],
+        "bullets": [
+          "Thanksgiving: eucharistia means thanksgiving.",
+          "Remembrance: anamnesis is a living remembrance before God.",
+          "Offering: the Church offers God's own gifts back to God in Christ."
+        ]
+      },
+      {
+        "id": "epiklesis",
+        "title": "Epiklesis: Invocation Of The Holy Spirit",
+        "paragraphs": [
+          "The epiklesis is the prayer calling upon the Holy Spirit. Orthodox theology gives this invocation central importance because the Church asks the Father to send the Spirit upon the people and the gifts.",
+          "The Eucharist is therefore Trinitarian: offered to the Father, in Christ, by the Holy Spirit. The worshipper should not isolate communion from the whole movement of prayer, thanksgiving, remembrance, and invocation."
+        ],
+        "bullets": [
+          "The Spirit is invoked upon the people and the gifts.",
+          "The bread and wine are received as the Body and Blood of Christ.",
+          "The people are also changed for communion, holiness, and life in Christ."
+        ]
+      },
+      {
+        "id": "communion",
+        "title": "Communion And Sending",
+        "paragraphs": [
+          "Holy Communion is the culmination of the Divine Liturgy. The faithful receive the Body and Blood of Christ as the medicine of immortality, the fulfillment of thanksgiving, and communion with the Holy Trinity.",
+          "The Liturgy then sends the faithful back into the world. The dismissal does not end Christian life; it sends the worshipper to live what has been received."
+        ],
+        "bullets": [
+          "Communion is approached with preparation, repentance, and faith.",
+          "The Eucharist is personal but never individualistic; it is communion in the Body of Christ.",
+          "The dismissal sends the faithful to continue prayer, mercy, and witness."
+        ]
+      },
+      {
+        "id": "app-study-plan",
+        "title": "How This App Should Study The Liturgy",
+        "paragraphs": [
+          "The next implementation step should connect liturgical study directly to Scripture and the Fathers. John 6, the Last Supper narratives, 1 Corinthians 10-11, Ignatius of Antioch, Justin Martyr, Cyril of Jerusalem, Basil, and Chrysostom all belong in the study path.",
+          "The app should also later add a step-by-step annotated Divine Liturgy screen. That screen can show each major movement of the service, short explanations, Scripture links, and links to patristic texts already imported in the app."
+        ],
+        "bullets": [
+          "Bible links: John 6, Matthew 26, Mark 14, Luke 22, 1 Corinthians 10-11, Hebrews 7-10.",
+          "Father links: Ignatius on Eucharistic unity, Justin on early Christian worship, Cyril on mysteries, Chrysostom on priesthood and Eucharistic reverence.",
+          "Reader links: connect relevant LXX passages such as Passover, sacrifice, temple worship, Isaiah 6, and Psalm 33/34."
         ]
       }
     ],
     "links": [
       {
-        "label": "Greek Orthodox Archdiocese liturgical resources",
+        "label": "OCA: The Divine Liturgy",
+        "href": "https://www.oca.org/orthodoxy/the-orthodox-faith/worship/the-divine-liturgy/the-divine-liturgy"
+      },
+      {
+        "label": "OCA: Eucharistic Canon / Anaphora",
+        "href": "https://www.oca.org/orthodoxy/the-orthodox-faith/worship/the-divine-liturgy/eucharistic-canon-anaphora"
+      },
+      {
+        "label": "OCA: Epiklesis",
+        "href": "https://www.oca.org/orthodoxy/the-orthodox-faith/worship/the-divine-liturgy/epiklesis"
+      },
+      {
+        "label": "OCA: Communion",
+        "href": "https://www.oca.org/orthodoxy/the-orthodox-faith/worship/the-divine-liturgy/communion"
+      },
+      {
+        "label": "GOARCH liturgical resources",
         "href": "https://www.goarch.org/"
       },
       {
-        "label": "Orthodox Church in America worship resources",
-        "href": "https://www.oca.org/orthodoxy"
+        "label": "Open the app's Brenton LXX reader",
+        "href": "/library/orthodox/lxx"
+      },
+      {
+        "label": "Read St. John Chrysostom in the Fathers library",
+        "href": "/library/fathers/john-chrysostom"
+      },
+      {
+        "label": "Read St. Cyril of Jerusalem in the Fathers library",
+        "href": "/library/fathers/cyril-jerusalem"
       }
     ]
   },
