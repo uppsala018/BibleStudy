@@ -171,6 +171,12 @@ img {
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.34);
 }
 
+.mobile-home-card__subtitle {
+  color: var(--color-highlight);
+  font-size: clamp(0.7rem, 2.6vw, 0.92rem);
+  line-height: 1.25;
+}
+
 .mobile-bottom-nav {
   position: fixed;
   right: 0;
@@ -210,6 +216,195 @@ img {
   content: "";
   border-radius: 99px;
   background: var(--color-highlight);
+}
+
+.orthodox-mobile {
+  background:
+    linear-gradient(180deg, rgba(3, 15, 33, 0.62), rgba(4, 17, 38, 0.98) 34rem),
+    radial-gradient(circle at top, rgba(104, 72, 40, 0.35), transparent 34rem),
+    #041126;
+}
+
+.orthodox-mobile__topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  min-height: 4.65rem;
+  display: grid;
+  grid-template-columns: 2.8rem 2.6rem 1fr;
+  align-items: center;
+  gap: 0.55rem;
+  border-bottom: 1px solid rgba(229, 197, 122, 0.18);
+  background: rgba(4, 17, 38, 0.94);
+  padding: 0 1rem;
+  backdrop-filter: blur(16px);
+}
+
+.orthodox-mobile__back,
+.orthodox-mobile__cross {
+  color: var(--color-highlight);
+  font-family: var(--font-display), serif;
+  font-size: 2.35rem;
+  line-height: 1;
+}
+
+.orthodox-mobile__topbar h1 {
+  color: var(--color-highlight);
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.7rem, 7.2vw, 2.7rem);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.orthodox-mobile__hero {
+  position: relative;
+  min-height: 18.8rem;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(229, 197, 122, 0.28);
+}
+
+.orthodox-mobile__hero img {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.orthodox-mobile__hero-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(4, 17, 38, 0.2), rgba(4, 17, 38, 0.12) 38%, rgba(4, 17, 38, 0.46)),
+    linear-gradient(180deg, transparent 62%, #041126 100%);
+}
+
+.orthodox-mobile__hero-copy {
+  position: absolute;
+  right: 1.1rem;
+  bottom: 3rem;
+  max-width: 14rem;
+  display: grid;
+  color: var(--color-highlight);
+  font-family: var(--font-display), serif;
+  font-size: clamp(2.2rem, 10vw, 3.8rem);
+  line-height: 0.94;
+  text-align: right;
+  text-shadow:
+    0 3px 0 rgba(0, 0, 0, 0.28),
+    0 0 22px rgba(0, 0, 0, 0.52);
+}
+
+.orthodox-mobile__hero-copy::before,
+.orthodox-mobile__hero-copy::after {
+  width: 100%;
+  height: 1px;
+  content: "";
+  margin: 0.25rem 0;
+  background: linear-gradient(90deg, transparent, rgba(229, 197, 122, 0.76));
+}
+
+.orthodox-mobile__sections {
+  display: grid;
+  gap: 0.7rem;
+  padding: 0.85rem 1rem 0;
+}
+
+.orthodox-mobile-card {
+  overflow: hidden;
+  border: 1.5px solid rgba(229, 197, 122, 0.62);
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(39, 83, 134, 0.36), transparent 44%),
+    rgba(6, 27, 57, 0.88);
+  box-shadow:
+    inset 0 0 20px rgba(45, 91, 143, 0.16),
+    0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+.orthodox-mobile-card__head {
+  display: grid;
+  grid-template-columns: 3rem 1fr 2rem;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.8rem 1rem 0.45rem;
+}
+
+.orthodox-mobile-card__icon {
+  display: grid;
+  place-items: center;
+  color: var(--color-highlight);
+  font-family: var(--font-display), serif;
+  font-size: 1.8rem;
+}
+
+.orthodox-mobile-card__head h2 {
+  color: var(--color-highlight);
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.35rem, 6vw, 2rem);
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.orthodox-mobile-card__chevron {
+  color: var(--color-highlight);
+  font-size: 2rem;
+  line-height: 1;
+  text-align: right;
+}
+
+.orthodox-mobile-card__items {
+  padding: 0 1rem 0.75rem 4rem;
+}
+
+.orthodox-mobile-card__items a {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.8rem;
+  border-top: 1px solid rgba(229, 197, 122, 0.16);
+  padding: 0.48rem 0;
+}
+
+.orthodox-mobile-card__items strong {
+  display: block;
+  color: var(--color-ink);
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.08rem, 4.6vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.orthodox-mobile-card__items small {
+  display: block;
+  margin-top: 0.16rem;
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.orthodox-mobile-card__items a > span:last-child {
+  color: var(--color-highlight);
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.orthodox-mobile__notice {
+  margin: 0.9rem 1rem 0;
+  border: 1px solid rgba(229, 197, 122, 0.32);
+  border-radius: 1.2rem;
+  background: rgba(5, 17, 34, 0.64);
+  padding: 1rem;
+}
+
+.orthodox-mobile__notice h2 {
+  color: var(--color-highlight);
+  font-family: var(--font-display), serif;
+  font-size: 1.4rem;
+}
+
+.orthodox-mobile__notice p {
+  margin-top: 0.45rem;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
 .kjv-mobile {

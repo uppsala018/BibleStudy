@@ -1,7 +1,117 @@
 import Link from "next/link";
+import Image from "next/image";
 import AppHeader from "@/components/app-header";
+import MobileBottomNav from "@/components/mobile-bottom-nav";
 import SectionHeading from "@/components/section-heading";
 import { getFathersForTrack } from "@/lib/content";
+
+const orthodoxMobileSections = [
+  {
+    icon: "1",
+    title: "Orthodox Bible Study",
+    items: [
+      {
+        title: "Septuagint study path",
+        detail: "Use public-domain LXX sources, not the copyrighted OSB text.",
+        href: "/library/orthodox",
+      },
+      {
+        title: "KJV reference reader",
+        detail: "Compare readings through the existing KJV + Strong's tools.",
+        href: "/library/kjv",
+      },
+      {
+        title: "Canon and deuterocanonical notes",
+        detail: "Orthodox canon notes can be expanded with free sources.",
+        href: "/library/history",
+      },
+    ],
+  },
+  {
+    icon: "2",
+    title: "Orthodox Church Fathers",
+    items: [
+      {
+        title: "St. John Chrysostom",
+        detail: "Read On the Priesthood and patristic study material.",
+        href: "/library/fathers/john-chrysostom",
+      },
+      {
+        title: "St. Basil the Great",
+        detail: "Read On the Holy Spirit.",
+        href: "/library/fathers/basil-great",
+      },
+      {
+        title: "St. Gregory of Nazianzus",
+        detail: "Read the Theological Orations.",
+        href: "/library/fathers/gregory-nazianzen",
+      },
+      {
+        title: "St. Cyril of Jerusalem",
+        detail: "Read the Catechetical Lectures.",
+        href: "/library/fathers/cyril-jerusalem",
+      },
+    ],
+  },
+  {
+    icon: "3",
+    title: "Divine Liturgy & Prayers",
+    items: [
+      {
+        title: "Liturgical study",
+        detail: "Build from free Orthodox liturgical resources.",
+        href: "/library/oriental-orthodox",
+      },
+      {
+        title: "Jesus Prayer",
+        detail: "Prayer and hesychasm study path.",
+        href: "/library/orthodox",
+      },
+      {
+        title: "Akathist and hymn study",
+        detail: "Prepared as a source-safe expansion area.",
+        href: "/library/orthodox",
+      },
+    ],
+  },
+  {
+    icon: "4",
+    title: "Orthodox Theology",
+    items: [
+      {
+        title: "Theosis",
+        detail: "Deification in Scripture and the Fathers.",
+        href: "/library/fathers/athanasius",
+      },
+      {
+        title: "Hesychasm",
+        detail: "Eastern prayer and contemplative theology.",
+        href: "/library/orthodox",
+      },
+      {
+        title: "Icons & iconography",
+        detail: "Theology of image, worship, and incarnation.",
+        href: "/library/history",
+      },
+    ],
+  },
+  {
+    icon: "5",
+    title: "Oriental Orthodox",
+    items: [
+      {
+        title: "Oriental Orthodox texts",
+        detail: "Imported free text archive and study entries.",
+        href: "/library/oriental-orthodox",
+      },
+      {
+        title: "Coptic and Ethiopian studies",
+        detail: "Dedicated branch for non-Byzantine Orthodox material.",
+        href: "/library/oriental-orthodox",
+      },
+    ],
+  },
+];
 
 const orthodoxResources = [
   {
@@ -26,8 +136,70 @@ export default function OrthodoxPage() {
 
   return (
     <>
-      <AppHeader />
-      <main className="mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:px-12">
+      <div className="hidden lg:block">
+        <AppHeader />
+      </div>
+
+      <main className="orthodox-mobile mobile-app-shell lg:hidden">
+        <header className="orthodox-mobile__topbar">
+          <Link href="/" className="orthodox-mobile__back" aria-label="Back home">
+            ‹
+          </Link>
+          <span className="orthodox-mobile__cross">☦</span>
+          <h1>Orthodox Study Library</h1>
+        </header>
+
+        <section className="orthodox-mobile__hero">
+          <Image
+            src="/assets/mockups/orthodox-study.png"
+            alt=""
+            fill
+            sizes="100vw"
+            priority
+          />
+          <div className="orthodox-mobile__hero-shade" />
+          <div className="orthodox-mobile__hero-copy">
+            <span>Eastern Orthodox</span>
+            <strong>Christianity</strong>
+          </div>
+        </section>
+
+        <section className="orthodox-mobile__sections" aria-label="Orthodox study sections">
+          {orthodoxMobileSections.map((section) => (
+            <article key={section.title} className="orthodox-mobile-card">
+              <div className="orthodox-mobile-card__head">
+                <span className="orthodox-mobile-card__icon">{section.icon}</span>
+                <h2>{section.title}</h2>
+                <span className="orthodox-mobile-card__chevron">⌄</span>
+              </div>
+              <div className="orthodox-mobile-card__items">
+                {section.items.map((item) => (
+                  <Link key={`${section.title}-${item.title}`} href={item.href}>
+                    <span>
+                      <strong>{item.title}</strong>
+                      <small>{item.detail}</small>
+                    </span>
+                    <span>›</span>
+                  </Link>
+                ))}
+              </div>
+            </article>
+          ))}
+        </section>
+
+        <section className="orthodox-mobile__notice">
+          <h2>Source note</h2>
+          <p>
+            The Orthodox Study Bible is copyrighted, so this app will not bundle that text. This
+            section is built for public-domain LXX study, Orthodox fathers, prayers, theology, and
+            source-safe links.
+          </p>
+        </section>
+
+        <MobileBottomNav active="Home" />
+      </main>
+
+      <main className="hidden lg:block mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:px-12">
         <SectionHeading
           eyebrow="Orthodox Study"
           title="An Orthodox track now sits beside the Catholic and Protestant paths."
