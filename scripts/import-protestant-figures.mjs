@@ -51,6 +51,22 @@ function extractLines(text, startPattern, endPattern) {
   return lines.slice(startIndex, endIndex === -1 ? lines.length : endIndex);
 }
 
+function extractLinesAfter(text, anchorPattern, startPattern, endPattern) {
+  const lines = text.split("\n");
+  const anchorIndex = lines.findIndex((line) => anchorPattern.test(line));
+  if (anchorIndex === -1) {
+    return [];
+  }
+  const startIndex = lines.findIndex(
+    (line, index) => index > anchorIndex && startPattern.test(line),
+  );
+  if (startIndex === -1) {
+    return [];
+  }
+  const endIndex = lines.findIndex((line, index) => index > startIndex && endPattern.test(line));
+  return lines.slice(startIndex, endIndex === -1 ? lines.length : endIndex);
+}
+
 function parseNinetyFiveTheses(text) {
   const lines = text.split("\n").slice(66, 409);
   const theses = [];
@@ -103,36 +119,106 @@ function stats(sections) {
 const lutherTheses = readRaw("luther-95-theses.txt");
 const lutherCatechism = readRaw("luther-large-catechism.txt");
 const calvinInstitutesVol1 = readRaw("calvin-institutes-vol-1.txt");
+const calvinInstitutesVol2 = readRaw("calvin-institutes-vol-2.txt");
+const wesleyWorksVol1 = readRaw("wesley-works-vol-1.txt");
 
 const lutherCatechismSections = [
   sectionFromLines(
     "commandments",
     "The Ten Commandments",
-    extractLines(lutherCatechism, /^I\. The Ten Commandments$/, /^II\. The Creed$/).slice(0, 80),
+    extractLines(lutherCatechism, /^I\. The Ten Commandments$/, /^II\. The Creed$/),
   ),
   sectionFromLines(
     "creed",
     "The Creed",
-    extractLines(lutherCatechism, /^II\. The Creed$/, /^III\. The Lord's Prayer$/).slice(0, 90),
+    extractLines(lutherCatechism, /^II\. The Creed$/, /^III\. The Lord's Prayer$/),
   ),
   sectionFromLines(
     "prayer",
     "The Lord's Prayer",
-    extractLines(lutherCatechism, /^III\. The Lord's Prayer$/, /^IV\. The Sacrament Of Holy Baptism$/).slice(0, 90),
+    extractLines(lutherCatechism, /^III\. The Lord's Prayer$/, /^IV\. The Sacrament Of Holy Baptism$/),
   ),
 ].filter((section) => section.paragraphs.length);
 
 const calvinChapterOne = sectionFromLines(
   "knowledge-of-god-and-self",
   "Book I, Chapter I: The Knowledge of God and the Knowledge of Ourselves",
-  extractLines(calvinInstitutesVol1, /^Chapter I\. The Connection Between The Knowledge Of God/, /^Chapter II\./).slice(0, 95),
+  extractLines(calvinInstitutesVol1, /^Chapter I\. The Connection Between The Knowledge Of God/, /^Chapter II\./),
 );
 
 const calvinFaith = sectionFromLines(
   "faith-defined",
   "Book III, Chapter II: Faith Defined",
-  extractLines(calvinInstitutesVol1, /^Chapter II\. Faith Defined/, /^Chapter III\./).slice(0, 90),
+  extractLines(calvinInstitutesVol1, /^Chapter II\. Faith Defined/, /^Chapter III\./),
 );
+
+const calvinJustification = sectionFromLines(
+  "justification-by-faith",
+  "Book III, Chapter XI: Justification by Faith",
+  extractLines(calvinInstitutesVol1, /^Chapter XI\. Justification By Faith/, /^Chapter XII\./),
+);
+
+const calvinChurch = sectionFromLines(
+  "true-church",
+  "Book IV, Chapter I: The True Church",
+  extractLinesAfter(
+    calvinInstitutesVol2,
+    /^\s*BOOK IV\.$/,
+    /^\s*CHAPTER I\.$/,
+    /^\s*CHAPTER II\.$/,
+  ),
+);
+
+const calvinSacraments = sectionFromLines(
+  "sacraments",
+  "Book IV, Chapter XIV: The Sacraments",
+  extractLinesAfter(
+    calvinInstitutesVol2,
+    /^\s*BOOK IV\.$/,
+    /^\s*CHAPTER XIV\.$/,
+    /^\s*CHAPTER XV\.$/,
+  ),
+);
+
+function wesleySermonSection(id, title, startPattern, endPattern) {
+  return sectionFromLines(
+    id,
+    title,
+    extractLinesAfter(
+      wesleyWorksVol1,
+      /^\s*SERMONS ON SEVERAL OCCASIONS\.$/,
+      startPattern,
+      endPattern,
+    ),
+  );
+}
+
+const wesleySermons = [
+  wesleySermonSection(
+    "salvation-by-faith",
+    "Sermon I: Salvation by Faith",
+    /^\s*SERMON I\.\[1\]$/,
+    /^\s*SERMON II\.\[2\]$/,
+  ),
+  wesleySermonSection(
+    "almost-christian",
+    "Sermon II: The Almost Christian",
+    /^\s*SERMON II\.\[2\]$/,
+    /^\s*SERMON III\.\[6\]$/,
+  ),
+  wesleySermonSection(
+    "justification-by-faith",
+    "Sermon V: Justification by Faith",
+    /^\s*SERMON V\.$/,
+    /^\s*SERMON VI\.$/,
+  ),
+  wesleySermonSection(
+    "means-of-grace",
+    "Sermon XVI: The Means of Grace",
+    /^\s*SERMON XVI\.$/,
+    /^\*\*\* END OF THE PROJECT GUTENBERG EBOOK/,
+  ),
+].filter((section) => section.paragraphs.length);
 
 const figures = [
   {
@@ -205,6 +291,28 @@ const figures = [
           "A representative Reformed treatment of faith, showing Calvin's concern that Christ's benefits are received through the Spirit and apprehended by faith.",
         sections: [calvinFaith].filter((section) => section.paragraphs.length),
       },
+      {
+        slug: "institutes-justification",
+        title: "Institutes of the Christian Religion, Book III on Justification",
+        shortTitle: "Institutes on Justification",
+        yearLabel: "1559 edition",
+        source: "Project Gutenberg eBook #45001",
+        sourceUrl: "https://www.gutenberg.org/ebooks/45001",
+        summary:
+          "Calvin's developed account of justification by faith, where he defines the term, distinguishes it from works-righteousness, and frames it around union with Christ.",
+        sections: [calvinJustification].filter((section) => section.paragraphs.length),
+      },
+      {
+        slug: "institutes-church-and-sacraments",
+        title: "Institutes of the Christian Religion, Book IV on Church and Sacraments",
+        shortTitle: "Institutes on Church",
+        yearLabel: "1559 edition",
+        source: "Project Gutenberg eBook #64392",
+        sourceUrl: "https://www.gutenberg.org/ebooks/64392",
+        summary:
+          "Calvin's doctrine of the visible church and sacraments, showing that Reformed theology includes ecclesiology and sacramental order, not only individual doctrine.",
+        sections: [calvinChurch, calvinSacraments].filter((section) => section.paragraphs.length),
+      },
     ],
   },
   {
@@ -220,34 +328,15 @@ const figures = [
     themes: ["conversion", "assurance", "holiness", "discipline", "mission"],
     works: [
       {
-        slug: "methodist-study-guide",
-        title: "Methodist Study Guide: Conversion and Holiness",
-        shortTitle: "Conversion and Holiness",
-        yearLabel: "18th century movement",
-        source: "Public-domain Wesley resources and Protestant historical analysis",
-        sourceUrl: "https://www.gutenberg.org/ebooks/author/31438",
+        slug: "sermons-on-several-occasions",
+        title: "Sermons on Several Occasions",
+        shortTitle: "Selected Sermons",
+        yearLabel: "1746 collection",
+        source: "Project Gutenberg eBook #59743",
+        sourceUrl: "https://www.gutenberg.org/ebooks/59743",
         summary:
-          "A study guide for Wesley's place in Protestant theology. It prepares the app for fuller sermon and journal imports while giving Methodist doctrine a real internal study path.",
-        sections: [
-          {
-            id: "conversion",
-            title: "Conversion and assurance",
-            citation: null,
-            paragraphs: [
-              "Wesley's theology is difficult to understand if it is reduced to activism. His preaching turned on the necessity of new birth, the witness of the Spirit, and the assurance that God receives the sinner through Christ.",
-              "In Methodist practice this emphasis did not remain private. It produced societies, classes, bands, and disciplined habits of prayer, accountability, sacrament, and works of mercy.",
-            ],
-          },
-          {
-            id: "holiness",
-            title: "Holiness of heart and life",
-            citation: null,
-            paragraphs: [
-              "Wesley connected justification with sanctification without confusing them. Grace pardons, but grace also heals and trains the believer in love of God and neighbor.",
-              "The later Holiness and Pentecostal streams would draw from this insistence that Christian life involves an active, Spirit-enabled pursuit of holy love.",
-            ],
-          },
-        ],
+          "Selected public-domain sermons from Wesley's first volume, including salvation by faith, the almost Christian, justification by faith, and the means of grace.",
+        sections: wesleySermons,
       },
     ],
   },

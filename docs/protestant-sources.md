@@ -18,8 +18,8 @@ External resources referenced in the Protestant library:
 - https://www.gutenberg.org/ebooks/1670
 - https://www.gutenberg.org/ebooks/274
 - https://www.gutenberg.org/ebooks/45001
-- https://www.gutenberg.org/ebooks/45002
-- https://www.gutenberg.org/ebooks/45003
+- https://www.gutenberg.org/ebooks/64392
+- https://www.gutenberg.org/ebooks/59743
 - https://www.coreknowledge.org/free-resource/ckhg-unit-05-reformation/
 - https://www.gordonconwell.edu/center-for-global-christianity/resources/status-of-global-christianity/
 - https://www.azusastreet.org/
