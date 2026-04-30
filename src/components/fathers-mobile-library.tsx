@@ -23,7 +23,14 @@ function classifyFather(father: FatherProfile) {
     return "Apostolic Fathers";
   }
 
-  if (era.includes("1st") || era.includes("2nd") || era.includes("100") || era.includes("165")) {
+  if (
+    name.includes("irenaeus") ||
+    era.includes("1st") ||
+    era.includes("2nd") ||
+    era.includes("100") ||
+    era.includes("165") ||
+    era.includes("202")
+  ) {
     return "Ante-Nicene";
   }
 

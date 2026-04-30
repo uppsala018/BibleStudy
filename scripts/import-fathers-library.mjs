@@ -1,3 +1,4 @@
+import fsSync from "node:fs";
 import fs from "node:fs/promises";
 import path from "node:path";
 
@@ -6,6 +7,13 @@ const sourceRoot = path.join(root, "imports", "raw", "fathers");
 const outputPath = path.join(root, "src", "content", "fathers-library.json");
 
 const sharedTracks = ["catholic", "orthodox"];
+
+function sourceFilesByPrefix(prefix) {
+  return fsSync
+    .readdirSync(sourceRoot)
+    .filter((fileName) => fileName.startsWith(prefix) && fileName.endsWith(".htm"))
+    .sort();
+}
 
 const libraryConfig = [
   {
@@ -133,6 +141,30 @@ const libraryConfig = [
     themes: ["apologetics", "liturgy", "reason", "prophecy"],
     works: [
       makeSingleWork("first-apology", "The First Apology of Justin", "justin-first-apology.html", "0126", "c. 155-157", "A formal defense of Christian worship, doctrine, and moral life addressed to Roman authorities."),
+    ],
+  },
+  {
+    slug: "irenaeus-lyon",
+    name: "Irenaeus of Lyon",
+    era: "c. 130-202",
+    region: "Smyrna, Rome, and Lyon",
+    tradition: "Ante-Nicene Father",
+    stream: "shared",
+    studyTracks: sharedTracks,
+    summary:
+      "Irenaeus defended apostolic faith against Gnostic systems and gave one of the earliest large-scale accounts of Scripture, the rule of faith, succession, and recapitulation in Christ.",
+    bio:
+      "Irenaeus was bishop of Lyon and a major second-century theologian. He links Asia Minor, Rome, and Gaul, and is especially important for his appeal to apostolic teaching, Scripture, and the Church's public rule of faith against Gnostic reinterpretation.",
+    themes: ["apostolic-succession", "rule-of-faith", "gnosticism", "recapitulation", "scripture"],
+    works: [
+      makeSeriesWork(
+        "against-heresies",
+        "Against Heresies",
+        sourceFilesByPrefix("irenaeus-against-heresies-"),
+        "0103",
+        "c. 180",
+        "A five-book refutation of Gnostic systems and a positive defense of apostolic Christian teaching, creation, incarnation, Scripture, and salvation in Christ.",
+      ),
     ],
   },
   {
@@ -409,7 +441,7 @@ function extractBody(html) {
 function parseSectionsFromHtml(html, sectionOffset) {
   const body = extractBody(html);
   const sections = [];
-  const tokenRegex = /<(h2|p)(?: [^>]*)?>([\s\S]*?)<\/\1>/gi;
+  const tokenRegex = /<(h1|h2|p)(?: [^>]*)?>([\s\S]*?)<\/\1>/gi;
   let currentSection = null;
   let match;
 
@@ -432,7 +464,7 @@ function parseSectionsFromHtml(html, sectionOffset) {
       continue;
     }
 
-    if (tag.toLowerCase() === "h2") {
+    if (tag.toLowerCase() === "h1" || tag.toLowerCase() === "h2") {
       currentSection = {
         id: `section-${sectionOffset + sections.length + 1}`,
         title: text,
