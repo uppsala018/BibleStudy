@@ -288,6 +288,18 @@ export type CouncilTopic = {
   summary: string;
   outcome: string;
   whyItMatters: string;
+  teachingText: {
+    title: string;
+    paragraphs: string[];
+  };
+  controversy: {
+    title: string;
+    paragraphs: string[];
+  };
+  reception: Array<{
+    tradition: string;
+    note: string;
+  }>;
   keyTerms: Array<{
     term: string;
     definition: string;

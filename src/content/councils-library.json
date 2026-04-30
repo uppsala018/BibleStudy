@@ -12,6 +12,38 @@
     "summary": "The first ecumenical council answered the claim that the Son was a creature and confessed that the Son is truly God from God.",
     "outcome": "Produced the Nicene Creed's confession of the Son as begotten, not made, and of one essence with the Father.",
     "whyItMatters": "Nicaea protects the gospel itself: if Christ is not truly God, then worship, salvation, baptism, and prayer lose their Christian center.",
+    "teachingText": {
+      "title": "Core Nicene confession",
+      "paragraphs": [
+        "The council confessed Jesus Christ as the Son of God, begotten from the Father, true God from true God, begotten not made, and of one essence with the Father.",
+        "It rejected the claim that there was a time when the Son was not, or that the Son belongs to the order of created things."
+      ]
+    },
+    "controversy": {
+      "title": "The Arian controversy",
+      "paragraphs": [
+        "Arius wanted to preserve the uniqueness of the Father by saying the Son was exalted above creation but still made. The council judged that this destroyed Christian worship and salvation.",
+        "The central question was not abstract philosophy. Christians prayed to Christ, were baptized into his name, and trusted him for salvation. Nicaea insisted that this only makes sense if the Son is truly God."
+      ]
+    },
+    "reception": [
+      {
+        "tradition": "Catholic",
+        "note": "Received as the first ecumenical council and a foundation for Trinitarian doctrine, creed, worship, and later catechesis."
+      },
+      {
+        "tradition": "Orthodox",
+        "note": "Received as the decisive conciliar confession of the Son's full divinity, defended especially through Athanasius and the Cappadocians."
+      },
+      {
+        "tradition": "Protestant",
+        "note": "Classical Protestant traditions generally receive Nicaea as a faithful summary of biblical Trinitarian doctrine."
+      },
+      {
+        "tradition": "Oriental Orthodox",
+        "note": "Received as fully ecumenical and foundational for the shared pre-Chalcedonian faith."
+      }
+    ],
     "keyTerms": [
       {
         "term": "Arianism",
@@ -65,6 +97,38 @@
     "summary": "Constantinople reaffirmed Nicaea and clarified the Church's confession of the Holy Spirit as Lord and giver of life.",
     "outcome": "Expanded the creed's language about the Holy Spirit and strengthened Nicene Trinitarian doctrine.",
     "whyItMatters": "This council completes the classic Trinitarian confession used in worship: Father, Son, and Holy Spirit are glorified together.",
+    "teachingText": {
+      "title": "The Spirit confessed as Lord",
+      "paragraphs": [
+        "The council confessed the Holy Spirit as the Lord and giver of life, who proceeds from the Father, and who with the Father and the Son is worshiped and glorified.",
+        "It also reaffirmed the Church's faith in one holy catholic and apostolic Church, one baptism for the forgiveness of sins, the resurrection of the dead, and the life of the world to come."
+      ]
+    },
+    "controversy": {
+      "title": "The Holy Spirit controversy",
+      "paragraphs": [
+        "Some accepted strong language about the Son while resisting the full divinity of the Holy Spirit. The council answered that the Spirit is not a creature or servant power.",
+        "The Church's worship was central to the argument: the Spirit is glorified together with Father and Son, and Christian life depends on the Spirit's divine work."
+      ]
+    },
+    "reception": [
+      {
+        "tradition": "Catholic",
+        "note": "Received as the completion of the Nicene-Constantinopolitan Creed used in liturgy and catechesis."
+      },
+      {
+        "tradition": "Orthodox",
+        "note": "Received as a central council for Trinitarian faith, especially the confession of the Spirit in worship."
+      },
+      {
+        "tradition": "Protestant",
+        "note": "Received by classical Protestant confessions as a faithful expression of biblical Trinitarian doctrine."
+      },
+      {
+        "tradition": "Oriental Orthodox",
+        "note": "Received as part of the shared ecumenical inheritance before the Chalcedonian division."
+      }
+    ],
     "keyTerms": [
       {
         "term": "Pneumatomachians",
@@ -118,6 +182,38 @@
     "summary": "Ephesus defended the unity of Christ and confessed Mary as Theotokos because the one born of her is truly God the Son incarnate.",
     "outcome": "Rejected Nestorian division of Christ and affirmed Theotokos as a Christological confession.",
     "whyItMatters": "The title Theotokos is not mainly about Mary in isolation; it protects the truth that Jesus is one divine person, not two subjects loosely joined.",
+    "teachingText": {
+      "title": "Theotokos and the one Christ",
+      "paragraphs": [
+        "The council affirmed that Mary may rightly be called Theotokos because the child born of her is the eternal Word made flesh.",
+        "It rejected language that separated the man Jesus from the divine Son as though two subjects acted side by side."
+      ]
+    },
+    "controversy": {
+      "title": "The Nestorian controversy",
+      "paragraphs": [
+        "Nestorius feared that calling Mary Theotokos confused Christ's divinity with his humanity. Cyril of Alexandria argued that refusing the title divided the one Christ.",
+        "The issue was salvation: the one who is born, suffers, dies, and rises is the eternal Son acting in and through his assumed humanity."
+      ]
+    },
+    "reception": [
+      {
+        "tradition": "Catholic",
+        "note": "Received as ecumenical and central for Christology and Marian doctrine understood through Christ."
+      },
+      {
+        "tradition": "Orthodox",
+        "note": "Received as a defining council for the unity of Christ and the liturgical confession of Theotokos."
+      },
+      {
+        "tradition": "Protestant",
+        "note": "Many classical Protestant traditions accept the Christological point, even where later Marian devotion is treated differently."
+      },
+      {
+        "tradition": "Oriental Orthodox",
+        "note": "Received as ecumenical and deeply important for the Cyrilline confession of the incarnate Word."
+      }
+    ],
     "keyTerms": [
       {
         "term": "Theotokos",
@@ -171,6 +267,38 @@
     "summary": "Chalcedon gave classic language for confessing one and the same Christ in two natures, divine and human.",
     "outcome": "Defined Christ as one person in two natures, without confusion, change, division, or separation.",
     "whyItMatters": "Chalcedon protects both sides of salvation: only true God can save, and only true man can heal humanity from within.",
+    "teachingText": {
+      "title": "The Chalcedonian definition",
+      "paragraphs": [
+        "The council confessed one and the same Son, our Lord Jesus Christ, complete in divinity and complete in humanity, truly God and truly man.",
+        "It taught that Christ is acknowledged in two natures without confusion, without change, without division, and without separation."
+      ]
+    },
+    "controversy": {
+      "title": "The one person and two natures controversy",
+      "paragraphs": [
+        "After Ephesus, the Church still had to explain how Christ's divinity and humanity remain real without dividing him into two sons.",
+        "Chalcedon rejected both confusion and separation. It guarded the full reality of Christ's humanity and divinity while insisting there is one personal subject: the eternal Son."
+      ]
+    },
+    "reception": [
+      {
+        "tradition": "Catholic",
+        "note": "Received as the fourth ecumenical council and a permanent standard for Christological orthodoxy."
+      },
+      {
+        "tradition": "Orthodox",
+        "note": "Received by Eastern Orthodoxy as ecumenical and foundational for the confession of Christ in two natures."
+      },
+      {
+        "tradition": "Protestant",
+        "note": "Classical Protestant traditions generally affirm Chalcedonian Christology as essential Christian doctrine."
+      },
+      {
+        "tradition": "Oriental Orthodox",
+        "note": "Not received as ecumenical by Oriental Orthodox churches; modern dialogue often notes that many disputes involved language, trust, and political conflict as well as doctrine."
+      }
+    ],
     "keyTerms": [
       {
         "term": "Two natures",
@@ -224,6 +352,38 @@
     "summary": "The fifth council sought to show that Chalcedon did not authorize Nestorian division and that orthodox Christology remained faithful to Cyril.",
     "outcome": "Condemned the Three Chapters and clarified the interpretation of Chalcedon in an anti-Nestorian direction.",
     "whyItMatters": "This council matters because it shows how councils are received and interpreted, not merely announced.",
+    "teachingText": {
+      "title": "Interpreting Chalcedon through Ephesus",
+      "paragraphs": [
+        "The council insisted that the confession of two natures must never be used to divide Christ into two persons or two sons.",
+        "It defended the continuity between Ephesus and Chalcedon by reading Chalcedon in a Cyrilline, anti-Nestorian direction."
+      ]
+    },
+    "controversy": {
+      "title": "The Three Chapters controversy",
+      "paragraphs": [
+        "The Three Chapters involved writings and figures suspected of preserving Nestorian tendencies. Condemning them was meant to reassure those who feared Chalcedon had weakened Ephesus.",
+        "The controversy also showed how imperial politics, regional mistrust, and theological precision could become entangled."
+      ]
+    },
+    "reception": [
+      {
+        "tradition": "Catholic",
+        "note": "Received as the fifth ecumenical council, though its reception in parts of the West was difficult at first."
+      },
+      {
+        "tradition": "Orthodox",
+        "note": "Received as ecumenical and important for an anti-Nestorian reading of Chalcedon."
+      },
+      {
+        "tradition": "Protestant",
+        "note": "Usually treated as part of the classical conciliar inheritance, though less emphasized than the first four councils."
+      },
+      {
+        "tradition": "Oriental Orthodox",
+        "note": "Not received as ecumenical, since it belongs to the post-Chalcedonian council sequence."
+      }
+    ],
     "keyTerms": [
       {
         "term": "Three Chapters",
@@ -277,6 +437,38 @@
     "summary": "The sixth council confessed that Christ has both a divine will and a human will, corresponding to his two natures.",
     "outcome": "Rejected monothelitism and affirmed that Christ's human will is real, obedient, and not swallowed up by his divinity.",
     "whyItMatters": "If Christ lacks a human will, then human obedience is not healed. The council protects the full humanity of the Savior.",
+    "teachingText": {
+      "title": "Two wills in the one Christ",
+      "paragraphs": [
+        "The council confessed two natural wills and two natural operations in Christ, divine and human, united without opposition in the one person of the Son.",
+        "Christ's human will is not abolished by his divinity; it is perfectly obedient to the Father."
+      ]
+    },
+    "controversy": {
+      "title": "The monothelite controversy",
+      "paragraphs": [
+        "Monothelitism attempted to preserve unity in Christ by teaching one will. The council judged that this damaged the reality of Christ's humanity.",
+        "The biblical center is Gethsemane: Christ truly wills as man, and his human obedience heals human disobedience."
+      ]
+    },
+    "reception": [
+      {
+        "tradition": "Catholic",
+        "note": "Received as the sixth ecumenical council and an important clarification of Chalcedonian Christology."
+      },
+      {
+        "tradition": "Orthodox",
+        "note": "Received as ecumenical and central for the theology of Christ's real human obedience."
+      },
+      {
+        "tradition": "Protestant",
+        "note": "Accepted in classical Christology where the full humanity and full divinity of Christ are confessed."
+      },
+      {
+        "tradition": "Oriental Orthodox",
+        "note": "Not received as ecumenical in the Oriental Orthodox communion because it belongs to the post-Chalcedonian sequence."
+      }
+    ],
     "keyTerms": [
       {
         "term": "Monothelitism",
@@ -330,6 +522,38 @@
     "summary": "The seventh council defended the veneration of icons by grounding Christian images in the reality of the incarnation.",
     "outcome": "Distinguished worship due to God alone from the honor shown to icons, saints, and holy images.",
     "whyItMatters": "Nicaea II argues that because the Word truly became visible flesh, Christian art can confess the incarnation rather than deny it.",
+    "teachingText": {
+      "title": "The defense of holy icons",
+      "paragraphs": [
+        "The council taught that holy images of Christ, the Mother of God, angels, and saints may be set forth for veneration, remembrance, and instruction.",
+        "It distinguished the worship owed to God alone from the honor shown to an image, teaching that the honor given to the image passes to the prototype."
+      ]
+    },
+    "controversy": {
+      "title": "The iconoclast controversy",
+      "paragraphs": [
+        "Iconoclasts argued that religious images violated biblical commands against idolatry. Defenders answered that the incarnation changed the question: the invisible God had truly become visible in Christ.",
+        "The debate was not merely about art. It concerned matter, worship, memory, saints, and whether Christian images confess or deny the Word made flesh."
+      ]
+    },
+    "reception": [
+      {
+        "tradition": "Catholic",
+        "note": "Received as the seventh ecumenical council and foundational for the legitimate use of sacred images."
+      },
+      {
+        "tradition": "Orthodox",
+        "note": "Received as the triumph of Orthodoxy over iconoclasm and central to Orthodox liturgical and devotional life."
+      },
+      {
+        "tradition": "Protestant",
+        "note": "Reception varies widely; some Protestants accept its Christological logic while rejecting or limiting image veneration."
+      },
+      {
+        "tradition": "Oriental Orthodox",
+        "note": "Not received as ecumenical in the Oriental Orthodox communion, though many Oriental Orthodox traditions have rich iconographic practice."
+      }
+    ],
     "keyTerms": [
       {
         "term": "Iconoclasm",

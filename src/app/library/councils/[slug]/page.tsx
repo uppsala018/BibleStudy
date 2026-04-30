@@ -70,6 +70,26 @@ export default async function CouncilDetailPage({
       </section>
 
       <section className="council-study-card">
+        <p className="council-study-card__eyebrow">Council teaching</p>
+        <h2>{council.teachingText.title}</h2>
+        <div className="council-paragraph-stack">
+          {council.teachingText.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      </section>
+
+      <section className="council-study-card council-study-card--gold">
+        <p className="council-study-card__eyebrow">Controversy explained</p>
+        <h2>{council.controversy.title}</h2>
+        <div className="council-paragraph-stack">
+          {council.controversy.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      </section>
+
+      <section className="council-study-card">
         <p className="council-study-card__eyebrow">Study path</p>
         <h2>How to understand it</h2>
         <div className="council-study-steps">
@@ -80,6 +100,19 @@ export default async function CouncilDetailPage({
                 <h3>{step.title}</h3>
                 <p>{step.detail}</p>
               </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="council-study-card">
+        <p className="council-study-card__eyebrow">Reception</p>
+        <h2>How the traditions receive it</h2>
+        <div className="council-reception-list">
+          {council.reception.map((item) => (
+            <article key={item.tradition}>
+              <h3>{item.tradition}</h3>
+              <p>{item.note}</p>
             </article>
           ))}
         </div>
