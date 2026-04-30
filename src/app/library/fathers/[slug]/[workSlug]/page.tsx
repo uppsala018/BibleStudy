@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AppHeader from "@/components/app-header";
+import FatherWorkReader from "@/components/father-work-reader";
 import { fathersLibrary, getFatherProfile, getFatherWork } from "@/lib/content";
 
 export function generateStaticParams() {
@@ -25,6 +26,11 @@ export default async function FatherWorkPage({
     notFound();
   }
 
+  const workIndex = father.works.findIndex((candidate) => candidate.slug === work.slug);
+  const previousWork = workIndex > 0 ? father.works[workIndex - 1] : null;
+  const nextWork =
+    workIndex >= 0 && workIndex < father.works.length - 1 ? father.works[workIndex + 1] : null;
+
   return (
     <>
       <AppHeader />
@@ -44,7 +50,10 @@ export default async function FatherWorkPage({
           </Link>
         </div>
 
-        <section className="mt-8 rounded-[2.4rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-8">
+        <section
+          id="work-top"
+          className="mt-8 rounded-[2.4rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-8"
+        >
           <p className="text-xs uppercase tracking-[0.3em] text-[var(--color-highlight)]">
             {father.name}
           </p>
@@ -84,30 +93,26 @@ export default async function FatherWorkPage({
           </div>
         </section>
 
-        <section className="mt-10 space-y-6">
-          {work.sections.map((section) => (
-            <article
-              key={section.id}
-              className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6"
-            >
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <h2 className="font-[family-name:var(--font-display)] text-3xl text-[var(--color-ink)]">
-                  {section.title}
-                </h2>
-                {section.citation ? (
-                  <span className="text-xs uppercase tracking-[0.18em] text-[var(--color-soft)]">
-                    {section.citation}
-                  </span>
-                ) : null}
-              </div>
-              <div className="mt-5 space-y-4 text-base leading-8 text-[var(--color-muted)]">
-                {section.paragraphs.map((paragraph, index) => (
-                  <p key={`${section.id}-${index}`}>{paragraph}</p>
-                ))}
-              </div>
-            </article>
-          ))}
-        </section>
+        <FatherWorkReader
+          father={father}
+          work={work}
+          previousWork={
+            previousWork
+              ? {
+                  href: `/library/fathers/${father.slug}/${previousWork.slug}`,
+                  label: previousWork.title,
+                }
+              : null
+          }
+          nextWork={
+            nextWork
+              ? {
+                  href: `/library/fathers/${father.slug}/${nextWork.slug}`,
+                  label: nextWork.title,
+                }
+              : null
+          }
+        />
       </main>
     </>
   );
