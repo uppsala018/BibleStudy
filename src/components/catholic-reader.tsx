@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import AppHeader from "@/components/app-header";
+import MobileBottomNav from "@/components/mobile-bottom-nav";
 import { catholicLibrary } from "@/lib/content";
 import type { Verse } from "@/lib/content-types";
 import { createStudyPersistence, type StudyState } from "@/lib/persistence";
@@ -70,6 +71,7 @@ export default function CatholicReader({
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState<RemoteSearchResult[]>([]);
   const [searchLoading, setSearchLoading] = useState(false);
+  const [showDeuterocanon, setShowDeuterocanon] = useState(true);
   const [bookmarks, setBookmarks] = useState<string[]>([]);
   const [notes, setNotes] = useState<Record<string, string>>({});
   const [progress, setProgress] = useState<StudyState["progress"]>(null);
@@ -261,6 +263,16 @@ export default function CatholicReader({
             chapter: 1,
           }
         : null;
+  const featuredStudy = matchingStudies[0] ?? catholicLibrary[0] ?? null;
+  const visibleCrossReferences = selectedVerse?.crossRefs?.length
+    ? selectedVerse.crossRefs.map((item) => item.text)
+    : [
+        "Genesis 1:1",
+        "Psalm 33:6",
+        "Proverbs 8:22",
+        "1 John 1:1",
+        "Colossians 1:15",
+      ];
 
   function toggleBookmark(reference: string) {
     setBookmarks((current) =>
@@ -306,8 +318,178 @@ export default function CatholicReader({
 
   return (
     <>
-      <AppHeader />
-      <section className="mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:px-12">
+      <div className="hidden lg:block">
+        <AppHeader />
+      </div>
+
+      <section className="catholic-mobile mobile-app-shell lg:hidden">
+        <header className="catholic-mobile__topbar">
+          <Link href="/" className="catholic-mobile__icon-button" aria-label="Back home">
+            ‹
+          </Link>
+          <h1>Ignatius Catholic Bible</h1>
+          <Link href="/library/notes" className="catholic-mobile__icon-button" aria-label="Settings">
+            ⚙
+          </Link>
+        </header>
+
+        <div className="catholic-mobile__selector">
+          <span>▱</span>
+          <select
+            value={selectedBookCode}
+            onChange={(event) => {
+              setChapterLoading(true);
+              setChapterError(null);
+              setSelectedBookCode(event.target.value);
+              setSelectedChapterNumber(1);
+              setPendingVerseNumber(null);
+            }}
+            aria-label="Book"
+          >
+            {bookCatalog.map((book) => (
+              <option key={book.code} value={book.code}>
+                {book.name}
+              </option>
+            ))}
+          </select>
+          <select
+            value={selectedChapterNumber}
+            onChange={(event) => {
+              setChapterLoading(true);
+              setChapterError(null);
+              setSelectedChapterNumber(Number(event.target.value));
+              setPendingVerseNumber(null);
+            }}
+            aria-label="Chapter"
+          >
+            {chapterOptions.map((chapterNumber) => (
+              <option key={chapterNumber} value={chapterNumber}>
+                {chapterNumber}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {chapterLoading ? (
+          <p className="catholic-mobile__status">Loading chapter...</p>
+        ) : null}
+        {chapterError ? <p className="catholic-mobile__status">{chapterError}</p> : null}
+
+        {selectedVerse ? (
+          <section className="catholic-mobile__reading">
+            <div className="catholic-mobile__reading-meta">
+              <span>
+                {chapterData?.chapter ?? selectedChapterNumber}:{selectedVerse.number}
+              </span>
+              <span>{selectedVerse.reference}</span>
+            </div>
+            <p>{selectedVerse.text}</p>
+            <div className="catholic-mobile__actions">
+              <button
+                type="button"
+                onClick={() => toggleBookmark(selectedVerse.reference)}
+                aria-label="Bookmark"
+              >
+                ♡
+              </button>
+              <button type="button" aria-label="Share">
+                ⇧
+              </button>
+              <button type="button" aria-label="Copy">
+                ⧉
+              </button>
+            </div>
+          </section>
+        ) : null}
+
+        <div className="catholic-mobile__divider">✣</div>
+
+        {featuredStudy ? (
+          <section className="catholic-mobile-catechism">
+            <div className="catholic-mobile-catechism__icon">☩</div>
+            <div>
+              <h2>Catechism Reference</h2>
+              <p>
+                {featuredStudy.catechismReference} - {featuredStudy.catechismExcerpt}
+              </p>
+              <Link href={`/library/catholic/${featuredStudy.slug}`}>
+                Read Full Entry ›
+              </Link>
+            </div>
+          </section>
+        ) : null}
+
+        <section className="catholic-mobile-crossrefs">
+          <div className="catholic-mobile-crossrefs__title">
+            <span>☩</span>
+            <h2>Cross References</h2>
+            <span>▱</span>
+          </div>
+          <div>
+            {visibleCrossReferences.slice(0, 5).map((reference) => (
+              <button
+                key={reference}
+                type="button"
+                className="catholic-mobile-crossrefs__row"
+              >
+                <span>•</span>
+                <strong>{reference}</strong>
+                <em>
+                  {reference === selectedVerse?.reference
+                    ? selectedVerse.text
+                    : "Open related passage..."}
+                </em>
+                <span>›</span>
+              </button>
+            ))}
+          </div>
+        </section>
+
+        <label className="catholic-mobile__toggle">
+          <span>▱</span>
+          <strong>Show Deuterocanonical Books</strong>
+          <input
+            type="checkbox"
+            checked={showDeuterocanon}
+            onChange={(event) => setShowDeuterocanon(event.target.checked)}
+          />
+        </label>
+
+        <button
+          type="button"
+          className="catholic-mobile__note"
+          onClick={() => {
+            setNotes((current) => ({
+              ...current,
+              [selectedNoteKey]: current[selectedNoteKey] ?? "",
+            }));
+          }}
+        >
+          ✎
+          <span>Add Note</span>
+        </button>
+
+        <div className="catholic-mobile__chapter-actions">
+          <button
+            type="button"
+            onClick={() => previousChapterTarget && jumpToChapter(previousChapterTarget)}
+            disabled={!previousChapterTarget}
+          >
+            Previous
+          </button>
+          <button
+            type="button"
+            onClick={() => nextChapterTarget && jumpToChapter(nextChapterTarget)}
+            disabled={!nextChapterTarget}
+          >
+            Next
+          </button>
+        </div>
+
+        <MobileBottomNav active="Home" />
+      </section>
+
+      <section className="mx-auto hidden max-w-7xl px-6 py-14 sm:px-8 lg:block lg:px-12">
         <div className="mb-8 flex flex-wrap items-center gap-3 text-sm text-[var(--color-soft)]">
           <Link
             href="/library"
