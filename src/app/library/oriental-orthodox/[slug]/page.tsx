@@ -55,14 +55,13 @@ export default async function OrientalOrthodoxEntryPage({
             {entry.summary}
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-[var(--color-soft)]">
-            <span>{entry.source}</span>
             <a
               href={entry.sourceUrl}
               target="_blank"
               rel="noreferrer"
               className="inline-flex rounded-full border border-[var(--color-border)] px-4 py-2 text-[var(--color-highlight)]"
             >
-              Source
+              Open reference
             </a>
           </div>
         </section>

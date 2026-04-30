@@ -45,9 +45,6 @@ export default async function CatholicStudyEntryPage({
                 {entry.focus} - {entry.book} {entry.chapter}
               </p>
             </div>
-            <span className="rounded-full border border-[var(--color-border)] px-3 py-1 text-xs uppercase tracking-[0.18em] text-[var(--color-soft)]">
-              {entry.source}
-            </span>
           </div>
           <p className="mt-6 max-w-4xl text-base leading-8 text-[var(--color-muted)]">
             {entry.summary}

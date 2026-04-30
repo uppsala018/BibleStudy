@@ -8,7 +8,7 @@ const resources = [
     title: "Oriental Orthodoxy Text Library",
     href: "https://www.orientalorthodoxy.com/library/texts/",
     detail:
-      "Primary free source for Oriental Orthodox texts, historical documents, and study material.",
+      "Oriental Orthodox texts, historical documents, and study material.",
   },
   {
     title: "Orthodox Church Fathers",
@@ -20,7 +20,7 @@ const resources = [
     title: "Greek Orthodox Archdiocese",
     href: "https://www.goarch.org/",
     detail:
-      "Free articles, educational material, and liturgical resources from the Greek Orthodox Archdiocese.",
+      "Articles, educational material, and liturgical resources from the Greek Orthodox Archdiocese.",
   },
 ];
 
@@ -32,7 +32,7 @@ export default function OrientalOrthodoxPage() {
         <SectionHeading
           eyebrow="Oriental Orthodox"
           title="A dedicated Oriental Orthodox page is now part of the Orthodox study side."
-          body="This section is the base for expanding beyond Greek and Byzantine material into the Oriental Orthodox family. For this phase it gathers the free source libraries you provided so the app has a clear place to grow from."
+          body="This section is the base for expanding beyond Greek and Byzantine material into the Oriental Orthodox family, giving that tradition a clear place to grow inside the app."
         />
 
         <div className="mt-12 grid gap-6 lg:grid-cols-[0.56fr_0.44fr]">
@@ -84,9 +84,9 @@ export default function OrientalOrthodoxPage() {
                   buried inside a generic Orthodox bucket.
                 </p>
                 <p>
-                  The next content step here is to identify public-domain, app-importable texts
-                  from the Oriental Orthodox source archive and turn them into route-backed
-                  library entries the same way the Fathers section now works.
+                  The next content step here is to identify important Oriental Orthodox texts and
+                  turn them into route-backed library entries the same way the Fathers section now
+                  works.
                 </p>
               </div>
             </div>
@@ -95,7 +95,7 @@ export default function OrientalOrthodoxPage() {
           <aside className="space-y-6">
             <section className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
               <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-highlight)]">
-                Free Resources
+                Resources
               </p>
               <div className="mt-4 space-y-3">
                 {resources.map((resource) => (

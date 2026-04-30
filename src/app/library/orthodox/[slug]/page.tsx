@@ -45,7 +45,6 @@ export default async function OrthodoxStudyEntryPage({
           <p className="mt-6 max-w-4xl text-base leading-8 text-[var(--color-muted)]">
             {entry.summary}
           </p>
-          <p className="mt-4 text-sm text-[var(--color-soft)]">{entry.source}</p>
         </section>
 
         <section className="mt-10 space-y-6">

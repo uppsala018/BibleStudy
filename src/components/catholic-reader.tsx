@@ -632,7 +632,7 @@ export default function CatholicReader({
 
             <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-highlight)]">
-                Free Resources
+                Resources
               </p>
               <a
                 href="https://www.catholicculture.org/"
@@ -642,8 +642,8 @@ export default function CatholicReader({
               >
                 <p className="font-semibold text-[var(--color-ink)]">Catholic Culture</p>
                 <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">
-                  Free Catholic articles, liturgical material, and study resources to pair
-                  with the Douay-Rheims reader and catechism library.
+                  Catholic articles, liturgical material, and study resources to pair with the
+                  Douay-Rheims reader and catechism library.
                 </p>
               </a>
             </div>

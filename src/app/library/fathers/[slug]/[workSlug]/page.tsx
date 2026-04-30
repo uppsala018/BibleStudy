@@ -78,19 +78,6 @@ export default async function FatherWorkPage({
           <p className="mt-6 max-w-4xl text-base leading-8 text-[var(--color-muted)]">
             {work.summary}
           </p>
-          <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-[var(--color-soft)]">
-            <span>{work.source}</span>
-            {work.sourceUrl ? (
-              <a
-                href={work.sourceUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex rounded-full border border-[var(--color-border)] px-4 py-2 text-[var(--color-highlight)]"
-              >
-                Source
-              </a>
-            ) : null}
-          </div>
         </section>
 
         <FatherWorkReader

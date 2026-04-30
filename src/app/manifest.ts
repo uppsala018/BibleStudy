@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Logos & Legacy",
     short_name: "LogosLegacy",
     description:
-      "An installable Bible study and church history app built from free and redistributable Christian sources.",
+      "An installable Bible study and church history app for Scripture, theology, and church history.",
     start_url: "/",
     display: "standalone",
     background_color: "#041126",

@@ -1136,7 +1136,7 @@ export default function StudyWorkspace({
             ) : null}
 
             {activeTab === "fathers" ? (
-              <CardShelf title="Early Church Fathers" cards={fathers} />
+              <CardShelf title="Church Fathers" cards={fathers} />
             ) : null}
             {activeTab === "history" ? (
               <CardShelf title="Church History Guides" cards={historyTopics} />

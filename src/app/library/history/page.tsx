@@ -11,7 +11,7 @@ export default function HistoryPage() {
         <SectionHeading
           eyebrow="Church History"
           title="History is now organized as a readable topic library."
-          body="The history section now has structured topics, timeline-style sections, and dedicated pages for major turning points in Christian history. This is the base for future expansion into councils, controversies, saints, and source documents."
+          body="The history section now has structured topics, timeline-style sections, and dedicated pages for major turning points in Christian history. This is the base for future expansion into councils, controversies, saints, and historical documents."
         />
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">

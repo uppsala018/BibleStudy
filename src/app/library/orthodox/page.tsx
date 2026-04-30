@@ -11,7 +11,7 @@ const orthodoxMobileSections = [
     items: [
       {
         title: "Septuagint study path",
-        detail: "Public-domain Brenton LXX resources and app build plan.",
+        detail: "Septuagint reader and Orthodox study path.",
         href: "/library/orthodox/lxx",
       },
       {
@@ -100,7 +100,7 @@ const orthodoxMobileSections = [
     items: [
       {
         title: "Oriental Orthodox texts",
-        detail: "Imported free text archive and study entries.",
+        detail: "Text archive and study entries.",
         href: "/library/oriental-orthodox",
       },
       {
@@ -121,12 +121,12 @@ const orthodoxResources = [
   {
     title: "Greek Orthodox Archdiocese",
     href: "https://www.goarch.org/",
-    detail: "Free Orthodox articles, liturgical resources, and educational material.",
+    detail: "Orthodox articles, liturgical resources, and educational material.",
   },
   {
     title: "Oriental Orthodoxy Library",
     href: "https://www.orientalorthodoxy.com/library/texts/",
-    detail: "Oriental Orthodox source archive for free texts and study materials.",
+    detail: "Oriental Orthodox texts and study materials.",
   },
 ];
 
@@ -152,8 +152,7 @@ export default function OrthodoxPage() {
           <p>Orthodox Resources</p>
           <h2>Orthodox study hub for Scripture, liturgy, prayer, theology, and tradition.</h2>
           <span>
-            Built from source-safe resources: Brenton LXX, Orthodox study pages, liturgical
-            guides, and public-domain fathers.
+            Explore Scripture, liturgy, prayer, theology, and the Fathers in one focused study path.
           </span>
         </section>
 
@@ -181,11 +180,10 @@ export default function OrthodoxPage() {
         </section>
 
         <section className="orthodox-mobile__notice">
-          <h2>Source note</h2>
+          <h2>Study note</h2>
           <p>
-            The Orthodox Study Bible is copyrighted, so this app will not bundle that text. This
-            section is built for public-domain LXX study, Orthodox fathers, prayers, theology, and
-            source-safe links.
+            The Orthodox path is built around Scripture reading, patristic texts, prayer, liturgy,
+            and theological study without copying modern copyrighted study Bible notes.
           </p>
         </section>
 
@@ -196,7 +194,7 @@ export default function OrthodoxPage() {
         <SectionHeading
           eyebrow="Orthodox Study"
           title="An Orthodox track now sits beside the Catholic and Protestant paths."
-          body="This hub groups shared patristic texts, Orthodox-oriented catechetical material, and free external resources for continued study. Shared fathers remain shared, but they are now easy to approach through an Orthodox reading path."
+          body="This hub groups patristic texts, Orthodox-oriented catechetical material, and external resources for continued study. Shared fathers remain shared, but they are now easy to approach through an Orthodox reading path."
         />
 
         <div className="mt-12 grid gap-6 lg:grid-cols-[0.58fr_0.42fr]">
@@ -256,7 +254,7 @@ export default function OrthodoxPage() {
                   ["/library/catholic", "Catholic Bible", "Douay-Rheims reader with Catholic canon"],
                   ["/library/catechism", "Roman Catechism", "Catholic doctrinal study library"],
                   ["/library/history/great-schism", "Great Schism", "History page relevant to East-West study"],
-                  ["/library/oriental-orthodox", "Oriental Orthodox", "Dedicated page with imported Oriental Orthodox texts and source expansion"],
+                  ["/library/oriental-orthodox", "Oriental Orthodox", "Dedicated page with Oriental Orthodox texts and study expansion"],
                 ].map(([href, label, detail]) => (
                   <Link
                     key={href}
@@ -272,7 +270,7 @@ export default function OrthodoxPage() {
 
             <section className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
               <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-highlight)]">
-                Free Resources
+                Resources
               </p>
               <div className="mt-4 space-y-3">
                 {orthodoxResources.map((resource) => (

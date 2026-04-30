@@ -127,11 +127,11 @@ export default function FatherWorkReader({
         ) : null}
 
         {visibleSections.map((section, visibleIndex) => {
-          const sourceIndex = work.sections.findIndex((candidate) => candidate.id === section.id);
-          const previousSection = sourceIndex > 0 ? work.sections[sourceIndex - 1] : null;
+          const originalIndex = work.sections.findIndex((candidate) => candidate.id === section.id);
+          const previousSection = originalIndex > 0 ? work.sections[originalIndex - 1] : null;
           const nextSection =
-            sourceIndex >= 0 && sourceIndex < work.sections.length - 1
-              ? work.sections[sourceIndex + 1]
+            originalIndex >= 0 && originalIndex < work.sections.length - 1
+              ? work.sections[originalIndex + 1]
               : null;
 
           return (
@@ -143,7 +143,7 @@ export default function FatherWorkReader({
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
                   <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-soft)]">
-                    Section {sourceIndex + 1} of {work.sections.length}
+                    Section {originalIndex + 1} of {work.sections.length}
                   </p>
                   <h2 className="mt-2 font-[family-name:var(--font-display)] text-3xl text-[var(--color-ink)]">
                     {section.title}

@@ -69,7 +69,7 @@ export default function ProtestantPage() {
                 {[
                   ["/library/kjv", "KJV + Strong's", "Full KJV reader with lexicon lookup, search, bookmarks, and notes."],
                   ["/library/history/reformation", "Reformation History", "Structured history page for one of the defining Protestant eras."],
-                  ["/library/fathers/augustine-hippo/confessions", "Augustine: Confessions", "A major source for Protestant and Catholic readers alike on grace, memory, and conversion."],
+                  ["/library/fathers/augustine-hippo/confessions", "Augustine: Confessions", "A major text for Protestant and Catholic readers alike on grace, memory, and conversion."],
                 ].map(([href, label, detail]) => (
                   <Link
                     key={href}

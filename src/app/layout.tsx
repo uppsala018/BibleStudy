@@ -18,7 +18,7 @@ const body = Source_Sans_3({
 export const metadata: Metadata = {
   title: "Logos & Legacy",
   description:
-    "An installable Bible study and church history app built from free and redistributable Christian sources.",
+    "An installable Bible study and church history app for Scripture, theology, and church history.",
   applicationName: "Logos & Legacy",
   appleWebApp: {
     capable: true,

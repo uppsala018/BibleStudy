@@ -106,7 +106,7 @@ const protestantSections = [
       {
         label: "Book of Concord",
         href: "https://bookofconcord.org/",
-        detail: "Free Lutheran confessional resource.",
+        detail: "Lutheran confessional resource.",
       },
     ],
   },
@@ -116,9 +116,9 @@ const protestantSections = [
       "Protestant readers historically appealed to Scripture and the early Church. This prepares the next Church Fathers phase.",
     links: [
       {
-        label: "Early Church Fathers",
+        label: "Church Fathers",
         href: "/library/fathers",
-        detail: "Shared public-domain fathers library.",
+        detail: "Shared fathers library.",
       },
       {
         label: "Augustine: Confessions",
@@ -133,7 +133,7 @@ const protestantSections = [
       {
         label: "CCEL",
         href: "https://www.ccel.org/",
-        detail: "Free Christian classics and public-domain theological texts.",
+        detail: "Christian classics and theological texts.",
       },
     ],
   },

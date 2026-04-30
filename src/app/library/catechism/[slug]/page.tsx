@@ -41,9 +41,6 @@ export default async function CatechismEntryPage({
               <h1 className="font-[family-name:var(--font-display)] text-5xl text-[var(--color-ink)]">
                 {entry.title}
               </h1>
-              <p className="mt-3 text-sm uppercase tracking-[0.18em] text-[var(--color-soft)]">
-                {entry.source}
-              </p>
             </div>
             <span className="rounded-full border border-[var(--color-border)] px-3 py-1 text-xs uppercase tracking-[0.18em] text-[var(--color-soft)]">
               Entry {entry.order}

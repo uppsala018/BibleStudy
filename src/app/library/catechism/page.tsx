@@ -25,7 +25,7 @@ export default function CatechismPage() {
         <SectionHeading
           eyebrow="Roman Catechism"
           title="The full Catechism of Trent is now a real library inside the app."
-          body="This section carries the full public-domain Roman Catechism as a route-backed library. The structure follows the Creed, the Sacraments, the Decalogue, and Prayer."
+          body="This section carries the Roman Catechism as a route-backed library. The structure follows the Creed, the Sacraments, the Decalogue, and Prayer."
         />
 
         <div className="mt-12 space-y-10">
@@ -46,10 +46,7 @@ export default function CatechismPage() {
                     key={entry.slug}
                     className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6"
                   >
-                    <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-highlight)]">
-                      {entry.source}
-                    </p>
-                    <h3 className="mt-3 font-[family-name:var(--font-display)] text-3xl text-[var(--color-ink)]">
+                    <h3 className="font-[family-name:var(--font-display)] text-3xl text-[var(--color-ink)]">
                       {entry.title}
                     </h3>
                     <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">

@@ -95,7 +95,7 @@ export default function FathersMobileLibrary({ fathers }: { fathers: FatherProfi
         <Link href="/" aria-label="Back home">
           ‹
         </Link>
-        <h1>Early Church Fathers</h1>
+        <h1>Church Fathers</h1>
         <span>☦</span>
       </header>
 

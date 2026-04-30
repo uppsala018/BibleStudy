@@ -28,7 +28,7 @@ const homeCards = [
     icon: "✤",
   },
   {
-    title: "Early Church Fathers",
+    title: "Church Fathers",
     href: "/library/fathers",
     icon: "✒",
   },

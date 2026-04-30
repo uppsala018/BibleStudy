@@ -42,19 +42,19 @@ const modules = [
     title: "Catholic Resources",
     href: "/library/catholic/resources",
     summary:
-      "Navigate Catholic Bible, catechesis, liturgy, saints, councils, and source-safe official resources.",
+      "Navigate Catholic Bible, catechesis, liturgy, saints, councils, and official resources.",
   },
   {
     title: "Roman Catechism",
     href: "/library/catechism",
     summary:
-      "Read the full public-domain Catechism of Trent organized by creed, sacraments, commandments, and prayer.",
+      "Read the Catechism of Trent organized by creed, sacraments, commandments, and prayer.",
   },
   {
     title: "Church Fathers",
     href: "/library/fathers",
     summary:
-      "Browse father profiles and read full public-domain primary texts, including Ignatius, Clement, Polycarp, Justin, and Athanasius.",
+      "Browse father profiles and read full primary texts, including Ignatius, Clement, Polycarp, Justin, and Athanasius.",
   },
   {
     title: "Orthodox Study",
@@ -91,7 +91,7 @@ export default function LibraryPage() {
           <p className="mt-5 text-lg leading-8 text-[var(--color-muted)]">
             The app is no longer a single landing page with embedded demo content. Each major
             study area now has a dedicated route, which is the right base for importing larger
-            public-domain datasets and shipping a real installable app.
+            route-backed libraries and shipping a real installable app.
           </p>
         </div>
 

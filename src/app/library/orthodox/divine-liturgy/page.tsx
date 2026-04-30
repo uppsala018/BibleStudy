@@ -27,9 +27,6 @@ export default function DivineLiturgyGuidePage() {
           <p className="mt-6 max-w-4xl text-base leading-8 text-[var(--color-muted)]">
             {orthodoxDivineLiturgyGuide.summary}
           </p>
-          <p className="mt-4 text-sm text-[var(--color-soft)]">
-            {orthodoxDivineLiturgyGuide.source}
-          </p>
         </section>
 
         <section className="mt-10 grid gap-5">

@@ -59,13 +59,12 @@ export default async function ProtestantWorkPage({
               rel="noreferrer"
               className="inline-flex rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-highlight)]"
             >
-              Open public-domain source
+              Open reference
             </a>
           </div>
           <p className="mt-6 max-w-4xl text-base leading-8 text-[var(--color-muted)]">
             {work.summary}
           </p>
-          <p className="mt-4 text-sm text-[var(--color-soft)]">{work.source}</p>
         </section>
 
         <section className="mt-10 space-y-6">

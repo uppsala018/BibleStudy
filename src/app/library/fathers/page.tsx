@@ -16,7 +16,7 @@ export default function FathersPage() {
         <SectionHeading
           eyebrow="Church Fathers"
           title="Patristic texts are now organized as a full-text library."
-          body="This section now uses public-domain primary texts instead of excerpt cards. Open a father, choose a work, and read the full document chapter by chapter."
+          body="Open a father, choose a work, and read the full document chapter by chapter."
         />
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">

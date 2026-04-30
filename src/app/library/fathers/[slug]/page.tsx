@@ -80,10 +80,7 @@ export default async function FatherDetailPage({
             >
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.26em] text-[var(--color-highlight)]">
-                    {work.source}
-                  </p>
-                  <h2 className="mt-3 font-[family-name:var(--font-display)] text-4xl text-[var(--color-ink)]">
+                  <h2 className="font-[family-name:var(--font-display)] text-4xl text-[var(--color-ink)]">
                     {work.title}
                   </h2>
                 </div>

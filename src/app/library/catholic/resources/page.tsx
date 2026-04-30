@@ -10,7 +10,7 @@ const catholicSections = [
       {
         label: "Douay-Rheims Catholic Bible",
         href: "/library/catholic",
-        detail: "Full public-domain Catholic Bible reader with chapter navigation.",
+        detail: "Full Catholic Bible reader with chapter navigation.",
       },
       {
         label: "Wisdom",
@@ -32,12 +32,12 @@ const catholicSections = [
   {
     title: "Catechesis And Doctrine",
     summary:
-      "Use public-domain Roman Catechism material inside the app and source-safe official resources externally.",
+      "Use Roman Catechism material inside the app and official resources externally.",
     links: [
       {
         label: "Roman Catechism",
         href: "/library/catechism",
-        detail: "Public-domain Catechism of the Council of Trent, organized by doctrine.",
+        detail: "Catechism of the Council of Trent, organized by doctrine.",
       },
       {
         label: "John Prologue Study",
@@ -89,9 +89,9 @@ const catholicSections = [
       "This section prepares the Catholic path for the Church Fathers work we will build next.",
     links: [
       {
-        label: "Early Church Fathers",
+        label: "Church Fathers",
         href: "/library/fathers",
-        detail: "Shared patristic library with full public-domain primary texts.",
+        detail: "Shared patristic library with full primary texts.",
       },
       {
         label: "Ignatius of Antioch",
@@ -126,8 +126,8 @@ export default function CatholicResourcesPage() {
           </h1>
           <p className="mt-6 max-w-4xl text-base leading-8 text-[var(--color-muted)]">
             This hub keeps the Catholic reader separate from the broader Catholic study resources.
-            The app bundles source-safe public-domain texts, while official modern resources are
-            linked externally instead of copied into the app.
+            The app keeps core study material inside the reader, while official modern resources
+            are linked externally instead of copied into the app.
           </p>
         </section>
 
