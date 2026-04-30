@@ -327,7 +327,7 @@ export default function CatholicReader({
           <Link href="/" className="catholic-mobile__icon-button" aria-label="Back home">
             ‹
           </Link>
-          <h1>Ignatius Catholic Bible</h1>
+          <h1>Douay-Rheims Catholic Bible</h1>
           <Link href="/library/notes" className="catholic-mobile__icon-button" aria-label="Settings">
             ⚙
           </Link>
@@ -402,13 +402,60 @@ export default function CatholicReader({
           </section>
         ) : null}
 
+        {chapterData ? (
+          <section className="catholic-mobile__chapter">
+            {chapterData.verses.map((verse) => (
+              <article
+                key={verse.id}
+                className={`catholic-mobile-verse ${
+                  selectedVerseId === verse.id ? "catholic-mobile-verse--active" : ""
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={(event) => {
+                    setSelectedVerseId(verse.id);
+                    const article = event.currentTarget.closest(".catholic-mobile-verse");
+                    window.setTimeout(() => {
+                      article?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }, 80);
+                    setProgress({
+                      tab: "catholic",
+                      book: selectedBookCode,
+                      chapter: selectedChapterNumber,
+                      verse: verse.number,
+                      reference: verse.reference,
+                      updatedAt: new Date().toISOString(),
+                    });
+                  }}
+                >
+                  <span>{verse.number}</span>
+                  <p>{verse.text}</p>
+                </button>
+
+                {selectedVerseId === verse.id ? (
+                  <div className="catholic-mobile-verse__actions">
+                    <button
+                      type="button"
+                      onClick={() => toggleBookmark(verse.reference)}
+                    >
+                      {bookmarkSet.has(verse.reference) ? "Saved" : "Bookmark"}
+                    </button>
+                    <span>{verse.reference}</span>
+                  </div>
+                ) : null}
+              </article>
+            ))}
+          </section>
+        ) : null}
+
         <div className="catholic-mobile__divider">✣</div>
 
         {featuredStudy ? (
           <section className="catholic-mobile-catechism">
             <div className="catholic-mobile-catechism__icon">☩</div>
             <div>
-              <h2>Catechism Reference</h2>
+              <h2>Roman Catechism Reference</h2>
               <p>
                 {featuredStudy.catechismReference} - {featuredStudy.catechismExcerpt}
               </p>
@@ -454,20 +501,6 @@ export default function CatholicReader({
             onChange={(event) => setShowDeuterocanon(event.target.checked)}
           />
         </label>
-
-        <button
-          type="button"
-          className="catholic-mobile__note"
-          onClick={() => {
-            setNotes((current) => ({
-              ...current,
-              [selectedNoteKey]: current[selectedNoteKey] ?? "",
-            }));
-          }}
-        >
-          ✎
-          <span>Add Note</span>
-        </button>
 
         <div className="catholic-mobile__chapter-actions">
           <button

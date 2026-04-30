@@ -556,12 +556,6 @@ export default function StudyWorkspace({
                     type="button"
                     onClick={(event) => {
                       setSelectedVerseId(verse.id);
-                      const nextStrongsId = verse.strongs?.[0]?.strongsId;
-                      if (nextStrongsId) {
-                        setLexiconLoading(true);
-                        setSelectedEntry(null);
-                        setSelectedStrongsId(nextStrongsId);
-                      }
                       const article = event.currentTarget.closest(".kjv-mobile-verse");
                       window.setTimeout(() => {
                         article?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -572,7 +566,7 @@ export default function StudyWorkspace({
                         chapter: selectedChapterNumber,
                         verse: verse.number,
                         reference: verse.reference,
-                        strongsId: nextStrongsId,
+                        strongsId: selectedStrongsId,
                         updatedAt: new Date().toISOString(),
                       });
                     }}
