@@ -1,5 +1,139 @@
 import Link from "next/link";
 import AppHeader from "@/components/app-header";
+import MobileBottomNav from "@/components/mobile-bottom-nav";
+
+const protestantMobileSections = [
+  {
+    icon: "1",
+    title: "Bible And Word Study",
+    items: [
+      {
+        title: "KJV Bible + Strong's",
+        detail: "Full KJV reader with Strong's lexicon integration.",
+        href: "/library/kjv",
+      },
+      {
+        title: "Genesis 1 With Strong's",
+        detail: "Start with the current KJV + Strong's reading experience.",
+        href: "/library/kjv?book=Gen&chapter=1",
+      },
+      {
+        title: "John 1",
+        detail: "Core text for Christology and Word theology.",
+        href: "/library/kjv?book=Jhn&chapter=1",
+      },
+      {
+        title: "Romans",
+        detail: "Key Protestant study book for sin, grace, faith, and righteousness.",
+        href: "/library/kjv?book=Rom&chapter=1",
+      },
+    ],
+  },
+  {
+    icon: "2",
+    title: "Reformers And Primary Texts",
+    items: [
+      {
+        title: "Protestant Figures",
+        detail: "Luther, Calvin, Wesley, and figure-based study paths.",
+        href: "/library/protestant/figures",
+      },
+      {
+        title: "Martin Luther",
+        detail: "Reformation preaching, catechesis, and justification debates.",
+        href: "/library/protestant/figures/martin-luther",
+      },
+      {
+        title: "John Calvin",
+        detail: "Institutes, doctrine of God, Scripture, and church order.",
+        href: "/library/protestant/figures/john-calvin",
+      },
+      {
+        title: "John Wesley",
+        detail: "Methodist theology, holiness, grace, and preaching.",
+        href: "/library/protestant/figures/john-wesley",
+      },
+    ],
+  },
+  {
+    icon: "3",
+    title: "Confessions And Catechisms",
+    items: [
+      {
+        title: "Protestant Text Library",
+        detail: "Internal confessions, catechisms, and doctrinal standards.",
+        href: "/library/protestant/texts",
+      },
+      {
+        title: "Augsburg Confession",
+        detail: "Foundational Lutheran confession.",
+        href: "/library/protestant/texts/augsburg-confession",
+      },
+      {
+        title: "Heidelberg Catechism",
+        detail: "Reformed catechesis organized around comfort, guilt, grace, and gratitude.",
+        href: "/library/protestant/texts/heidelberg-catechism",
+      },
+      {
+        title: "Westminster Shorter Catechism",
+        detail: "Major English Reformed catechetical standard.",
+        href: "/library/protestant/texts/westminster-shorter-catechism",
+      },
+    ],
+  },
+  {
+    icon: "4",
+    title: "History And Movements",
+    items: [
+      {
+        title: "Reformation History",
+        detail: "Historical context for reform, confessional conflict, and church renewal.",
+        href: "/library/history/reformation",
+      },
+      {
+        title: "Reformation Era Study",
+        detail: "Internal analysis page on the Reformation movement.",
+        href: "/library/protestant/reformation-era",
+      },
+      {
+        title: "Post-Reformation Movements",
+        detail: "Later Protestant development and theological streams.",
+        href: "/library/protestant/post-reformation-movements",
+      },
+      {
+        title: "Charismatic Movement",
+        detail: "Pentecostal and charismatic renewal as a major Protestant branch.",
+        href: "/library/history/charismatic-movement",
+      },
+    ],
+  },
+  {
+    icon: "5",
+    title: "Shared Fathers And Ancient Sources",
+    items: [
+      {
+        title: "Church Fathers",
+        detail: "Shared fathers library.",
+        href: "/library/fathers",
+      },
+      {
+        title: "Augustine: Confessions",
+        detail: "Major text for grace, conversion, memory, and prayer.",
+        href: "/library/fathers/augustine-hippo/confessions",
+      },
+      {
+        title: "Athanasius",
+        detail: "Christology, incarnation, and Nicene theology.",
+        href: "/library/fathers/athanasius",
+      },
+      {
+        title: "CCEL",
+        detail: "Christian classics and theological texts.",
+        href: "https://www.ccel.org/",
+      },
+    ],
+  },
+];
 
 const protestantSections = [
   {
@@ -142,7 +276,71 @@ const protestantSections = [
 export default function ProtestantResourcesPage() {
   return (
     <>
-      <AppHeader />
+      <div className="hidden lg:block">
+        <AppHeader />
+      </div>
+
+      <main className="orthodox-mobile mobile-app-shell lg:hidden">
+        <header className="orthodox-mobile__topbar">
+          <Link href="/" className="orthodox-mobile__back" aria-label="Back home">
+            ‹
+          </Link>
+          <span className="orthodox-mobile__cross">✝</span>
+          <h1>Protestant Resources</h1>
+        </header>
+
+        <section className="orthodox-mobile__intro">
+          <p>Protestant Resources</p>
+          <h2>Protestant study hub for Scripture, reformers, confessions, and history.</h2>
+          <span>
+            Explore Scripture, reformers, confessions, history, and the shared fathers in one focused study path.
+          </span>
+        </section>
+
+        <section className="orthodox-mobile__sections" aria-label="Protestant study sections">
+          {protestantMobileSections.map((section) => (
+            <article key={section.title} className="orthodox-mobile-card">
+              <div className="orthodox-mobile-card__head">
+                <span className="orthodox-mobile-card__icon">{section.icon}</span>
+                <h2>{section.title}</h2>
+                <span className="orthodox-mobile-card__chevron">⌄</span>
+              </div>
+              <div className="orthodox-mobile-card__items">
+                {section.items.map((item) =>
+                  item.href.startsWith("https://") ? (
+                    <a key={`${section.title}-${item.title}`} href={item.href} target="_blank" rel="noreferrer">
+                      <span>
+                        <strong>{item.title}</strong>
+                        <small>{item.detail}</small>
+                      </span>
+                      <span>›</span>
+                    </a>
+                  ) : (
+                    <Link key={`${section.title}-${item.title}`} href={item.href}>
+                      <span>
+                        <strong>{item.title}</strong>
+                        <small>{item.detail}</small>
+                      </span>
+                      <span>›</span>
+                    </Link>
+                  ),
+                )}
+              </div>
+            </article>
+          ))}
+        </section>
+
+        <section className="orthodox-mobile__notice">
+          <h2>Study note</h2>
+          <p>
+            Protestant study here is built around Scripture first, then reformers, confessions, history,
+            and the shared ancient sources that shaped later debate.
+          </p>
+        </section>
+
+        <MobileBottomNav active="Home" />
+      </main>
+
       <main className="mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:px-12">
         <section className="rounded-[2.4rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-8">
           <p className="text-xs uppercase tracking-[0.3em] text-[var(--color-highlight)]">
