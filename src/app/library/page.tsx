@@ -80,6 +80,12 @@ const modules = [
     summary:
       "See your locally saved study notes with a Supabase-ready persistence path.",
   },
+  {
+    title: "Prayer Forum",
+    href: "/library/prayer-forum",
+    summary:
+      "Open a small prayer board where signed-in users can share requests and pray for one another.",
+  },
 ];
 
 export default function LibraryPage() {

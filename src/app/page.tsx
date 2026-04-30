@@ -44,7 +44,7 @@ const homeCards = [
   },
   {
     title: "Prayer Forum",
-    href: "/library/notes",
+    href: "/library/prayer-forum",
     icon: "🙏",
   },
   {

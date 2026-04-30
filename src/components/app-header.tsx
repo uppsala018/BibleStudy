@@ -29,6 +29,7 @@ export default function AppHeader() {
           <Link href="/library/fathers">Fathers</Link>
           <Link href="/library/councils">Councils</Link>
           <Link href="/library/history">History</Link>
+          <Link href="/library/prayer-forum">Prayer Forum</Link>
           <Link href="/library/notes">Notes</Link>
         </nav>
         <div className="hidden md:block">
