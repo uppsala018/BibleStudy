@@ -304,6 +304,19 @@
           "Read Matthew 16 for confession of Christ as Son of God.",
           "Read 1 Thessalonians 5 for prayer without ceasing."
         ]
+      },
+      {
+        "id": "church-context",
+        "title": "Church Context And Practice",
+        "paragraphs": [
+          "The Jesus Prayer is usually taught alongside confession, Eucharistic preparation, fasting, and obedience rather than as a standalone method. That keeps it inside the lived rhythm of Orthodox prayer.",
+          "For beginners, the most useful guidance is to pray the words simply and consistently, while avoiding any attempt to force spiritual experiences."
+        ],
+        "bullets": [
+          "Short, regular prayer is better than ambitious schedules.",
+          "Repentance and humility matter more than technique.",
+          "The prayer can be joined to Scripture reading and acts of mercy."
+        ]
       }
     ],
     "links": [
@@ -334,6 +347,14 @@
       {
         "label": "OCA: Prayer, Fasting, and Almsgiving",
         "href": "https://www.oca.org/orthodoxy/the-orthodox-faith/spirituality/prayer-fasting-and-almsgiving"
+      },
+      {
+        "label": "Hesychasm study",
+        "href": "/library/orthodox/hesychasm"
+      },
+      {
+        "label": "Orthodox fathers",
+        "href": "/library/fathers"
       }
     ]
   },
@@ -414,6 +435,19 @@
           "Import full texts only after source license verification.",
           "Connect hymn forms to Scripture and feast themes already in the app."
         ]
+      },
+      {
+        "id": "study-order",
+        "title": "Recommended Study Order",
+        "paragraphs": [
+          "Start with the hymn for the feast you are already reading in Scripture, then compare the themes with the theological language of the Fathers. That makes hymn study concrete and avoids treating it as an abstract music category.",
+          "After that, move to the Akathist tradition, the major feast hymns, and the Psalms, since those are the most important entry points for Orthodox worship study."
+        ],
+        "bullets": [
+          "Begin with feast-linked Scripture.",
+          "Move from short hymns to longer forms like canons and akathists.",
+          "Compare poetic language with the Fathers and the liturgical calendar."
+        ]
       }
     ],
     "links": [
@@ -452,6 +486,14 @@
       {
         "label": "OrthodoxWiki: Akathist",
         "href": "https://orthodoxwiki.org/Akathist"
+      },
+      {
+        "label": "Jesus Prayer",
+        "href": "/library/orthodox/jesus-prayer"
+      },
+      {
+        "label": "Divine Liturgy guide",
+        "href": "/library/orthodox/divine-liturgy"
       }
     ]
   },
@@ -481,12 +523,37 @@
         "paragraphs": [
           "The hesychasm page should connect to the Jesus Prayer, theosis, icons, monastic history, and later Byzantine theological debates. It should also connect to patristic warnings about pride, delusion, and prayer without repentance."
         ]
+      },
+      {
+        "id": "theosis-context",
+        "title": "Theosis And Communion",
+        "paragraphs": [
+          "Hesychasm belongs to the wider Orthodox account of theosis: participation in God's life by grace. That is why the goal is not secret knowledge or altered states, but purification of the heart and communion with God.",
+          "For the app, the safest and clearest way to explain hesychasm is to connect it to repentance, the Eucharist, the Jesus Prayer, and the life of the Church."
+        ],
+        "bullets": [
+          "Prayer of the heart",
+          "Humility and repentance",
+          "Grace-filled communion rather than technique"
+        ]
       }
     ],
     "links": [
       {
         "label": "OCA Orthodox Faith resources",
         "href": "https://www.oca.org/orthodoxy"
+      },
+      {
+        "label": "Jesus Prayer study",
+        "href": "/library/orthodox/jesus-prayer"
+      },
+      {
+        "label": "Orthodox fathers",
+        "href": "/library/fathers"
+      },
+      {
+        "label": "Icons and iconography",
+        "href": "/library/orthodox/icons-iconography"
       }
     ]
   },
@@ -509,6 +576,32 @@
           "Liturgical function: icons direct honor to the prototype, not wood and paint as idols.",
           "History link: iconoclasm and the Seventh Ecumenical Council."
         ]
+      },
+      {
+        "id": "iconoclasm",
+        "title": "Iconoclasm And Nicaea II",
+        "paragraphs": [
+          "The icon controversy was answered most decisively at the Seventh Ecumenical Council, which defended the veneration of icons in light of the Incarnation. The issue was not whether matter is holy in itself, but whether Christ can truly be depicted because He truly became man.",
+          "That makes icons a theological subject as much as an artistic one."
+        ],
+        "bullets": [
+          "Nicaea II is the key council for icons.",
+          "The defense of icons is grounded in Christ's real humanity.",
+          "Honor passes to the prototype, not to paint and wood as divine objects."
+        ]
+      },
+      {
+        "id": "how-to-read-icons",
+        "title": "How To Read Icons",
+        "paragraphs": [
+          "Icons are read, not just looked at. Their posture, colors, inscriptions, and gestures all communicate theology and memory.",
+          "The app should eventually connect icons to the feasts and saints they depict so that the user can move from image to Scripture and back again."
+        ],
+        "bullets": [
+          "Look for inscriptions and feast titles.",
+          "Connect iconography to Scripture and the liturgical calendar.",
+          "Study icons as confessional images of the Incarnation."
+        ]
       }
     ],
     "links": [
@@ -519,6 +612,14 @@
       {
         "label": "Greek Orthodox Archdiocese resources",
         "href": "https://www.goarch.org/"
+      },
+      {
+        "label": "Council of Nicaea",
+        "href": "/library/councils/nicaea-325"
+      },
+      {
+        "label": "Church History Timeline",
+        "href": "/library/history/timeline"
       }
     ]
   },
