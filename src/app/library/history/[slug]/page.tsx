@@ -44,6 +44,29 @@ const charismaticFigures = [
   ["Oral Roberts", "1918-2009", "Healing evangelist and media preacher"],
 ];
 
+const charismaticDenominations = [
+  {
+    name: "Assemblies of God",
+    href: "/library/protestant/assemblies-of-god",
+    note: "Largest classical Pentecostal fellowship.",
+  },
+  {
+    name: "Church of God in Christ",
+    href: "/library/protestant/church-of-god-in-christ",
+    note: "Major Holiness-Pentecostal body.",
+  },
+  {
+    name: "Foursquare Church",
+    href: "/library/protestant/foursquare-church",
+    note: "Aimee Semple McPherson's denomination.",
+  },
+  {
+    name: "Vineyard Movement",
+    href: "/library/protestant/vineyard-movement",
+    note: "Later charismatic network and church-planting stream.",
+  },
+];
+
 const protestantBranches = [
   "Lutheran",
   "Reformed",
@@ -298,8 +321,12 @@ function CharismaticPanel() {
         <div>
           <h2>Major Denominations</h2>
           <div className="history-denomination-list">
-            {["Assemblies of God", "Church of God in Christ", "Foursquare Church", "Vineyard Movement"].map((name) => (
-              <p key={name}>{name}<b>›</b></p>
+            {charismaticDenominations.map((denomination) => (
+              <Link key={denomination.name} href={denomination.href}>
+                <strong>{denomination.name}</strong>
+                <span>{denomination.note}</span>
+                <b>›</b>
+              </Link>
             ))}
           </div>
         </div>

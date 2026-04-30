@@ -188,12 +188,208 @@
     ],
     "links": [
       {
-        "label": "Azusa Street Heritage",
-        "href": "https://www.azusastreet.org/"
+        "label": "Assemblies of God",
+        "href": "/library/protestant/assemblies-of-god"
       },
       {
-        "label": "Assemblies of God History",
-        "href": "https://ifph.org/"
+        "label": "Church of God in Christ",
+        "href": "/library/protestant/church-of-god-in-christ"
+      },
+      {
+        "label": "Foursquare Church",
+        "href": "/library/protestant/foursquare-church"
+      },
+      {
+        "label": "Vineyard Movement",
+        "href": "/library/protestant/vineyard-movement"
+      },
+      {
+        "label": "Charismatic Movement",
+        "href": "/library/history/charismatic-movement"
+      },
+      {
+        "label": "Azusa Street Heritage",
+        "href": "https://www.azusastreet.org/"
+      }
+    ]
+  },
+  {
+    "slug": "assemblies-of-god",
+    "title": "Assemblies of God",
+    "era": "1914 onward",
+    "summary": "The largest classical Pentecostal fellowship, organized around Spirit baptism, mission, Bible preaching, and congregational networks.",
+    "focus": "Classical Pentecostal identity and global mission",
+    "source": "Historical Analysis of Protestantism: From the Reformation to the Present Day",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "Origins and structure",
+        "paragraphs": [
+          "The Assemblies of God formed in the early twentieth century as Pentecostal believers sought a cooperative fellowship for missions, evangelism, and theological coordination.",
+          "It became a major classical Pentecostal body by combining local church autonomy with shared doctrine, mission boards, and ministerial fellowship."
+        ],
+        "bullets": [
+          "Classical Pentecostal identity",
+          "Strong missionary orientation",
+          "Local church autonomy with fellowship structures"
+        ]
+      },
+      {
+        "id": "section-2",
+        "title": "Why it matters",
+        "paragraphs": [
+          "The Assemblies of God helped define the shape of global Pentecostalism: Bible preaching, evangelism, healing, and expectation of Spirit-empowered life.",
+          "Its worldwide growth makes it one of the most important denominations for understanding modern Protestant Christianity."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Pentecostal and Charismatic Protestantism",
+        "href": "/library/protestant/pentecostal-and-charismatic"
+      },
+      {
+        "label": "Charismatic Movement",
+        "href": "/library/history/charismatic-movement"
+      },
+      {
+        "label": "Church History Timeline",
+        "href": "/library/history/timeline"
+      }
+    ]
+  },
+  {
+    "slug": "church-of-god-in-christ",
+    "title": "Church of God in Christ",
+    "era": "1897 onward",
+    "summary": "A major Holiness-Pentecostal denomination shaped by sanctification teaching, powerful preaching, and strong worship life.",
+    "focus": "Holiness-Pentecostal preaching and worship",
+    "source": "Historical Analysis of Protestantism: From the Reformation to the Present Day",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "Holiness roots",
+        "paragraphs": [
+          "The Church of God in Christ emerged from the Holiness movement and became one of the most influential Pentecostal denominations in the United States.",
+          "Its history shows how nineteenth-century holiness teaching flowed into twentieth-century Pentecostal spirituality."
+        ],
+        "bullets": [
+          "Holiness and sanctification emphasis",
+          "Pentecostal worship and preaching",
+          "Strong ecclesial identity"
+        ]
+      },
+      {
+        "id": "section-2",
+        "title": "Why it matters",
+        "paragraphs": [
+          "COGIC is a major example of how Pentecostalism developed within African American Christian life and became a global worship and preaching tradition.",
+          "It belongs in the study of Protestant history because it shows both continuity with earlier holiness theology and the rise of modern Pentecostal expression."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Pentecostal and Charismatic Protestantism",
+        "href": "/library/protestant/pentecostal-and-charismatic"
+      },
+      {
+        "label": "Charismatic Movement",
+        "href": "/library/history/charismatic-movement"
+      },
+      {
+        "label": "Post-Reformation Movements",
+        "href": "/library/protestant/post-reformation-movements"
+      }
+    ]
+  },
+  {
+    "slug": "foursquare-church",
+    "title": "Foursquare Church",
+    "era": "1923 onward",
+    "summary": "A Pentecostal denomination founded by Aimee Semple McPherson, known for evangelism, healing, media ministry, and the fourfold gospel.",
+    "focus": "Evangelism, healing, and Pentecostal proclamation",
+    "source": "Historical Analysis of Protestantism: From the Reformation to the Present Day",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "Founder and message",
+        "paragraphs": [
+          "Aimee Semple McPherson founded the Foursquare Church after building a widely known evangelistic ministry centered on preaching, healing, and public witness.",
+          "The denomination's classic fourfold gospel presents Christ as Savior, Baptizer with the Holy Spirit, Healer, and Coming King."
+        ],
+        "bullets": [
+          "Evangelistic and revivalist style",
+          "Fourfold gospel",
+          "Media and public ministry emphasis"
+        ]
+      },
+      {
+        "id": "section-2",
+        "title": "Why it matters",
+        "paragraphs": [
+          "Foursquare is important because it shows how Pentecostalism moved into large-scale evangelism, media, and accessible church life.",
+          "It also illustrates how women played major founding roles in the Pentecostal world."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Pentecostal and Charismatic Protestantism",
+        "href": "/library/protestant/pentecostal-and-charismatic"
+      },
+      {
+        "label": "Charismatic Movement",
+        "href": "/library/history/charismatic-movement"
+      },
+      {
+        "label": "Protestant Figures",
+        "href": "/library/protestant/figures"
+      }
+    ]
+  },
+  {
+    "slug": "vineyard-movement",
+    "title": "Vineyard Movement",
+    "era": "1970s onward",
+    "summary": "A later charismatic network emphasizing worship, spiritual gifts, accessible church planting, and a softer renewal style than older Pentecostal bodies.",
+    "focus": "Charismatic renewal and modern worship culture",
+    "source": "Historical Analysis of Protestantism: From the Reformation to the Present Day",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "Origins and character",
+        "paragraphs": [
+          "The Vineyard Movement grew out of the broader charismatic renewal and became known for contemporary worship, healing prayer, and a church-planting ethos.",
+          "It sits between older Pentecostal distinctives and later evangelical church-planting networks."
+        ],
+        "bullets": [
+          "Charismatic worship and prayer",
+          "Church planting and mission",
+          "Influence on contemporary evangelical culture"
+        ]
+      },
+      {
+        "id": "section-2",
+        "title": "Why it matters",
+        "paragraphs": [
+          "The Vineyard is important because it shows how charismatic spirituality adapted to modern evangelical settings without requiring older Pentecostal denominational forms.",
+          "Its emphasis on accessible worship and prayer helped shape much of the wider contemporary praise-and-worship landscape."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Pentecostal and Charismatic Protestantism",
+        "href": "/library/protestant/pentecostal-and-charismatic"
+      },
+      {
+        "label": "Charismatic Movement",
+        "href": "/library/history/charismatic-movement"
+      },
+      {
+        "label": "Church History Timeline",
+        "href": "/library/history/timeline"
       }
     ]
   },
