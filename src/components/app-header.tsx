@@ -27,6 +27,7 @@ export default function AppHeader() {
           <Link href="/library/oriental-orthodox">Oriental Orthodox</Link>
           <Link href="/library/catechism">Catechism</Link>
           <Link href="/library/fathers">Fathers</Link>
+          <Link href="/library/councils">Councils</Link>
           <Link href="/library/history">History</Link>
           <Link href="/library/notes">Notes</Link>
         </nav>

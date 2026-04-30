@@ -275,6 +275,34 @@ export type HistoryTopic = {
   relatedTopics: string[];
 };
 
+export type CouncilTopic = {
+  slug: string;
+  order: number;
+  title: string;
+  shortTitle: string;
+  year: string;
+  location: string;
+  calledBy: string;
+  attendance: string;
+  issue: string;
+  summary: string;
+  outcome: string;
+  whyItMatters: string;
+  keyTerms: Array<{
+    term: string;
+    definition: string;
+  }>;
+  studyPath: Array<{
+    title: string;
+    detail: string;
+  }>;
+  scriptureConnections: string[];
+  relatedLinks: Array<{
+    label: string;
+    href: string;
+  }>;
+};
+
 export type SearchResult = {
   id: string;
   title: string;

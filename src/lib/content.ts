@@ -1,4 +1,5 @@
 import catholicLibraryJson from "@/content/catholic-library.json";
+import councilsLibraryJson from "@/content/councils-library.json";
 import fathersLibraryJson from "@/content/fathers-library.json";
 import historyLibraryJson from "@/content/history-library.json";
 import kjvChapterJson from "@/content/kjv/genesis-1.json";
@@ -15,6 +16,7 @@ import type {
   CatholicReading,
   CatholicStudyEntry,
   CatechismEntry,
+  CouncilTopic,
   DivineLiturgyGuide,
   FatherProfile,
   OrientalOrthodoxEntry,
@@ -58,6 +60,13 @@ export const historyTopics: ArticleCard[] = historyLibrary.map((topic) => ({
   title: topic.title,
   summary: topic.summary,
   era: topic.era,
+}));
+export const councilsLibrary = councilsLibraryJson as CouncilTopic[];
+export const councilTopics: ArticleCard[] = councilsLibrary.map((council) => ({
+  id: council.slug,
+  title: council.title,
+  summary: council.summary,
+  era: council.year,
 }));
 export const orientalOrthodoxLibrary =
   orientalOrthodoxLibraryJson as OrientalOrthodoxEntry[];
@@ -168,6 +177,10 @@ export function getProtestantFigureWork(figureSlug: string, workSlug: string) {
 
 export function getHistoryTopic(slug: string) {
   return historyLibrary.find((topic) => topic.slug === slug) ?? null;
+}
+
+export function getCouncilTopic(slug: string) {
+  return councilsLibrary.find((council) => council.slug === slug) ?? null;
 }
 
 export const searchIndex: SearchResult[] = [

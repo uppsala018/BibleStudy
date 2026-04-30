@@ -57,6 +57,12 @@ const modules = [
       "Browse father profiles and read full primary texts, including Ignatius, Clement, Polycarp, Justin, and Athanasius.",
   },
   {
+    title: "Church Councils",
+    href: "/library/councils",
+    summary:
+      "Study the seven ecumenical councils with timeline navigation, doctrine summaries, key terms, and related app sections.",
+  },
+  {
     title: "Orthodox Study",
     href: "/library/orthodox",
     summary:

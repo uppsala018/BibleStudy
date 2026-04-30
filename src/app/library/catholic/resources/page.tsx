@@ -105,7 +105,7 @@ const catholicSections = [
       },
       {
         label: "Council of Nicaea",
-        href: "/library/history/nicaea",
+        href: "/library/councils/nicaea-325",
         detail: "Christology and the Nicene faith.",
       },
     ],

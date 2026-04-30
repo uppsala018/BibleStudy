@@ -34,7 +34,7 @@ const homeCards = [
   },
   {
     title: "Church Councils",
-    href: "/library/history/nicaea",
+    href: "/library/councils",
     icon: "◉",
   },
   {
