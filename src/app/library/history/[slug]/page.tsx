@@ -43,6 +43,18 @@ const charismaticFigures = [
   ["Oral Roberts", "1918-2009", "Healing evangelist and media preacher"],
 ];
 
+const protestantBranches = [
+  "Lutheran",
+  "Reformed",
+  "Anglican",
+  "Anabaptist",
+  "Baptist",
+  "Methodist",
+  "Pentecostal",
+  "Charismatic",
+  "Non-denominational",
+];
+
 export function generateStaticParams() {
   return historyLibrary.map((topic) => ({
     slug: topic.slug,
@@ -63,6 +75,84 @@ function HistoryTabs({ activeSlug }: { activeSlug: string }) {
         </Link>
       ))}
     </nav>
+  );
+}
+
+function TraditionTimelinePanel() {
+  return (
+    <section className="history-tradition-tree" aria-label="Christian tradition timeline from 33 AD to 2026">
+      <div className="history-tradition-tree__head">
+        <p>33 AD - 2026</p>
+        <h2>Christian Traditions Timeline</h2>
+        <span>One apostolic root, visible historical branches</span>
+      </div>
+
+      <div className="history-tradition-tree__trunk">
+        <article className="history-tradition-event history-tradition-event--root">
+          <strong>33 AD</strong>
+          <h3>Apostolic Church</h3>
+          <p>The Church begins from the apostolic witness to Christ&apos;s death and resurrection.</p>
+        </article>
+
+        <article className="history-tradition-event">
+          <strong>325-787</strong>
+          <h3>Ecumenical councils</h3>
+          <p>Core doctrine on Trinity, Christ, worship, and icons is clarified through the great councils.</p>
+          <Link href="/library/councils">Study councils</Link>
+        </article>
+
+        <article className="history-tradition-split history-tradition-split--oriental">
+          <strong>451</strong>
+          <h3>Oriental Orthodox churches</h3>
+          <p>After Chalcedon, the Armenian, Coptic, Syriac, Ethiopian, Eritrean, and Malankara traditions continue as ancient churches.</p>
+        </article>
+
+        <article className="history-tradition-split">
+          <strong>1054</strong>
+          <h3>East-West Schism</h3>
+          <p>The Latin West and Greek East separate into the Roman Catholic and Eastern Orthodox communions.</p>
+        </article>
+
+        <div className="history-tradition-lines history-tradition-lines--traditional">
+          <article>
+            <span>☩</span>
+            <h3>Roman Catholic Church</h3>
+            <p>Rome</p>
+            <strong>continues to 2026</strong>
+          </article>
+          <article>
+            <span>♜</span>
+            <h3>Eastern Orthodox Church</h3>
+            <p>Constantinople and the Orthodox patriarchates</p>
+            <strong>continues to 2026</strong>
+          </article>
+        </div>
+
+        <article className="history-tradition-split history-tradition-split--reformation">
+          <strong>1517</strong>
+          <h3>Protestant Reformation</h3>
+          <p>Western Christianity divides further through disputes about authority, justification, Scripture, sacraments, and reform.</p>
+        </article>
+
+        <div className="history-protestant-branching">
+          <div>
+            <h3>Protestant families</h3>
+            <p>Not 30,000 lines drawn literally, but a visual picture of repeated branching.</p>
+          </div>
+          <div className="history-protestant-branching__grid">
+            {protestantBranches.map((branch) => (
+              <span key={branch}>{branch}</span>
+            ))}
+          </div>
+        </div>
+
+        <article className="history-tradition-event history-tradition-event--today">
+          <strong>2026</strong>
+          <h3>Christianity today</h3>
+          <p>Catholic, Eastern Orthodox, Oriental Orthodox, Protestant, Pentecostal, and Charismatic communities all continue, with very different structures and histories.</p>
+        </article>
+      </div>
+    </section>
   );
 }
 
@@ -264,6 +354,8 @@ export default async function HistoryTopicPage({
         <h2>{topic.title === "Great Schism" ? "The Great Schism of 1054" : topic.title}</h2>
         <p>{topic.summary}</p>
       </section>
+
+      <TraditionTimelinePanel />
 
       <TopicPanel slug={topic.slug} />
 

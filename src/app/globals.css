@@ -747,6 +747,213 @@ img {
   padding: 0 1.35rem;
 }
 
+.history-tradition-tree {
+  margin: 0.4rem 1.35rem 1rem;
+  border: 1.5px solid rgba(229, 197, 122, 0.55);
+  border-radius: 1.45rem;
+  background:
+    radial-gradient(circle at top, rgba(45, 91, 143, 0.34), transparent 18rem),
+    rgba(7, 31, 64, 0.68);
+  padding: 1rem 0.85rem;
+  overflow: hidden;
+}
+
+.history-tradition-tree__head {
+  text-align: center;
+}
+
+.history-tradition-tree__head p {
+  margin: 0;
+  color: var(--color-soft);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.history-tradition-tree__head h2 {
+  margin: 0.25rem 0 0;
+  color: var(--color-highlight);
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.65rem, 6.5vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.02;
+}
+
+.history-tradition-tree__head span {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--color-muted);
+  font-size: 0.86rem;
+  line-height: 1.35;
+}
+
+.history-tradition-tree__trunk {
+  position: relative;
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  padding-left: 1.55rem;
+}
+
+.history-tradition-tree__trunk::before {
+  position: absolute;
+  top: 0.35rem;
+  bottom: 0.4rem;
+  left: 0.55rem;
+  width: 0.16rem;
+  content: "";
+  border-radius: 99px;
+  background: linear-gradient(180deg, var(--color-highlight), rgba(229, 197, 122, 0.22));
+}
+
+.history-tradition-event,
+.history-tradition-split,
+.history-protestant-branching {
+  position: relative;
+  border: 1px solid rgba(229, 197, 122, 0.32);
+  border-radius: 1rem;
+  background: rgba(4, 17, 38, 0.58);
+  padding: 0.75rem;
+}
+
+.history-tradition-event::before,
+.history-tradition-split::before,
+.history-protestant-branching::before {
+  position: absolute;
+  top: 1.05rem;
+  left: -1.45rem;
+  width: 0.78rem;
+  height: 0.78rem;
+  content: "";
+  border: 1.5px solid var(--color-highlight);
+  border-radius: 999px;
+  background: #071936;
+  box-shadow: 0 0 0 0.22rem #071936;
+}
+
+.history-tradition-event strong,
+.history-tradition-split strong,
+.history-protestant-branching strong {
+  color: var(--color-highlight);
+  font-size: 0.76rem;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.history-tradition-event h3,
+.history-tradition-split h3,
+.history-protestant-branching h3 {
+  margin: 0.25rem 0 0;
+  color: var(--color-highlight);
+  font-family: var(--font-display), serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.history-tradition-event p,
+.history-tradition-split p,
+.history-protestant-branching p {
+  margin: 0.4rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.86rem;
+  line-height: 1.42;
+}
+
+.history-tradition-event a {
+  display: inline-flex;
+  margin-top: 0.55rem;
+  border: 1px solid rgba(229, 197, 122, 0.42);
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  color: var(--color-highlight);
+  font-size: 0.82rem;
+}
+
+.history-tradition-split {
+  border-color: rgba(229, 197, 122, 0.58);
+  background: linear-gradient(145deg, rgba(229, 197, 122, 0.11), rgba(4, 17, 38, 0.58));
+}
+
+.history-tradition-lines {
+  display: grid;
+  gap: 0.55rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  position: relative;
+}
+
+.history-tradition-lines::before {
+  position: absolute;
+  top: -0.8rem;
+  left: 20%;
+  right: 20%;
+  height: 0.16rem;
+  content: "";
+  background: rgba(229, 197, 122, 0.64);
+}
+
+.history-tradition-lines article {
+  border: 1px solid rgba(229, 197, 122, 0.32);
+  border-radius: 0.95rem;
+  background: rgba(7, 31, 64, 0.76);
+  padding: 0.7rem 0.5rem;
+  text-align: center;
+}
+
+.history-tradition-lines span {
+  display: grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  place-items: center;
+  margin: 0 auto 0.45rem;
+  border: 1.5px solid var(--color-highlight);
+  border-radius: 999px;
+  color: var(--color-highlight);
+  font-size: 1.45rem;
+}
+
+.history-tradition-lines h3 {
+  margin: 0;
+  color: var(--color-highlight);
+  font-family: var(--font-display), serif;
+  font-size: 1rem;
+  line-height: 1.05;
+}
+
+.history-tradition-lines p,
+.history-tradition-lines strong {
+  display: block;
+  margin: 0.35rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.74rem;
+  line-height: 1.25;
+}
+
+.history-tradition-lines strong {
+  color: var(--color-highlight);
+  font-weight: 500;
+}
+
+.history-protestant-branching__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.4rem;
+  margin-top: 0.65rem;
+}
+
+.history-protestant-branching__grid span {
+  min-height: 2.35rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(229, 197, 122, 0.32);
+  border-radius: 0.7rem;
+  background: rgba(7, 31, 64, 0.78);
+  color: var(--color-ink);
+  font-size: 0.72rem;
+  line-height: 1.1;
+  text-align: center;
+}
+
 .history-mini-card,
 .history-wide-card {
   border: 1.5px solid rgba(229, 197, 122, 0.54);
