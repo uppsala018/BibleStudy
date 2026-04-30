@@ -106,7 +106,7 @@ const orthodoxMobileSections = [
       {
         title: "Orthodox saints and feasts",
         detail: "Orthodox recognition is received through local and synodal glorification, liturgy, icons, and feast days.",
-        href: "/library/orthodox/liturgical-study",
+        href: "/library/orthodox/saints-devotions",
       },
       {
         title: "Canonization differences",
@@ -275,7 +275,7 @@ export default function OrthodoxPage() {
                   ["/library/catholic", "Catholic Bible", "Douay-Rheims reader with Catholic canon"],
                   ["/library/catechism", "Roman Catechism", "Catholic doctrinal study library"],
                   ["/library/fathers", "Shared Ancient Saints", "Fathers and saints honored across ancient Christian traditions"],
-                  ["/library/orthodox/liturgical-study", "Orthodox Saints & Devotions", "Orthodox holiness through liturgy, icons, feast days, and glorification"],
+                  ["/library/orthodox/saints-devotions", "Orthodox Saints & Devotions", "Orthodox holiness through liturgy, icons, feast days, and glorification"],
                   ["/library/history/great-schism", "Great Schism", "History page relevant to East-West study"],
                   ["/library/oriental-orthodox", "Oriental Orthodox", "Dedicated page with Oriental Orthodox texts and study expansion"],
                 ].map(([href, label, detail]) => (
