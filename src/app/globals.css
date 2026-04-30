@@ -570,6 +570,7 @@ img {
 }
 
 .church-history-mobile {
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 50% 0%, rgba(229, 197, 122, 0.12), transparent 18rem),
     linear-gradient(180deg, rgba(4, 17, 38, 0.96), rgba(4, 17, 38, 0.99)),
@@ -844,17 +845,13 @@ img {
 .history-reformer-strip,
 .history-charismatic-figures {
   display: grid;
-  grid-auto-columns: 8.8rem;
-  grid-auto-flow: column;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.7rem;
-  overflow-x: auto;
   padding: 0.85rem 1.35rem 0.25rem;
-  scroll-snap-type: x mandatory;
 }
 
 .history-reformer-strip article,
 .history-charismatic-figures article {
-  scroll-snap-align: start;
   border: 1.5px solid rgba(229, 197, 122, 0.5);
   border-radius: 1.1rem;
   background: rgba(7, 31, 64, 0.72);
@@ -919,7 +916,7 @@ img {
   position: relative;
   display: grid;
   gap: 1rem;
-  padding: 0 1.35rem 0 4rem;
+  padding: 0 1.35rem 0 3.65rem;
 }
 
 .history-charismatic-timeline::before {
@@ -941,7 +938,7 @@ img {
 .history-charismatic-step > span {
   position: absolute;
   top: 0;
-  left: -2.85rem;
+  left: -2.55rem;
   width: 2.55rem;
   height: 2.55rem;
   display: grid;
@@ -971,7 +968,7 @@ img {
 }
 
 .history-azusa-card {
-  min-height: 6rem;
+  min-height: 5.4rem;
   display: grid;
   place-items: center;
   margin-top: 0.8rem;
@@ -979,6 +976,7 @@ img {
   background:
     linear-gradient(135deg, rgba(229, 197, 122, 0.12), rgba(7, 31, 64, 0.62)),
     rgba(76, 57, 38, 0.62);
+  width: 100%;
 }
 
 .history-azusa-card strong {
