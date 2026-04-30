@@ -15,6 +15,28 @@ function sourceFilesByPrefix(prefix) {
     .sort();
 }
 
+function sourceFilesFromIndex(prefix, indexFileName, excludedIds = []) {
+  const html = fsSync.readFileSync(path.join(sourceRoot, indexFileName), "utf8");
+  const excluded = new Set(excludedIds);
+  const seen = new Set();
+  const fileNames = [];
+  const linkRegex = /href="\.\.\/fathers\/(\d+\.htm)"/g;
+  let match;
+
+  while ((match = linkRegex.exec(html)) !== null) {
+    const id = match[1];
+
+    if (seen.has(id) || excluded.has(id)) {
+      continue;
+    }
+
+    seen.add(id);
+    fileNames.push(`${prefix}${id}`);
+  }
+
+  return fileNames;
+}
+
 const libraryConfig = [
   {
     slug: "ignatius-antioch",
@@ -480,6 +502,32 @@ const libraryConfig = [
         "397-400",
         "Augustine's autobiographical and theological masterwork on memory, conversion, grace, and the restlessness of the heart before God.",
       ),
+    ],
+  },
+  {
+    slug: "jerome",
+    name: "Jerome",
+    era: "c. 347-420",
+    region: "Stridon, Rome, and Bethlehem",
+    tradition: "Latin Father and Doctor",
+    stream: "catholic",
+    studyTracks: ["catholic", "orthodox", "protestant"],
+    summary:
+      "Jerome was a major biblical scholar, translator, ascetic writer, and Latin Father, best known for his work on Scripture, the Vulgate, monastic life, and polemical theology.",
+    bio:
+      "Jerome's scholarship joined Hebrew and Greek learning with intense ascetic discipline and pastoral correspondence. His writings are central for studying biblical translation, the Latin reception of Scripture, monastic ideals, Marian doctrine, controversy, and the memory of earlier Christian writers.",
+    themes: ["scripture", "translation", "asceticism", "monasticism", "mary", "church-history"],
+    works: [
+      makeSeriesWork("letters", "Letters", sourceFilesFromIndex("jerome-letters-", "jerome-letters.html", ["3001.htm"]), "3001", "374-420", "Jerome's wide-ranging correspondence on Scripture, translation, ascetic life, controversy, pastoral counsel, and relations with Augustine and other church leaders."),
+      makeSingleWork("prefaces", "Prefaces", "jerome-prefaces.html", "3002", "late 4th-early 5th century", "Jerome's biblical prefaces, important for understanding his approach to translation, canon, and the Latin Bible."),
+      makeSingleWork("perpetual-virginity-of-blessed-mary", "The Perpetual Virginity of Blessed Mary", "jerome-perpetual-virginity-mary.html", "3007", "383", "Jerome's defense of Mary's perpetual virginity against Helvidius."),
+      makeSeriesWork("against-jovinianus", "Against Jovinianus", sourceFilesFromIndex("jerome-against-jovinianus-", "jerome-against-jovinianus.html", ["3009.htm"]), "3009", "393", "A two-book polemical work on asceticism, marriage, virginity, and Christian discipline."),
+      makeSingleWork("against-vigilantius", "Against Vigilantius", "jerome-against-vigilantius.html", "3010", "406", "A polemical defense of relics, vigils, ascetic discipline, and monastic devotion."),
+      makeSeriesWork("against-the-pelagians", "Against the Pelagians", sourceFilesFromIndex("jerome-against-pelagians-", "jerome-against-pelagians.html", ["3011.htm"]), "3011", "415", "A three-book dialogue against Pelagian teaching on grace, sin, freedom, and Christian life."),
+      makeSingleWork("life-of-hilarion", "The Life of St. Hilarion", "jerome-life-hilarion.html", "3003", "390", "A monastic biography presenting Hilarion as a model of ascetic holiness and spiritual warfare."),
+      makeSingleWork("life-of-malchus", "The Life of Malchus, the Captive Monk", "jerome-life-malchus.html", "3006", "390", "A short ascetic narrative on captivity, chastity, and monastic perseverance."),
+      makeSingleWork("life-of-paulus-the-first-hermit", "The Life of Paulus the First Hermit", "jerome-life-paul-first-hermit.html", "3008", "late 4th century", "Jerome's account of Paul the Hermit and early desert asceticism."),
+      makeSingleWork("de-viris-illustribus", "De Viris Illustribus", "jerome-de-viris-illustribus.html", "2708", "392", "A catalogue of illustrious Christian writers and one of the key early sources for patristic literary history."),
     ],
   },
 ];
