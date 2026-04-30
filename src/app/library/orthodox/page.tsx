@@ -12,8 +12,8 @@ const orthodoxMobileSections = [
     items: [
       {
         title: "Septuagint study path",
-        detail: "Use public-domain LXX sources, not the copyrighted OSB text.",
-        href: "/library/orthodox",
+        detail: "Public-domain Brenton LXX resources and app build plan.",
+        href: "/library/orthodox/septuagint-study-path",
       },
       {
         title: "KJV reference reader",
@@ -22,8 +22,8 @@ const orthodoxMobileSections = [
       },
       {
         title: "Canon and deuterocanonical notes",
-        detail: "Orthodox canon notes can be expanded with free sources.",
-        href: "/library/history",
+        detail: "Orthodox canon notes and deuterocanonical study path.",
+        href: "/library/orthodox/orthodox-canon-notes",
       },
     ],
   },
@@ -59,18 +59,18 @@ const orthodoxMobileSections = [
     items: [
       {
         title: "Liturgical study",
-        detail: "Build from free Orthodox liturgical resources.",
-        href: "/library/oriental-orthodox",
+        detail: "Divine Liturgy, Scripture, prayer, and worship.",
+        href: "/library/orthodox/liturgical-study",
       },
       {
         title: "Jesus Prayer",
         detail: "Prayer and hesychasm study path.",
-        href: "/library/orthodox",
+        href: "/library/orthodox/jesus-prayer",
       },
       {
         title: "Akathist and hymn study",
-        detail: "Prepared as a source-safe expansion area.",
-        href: "/library/orthodox",
+        detail: "Orthodox hymnography, akathists, and theology in worship.",
+        href: "/library/orthodox/akathist-hymn-study",
       },
     ],
   },
@@ -86,12 +86,12 @@ const orthodoxMobileSections = [
       {
         title: "Hesychasm",
         detail: "Eastern prayer and contemplative theology.",
-        href: "/library/orthodox",
+        href: "/library/orthodox/hesychasm",
       },
       {
         title: "Icons & iconography",
         detail: "Theology of image, worship, and incarnation.",
-        href: "/library/history",
+        href: "/library/orthodox/icons-iconography",
       },
     ],
   },
@@ -107,7 +107,7 @@ const orthodoxMobileSections = [
       {
         title: "Coptic and Ethiopian studies",
         detail: "Dedicated branch for non-Byzantine Orthodox material.",
-        href: "/library/oriental-orthodox",
+        href: "/library/orthodox/oriental-coptic-ethiopian-studies",
       },
     ],
   },
@@ -158,10 +158,6 @@ export default function OrthodoxPage() {
             priority
           />
           <div className="orthodox-mobile__hero-shade" />
-          <div className="orthodox-mobile__hero-copy">
-            <span>Eastern Orthodox</span>
-            <strong>Christianity</strong>
-          </div>
         </section>
 
         <section className="orthodox-mobile__sections" aria-label="Orthodox study sections">

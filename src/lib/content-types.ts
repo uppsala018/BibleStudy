@@ -141,6 +141,26 @@ export type OrientalOrthodoxEntry = {
   sections: OrientalOrthodoxSection[];
 };
 
+export type OrthodoxStudySection = {
+  id: string;
+  title: string;
+  paragraphs: string[];
+  bullets?: string[];
+};
+
+export type OrthodoxStudyEntry = {
+  slug: string;
+  title: string;
+  category: string;
+  summary: string;
+  source: string;
+  sections: OrthodoxStudySection[];
+  links?: Array<{
+    label: string;
+    href: string;
+  }>;
+};
+
 export type ProtestantSection = {
   id: string;
   title: string;
