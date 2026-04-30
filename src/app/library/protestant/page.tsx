@@ -1,7 +1,7 @@
 import Link from "next/link";
 import AppHeader from "@/components/app-header";
 import SectionHeading from "@/components/section-heading";
-import { getFathersForTrack } from "@/lib/content";
+import { getFathersForTrack, protestantLibrary } from "@/lib/content";
 
 export default function ProtestantPage() {
   const fathers = getFathersForTrack("protestant");
@@ -17,27 +17,61 @@ export default function ProtestantPage() {
         />
 
         <div className="mt-12 grid gap-6 lg:grid-cols-[0.52fr_0.48fr]">
-          <section className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
-            <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-highlight)]">
-              Primary Tools
-            </p>
-            <div className="mt-4 grid gap-4">
-              {[
-                ["/library/kjv", "KJV + Strong's", "Full KJV reader with lexicon lookup, search, bookmarks, and notes."],
-                ["/library/history/reformation", "Reformation History", "Structured history page for one of the defining Protestant eras."],
-                ["/library/fathers/augustine-hippo/confessions", "Augustine: Confessions", "A major source for Protestant and Catholic readers alike on grace, memory, and conversion."],
-              ].map(([href, label, detail]) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className="rounded-[1.5rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.52)] p-5"
-                >
-                  <h2 className="font-[family-name:var(--font-display)] text-2xl text-[var(--color-ink)]">
-                    {label}
+          <section className="space-y-6">
+            <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
+              <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-highlight)]">
+                Primary Tools
+              </p>
+              <div className="mt-4 grid gap-4">
+                {[
+                  ["/library/kjv", "KJV + Strong's", "Full KJV reader with lexicon lookup, search, bookmarks, and notes."],
+                  ["/library/history/reformation", "Reformation History", "Structured history page for one of the defining Protestant eras."],
+                  ["/library/fathers/augustine-hippo/confessions", "Augustine: Confessions", "A major source for Protestant and Catholic readers alike on grace, memory, and conversion."],
+                ].map(([href, label, detail]) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className="rounded-[1.5rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.52)] p-5"
+                  >
+                    <h2 className="font-[family-name:var(--font-display)] text-2xl text-[var(--color-ink)]">
+                      {label}
+                    </h2>
+                    <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">{detail}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-highlight)]">
+                    Protestant Library
+                  </p>
+                  <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl text-[var(--color-ink)]">
+                    Movement and analysis pages
                   </h2>
-                  <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">{detail}</p>
-                </Link>
-              ))}
+                </div>
+              </div>
+              <div className="mt-5 grid gap-4">
+                {protestantLibrary.map((entry) => (
+                  <Link
+                    key={entry.slug}
+                    href={`/library/protestant/${entry.slug}`}
+                    className="rounded-[1.5rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.52)] p-5"
+                  >
+                    <h3 className="font-[family-name:var(--font-display)] text-2xl text-[var(--color-ink)]">
+                      {entry.title}
+                    </h3>
+                    <p className="mt-2 text-xs uppercase tracking-[0.18em] text-[var(--color-soft)]">
+                      {entry.era}
+                    </p>
+                    <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
+                      {entry.summary}
+                    </p>
+                  </Link>
+                ))}
+              </div>
             </div>
           </section>
 

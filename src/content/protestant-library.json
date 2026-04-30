@@ -1,0 +1,306 @@
+[
+  {
+    "slug": "reformation-era",
+    "title": "The Reformation Era",
+    "era": "16th century",
+    "summary": "A study entry on Luther, Calvin, Zwingli, and the early fracture points of the Protestant Reformation.",
+    "focus": "Origins of Protestant theology and ecclesial separation",
+    "source": "Historical Analysis of Protestantism: From the Reformation to the Present Day",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "Martin Luther and the German Reformation",
+        "paragraphs": [
+          "The Reformation is traditionally dated to October 31, 1517, when Martin Luther challenged the sale of indulgences in Wittenberg. His initial protest widened into a more fundamental critique of the Roman Catholic sacramental system and church authority.",
+          "Luther's work reshaped Western Christianity not only through doctrine but through translation, preaching, and education. His German Bible helped democratize religious knowledge and influenced the development of modern German language and literacy."
+        ],
+        "bullets": [
+          "Sola Fide: justification by faith alone",
+          "Sola Scriptura: Scripture as the final authority",
+          "Priesthood of All Believers"
+        ]
+      },
+      {
+        "id": "section-2",
+        "title": "John Calvin and the Reformed Tradition",
+        "paragraphs": [
+          "John Calvin represents the second generation of the Reformation. His Institutes of the Christian Religion gave the movement a systematic theological framework and a disciplined vision of church and society.",
+          "Calvinism spread into Scotland, France, and the Netherlands and became a decisive force in later Presbyterian and Reformed traditions."
+        ],
+        "bullets": [
+          "Divine sovereignty",
+          "Predestination",
+          "Regulative principle of worship"
+        ]
+      },
+      {
+        "id": "section-3",
+        "title": "Zwingli and the Radical Reformation",
+        "paragraphs": [
+          "In Zurich, Huldrych Zwingli led a parallel reform movement that differed sharply from Luther on the Eucharist. Alongside this, the Anabaptists pushed more radical claims about believer's baptism and the separation of church and state.",
+          "These radical groups were often persecuted by both Catholics and other Protestants, showing that Protestantism was diverse and contentious from the beginning."
+        ],
+        "bullets": [
+          "Dispute over the nature of the Eucharist",
+          "Believer's baptism",
+          "Separation of church and state"
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Project Gutenberg - Martin Luther",
+        "href": "https://www.gutenberg.org/ebooks/author/155"
+      },
+      {
+        "label": "CCEL - John Calvin",
+        "href": "https://www.ccel.org/ccel/calvin"
+      }
+    ]
+  },
+  {
+    "slug": "post-reformation-movements",
+    "title": "Post-Reformation Movements",
+    "era": "17th-19th centuries",
+    "summary": "A study entry on Puritanism, Pietism, Methodism, and the Holiness tradition.",
+    "focus": "Personal holiness, revival, and devotional Protestantism",
+    "source": "Historical Analysis of Protestantism: From the Reformation to the Present Day",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "Puritans and Pietists",
+        "paragraphs": [
+          "Seventeenth-century Protestantism did not stop at confessional settlement. New movements arose to deepen the Reformation by emphasizing personal holiness, practical piety, and the religion of the heart.",
+          "Puritanism sought to further purify the Church of England, while German Pietism encouraged Bible study, small groups, and personal conversion."
+        ],
+        "bullets": [
+          "Covenant theology",
+          "Strict moral discipline",
+          "Heart religion and small-group study"
+        ]
+      },
+      {
+        "id": "section-2",
+        "title": "Methodism and Holiness",
+        "paragraphs": [
+          "John Wesley and the Methodist movement grew out of Anglican and Pietist streams. Wesley stressed disciplined devotion, conversion, and what he described as Christian perfection or entire sanctification.",
+          "The later Holiness movement developed this further by teaching a second work of grace that empowered holy living and prepared the ground for Pentecostalism."
+        ],
+        "bullets": [
+          "Christian perfection",
+          "Entire sanctification",
+          "Direct preparation for Pentecostal theology"
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Project Gutenberg - John Wesley",
+        "href": "https://www.gutenberg.org/ebooks/author/31438"
+      }
+    ]
+  },
+  {
+    "slug": "pentecostal-and-charismatic",
+    "title": "Pentecostal and Charismatic Protestantism",
+    "era": "20th century to present",
+    "summary": "A study entry on Azusa Street, Pentecostalism, and the later Charismatic movement.",
+    "focus": "Holy Spirit experience, revivalism, and modern renewal movements",
+    "source": "Historical Analysis of Protestantism: From the Reformation to the Present Day",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "Azusa Street",
+        "paragraphs": [
+          "The Azusa Street Revival of 1906, led by William J. Seymour in Los Angeles, is widely treated as the ignition point of modern Pentecostalism. The movement centered on baptism in the Holy Spirit and speaking in tongues.",
+          "Azusa Street also stands out for its early interracial character, which became one of the most discussed and contested features of the revival."
+        ],
+        "bullets": [
+          "Baptism in the Holy Spirit",
+          "Speaking in tongues",
+          "Revivalist and missionary momentum"
+        ]
+      },
+      {
+        "id": "section-2",
+        "title": "The Charismatic Movement",
+        "paragraphs": [
+          "In the 1960s, Pentecostal-style experiences spread into mainline Protestant churches and the Roman Catholic Church. This became known as the Charismatic movement, often called the second wave.",
+          "Unlike early Pentecostals, Charismatics often remained within their original denominations, carrying an emphasis on spiritual gifts into more traditional liturgical or denominational settings."
+        ],
+        "bullets": [
+          "Spread across denominations",
+          "Retention of original church identity",
+          "Renewed attention to charismata"
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Azusa Street Heritage",
+        "href": "https://www.azusastreet.org/"
+      },
+      {
+        "label": "Assemblies of God History",
+        "href": "https://ifph.org/"
+      }
+    ]
+  },
+  {
+    "slug": "denominations-claim",
+    "title": "The '30,000 Denominations' Claim",
+    "era": "Modern analysis",
+    "summary": "A study entry explaining why the famous Protestant denomination count is often overstated or methodologically misunderstood.",
+    "focus": "Modern apologetic claims and denominational statistics",
+    "source": "Historical Analysis of Protestantism: From the Reformation to the Present Day",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "Where the Number Comes From",
+        "paragraphs": [
+          "The high denomination count often comes from the World Christian Encyclopedia. That work uses a sociological definition in which a denomination can be counted separately within each country.",
+          "Under that method, Roman Catholic and Orthodox bodies are also multiplied by national presence. The result is useful for sociology, but it is often misused as though it were a clean count of distinct theological systems."
+        ],
+        "bullets": [
+          "One country can mean one separate count",
+          "Catholic and Orthodox totals are also inflated by the same method",
+          "The figure is partly a methodological artifact"
+        ]
+      },
+      {
+        "id": "section-2",
+        "title": "Why the Claim Still Matters",
+        "paragraphs": [
+          "The claim is not meaningless, because Protestantism is genuinely more fragmented institutionally than Catholicism. But the popular number is often weaponized without explaining what is actually being counted.",
+          "A responsible study path should distinguish between institutional fragmentation, doctrinal diversity, and methodological counting practices."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Gordon-Conwell Center for Global Christianity",
+        "href": "https://www.gordonconwell.edu/center-for-global-christianity/resources/status-of-global-christianity/"
+      }
+    ]
+  },
+  {
+    "slug": "major-protestant-groups-today",
+    "title": "Major Protestant Groups Today",
+    "era": "Modern global Protestantism",
+    "summary": "A study entry surveying the main Protestant families that shape the modern landscape: Lutheran, Reformed, Anglican, Methodist, Baptist, Pentecostal, and independent evangelical streams.",
+    "focus": "Contemporary Protestant families, identity, and institutional shape",
+    "source": "Historical Analysis of Protestantism: From the Reformation to the Present Day",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "Confessional and Historic Protestant Families",
+        "paragraphs": [
+          "Modern Protestantism still carries major historic families that can be traced to the Reformation and its early aftermath. Lutheran, Reformed, Anglican, Methodist, and Baptist traditions each preserve different emphases in worship, polity, doctrine, and church memory.",
+          "These traditions should not be collapsed into a single system. Some remain strongly confessional and liturgical, while others center more on revival, congregational governance, or missionary expansion."
+        ],
+        "bullets": [
+          "Lutheranism preserves a confessional Reformation identity around justification, catechesis, and sacramental worship",
+          "Reformed and Presbyterian churches emphasize covenant theology, disciplined doctrine, and elder-led polity",
+          "Anglicanism and Methodism retain distinct liturgical and pastoral inheritances"
+        ]
+      },
+      {
+        "id": "section-2",
+        "title": "Evangelical, Baptist, and Non-Denominational Expansion",
+        "paragraphs": [
+          "In many countries, especially in the modern missionary era, Protestant growth has been driven less by old state churches and more by evangelical, Baptist, free church, and non-denominational networks.",
+          "These groups often prioritize conversion, Bible preaching, missions, and flexible local governance. Their institutional identity can be thinner than older Protestant communions, but their global influence is substantial."
+        ],
+        "bullets": [
+          "Strong focus on personal conversion and biblical preaching",
+          "Congregational or low-structure governance is common",
+          "Global expansion often occurs through missions, church planting, and media"
+        ]
+      },
+      {
+        "id": "section-3",
+        "title": "Pentecostal and Independent Growth",
+        "paragraphs": [
+          "A large share of modern Protestant growth is now connected to Pentecostal, Charismatic, and independent churches. In global Christianity statistics, these groups are sometimes counted separately even when they share Protestant theology or history.",
+          "This is one reason denominational statistics can be confusing. Modern Protestantism includes both historically rooted churches and newer independent bodies whose doctrinal boundaries, worship practices, and international structures vary widely."
+        ],
+        "bullets": [
+          "Pentecostal and Charismatic bodies are among the fastest-growing Protestant movements",
+          "Independent churches can be institutionally flexible but difficult to classify",
+          "Statistical fragmentation does not always equal complete doctrinal separation"
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Evangelical Lutheran Church in America",
+        "href": "https://www.elca.org/"
+      },
+      {
+        "label": "Presbyterian Historical Society",
+        "href": "https://www.history.pcusa.org/"
+      },
+      {
+        "label": "World Methodist Council",
+        "href": "https://worldmethodistcouncil.org/"
+      },
+      {
+        "label": "IFPH - Assemblies of God and Pentecostal History",
+        "href": "https://ifph.org/"
+      }
+    ]
+  },
+  {
+    "slug": "free-protestant-resources",
+    "title": "Free Protestant and Reformation Resources",
+    "era": "Study tools",
+    "summary": "A curated entry of free public-domain and educational resources for Protestant study.",
+    "focus": "Primary texts, teaching tools, and denominational resources",
+    "source": "Historical Analysis of Protestantism: From the Reformation to the Present Day",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "Primary Works and Study Tools",
+        "paragraphs": [
+          "The Protestant side should not depend on paid or restricted material. Public-domain reformers, open archives, and educational sites are enough to build a serious study path.",
+          "The resources below are useful starting points for Luther, Calvin, Wesley, Reformation teaching, and modern denominational study."
+        ],
+        "bullets": [
+          "Project Gutenberg for Luther and Wesley",
+          "CCEL for Calvin and broader Christian classics",
+          "Core Knowledge for structured Reformation teaching"
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Project Gutenberg - Martin Luther",
+        "href": "https://www.gutenberg.org/ebooks/author/155"
+      },
+      {
+        "label": "CCEL - John Calvin",
+        "href": "https://www.ccel.org/ccel/calvin"
+      },
+      {
+        "label": "Project Gutenberg - John Wesley",
+        "href": "https://www.gutenberg.org/ebooks/author/31438"
+      },
+      {
+        "label": "Christian Classics Ethereal Library",
+        "href": "https://www.ccel.org/"
+      },
+      {
+        "label": "Core Knowledge - The Reformation Unit",
+        "href": "https://www.coreknowledge.org/free-resource/ckhg-unit-05-reformation/"
+      },
+      {
+        "label": "Presbyterian Historical Society",
+        "href": "https://pcusa.org/historical-society/"
+      },
+      {
+        "label": "World Methodist Council",
+        "href": "https://worldmethodistcouncil.org/"
+      }
+    ]
+  }
+]
