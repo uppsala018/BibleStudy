@@ -1,5 +1,113 @@
 import Link from "next/link";
 import AppHeader from "@/components/app-header";
+import MobileBottomNav from "@/components/mobile-bottom-nav";
+
+const catholicMobileSections = [
+  {
+    icon: "1",
+    title: "Catholic Bible And Canon",
+    items: [
+      {
+        title: "Douay-Rheims Catholic Bible",
+        detail: "Full Catholic Bible reader with chapter navigation.",
+        href: "/library/catholic",
+      },
+      {
+        title: "Wisdom",
+        detail: "Deuterocanonical wisdom text in the Catholic canon.",
+        href: "/library/catholic?book=wisdom&chapter=1",
+      },
+      {
+        title: "Ecclesiasticus / Sirach",
+        detail: "Major Catholic wisdom book for virtue and moral theology.",
+        href: "/library/catholic?book=ecclesiasticus&chapter=1",
+      },
+      {
+        title: "2 Machabees",
+        detail: "Important for prayer for the departed and martyr witness.",
+        href: "/library/catholic?book=2-machabees&chapter=12",
+      },
+    ],
+  },
+  {
+    icon: "2",
+    title: "Catholic Catechesis",
+    items: [
+      {
+        title: "Roman Catechism",
+        detail: "Catechism of the Council of Trent, organized by doctrine.",
+        href: "/library/catechism",
+      },
+      {
+        title: "John Prologue Study",
+        detail: "Catholic reading of John 1 with Roman Catechism notes.",
+        href: "/library/catholic/john-prologue",
+      },
+      {
+        title: "Peter And The Keys",
+        detail: "Catholic study path on Matthew 16 and ecclesial authority.",
+        href: "/library/catholic/matthew-16-keys",
+      },
+      {
+        title: "CCC Online",
+        detail: "Official online Catechism text for reference.",
+        href: "https://www.vatican.va/archive/ENG0015/_INDEX.HTM",
+      },
+    ],
+  },
+  {
+    icon: "3",
+    title: "Catholic Saints & Devotions",
+    items: [
+      {
+        title: "Shared Ancient Saints",
+        detail: "Apostolic and pre-schism saints honored across the ancient Church.",
+        href: "/library/fathers",
+      },
+      {
+        title: "Catholic Saints & Devotions",
+        detail: "Prayer, canonized saints, holiness, feast days, and Marian devotion.",
+        href: "/library/catholic/saints-devotions",
+      },
+      {
+        title: "Annunciation Study",
+        detail: "Incarnation, Mary, and obedience through Luke 1.",
+        href: "/library/catholic/annunciation-luke-1",
+      },
+      {
+        title: "Church History",
+        detail: "Councils, schism, reformation, and historical context.",
+        href: "/library/history",
+      },
+    ],
+  },
+  {
+    icon: "4",
+    title: "Catholic Fathers And Councils",
+    items: [
+      {
+        title: "Church Fathers",
+        detail: "Shared patristic library with full primary texts.",
+        href: "/library/fathers",
+      },
+      {
+        title: "Ignatius of Antioch",
+        detail: "Early witness to unity, bishop, Eucharist, and martyrdom.",
+        href: "/library/fathers/ignatius-antioch",
+      },
+      {
+        title: "Cyril of Jerusalem",
+        detail: "Catechetical lectures on baptism, creed, and Eucharistic formation.",
+        href: "/library/fathers/cyril-jerusalem",
+      },
+      {
+        title: "Council of Nicaea",
+        detail: "Christology and the Nicene faith.",
+        href: "/library/councils/nicaea-325",
+      },
+    ],
+  },
+];
 
 const catholicSections = [
   {
@@ -120,8 +228,72 @@ const catholicSections = [
 export default function CatholicResourcesPage() {
   return (
     <>
-      <AppHeader />
-      <main className="mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:px-12">
+      <div className="hidden lg:block">
+        <AppHeader />
+      </div>
+
+      <main className="orthodox-mobile mobile-app-shell lg:hidden">
+        <header className="orthodox-mobile__topbar">
+          <Link href="/" className="orthodox-mobile__back" aria-label="Back home">
+            ‹
+          </Link>
+          <span className="orthodox-mobile__cross">☧</span>
+          <h1>Catholic Resources</h1>
+        </header>
+
+        <section className="orthodox-mobile__intro">
+          <p>Catholic Resources</p>
+          <h2>Catholic study hub for Bible, catechesis, saints, liturgy, and tradition.</h2>
+          <span>
+            Explore Scripture, doctrine, saints, devotion, and the Fathers in one focused study path.
+          </span>
+        </section>
+
+        <section className="orthodox-mobile__sections" aria-label="Catholic study sections">
+          {catholicMobileSections.map((section) => (
+            <article key={section.title} className="orthodox-mobile-card">
+              <div className="orthodox-mobile-card__head">
+                <span className="orthodox-mobile-card__icon">{section.icon}</span>
+                <h2>{section.title}</h2>
+                <span className="orthodox-mobile-card__chevron">⌄</span>
+              </div>
+              <div className="orthodox-mobile-card__items">
+                {section.items.map((item) =>
+                  item.href.startsWith("https://") ? (
+                    <a key={`${section.title}-${item.title}`} href={item.href} target="_blank" rel="noreferrer">
+                      <span>
+                        <strong>{item.title}</strong>
+                        <small>{item.detail}</small>
+                      </span>
+                      <span>›</span>
+                    </a>
+                  ) : (
+                    <Link key={`${section.title}-${item.title}`} href={item.href}>
+                      <span>
+                        <strong>{item.title}</strong>
+                        <small>{item.detail}</small>
+                      </span>
+                      <span>›</span>
+                    </Link>
+                  ),
+                )}
+              </div>
+            </article>
+          ))}
+        </section>
+
+        <section className="orthodox-mobile__notice">
+          <h2>Study note</h2>
+          <p>
+            Catholic study is organized around Scripture, catechesis, devotion, saints, liturgy, and
+            conciliar history so the whole tradition can be read as one integrated path.
+          </p>
+        </section>
+
+        <MobileBottomNav active="Home" />
+      </main>
+
+      <main className="hidden lg:block mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:px-12">
         <section className="rounded-[2.4rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-8">
           <p className="text-xs uppercase tracking-[0.3em] text-[var(--color-highlight)]">
             Catholic Resources
