@@ -7,6 +7,7 @@ const tabs = [
   { slug: "great-schism", label: "East-West Schism", icon: "♜" },
   { slug: "reformation", label: "Reformation", icon: "▰" },
   { slug: "charismatic-movement", label: "Charismatic", icon: "♨" },
+  { slug: "timeline", label: "Timeline", icon: "✦" },
 ];
 
 const reformers = [
@@ -56,9 +57,7 @@ const protestantBranches = [
 ];
 
 export function generateStaticParams() {
-  return historyLibrary.map((topic) => ({
-    slug: topic.slug,
-  }));
+  return [...historyLibrary.map((topic) => ({ slug: topic.slug })), { slug: "timeline" }];
 }
 
 function HistoryTabs({ activeSlug }: { activeSlug: string }) {
@@ -90,8 +89,14 @@ function TraditionTimelinePanel() {
       <div className="history-tradition-tree__trunk">
         <article className="history-tradition-event history-tradition-event--root">
           <strong>33 AD</strong>
-          <h3>Apostolic Church</h3>
-          <p>The Church begins from the apostolic witness to Christ&apos;s death and resurrection.</p>
+          <h3>Apostolic Catholic Church</h3>
+          <p>The Church begins from the apostolic witness to Christ&apos;s death and resurrection: one ancient, episcopal, sacramental Church spread across East and West.</p>
+        </article>
+
+        <article className="history-tradition-event">
+          <strong>c. 107-110</strong>
+          <h3>Catholic means universal</h3>
+          <p>Ignatius of Antioch uses the phrase Catholic Church very early, meaning the universal Church gathered around Christ, bishops, Eucharist, and apostolic faith.</p>
         </article>
 
         <article className="history-tradition-event">
@@ -110,21 +115,21 @@ function TraditionTimelinePanel() {
         <article className="history-tradition-split">
           <strong>1054</strong>
           <h3>East-West Schism</h3>
-          <p>The Latin West and Greek East separate into the Roman Catholic and Eastern Orthodox communions.</p>
+          <p>The one ancient catholic Church in East and West suffers a lasting rupture. The Latin West continues in communion with Rome; the Greek East continues as the Eastern Orthodox communion.</p>
         </article>
 
         <div className="history-tradition-lines history-tradition-lines--traditional">
           <article>
             <span>☩</span>
             <h3>Roman Catholic Church</h3>
-            <p>Rome</p>
-            <strong>continues to 2026</strong>
+            <p>Western catholic line centered on Rome</p>
+            <strong>ancient root, continues to 2026</strong>
           </article>
           <article>
             <span>♜</span>
             <h3>Eastern Orthodox Church</h3>
-            <p>Constantinople and the Orthodox patriarchates</p>
-            <strong>continues to 2026</strong>
+            <p>Eastern catholic/orthodox line through the patriarchates</p>
+            <strong>ancient root, continues to 2026</strong>
           </article>
         </div>
 
@@ -316,6 +321,7 @@ function CharismaticPanel() {
 }
 
 function TopicPanel({ slug }: { slug: string }) {
+  if (slug === "timeline") return <TraditionTimelinePanel />;
   if (slug === "great-schism") return <SchismPanel />;
   if (slug === "reformation") return <ReformationPanel />;
   if (slug === "charismatic-movement") return <CharismaticPanel />;
@@ -329,7 +335,17 @@ export default async function HistoryTopicPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const topic = getHistoryTopic(slug);
+  const topic =
+    slug === "timeline"
+      ? {
+          slug: "timeline",
+          title: "Christian Traditions Timeline",
+          era: "33 AD - 2026",
+          summary:
+            "A vertical overview of the ancient catholic apostolic Church, the major East-West and Reformation divisions, and the continuing Catholic, Orthodox, Oriental Orthodox, Protestant, Pentecostal, and Charismatic communities today.",
+          sections: [],
+        }
+      : getHistoryTopic(slug);
 
   if (!topic) {
     notFound();
@@ -355,22 +371,22 @@ export default async function HistoryTopicPage({
         <p>{topic.summary}</p>
       </section>
 
-      <TraditionTimelinePanel />
-
       <TopicPanel slug={topic.slug} />
 
-      <section className="history-study-sections">
-        {topic.sections.map((section, index) => (
-          <article key={section.id}>
-            <span>{index + 1}</span>
-            <div>
-              <h3>{section.title}</h3>
-              <p>{section.summary}</p>
-              <p>{section.detail}</p>
-            </div>
-          </article>
-        ))}
-      </section>
+      {topic.sections.length ? (
+        <section className="history-study-sections">
+          {topic.sections.map((section, index) => (
+            <article key={section.id}>
+              <span>{index + 1}</span>
+              <div>
+                <h3>{section.title}</h3>
+                <p>{section.summary}</p>
+                <p>{section.detail}</p>
+              </div>
+            </article>
+          ))}
+        </section>
+      ) : null}
 
       <MobileBottomNav active="Home" />
     </main>
