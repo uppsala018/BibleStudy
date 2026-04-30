@@ -59,8 +59,8 @@ const orthodoxMobileSections = [
     items: [
       {
         title: "Liturgical study",
-        detail: "Divine Liturgy, Scripture, prayer, and worship.",
-        href: "/library/orthodox/liturgical-study",
+        detail: "Step-by-step annotated Divine Liturgy guide.",
+        href: "/library/orthodox/divine-liturgy",
       },
       {
         title: "Jesus Prayer",

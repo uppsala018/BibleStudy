@@ -191,19 +191,23 @@
       },
       {
         "id": "app-study-plan",
-        "title": "How This App Should Study The Liturgy",
+        "title": "Implemented App Study Path",
         "paragraphs": [
-          "The next implementation step should connect liturgical study directly to Scripture and the Fathers. John 6, the Last Supper narratives, 1 Corinthians 10-11, Ignatius of Antioch, Justin Martyr, Cyril of Jerusalem, Basil, and Chrysostom all belong in the study path.",
-          "The app should also later add a step-by-step annotated Divine Liturgy screen. That screen can show each major movement of the service, short explanations, Scripture links, and links to patristic texts already imported in the app."
+          "The app now includes a step-by-step annotated Divine Liturgy guide. That screen shows each major movement of the service with the liturgical action, theological meaning, study prompt, and links to Scripture, the Brenton LXX reader, and Orthodox resources.",
+          "Church Father integration should come later as its own focused pass, so the current guide keeps patristic links light and concentrates on worship, Scripture, prayer, and liturgical structure."
         ],
         "bullets": [
-          "Bible links: John 6, Matthew 26, Mark 14, Luke 22, 1 Corinthians 10-11, Hebrews 7-10.",
-          "Father links: Ignatius on Eucharistic unity, Justin on early Christian worship, Cyril on mysteries, Chrysostom on priesthood and Eucharistic reverence.",
-          "Reader links: connect relevant LXX passages such as Passover, sacrifice, temple worship, Isaiah 6, and Psalm 33/34."
+          "Open the annotated guide at /library/orthodox/divine-liturgy.",
+          "Bible links now include John 6, the Last Supper, 1 Corinthians 10-11, Acts 2, Matthew 6, and James 2.",
+          "LXX links now include Passover, Isaiah 6, Isaiah 53, and Psalms."
         ]
       }
     ],
     "links": [
+      {
+        "label": "Open the annotated Divine Liturgy guide",
+        "href": "/library/orthodox/divine-liturgy"
+      },
       {
         "label": "OCA: The Divine Liturgy",
         "href": "https://www.oca.org/orthodoxy/the-orthodox-faith/worship/the-divine-liturgy/the-divine-liturgy"

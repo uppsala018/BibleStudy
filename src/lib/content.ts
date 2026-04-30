@@ -3,6 +3,7 @@ import fathersLibraryJson from "@/content/fathers-library.json";
 import historyLibraryJson from "@/content/history-library.json";
 import kjvChapterJson from "@/content/kjv/genesis-1.json";
 import orientalOrthodoxLibraryJson from "@/content/oriental-orthodox-library.json";
+import orthodoxDivineLiturgyJson from "@/content/orthodox-divine-liturgy.json";
 import orthodoxStudyJson from "@/content/orthodox-study.json";
 import protestantFiguresJson from "@/content/protestant-figures.json";
 import protestantLibraryJson from "@/content/protestant-library.json";
@@ -14,6 +15,7 @@ import type {
   CatholicReading,
   CatholicStudyEntry,
   CatechismEntry,
+  DivineLiturgyGuide,
   FatherProfile,
   OrientalOrthodoxEntry,
   OrthodoxStudyEntry,
@@ -72,6 +74,8 @@ export const orthodoxStudyTopics: ArticleCard[] = orthodoxStudyLibrary.map((entr
   summary: entry.summary,
   era: entry.category,
 }));
+export const orthodoxDivineLiturgyGuide =
+  orthodoxDivineLiturgyJson as DivineLiturgyGuide;
 export const protestantLibrary = protestantLibraryJson as ProtestantEntry[];
 export const protestantTopics: ArticleCard[] = protestantLibrary.map((entry) => ({
   id: entry.slug,

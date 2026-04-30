@@ -161,6 +161,27 @@ export type OrthodoxStudyEntry = {
   }>;
 };
 
+export type DivineLiturgyStep = {
+  id: string;
+  phase: string;
+  title: string;
+  liturgicalAction: string;
+  meaning: string;
+  studyPrompt: string;
+  links: Array<{
+    label: string;
+    href: string;
+  }>;
+};
+
+export type DivineLiturgyGuide = {
+  title: string;
+  subtitle: string;
+  source: string;
+  summary: string;
+  steps: DivineLiturgyStep[];
+};
+
 export type ProtestantSection = {
   id: string;
   title: string;
