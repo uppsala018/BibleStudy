@@ -68,7 +68,7 @@ const catholicSections = [
       },
       {
         label: "Catholic Saints & Devotions",
-        href: "/library/catechism",
+        href: "/library/catholic/saints-devotions",
         detail: "Catholic devotional study path connected to catechesis, prayer, canonized saints, and the life of holiness.",
       },
       {
