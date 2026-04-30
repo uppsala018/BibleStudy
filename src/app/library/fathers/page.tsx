@@ -1,13 +1,18 @@
 import Link from "next/link";
 import AppHeader from "@/components/app-header";
+import FathersMobileLibrary from "@/components/fathers-mobile-library";
 import SectionHeading from "@/components/section-heading";
 import { fathersLibrary } from "@/lib/content";
 
 export default function FathersPage() {
   return (
     <>
-      <AppHeader />
-      <main className="mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:px-12">
+      <FathersMobileLibrary fathers={fathersLibrary} />
+
+      <div className="hidden lg:block">
+        <AppHeader />
+      </div>
+      <main className="hidden lg:block mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:px-12">
         <SectionHeading
           eyebrow="Church Fathers"
           title="Patristic texts are now organized as a full-text library."
