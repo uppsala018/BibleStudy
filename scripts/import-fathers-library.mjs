@@ -530,6 +530,66 @@ const libraryConfig = [
       makeSingleWork("de-viris-illustribus", "De Viris Illustribus", "jerome-de-viris-illustribus.html", "2708", "392", "A catalogue of illustrious Christian writers and one of the key early sources for patristic literary history."),
     ],
   },
+  {
+    slug: "ambrose",
+    name: "Ambrose",
+    era: "c. 340-397",
+    region: "Milan",
+    tradition: "Latin Father and Doctor",
+    stream: "catholic",
+    studyTracks: ["catholic", "orthodox", "protestant"],
+    summary:
+      "Ambrose of Milan was a bishop, preacher, theologian, and pastor whose writings shaped Western teaching on the Trinity, sacraments, repentance, clerical life, ascetic devotion, and public Christian leadership.",
+    bio:
+      "Ambrose stands at the heart of fourth-century Latin Christianity. As bishop of Milan he instructed Augustine, opposed Arian pressure, shaped sacramental catechesis, and gave the Western Church enduring works on faith, the Holy Spirit, repentance, ministry, and holy living.",
+    themes: ["trinity", "holy-spirit", "sacraments", "repentance", "pastoral-leadership", "asceticism"],
+    works: [
+      makeSeriesWork("on-the-christian-faith", "On the Christian Faith", sourceFilesFromIndex("ambrose-on-christian-faith-", "ambrose-on-christian-faith.html", ["3404.htm"]), "3404", "4th century", "A major Nicene defense of the Son's divinity against Arian teaching."),
+      makeSeriesWork("on-the-holy-spirit", "On the Holy Spirit", sourceFilesFromIndex("ambrose-on-holy-spirit-", "ambrose-on-holy-spirit.html", ["3402.htm"]), "3402", "4th century", "Ambrose's defense of the divinity and worship of the Holy Spirit."),
+      makeSingleWork("on-the-mysteries", "On the Mysteries", "ambrose-on-mysteries.html", "3405", "4th century", "A classic mystagogical explanation of baptism, chrismation, Eucharist, and sacramental initiation."),
+      makeSeriesWork("on-repentance", "On Repentance", sourceFilesFromIndex("ambrose-on-repentance-", "ambrose-on-repentance.html", ["3406.htm"]), "3406", "4th century", "A pastoral and doctrinal work on sin, mercy, penitence, and restoration."),
+      makeSeriesWork("on-the-duties-of-the-clergy", "On the Duties of the Clergy", sourceFilesFromIndex("ambrose-on-duties-clergy-", "ambrose-on-duties-clergy.html", ["3401.htm"]), "3401", "4th century", "A major pastoral ethics text for clergy on virtue, prudence, justice, courage, and ministry."),
+      makeSeriesWork("concerning-virgins", "Concerning Virgins", sourceFilesFromIndex("ambrose-concerning-virgins-", "ambrose-concerning-virgins.html", ["3407.htm"]), "3407", "4th century", "Ambrose's ascetical teaching on consecrated virginity and holiness."),
+      makeSingleWork("concerning-widows", "Concerning Widows", "ambrose-concerning-widows.html", "3408", "4th century", "A pastoral work on widowhood, continence, faithfulness, and Christian vocation."),
+      makeSeriesWork("on-the-death-of-satyrus", "On the Death of Satyrus", sourceFilesFromIndex("ambrose-death-satyrus-", "ambrose-death-satyrus.html", ["3403.htm"]), "3403", "4th century", "Ambrose's funeral orations for his brother, reflecting on grief, resurrection, and Christian hope."),
+      makeSeriesWork("letters", "Letters", sourceFilesFromIndex("ambrose-letters-", "ambrose-letters.html", ["3409.htm"]), "3409", "4th century", "Selected letters showing Ambrose's pastoral, doctrinal, and public leadership."),
+    ],
+  },
+  {
+    slug: "leo-great",
+    name: "Leo the Great",
+    era: "c. 400-461",
+    region: "Rome",
+    tradition: "Latin Father and Doctor",
+    stream: "catholic",
+    studyTracks: ["catholic", "orthodox", "protestant"],
+    summary:
+      "Leo the Great was bishop of Rome, a major preacher, and a defining Christological voice at Chalcedon through his Tome and wider correspondence.",
+    bio:
+      "Leo's sermons and letters show fifth-century pastoral theology, liturgical preaching, papal leadership, and Christological precision. His Tome to Flavian became central to Chalcedon's confession of Christ as one person in two natures.",
+    themes: ["christology", "chalcedon", "preaching", "papacy", "liturgy", "pastoral-care"],
+    works: [
+      makeSeriesWork("sermons", "Sermons", sourceFilesFromIndex("leo-sermons-", "leo-sermons.html", ["3603.htm"]), "3603", "5th century", "Leo's liturgical and pastoral sermons on feasts, fasting, almsgiving, Christology, and Christian life."),
+      makeSeriesWork("letters", "Letters", sourceFilesFromIndex("leo-letters-", "leo-letters.html", ["3604.htm"]), "3604", "5th century", "Leo's ecclesiastical and doctrinal correspondence, including Letter 28, the Tome to Flavian."),
+    ],
+  },
+  {
+    slug: "john-damascus",
+    name: "John of Damascus",
+    era: "c. 675-749",
+    region: "Damascus and Mar Saba",
+    tradition: "Eastern Father and Doctor",
+    stream: "orthodox",
+    studyTracks: ["orthodox", "catholic"],
+    summary:
+      "John of Damascus synthesized patristic theology for the Byzantine tradition and is especially important for Orthodox doctrine, Christology, icons, sacraments, and the confession of the faith.",
+    bio:
+      "John of Damascus wrote near the end of the patristic age. His Exposition of the Orthodox Faith gathers earlier Greek theology into a structured account of God, creation, Christ, salvation, sacraments, icons, and the Christian life.",
+    themes: ["orthodox-faith", "trinity", "christology", "icons", "sacraments", "patristic-synthesis"],
+    works: [
+      makeSeriesWork("exposition-of-the-orthodox-faith", "Exposition of the Orthodox Faith", sourceFilesFromIndex("john-damascus-exposition-faith-", "john-damascus-exposition-faith.html", ["3304.htm"]), "3304", "8th century", "A structured synthesis of Greek patristic doctrine on God, creation, Christ, worship, sacraments, and the Christian confession."),
+    ],
+  },
 ];
 
 function makeSingleWork(slug, title, fileName, sourceId, yearLabel, summary) {
