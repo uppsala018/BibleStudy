@@ -13,9 +13,19 @@ const homeCards = [
     icon: "☩",
   },
   {
+    title: "Catholic Resources",
+    href: "/library/catholic/resources",
+    icon: "✦",
+  },
+  {
     title: "Orthodox Resources",
     href: "/library/orthodox",
     icon: "IC XC",
+  },
+  {
+    title: "Protestant Resources",
+    href: "/library/protestant/resources",
+    icon: "✤",
   },
   {
     title: "Early Church Fathers",

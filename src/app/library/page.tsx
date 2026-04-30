@@ -9,6 +9,12 @@ const modules = [
       "Open a Protestant-focused hub for the KJV reader, Strong's study, and Reformation-related history.",
   },
   {
+    title: "Protestant Resources",
+    href: "/library/protestant/resources",
+    summary:
+      "Navigate Protestant Scripture study, reformers, confessions, history, and shared ancient sources.",
+  },
+  {
     title: "Protestant Figures",
     href: "/library/protestant/figures",
     summary:
@@ -31,6 +37,12 @@ const modules = [
     href: "/library/catholic",
     summary:
       "Read the full Douay-Rheims canon with chapter search, bookmarks, notes, and catechism-linked companion studies.",
+  },
+  {
+    title: "Catholic Resources",
+    href: "/library/catholic/resources",
+    summary:
+      "Navigate Catholic Bible, catechesis, liturgy, saints, councils, and source-safe official resources.",
   },
   {
     title: "Roman Catechism",
