@@ -262,7 +262,7 @@ img {
   position: relative;
   display: grid;
   gap: 1.05rem;
-  padding: 1.4rem 1.15rem 1rem 4.7rem;
+  padding: 1.4rem 1.35rem 1rem 4.55rem;
 }
 
 .councils-timeline::before {
@@ -314,8 +314,8 @@ img {
 
 .council-card {
   display: grid;
-  grid-template-columns: 5.9rem 1fr;
-  gap: 1rem;
+  grid-template-columns: 4.7rem 1fr;
+  gap: 0.8rem;
   border: 1.5px solid rgba(229, 197, 122, 0.64);
   border-radius: 1.45rem;
   background:
@@ -324,15 +324,15 @@ img {
   box-shadow:
     inset 0 0 24px rgba(45, 91, 143, 0.2),
     0 14px 28px rgba(0, 0, 0, 0.2);
-  padding: 1rem;
+  padding: 0.85rem;
 }
 
 .council-card__icon {
-  min-height: 6rem;
+  min-height: 5rem;
   display: grid;
   place-items: center;
   color: var(--color-highlight);
-  font-size: 4.15rem;
+  font-size: 3.25rem;
   line-height: 1;
   text-shadow: 0 3px 0 rgba(0, 0, 0, 0.26);
 }
@@ -349,7 +349,7 @@ img {
   margin: 0.18rem 0 0;
   color: var(--color-highlight);
   font-family: var(--font-display), serif;
-  font-size: clamp(1.75rem, 7.2vw, 2.9rem);
+  font-size: clamp(1.55rem, 6.1vw, 2.35rem);
   font-weight: 600;
   line-height: 1;
 }
@@ -360,7 +360,7 @@ img {
   margin: 0.65rem 0 0;
   padding: 0;
   color: var(--color-ink);
-  font-size: 1rem;
+  font-size: 0.94rem;
   line-height: 1.22;
   list-style: none;
 }
