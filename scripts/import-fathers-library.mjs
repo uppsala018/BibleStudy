@@ -168,6 +168,29 @@ const libraryConfig = [
     ],
   },
   {
+    slug: "tertullian",
+    name: "Tertullian",
+    era: "c. 155-220",
+    region: "Carthage",
+    tradition: "Latin Ante-Nicene Father",
+    stream: "shared",
+    studyTracks: sharedTracks,
+    summary:
+      "Tertullian was an early Latin theologian and apologist whose writings shaped Christian vocabulary on apologetics, baptism, prayer, Christology, resurrection, and the Trinity.",
+    bio:
+      "Tertullian wrote from North Africa at the turn of the third century. His works are vigorous, legal-minded, and polemical, making him essential for studying early Latin Christianity, martyr witness, heresy, sacramental practice, and the Church's developing theological language.",
+    themes: ["apologetics", "baptism", "prayer", "trinity", "christology", "resurrection"],
+    works: [
+      makeSingleWork("apology", "Apology", "tertullian-apology.html", "0301", "c. 197", "A defense of Christians before Roman authorities, arguing against popular slanders and for the moral and public integrity of Christian life."),
+      makeSingleWork("prescription-against-heretics", "Prescription against Heretics", "tertullian-prescription-against-heretics.html", "0311", "c. 200", "A classic argument that apostolic teaching and public church succession expose the novelty of heretical claims."),
+      makeSingleWork("on-baptism", "On Baptism", "tertullian-on-baptism.html", "0321", "late 2nd-early 3rd century", "An early Latin treatise on baptism, water, faith, preparation, and the Church's sacramental practice."),
+      makeSingleWork("on-prayer", "On Prayer", "tertullian-on-prayer.html", "0322", "late 2nd-early 3rd century", "A practical and theological exposition of the Lord's Prayer and Christian discipline in prayer."),
+      makeSingleWork("on-the-flesh-of-christ", "On the Flesh of Christ", "tertullian-on-the-flesh-of-christ.html", "0315", "early 3rd century", "A defense of the real incarnation and true flesh of Christ against docetic and speculative Christologies."),
+      makeSingleWork("on-the-resurrection-of-the-flesh", "On the Resurrection of the Flesh", "tertullian-on-the-resurrection-of-the-flesh.html", "0316", "early 3rd century", "A substantial defense of bodily resurrection and the goodness of embodied salvation."),
+      makeSingleWork("against-praxeas", "Against Praxeas", "tertullian-against-praxeas.html", "0317", "early 3rd century", "A major early Latin witness to Trinitarian language against modalism, including Tertullian's distinction between person and substance."),
+    ],
+  },
+  {
     slug: "athanasius",
     name: "Athanasius",
     era: "c. 296-373",

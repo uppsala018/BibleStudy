@@ -25,10 +25,12 @@ function classifyFather(father: FatherProfile) {
 
   if (
     name.includes("irenaeus") ||
+    name.includes("tertullian") ||
     era.includes("1st") ||
     era.includes("2nd") ||
     era.includes("100") ||
     era.includes("165") ||
+    era.includes("220") ||
     era.includes("202")
   ) {
     return "Ante-Nicene";
