@@ -16,6 +16,10 @@ External resources referenced in the Protestant library:
 - https://www.ccel.org/creeds/westminster-shorter-cat.html
 - https://www.ccel.org/creeds/bcf.htm
 - https://www.gutenberg.org/ebooks/1670
+- https://www.gutenberg.org/ebooks/274
+- https://www.gutenberg.org/ebooks/45001
+- https://www.gutenberg.org/ebooks/45002
+- https://www.gutenberg.org/ebooks/45003
 - https://www.coreknowledge.org/free-resource/ckhg-unit-05-reformation/
 - https://www.gordonconwell.edu/center-for-global-christianity/resources/status-of-global-christianity/
 - https://www.azusastreet.org/
@@ -29,3 +33,4 @@ Build intent:
 - Keep the Protestant section free-resource based.
 - Distinguish historical Protestant families from modern independent and Pentecostal bodies.
 - Use route-backed internal study pages rather than a single summary hub.
+- Build Protestant figure profiles with internal primary-text readings, following the same model as the Fathers section.

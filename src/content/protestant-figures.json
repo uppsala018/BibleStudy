@@ -1,0 +1,369 @@
+[
+  {
+    "slug": "martin-luther",
+    "name": "Martin Luther",
+    "era": "1483-1546",
+    "region": "Wittenberg and the German lands",
+    "tradition": "Lutheran Reformation",
+    "summary": "Augustinian friar, biblical lecturer, reformer, translator, and catechist whose challenge to indulgence preaching became the public beginning of the Protestant Reformation.",
+    "bio": "Martin Luther began as an Augustinian monk and professor of Scripture. His theology developed around repentance, the promise of the gospel, justification by faith, and the authority of Scripture over abusive ecclesial practice. He was not merely a protest figure; he was also a pastor, translator, preacher, hymn writer, and catechist whose work shaped Lutheran worship and household instruction.",
+    "themes": [
+      "justification",
+      "repentance",
+      "Scripture",
+      "catechesis",
+      "sacraments"
+    ],
+    "works": [
+      {
+        "slug": "ninety-five-theses",
+        "title": "Disputation on the Power and Efficacy of Indulgences",
+        "shortTitle": "The 95 Theses",
+        "yearLabel": "1517",
+        "source": "Project Gutenberg eBook #274",
+        "sourceUrl": "https://www.gutenberg.org/ebooks/274",
+        "summary": "Luther's public disputation against indulgence preaching. The text centers on repentance, papal authority, purgatory, works of mercy, and the difference between true Christian confidence and false assurance bought by letters of pardon.",
+        "sections": [
+          {
+            "id": "theses-1-20",
+            "title": "Theses 1-20: Repentance, penalty, and papal jurisdiction",
+            "citation": "Theses 1-20",
+            "paragraphs": [
+              "1. Our Lord and Master Jesus Christ, when He said Poenitentiam agite, willed that the whole life of believers should be repentance.",
+              "2. This word cannot be understood to mean sacramental penance, i.e., confession and satisfaction, which is administered by the priests.",
+              "3. Yet it means not inward repentance only; nay, there is no inward repentance which does not outwardly work divers mortifications of the flesh.",
+              "4. The penalty [of sin], therefore, continues so long as hatred of self continues; for this is the true inward repentance, and continues until our entrance into the kingdom of heaven.",
+              "5. The pope does not intend to remit, and cannot remit any penalties other than those which he has imposed either by his own authority or by that of the Canons.",
+              "6. The pope cannot remit any guilt, except by declaring that it has been remitted by God and by assenting to God's remission; though, to be sure, he may grant remission in cases reserved to his judgment. If his right to grant remission in such cases were despised, the guilt would remain entirely unforgiven.",
+              "7. God remits guilt to no one whom He does not, at the same time, humble in all things and bring into subjection to His vicar, the priest. 8. The penitential canons are imposed only on the living, and, according to them, nothing should be imposed on the dying.",
+              "9. Therefore the Holy Spirit in the pope is kind to us, because in his decrees he always makes exception of the article of death and of necessity.",
+              "10. Ignorant and wicked are the doings of those priests who, in the case of the dying, reserve canonical penances for purgatory.",
+              "11. This changing of the canonical penalty to the penalty of purgatory is quite evidently one of the tares that were sown while the bishops slept.",
+              "12. In former times the canonical penalties were imposed not after, but before absolution, as tests of true contrition.",
+              "13. The dying are freed by death from all penalties; they are already dead to canonical rules, and have a right to be released from them.",
+              "14. The imperfect health [of soul], that is to say, the imperfect love, of the dying brings with it, of necessity, great fear; and the smaller the love, the greater is the fear.",
+              "15. This fear and horror is sufficient of itself alone (to say nothing of other things) to constitute the penalty of purgatory, since it is very near to the horror of despair.",
+              "16. Hell, purgatory, and heaven seem to differ as do despair, almost-despair, and the assurance of safety.",
+              "17. With souls in purgatory it seems necessary that horror should grow less and love increase.",
+              "18. It seems unproved, either by reason or Scripture, that they are outside the state of merit, that is to say, of increasing love.",
+              "19. Again, it seems unproved that they, or at least that all of them, are certain or assured of their own blessedness, though we may be quite certain of it.",
+              "20. Therefore by \"full remission of all penalties\" the pope means not actually \"of all,\" but only of those imposed by himself."
+            ]
+          },
+          {
+            "id": "theses-21-40",
+            "title": "Theses 21-40: Indulgence preaching and true contrition",
+            "citation": "Theses 21-40",
+            "paragraphs": [
+              "21. Therefore those preachers of indulgences are in error, who say that by the pope's indulgences a man is freed from every penalty, and saved;",
+              "22. Whereas he remits to souls in purgatory no penalty which, according to the canons, they would have had to pay in this life. 23. If it is at all possible to grant to any one the remission of all penalties whatsoever, it is certain that this remission can be granted only to the most perfect, that is, to the very fewest.",
+              "24. It must needs be, therefore, that the greater part of the people are deceived by that indiscriminate and highsounding promise of release from penalty.",
+              "25. The power which the pope has, in a general way, over purgatory, is just like the power which any bishop or curate has, in a special way, within his own diocese or parish.",
+              "26. The pope does well when he grants remission to souls [in purgatory], not by the power of the keys (which he does not possess), but by way of intercession.",
+              "27. They preach man who say that so soon as the penny jingles into the money-box, the soul flies out [of purgatory].",
+              "28. It is certain that when the penny jingles into the money-box, gain and avarice can be increased, but the result of the intercession of the Church is in the power of God alone.",
+              "29. Who knows whether all the souls in purgatory wish to be bought out of it, as in the legend of Sts. Severinus and Paschal.",
+              "30. No one is sure that his own contrition is sincere; much less that he has attained full remission.",
+              "31. Rare as is the man that is truly penitent, so rare is also the man who truly buys indulgences, i.e., such men are most rare.",
+              "32. They will be condemned eternally, together with their teachers, who believe themselves sure of their salvation because they have letters of pardon.",
+              "33. Men must be on their guard against those who say that the pope's pardons are that inestimable gift of God by which man is reconciled to Him;",
+              "34. For these \"graces of pardon\" concern only the penalties of sacramental satisfaction, and these are appointed by man.",
+              "35. They preach no Christian doctrine who teach that contrition is not necessary in those who intend to buy souls out of purgatory or to buy confessionalia.",
+              "36. Every truly repentant Christian has a right to full remission of penalty and guilt, even without letters of pardon.",
+              "37. Every true Christian, whether living or dead, has part in all the blessings of Christ and the Church; and this is granted him by God, even without letters of pardon.",
+              "38. Nevertheless, the remission and participation [in the blessings of the Church] which are granted by the pope are in no way to be despised, for they are, as I have said, the declaration of divine remission.",
+              "39. It is most difficult, even for the very keenest theologians, at one and the same time to commend to the people the abundance of pardons and [the need of] true contrition.",
+              "40. True contrition seeks and loves penalties, but liberal pardons only relax penalties and cause them to be hated, or at least, furnish an occasion [for hating them]."
+            ]
+          },
+          {
+            "id": "theses-41-60",
+            "title": "Theses 41-60: Works of mercy, Peter's basilica, and the treasure of the Church",
+            "citation": "Theses 41-60",
+            "paragraphs": [
+              "41. Apostolic pardons are to be preached with caution, lest the people may falsely think them preferable to other good works of love.",
+              "42. Christians are to be taught that the pope does not intend the buying of pardons to be compared in any way to works of mercy.",
+              "43. Christians are to be taught that he who gives to the poor or lends to the needy does a better work than buying pardons;",
+              "44. Because love grows by works of love, and man becomes better; but by pardons man does not grow better, only more free from penalty.",
+              "45. Christians are to be taught that he who sees a man in need, and passes him by, and gives [his money] for pardons, purchases not the indulgences of the pope, but the indignation of God.",
+              "46. Christians are to be taught that unless they have more than they need, they are bound to keep back what is necessary for their own families, and by no means to squander it on pardons.",
+              "47. Christians are to be taught that the buying of pardons is a matter of free will, and not of commandment.",
+              "48. Christians are to be taught that the pope, in granting pardons, needs, and therefore desires, their devout prayer for him more than the money they bring.",
+              "49. Christians are to be taught that the pope's pardons are useful, if they do not put their trust in them; but altogether harmful, if through them they lose their fear of God.",
+              "50. Christians are to be taught that if the pope knew the exactions of the pardon-preachers, he would rather that St. Peter's church should go to ashes, than that it should be built up with the skin, flesh and bones of his sheep.",
+              "51. Christians are to be taught that it would be the pope's wish, as it is his duty, to give of his own money to very many of those from whom certain hawkers of pardons cajole money, even though the church of St. Peter might have to be sold.",
+              "52. The assurance of salvation by letters of pardon is vain, even though the commissary, nay, even though the pope himself, were to stake his soul upon it.",
+              "53. They are enemies of Christ and of the pope, who bid the Word of God be altogether silent in some Churches, in order that pardons may be preached in others.",
+              "54. Injury is done the Word of God when, in the same sermon, an equal or a longer time is spent on pardons than on this Word.",
+              "55. It must be the intention of the pope that if pardons, which are a very small thing, are celebrated with one bell, with single processions and ceremonies, then the Gospel, which is the very greatest thing, should be preached with a hundred bells, a hundred processions, a hundred ceremonies.",
+              "56. The \"treasures of the Church,\" out of which the pope grants indulgences, are not sufficiently named or known among the people of Christ.",
+              "57. That they are not temporal treasures is certainly evident, for many of the vendors do not pour out such treasures so easily, but only gather them.",
+              "58. Nor are they the merits of Christ and the Saints, for even without the pope, these always work grace for the inner man, and the cross, death, and hell for the outward man.",
+              "59. St. Lawrence said that the treasures of the Church were the Church's poor, but he spoke according to the usage of the word in his own time.",
+              "60. Without rashness we say that the keys of the Church, given by Christ's merit, are that treasure;"
+            ]
+          },
+          {
+            "id": "theses-61-80",
+            "title": "Theses 61-80: The gospel, the cross, and the questions of the laity",
+            "citation": "Theses 61-80",
+            "paragraphs": [
+              "61. For it is clear that for the remission of penalties and of reserved cases, the power of the pope is of itself sufficient.",
+              "62. The true treasure of the Church is the Most Holy Gospel of the glory and the grace of God.",
+              "63. But this treasure is naturally most odious, for it makes the first to be last.",
+              "64. On the other hand, the treasure of indulgences is naturally most acceptable, for it makes the last to be first.",
+              "65. Therefore the treasures of the Gospel are nets with which they formerly were wont to fish for men of riches.",
+              "66. The treasures of the indulgences are nets with which they now fish for the riches of men.",
+              "67. The indulgences which the preachers cry as the \"greatest graces\" are known to be truly such, in so far as they promote gain.",
+              "68. Yet they are in truth the very smallest graces compared with the grace of God and the piety of the Cross.",
+              "69. Bishops and curates are bound to admit the commissaries of apostolic pardons, with all reverence.",
+              "70. But still more are they bound to strain all their eyes and attend with all their ears, lest these men preach their own dreams instead of the commission of the pope.",
+              "71. He who speaks against the truth of apostolic pardons, let him be anathema and accursed!",
+              "72. But he who guards against the lust and license of the pardon-preachers, let him be blessed!",
+              "73. The pope justly thunders against those who, by any art, contrive the injury of the traffic in pardons.",
+              "74. But much more does he intend to thunder against those who use the pretext of pardons to contrive the injury of holy love and truth.",
+              "75. To think the papal pardons so great that they could absolve a man even if he had committed an impossible sin and violated the Mother of God--this is madness.",
+              "76. We say, on the contrary, that the papal pardons are not able to remove the very least of venial sins, so far as its guilt is concerned.",
+              "77. It is said that even St. Peter, if he were now Pope, could not bestow greater graces; this is blasphemy against St. Peter and against the pope.",
+              "78. We say, on the contrary, that even the present pope, and any pope at all, has greater graces at his disposal; to wit, the Gospel, powers, gifts of healing, etc., as it is written in I. Corinthians xii.",
+              "79. To say that the cross, emblazoned with the papal arms, which is set up [by the preachers of indulgences], is of equal worth with the Cross of Christ, is blasphemy.",
+              "80. The bishops, curates and theologians who allow such talk to be spread among the people, will have an account to render. 81. This unbridled preaching of pardons makes it no easy matter, even for learned men, to rescue the reverence due to the pope from slander, or even from the shrewd questionings of the laity."
+            ]
+          },
+          {
+            "id": "theses-81-95",
+            "title": "Theses 81-95: Final objections and the theology of the cross",
+            "citation": "Theses 81-95",
+            "paragraphs": [
+              "82. To wit:--\"Why does not the pope empty purgatory, for the sake of holy love and of the dire need of the souls that are there, if he redeems an infinite number of souls for the sake of miserable money with which to build a Church? The former reasons would be most just; the latter is most trivial.\"",
+              "83. Again:--\"Why are mortuary and anniversary masses for the dead continued, and why does he not return or permit the withdrawal of the endowments founded on their behalf, since it is wrong to pray for the redeemed?\"",
+              "84. Again:--\"What is this new piety of God and the pope, that for money they allow a man who is impious and their enemy to buy out of purgatory the pious soul of a friend of God, and do not rather, because of that pious and beloved soul's own need, free it for pure love's sake?\"",
+              "85. Again:--\"Why are the penitential canons long since in actual fact and through disuse abrogated and dead, now satisfied by the granting of indulgences, as though they were still alive and in force?\"",
+              "86. Again:--\"Why does not the pope, whose wealth is to-day greater than the riches of the richest, build just this one church of St. Peter with his own money, rather than with the money of poor believers?\"",
+              "87. Again:--\"What is it that the pope remits, and what participation does he grant to those who, by perfect contrition, have a right to full remission and participation?\"",
+              "88. Again:--\"What greater blessing could come to the Church than if the pope were to do a hundred times a day what he now does once, and bestow on every believer these remissions and participations?\"",
+              "89. \"Since the pope, by his pardons, seeks the salvation of souls rather than money, why does he suspend the indulgences and pardons granted heretofore, since these have equal efficacy?\"",
+              "90. To repress these arguments and scruples of the laity by force alone, and not to resolve them by giving reasons, is to expose the Church and the pope to the ridicule of their enemies, and to make Christians unhappy.",
+              "91. If, therefore, pardons were preached according to the spirit and mind of the pope, all these doubts would be readily resolved; nay, they would not exist.",
+              "92. Away, then, with all those prophets who say to the people of Christ, \"Peace, peace,\" and there is no peace!",
+              "93. Blessed be all those prophets who say to the people of Christ, \"Cross, cross,\" and there is no cross!",
+              "94. Christians are to be exhorted that they be diligent in following Christ, their Head, through penalties, deaths, and hell;",
+              "95. And thus be confident of entering into heaven rather through many tribulations, than through the assurance of peace."
+            ]
+          }
+        ],
+        "stats": {
+          "sectionCount": 5,
+          "paragraphCount": 92
+        }
+      },
+      {
+        "slug": "large-catechism",
+        "title": "The Large Catechism",
+        "shortTitle": "Large Catechism",
+        "yearLabel": "1529",
+        "source": "Project Gutenberg eBook #1670",
+        "sourceUrl": "https://www.gutenberg.org/ebooks/1670",
+        "summary": "Luther's extended pastoral exposition of the commandments, creed, Lord's Prayer, baptism, confession, and the Lord's Supper. It shows Protestant theology as catechesis and household formation, not only controversy.",
+        "sections": [
+          {
+            "id": "commandments",
+            "title": "The Ten Commandments",
+            "citation": null,
+            "paragraphs": [
+              "I. The Ten Commandments The Simple Way a Father Should Present Them to His Household",
+              "The First Commandment",
+              "You must not have other gods. (Exodus 20:3)",
+              "What does this mean?",
+              "We must fear, love, and trust God more than anything else.",
+              "The Second Commandment",
+              "You must not misuse your God's name. (Exodus 20:7)",
+              "What does this mean?",
+              "We must fear and love God, so that we will not use His name to curse, swear, cast a spell, lie or deceive, but will use it to call upon Him, pray to Him, praise Him and thank Him in all times of trouble.",
+              "The Third Commandment",
+              "You must keep the Sabbath holy. (Exodus 20:8)",
+              "What does this mean?",
+              "We must fear and love God, so that we will not look down on preaching or God's Word, but consider it holy, listen to it willingly, and learn it.",
+              "The Fourth Commandment",
+              "You must honor your father and mother. [So that things will go well for you and you will live long on earth]. (Exodus 20:12)",
+              "What does this mean?",
+              "We must fear and love God, so that we will neither look down on our parents or superiors nor irritate them, but will honor them, serve them, obey them, love them and value them.",
+              "The Fifth Commandment",
+              "You must not kill. (Exodus 20:13)",
+              "What does this mean?",
+              "We must fear and love God, so that we will neither harm nor hurt our neighbor's body, but help him and care for him when he is ill.",
+              "The Sixth Commandment",
+              "You must not commit adultery. (Exodus 20:14)",
+              "What does this mean?",
+              "We must fear and love God, so that our words and actions will be clean and decent and so that everyone will love and honor their spouses.",
+              "The Seventh Commandment",
+              "You must not steal. (Exodus 20:15)",
+              "What does this mean?",
+              "We must fear and love God, so that we will neither take our neighbor's money or property, nor acquire it by fraud or by selling him poorly made products, but will help him improve and protect his property and career.",
+              "The Eighth Commandment",
+              "You must not tell lies about your neighbor. (Exodus 20:16 )",
+              "What does this mean?",
+              "We must fear and love God, so that we will not deceive by lying, betraying, slandering or ruining our neighbor's reputation, but will defend him, say good things about him, and see the best side of"
+            ]
+          },
+          {
+            "id": "creed",
+            "title": "The Creed",
+            "citation": null,
+            "paragraphs": [
+              "II. The Creed The Simple Way a Father Should Present it to His Household",
+              "The First Article On Creation",
+              "I believe in God the Almighty Father, Creator of Heaven and Earth.",
+              "What does this mean?",
+              "I believe that God created me, along with all creatures. He gave to me: my body and soul, my eyes, ears and all the other parts of my body, my mind and all my senses. He preserves them as well. He gives me clothing and shoes, food and drink, house and land, wife and children, fields, animals and all I own. Every day He abundantly provides everything I need to nourish this body and life. He protects me against all danger. he shields and defends me from all evil. He does all this because of His pure, fatherly and divine goodness and His mercy, not because I've earned it or deserved it. For all of this, I must thank Him, praise Him, serve Him and obey Him. Yes, this is true!",
+              "The Second Article On Redemption",
+              "And in Jesus Christ, His only Son, our Lord, Who was conceived by the Holy Spirit, born of the Virgin Mary, suffered under Pontius Pilate, was crucified, died and was buried, descended to Hell, on the third day rose again from the dead, ascended to Heaven and sat down at the right hand of God the Almighty Father. From there He will come to judge the living and the dead.",
+              "What does this mean?",
+              "I believe that Jesus Christ is truly God, born of the Father in eternity and also truly man, born of the Virgin Mary. He is my Lord! He redeemed me, a lost and condemned person, bought and won me from all sins, death and the authority of the Devil. It did not cost Him gold or silver, but His holy, precious blood, His innocent body--His death! Because of this, I am His very own, will live under Him in His kingdom and serve Him righteously, innocently and blessedly forever, just as He is risen from death, lives and reigns forever. Yes, this is true.",
+              "The Third Article On Becoming Holy",
+              "I believe in the Holy Spirit, the holy Christian Church, the community of the saints, the forgiveness of sins, the resurrection of the body, and an everlasting life. Amen.",
+              "What does this mean?",
+              "I believe that I cannot come to my Lord Jesus Christ by my own intelligence or power. But the Holy Spirit called me by the Gospel, enlightened me with His gifts, made me holy and kept me in the true faith, just as He calls, gathers together, enlightens and makes holy the whole Church on earth and keeps it with Jesus in the one, true faith. In this Church, He generously forgives each day every sin committed by me and by every believer. On the last day, He will raise me and all the dead from the grave. He will give eternal life to me and to all who believe in Christ. Yes, this is true!",
+              "III. The Our Father The Simple Way a Father Should Present it to His Household",
+              "Introduction",
+              "Our Father, Who is in Heaven. (Matthew 6:9)",
+              "What does this mean?",
+              "In this introduction, God invites us to believe that He is our real Father and we are His real children, so that we will pray with trust and complete confidence, in the same way beloved children approach their beloved Father with their requests.",
+              "The First Request",
+              "May Your name be holy. (Matthew 6:9)",
+              "What does this mean?",
+              "Of course, God's name is holy in and of itself, but by this request, we pray that He will make it holy among us, too.",
+              "How does this take place?",
+              "It happens when God's Word is taught clearly and purely, and when we live holy lives as God's children based upon it. Help us, Heavenly Father, to do this! But anyone who teaches and lives by something other than God's Word defiles God's name among us. Protect us from this,"
+            ]
+          }
+        ],
+        "stats": {
+          "sectionCount": 2,
+          "paragraphCount": 57
+        }
+      }
+    ]
+  },
+  {
+    "slug": "john-calvin",
+    "name": "John Calvin",
+    "era": "1509-1564",
+    "region": "Geneva, France, and the Reformed churches",
+    "tradition": "Reformed Protestantism",
+    "summary": "French reformer and theologian whose Institutes gave Reformed Protestantism a systematic account of God, Scripture, Christ, grace, church order, sacraments, and Christian life.",
+    "bio": "John Calvin was a second-generation reformer whose influence came through preaching, ecclesial discipline, biblical commentary, and theological synthesis. His Institutes of the Christian Religion became one of the defining works of Reformed theology, arranging Protestant doctrine around knowledge of God, redemption in Christ, participation in grace, and the outward means by which God gathers the church.",
+    "themes": [
+      "sovereignty",
+      "Scripture",
+      "union with Christ",
+      "faith",
+      "church discipline"
+    ],
+    "works": [
+      {
+        "slug": "institutes-book-one",
+        "title": "Institutes of the Christian Religion, Book I",
+        "shortTitle": "Institutes Book I",
+        "yearLabel": "1559 edition",
+        "source": "Project Gutenberg eBook #45001",
+        "sourceUrl": "https://www.gutenberg.org/ebooks/45001",
+        "summary": "Calvin opens the Institutes by joining the knowledge of God to the knowledge of ourselves. The work then develops creation, Scripture, providence, idolatry, and the doctrine of the Trinity.",
+        "sections": [
+          {
+            "id": "knowledge-of-god-and-self",
+            "title": "Book I, Chapter I: The Knowledge of God and the Knowledge of Ourselves",
+            "citation": null,
+            "paragraphs": [
+              "Chapter I. The Connection Between The Knowledge Of God And The Knowledge Of Ourselves.",
+              "True and substantial wisdom principally consists of two parts, the knowledge of God, and the knowledge of ourselves. But, while these two branches of knowledge are so intimately connected, which of them precedes and produces the other, is not easy to discover. For, in the first place, no man can take a survey of himself but he must immediately turn to the contemplation of God, in whom he “lives and moves;”(61) since it is evident that the talents which we possess are not from ourselves, and that our very existence is nothing but a subsistence in God alone. These bounties, distilling to us by drops from heaven, form, as it were, so many streams conducting us to the fountain‐head. Our poverty conduces to a clearer display of the infinite fulness of God. Especially, the miserable ruin, into which we have been plunged by the defection of the first man, compels us to raise our eyes towards heaven, not only as hungry and famished, to seek thence a supply for our wants, but, aroused with fear, to learn humility. For, since man is subject to a world of miseries, and has been spoiled of his divine array, this melancholy exposure discovers an immense mass of deformity: every one, therefore, must be so impressed with a consciousness of his own infelicity, as to arrive at some knowledge of God. Thus a sense of our ignorance, vanity, poverty, infirmity, depravity, and corruption, leads us to perceive and acknowledge that in the Lord alone are to be found true wisdom, solid strength, perfect goodness, and unspotted righteousness; and so, by our imperfections, we are excited to a consideration of the perfections of God. Nor can we really aspire toward him, till we have begun to be displeased with ourselves. For who would not gladly rest satisfied with himself? where is the man not actually absorbed in self‐complacency, while he remains unacquainted with his true situation, or content with his own endowments, and ignorant or forgetful of his own misery? The knowledge of ourselves, therefore, is not only an incitement to seek after God, but likewise a considerable assistance towards finding him.",
+              "II. On the other hand, it is plain that no man can arrive at the true knowledge of himself, without having first contemplated the divine character, and then descended to the consideration of his own. For, such is the native pride of us all, we invariably esteem ourselves righteous, innocent, wise, and holy, till we are convinced, by clear proofs, of our unrighteousness, turpitude, folly, and impurity. But we are never thus convinced, while we confine our attention to ourselves, and regard not the Lord, who is the only standard by which this judgment ought to be formed. Because, from our natural proneness to hypocrisy, any vain appearance of righteousness abundantly contents us instead of the reality; and, every thing within and around us being exceedingly defiled, we are delighted with what is least so, as extremely pure, while we confine our reflections within the limits of human corruption. So the eye, accustomed to see nothing but black, judges that to be very white, which is but whitish, or perhaps brown. Indeed, the senses of our bodies may assist us in discovering how grossly we err in estimating the powers of the soul. For if at noon‐day we look either on the ground, or at any surrounding objects, we conclude our vision to be very strong and piercing; but when we raise our eyes and steadily look at the sun, they are at once dazzled and confounded with such a blaze of brightness, and we are constrained to confess, that our sight, so piercing in viewing terrestrial things, when directed to the sun, is dimness itself. Thus also it happens in the consideration of our spiritual endowments. For as long as our views are bounded by the earth, perfectly content with our own righteousness, wisdom, and strength, we fondly flatter ourselves, and fancy we are little less than demigods. But, if we once elevate our thoughts to God, and consider his nature, and the consummate perfection of his righteousness, wisdom, and strength, to which we ought to be conformed,—what before charmed us in ourselves under the false pretext of righteousness, will soon be loathed as the greatest iniquity; what strangely deceived us under the title of wisdom, will be despised as extreme folly; and what wore the appearance of strength, will be proved to be most wretched impotence. So very remote from the divine purity is what seems in us the highest perfection.",
+              "III. Hence that horror and amazement with which the Scripture always represents the saints to have been impressed and disturbed, on every discovery of the presence of God. For when we see those, who before his appearance stood secure and firm, so astonished and affrighted at the manifestation of his glory, as to faint and almost expire through fear,—we must infer that man is never sufficiently affected with a knowledge of his own meanness, till he has compared himself with the Divine Majesty. Of this consternation we have frequent examples in the Judges and Prophets; so that it was a common expression among the Lord’s people—“We shall die, because we have seen God.”(62) Therefore the history of Job, to humble men with a consciousness of their pollution, impotence, and folly, derives its principal argument from a description of the Divine purity, power, and wisdom. And not without reason. For we see how Abraham, the nearer he approached to behold the glory of the Lord, the more fully acknowledged himself to be but “dust and ashes;”(63) and how Elias(64) could not bear his approach without covering his face, his appearance is so formidable. And what can man do, all vile and corrupt, when fear constrains even the cherubim themselves to veil their faces? This is what the prophet Isaiah speaks of—“the moon shall be confounded, and the sun ashamed, when the Lord of hosts shall reign:”(65) that is, when he shall make a fuller and nearer exhibition of his splendour, it shall eclipse the splendour of the brightest object besides. But, though the knowledge of God and the knowledge of ourselves be intimately connected, the proper order of instruction requires us first to treat of the former, and then to proceed to the discussion of the latter."
+            ]
+          }
+        ],
+        "stats": {
+          "sectionCount": 1,
+          "paragraphCount": 4
+        }
+      },
+      {
+        "slug": "institutes-faith",
+        "title": "Institutes of the Christian Religion, Book III on Faith",
+        "shortTitle": "Institutes on Faith",
+        "yearLabel": "1559 edition",
+        "source": "Project Gutenberg eBook #45001",
+        "sourceUrl": "https://www.gutenberg.org/ebooks/45001",
+        "summary": "A representative Reformed treatment of faith, showing Calvin's concern that Christ's benefits are received through the Spirit and apprehended by faith.",
+        "sections": [
+          {
+            "id": "faith-defined",
+            "title": "Book III, Chapter II: Faith Defined",
+            "citation": null,
+            "paragraphs": [
+              "Chapter II. Faith Defined, And Its Properties Described.",
+              "All these things will be easily understood when we have given a clearer definition of faith, that the reader may perceive its nature and importance. But it will be proper to recall to his remembrance, what has been already stated; that God has given us his law as the rule of our conduct, and that, if we are guilty of even the smallest breach of it, we are exposed to the dreadful punishment of eternal death, which he denounces. Again, that since it is not only difficult, but entirely above our strength, and beyond the utmost extent of our ability, to fulfil the law as he requires,—if we only view ourselves, and consider what we have demerited, we have not the least hope left, but, as persons rejected by God, are on the verge of eternal perdition. In the third place, it has been explained, that there is but one method of deliverance, by which we can be extricated from such a direful calamity; that is, the appearance of Christ the Redeemer, by whose means our heavenly Father, commiserating us in his infinite goodness and mercy, has been pleased to relieve us, if we embrace this mercy with a sincere faith, and rely on it with a constant hope. But we must now examine the nature of this faith, by which all who are the adopted sons of God enter on the possession of the heavenly kingdom; since it is certain, that not every opinion, nor even every persuasion, is equal to the accomplishment of so great a work. And we ought to be the more cautious and diligent in our meditations and inquiries on the genuine property of faith, in proportion to the pernicious tendency of the mistakes of multitudes in the present age on this subject. For a great part of the world, when they hear the word _faith_, conceive it to be nothing more than a common assent to the evangelical history. And even the disputes of the schools concerning faith, by simply styling God the object of it, (as I have elsewhere observed,) rather mislead miserable souls by a vain speculation, than direct them to the proper mark. For, since God “dwelleth in the light, which no man can approach unto,”(1426) there is a necessity for the interposition of Christ, as the medium of access to him. Whence he calls himself “the light of the world,”(1427) and in another place, “the way, and the truth, and the life;” because “no man cometh unto the Father,” who is the fountain of life, “but by him;”(1428) because he alone knows the Father, and reveals him to believers.(1429)",
+              "For this reason Paul asserts, that he esteemed nothing worthy of being known but Jesus Christ;(1430) and in the twentieth chapter of the Acts declares, that he had preached faith in Christ; and in another place, he introduces Christ speaking in the following manner: “I send thee unto the Gentiles, that they may receive forgiveness of sins, and inheritance among them which are sanctified by faith, that is in me.”(1431) This apostle tells us, that the glory of God is visible to us in his person, or (which conveys the same idea) that “the light of the knowledge of the glory of God” shines “in his face.”(1432) It is true, that faith relates to the one God; but there must also be added a knowledge of Jesus Christ, whom he has sent.(1433) For God himself would be altogether concealed from us, if we were not illuminated by the brightness of Christ. For this purpose the Father has deposited all his treasures with his only begotten Son, that he might reveal himself in him; and that, by such a communication of blessings, he might express a true image of his glory. For as it has been observed, that we require to be drawn by the Spirit, that we may be excited to seek Christ, so we should also be apprized, that the invisible Father is to be sought only in this image. On which subject, Augustine, treating of the object of faith, beautifully remarks, “that we ought to know whither we should go, and in what way;” and immediately after he concludes, “that he who unites Deity and humanity in one person, is the way most secure from all errors; for that it is God towards whom we tend, and man by whom we go; but that both together can be found only in Christ.” Nor does Paul, when he speaks of faith in God, intend to subvert what he so frequently inculcates concerning faith, whose stability is wholly in Christ. And Peter most suitably connects them together, when he says, that “by him we believe in God.”(1434)",
+              "II. This evil, then, as well as innumerable others, must be imputed to the schoolmen, who have, as it were, concealed Christ, by drawing a veil over him; whereas, unless our views be immediately and steadily directed to him, we shall always be wandering through labyrinths without end. They not only, by their obscure definition, diminish, and almost annihilate, all the importance of faith, but have fabricated the notion of implicit faith, a term with which they have honoured the grossest ignorance, and most perniciously deluded the miserable multitude. Indeed, to express the fact more truly and plainly, this notion has not only buried the true faith in oblivion, but has entirely destroyed it. Is this faith—to understand nothing, but obediently to submit our understanding to the Church? Faith consists not in ignorance, but in knowledge; and that not only of God, but also of the Divine will. For we do not obtain salvation by our promptitude to embrace as truth whatever the Church may have prescribed, or by our transferring to her the province of inquiry and of knowledge. But when we know God to be a propitious Father to us, through the reconciliation effected by Christ, and that Christ is given to us for righteousness, sanctification, and life,—by this knowledge, I say, not by renouncing our understanding, we obtain an entrance into the kingdom of heaven. For, when the apostle says, that “with the heart man believeth unto righteousness, and with the mouth confession is made unto salvation,”(1435) he indicates, that it is not sufficient for a man implicitly to credit what he neither understands, nor even examines; but he requires an explicit knowledge of"
+            ]
+          }
+        ],
+        "stats": {
+          "sectionCount": 1,
+          "paragraphCount": 4
+        }
+      }
+    ]
+  },
+  {
+    "slug": "john-wesley",
+    "name": "John Wesley",
+    "era": "1703-1791",
+    "region": "England and the Methodist societies",
+    "tradition": "Methodist Protestantism",
+    "summary": "Anglican priest and Methodist organizer whose preaching and societies renewed Protestant devotion around conversion, disciplined holiness, and practical divinity.",
+    "bio": "John Wesley stands downstream from Anglicanism, Pietism, and the wider Protestant evangelical awakening. His movement emphasized conversion, assurance, disciplined societies, works of mercy, and holiness of heart and life. Later Methodist and Holiness traditions drew heavily from his theological and pastoral priorities.",
+    "themes": [
+      "conversion",
+      "assurance",
+      "holiness",
+      "discipline",
+      "mission"
+    ],
+    "works": [
+      {
+        "slug": "methodist-study-guide",
+        "title": "Methodist Study Guide: Conversion and Holiness",
+        "shortTitle": "Conversion and Holiness",
+        "yearLabel": "18th century movement",
+        "source": "Public-domain Wesley resources and Protestant historical analysis",
+        "sourceUrl": "https://www.gutenberg.org/ebooks/author/31438",
+        "summary": "A study guide for Wesley's place in Protestant theology. It prepares the app for fuller sermon and journal imports while giving Methodist doctrine a real internal study path.",
+        "sections": [
+          {
+            "id": "conversion",
+            "title": "Conversion and assurance",
+            "citation": null,
+            "paragraphs": [
+              "Wesley's theology is difficult to understand if it is reduced to activism. His preaching turned on the necessity of new birth, the witness of the Spirit, and the assurance that God receives the sinner through Christ.",
+              "In Methodist practice this emphasis did not remain private. It produced societies, classes, bands, and disciplined habits of prayer, accountability, sacrament, and works of mercy."
+            ]
+          },
+          {
+            "id": "holiness",
+            "title": "Holiness of heart and life",
+            "citation": null,
+            "paragraphs": [
+              "Wesley connected justification with sanctification without confusing them. Grace pardons, but grace also heals and trains the believer in love of God and neighbor.",
+              "The later Holiness and Pentecostal streams would draw from this insistence that Christian life involves an active, Spirit-enabled pursuit of holy love."
+            ]
+          }
+        ],
+        "stats": {
+          "sectionCount": 2,
+          "paragraphCount": 4
+        }
+      }
+    ]
+  }
+]

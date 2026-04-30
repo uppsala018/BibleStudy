@@ -19,6 +19,13 @@ const pillars = [
     status: "Track hub",
   },
   {
+    title: "Protestant Figures",
+    href: "/library/protestant/figures",
+    summary:
+      "Luther, Calvin, and Wesley now have internal study profiles with readable primary-text pages.",
+    status: "Primary texts",
+  },
+  {
     title: "Protestant Texts",
     href: "/library/protestant/texts",
     summary:

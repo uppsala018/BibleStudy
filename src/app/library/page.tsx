@@ -9,6 +9,12 @@ const modules = [
       "Open a Protestant-focused hub for the KJV reader, Strong's study, and Reformation-related history.",
   },
   {
+    title: "Protestant Figures",
+    href: "/library/protestant/figures",
+    summary:
+      "Read Luther, Calvin, Wesley, and Protestant theologians through internal profiles and primary-text study pages.",
+  },
+  {
     title: "Protestant Texts",
     href: "/library/protestant/texts",
     summary:

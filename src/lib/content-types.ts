@@ -181,6 +181,40 @@ export type ProtestantWork = {
   sections: ProtestantWorkSection[];
 };
 
+export type ProtestantFigureSection = {
+  id: string;
+  title: string;
+  citation?: string | null;
+  paragraphs: string[];
+};
+
+export type ProtestantFigureWork = {
+  slug: string;
+  title: string;
+  shortTitle: string;
+  yearLabel: string;
+  source: string;
+  sourceUrl: string;
+  summary: string;
+  sections: ProtestantFigureSection[];
+  stats: {
+    sectionCount: number;
+    paragraphCount: number;
+  };
+};
+
+export type ProtestantFigure = {
+  slug: string;
+  name: string;
+  era: string;
+  region: string;
+  tradition: string;
+  summary: string;
+  bio: string;
+  themes: string[];
+  works: ProtestantFigureWork[];
+};
+
 export type HistorySection = {
   id: string;
   title: string;

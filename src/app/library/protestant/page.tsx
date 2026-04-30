@@ -3,6 +3,7 @@ import AppHeader from "@/components/app-header";
 import SectionHeading from "@/components/section-heading";
 import {
   getFathersForTrack,
+  protestantFigures,
   protestantLibrary,
   protestantWorks,
 } from "@/lib/content";
@@ -22,6 +23,44 @@ export default function ProtestantPage() {
 
         <div className="mt-12 grid gap-6 lg:grid-cols-[0.52fr_0.48fr]">
           <section className="space-y-6">
+            <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-highlight)]">
+                    Reformers and Theologians
+                  </p>
+                  <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl text-[var(--color-ink)]">
+                    Internal primary-text studies
+                  </h2>
+                </div>
+                <Link
+                  href="/library/protestant/figures"
+                  className="inline-flex rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-highlight)]"
+                >
+                  Open figures
+                </Link>
+              </div>
+              <div className="mt-5 grid gap-4">
+                {protestantFigures.map((figure) => (
+                  <Link
+                    key={figure.slug}
+                    href={`/library/protestant/figures/${figure.slug}`}
+                    className="rounded-[1.5rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.52)] p-5"
+                  >
+                    <h3 className="font-[family-name:var(--font-display)] text-2xl text-[var(--color-ink)]">
+                      {figure.name}
+                    </h3>
+                    <p className="mt-2 text-xs uppercase tracking-[0.18em] text-[var(--color-soft)]">
+                      {figure.era} · {figure.tradition}
+                    </p>
+                    <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
+                      {figure.summary}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
               <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-highlight)]">
                 Primary Tools
