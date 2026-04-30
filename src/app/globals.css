@@ -171,12 +171,6 @@ img {
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.34);
 }
 
-.mobile-home-card__subtitle {
-  color: var(--color-highlight);
-  font-size: clamp(0.7rem, 2.6vw, 0.92rem);
-  line-height: 1.25;
-}
-
 .mobile-bottom-nav {
   position: fixed;
   right: 0;

@@ -3,20 +3,17 @@ import MobileBottomNav from "@/components/mobile-bottom-nav";
 
 const homeCards = [
   {
-    title: "Protestant Bible Study",
-    subtitle: "KJV + Strong's",
+    title: "KJV Bible + Strong's",
     href: "/library/kjv",
     icon: "▰⌕",
   },
   {
-    title: "Catholic Bible Study",
-    subtitle: "Douay-Rheims + Roman Catechism",
+    title: "Catholic Bible + Catechism",
     href: "/library/catholic",
     icon: "☩",
   },
   {
-    title: "Orthodox Bible Study",
-    subtitle: "LXX + Orthodox Fathers",
+    title: "Orthodox Resources",
     href: "/library/orthodox",
     icon: "IC XC",
   },
@@ -62,9 +59,6 @@ export default function Home() {
           <Link key={card.title} href={card.href} className="mobile-home-card">
             <span className="mobile-home-card__icon">{card.icon}</span>
             <span className="mobile-home-card__title">{card.title}</span>
-            {"subtitle" in card ? (
-              <span className="mobile-home-card__subtitle">{card.subtitle}</span>
-            ) : null}
           </Link>
         ))}
       </section>
