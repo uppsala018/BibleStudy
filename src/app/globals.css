@@ -614,7 +614,7 @@ img {
 }
 
 .history-topic-title {
-  padding: 1.4rem 1.15rem 0.9rem;
+  padding: 1.05rem 1.35rem 0.75rem;
   text-align: center;
 }
 
@@ -630,7 +630,7 @@ img {
   margin: 0.4rem 0 0;
   color: var(--color-highlight);
   font-family: var(--font-display), serif;
-  font-size: clamp(2.35rem, 10vw, 4.6rem);
+  font-size: clamp(1.9rem, 7.6vw, 3.35rem);
   font-weight: 600;
   line-height: 0.98;
 }
@@ -639,19 +639,19 @@ img {
   margin: 0.8rem auto 0;
   max-width: 42rem;
   color: var(--color-muted);
-  font-size: 1rem;
+  font-size: 0.92rem;
   line-height: 1.45;
 }
 
 .history-schism-map {
-  margin: 0.8rem 1.15rem 1rem;
+  margin: 0.55rem 1.35rem 0.9rem;
   text-align: center;
 }
 
 .history-schism-map__top span {
   display: block;
   color: var(--color-highlight);
-  font-size: 4.2rem;
+  font-size: 3rem;
   line-height: 1;
 }
 
@@ -659,14 +659,14 @@ img {
   margin: 0.25rem 0 0;
   color: var(--color-highlight);
   font-family: var(--font-display), serif;
-  font-size: clamp(2rem, 8vw, 3.4rem);
+  font-size: clamp(1.55rem, 6.1vw, 2.45rem);
   font-weight: 600;
 }
 
 .history-schism-map__split {
   position: relative;
-  height: 4rem;
-  max-width: 25rem;
+  height: 3rem;
+  max-width: 20rem;
   margin: 0.35rem auto 0;
 }
 
@@ -675,7 +675,7 @@ img {
   top: 0;
   left: 50%;
   width: 0.28rem;
-  height: 2rem;
+  height: 1.45rem;
   content: "";
   border-radius: 99px;
   background: var(--color-highlight);
@@ -684,9 +684,9 @@ img {
 
 .history-schism-map__split span {
   position: absolute;
-  top: 1.9rem;
+  top: 1.4rem;
   width: 50%;
-  height: 2rem;
+  height: 1.45rem;
   border-top: 0.28rem solid var(--color-highlight);
 }
 
@@ -705,7 +705,7 @@ img {
 .history-schism-map__churches {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .history-schism-map__churches article {
@@ -714,14 +714,14 @@ img {
 }
 
 .history-schism-map__churches div {
-  width: 5.7rem;
-  height: 5.7rem;
+  width: 4.6rem;
+  height: 4.6rem;
   display: grid;
   place-items: center;
   border: 2px solid var(--color-highlight);
   border-radius: 999px;
   color: var(--color-highlight);
-  font-size: 3rem;
+  font-size: 2.35rem;
   background: rgba(7, 31, 64, 0.72);
 }
 
@@ -729,7 +729,7 @@ img {
   margin: 0.7rem 0 0;
   color: var(--color-highlight);
   font-family: var(--font-display), serif;
-  font-size: clamp(1.25rem, 5vw, 2rem);
+  font-size: clamp(1.05rem, 4.2vw, 1.55rem);
   line-height: 1.05;
 }
 
@@ -742,8 +742,8 @@ img {
 .history-card-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.65rem;
-  padding: 0 1.15rem;
+  gap: 0.55rem;
+  padding: 0 1.35rem;
 }
 
 .history-mini-card,
@@ -753,20 +753,20 @@ img {
   background:
     radial-gradient(circle at top, rgba(45, 91, 143, 0.34), transparent 58%),
     rgba(7, 31, 64, 0.72);
-  padding: 0.95rem;
+  padding: 0.78rem;
 }
 
 .history-mini-card > span,
 .history-wide-card > span {
-  width: 3.4rem;
-  height: 3.4rem;
+  width: 2.85rem;
+  height: 2.85rem;
   display: grid;
   place-items: center;
   margin: -0.35rem auto 0.35rem;
   border: 1.5px solid var(--color-highlight);
   border-radius: 999px;
   color: var(--color-highlight);
-  font-size: 1.8rem;
+  font-size: 1.45rem;
 }
 
 .history-mini-card h3,
@@ -774,7 +774,7 @@ img {
   margin: 0;
   color: var(--color-highlight);
   font-family: var(--font-display), serif;
-  font-size: clamp(1.2rem, 4.8vw, 2rem);
+  font-size: clamp(1.05rem, 4vw, 1.55rem);
   line-height: 1.05;
   text-align: center;
 }
@@ -786,40 +786,40 @@ img {
   margin: 0.65rem 0 0;
   padding-left: 1rem;
   color: var(--color-ink);
-  font-size: 0.86rem;
+  font-size: 0.78rem;
   line-height: 1.25;
 }
 
 .history-mini-card p {
   margin: 0.65rem 0 0;
   color: var(--color-ink);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   line-height: 1.35;
   text-align: center;
 }
 
 .history-reformation-hero {
-  padding: 0 1.15rem;
+  padding: 0 1.35rem;
   text-align: center;
 }
 
 .history-reformation-hero p {
   margin: 0;
   color: var(--color-ink);
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 .history-reformation-hero h2 {
   margin: 0.25rem 0 1rem;
   color: var(--color-highlight);
   font-family: var(--font-display), serif;
-  font-size: clamp(2.6rem, 11vw, 4.6rem);
+  font-size: clamp(2rem, 8vw, 3.45rem);
   font-weight: 600;
   line-height: 0.95;
 }
 
 .history-reformation-hero__image {
-  min-height: 10.5rem;
+  min-height: 8.2rem;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -834,21 +834,21 @@ img {
 .history-reformation-hero__image span {
   border: 2px solid rgba(229, 197, 122, 0.7);
   background: rgba(236, 213, 164, 0.76);
-  padding: 1.6rem 1.1rem;
+  padding: 1.15rem 0.85rem;
   color: #271b10;
   font-family: var(--font-display), serif;
-  font-size: 1.4rem;
+  font-size: 1.05rem;
   transform: rotate(-3deg);
 }
 
 .history-reformer-strip,
 .history-charismatic-figures {
   display: grid;
-  grid-auto-columns: 10.4rem;
+  grid-auto-columns: 8.8rem;
   grid-auto-flow: column;
   gap: 0.7rem;
   overflow-x: auto;
-  padding: 1rem 1.15rem 0.25rem;
+  padding: 0.85rem 1.35rem 0.25rem;
   scroll-snap-type: x mandatory;
 }
 
@@ -858,14 +858,14 @@ img {
   border: 1.5px solid rgba(229, 197, 122, 0.5);
   border-radius: 1.1rem;
   background: rgba(7, 31, 64, 0.72);
-  padding: 0.8rem;
+  padding: 0.68rem;
   text-align: center;
 }
 
 .history-reformer-strip article > div,
 .history-charismatic-figures article > div {
-  width: 4.8rem;
-  height: 4.8rem;
+  width: 3.9rem;
+  height: 3.9rem;
   display: grid;
   place-items: center;
   margin: 0 auto 0.55rem;
@@ -874,7 +874,7 @@ img {
   background: radial-gradient(circle, rgba(229, 197, 122, 0.22), rgba(10, 29, 54, 0.95));
   color: var(--color-highlight);
   font-family: var(--font-display), serif;
-  font-size: 2rem;
+  font-size: 1.55rem;
 }
 
 .history-reformer-strip h3,
@@ -882,7 +882,7 @@ img {
   margin: 0;
   color: var(--color-highlight);
   font-family: var(--font-display), serif;
-  font-size: 1.4rem;
+  font-size: 1.15rem;
   line-height: 1;
 }
 
@@ -892,7 +892,7 @@ img {
   display: block;
   margin: 0.35rem 0 0;
   color: var(--color-ink);
-  font-size: 0.88rem;
+  font-size: 0.78rem;
   line-height: 1.25;
 }
 
@@ -902,24 +902,24 @@ img {
   border-top: 1px solid rgba(229, 197, 122, 0.28);
   padding-top: 0.55rem;
   color: var(--color-highlight);
-  font-size: 0.84rem;
+  font-size: 0.74rem;
   font-weight: 500;
   line-height: 1.25;
 }
 
 .history-wide-card {
-  margin: 1rem 1.15rem 0;
+  margin: 0.85rem 1.35rem 0;
 }
 
 .history-wide-card ul {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .history-charismatic-timeline {
   position: relative;
   display: grid;
   gap: 1rem;
-  padding: 0 1.15rem 0 4.25rem;
+  padding: 0 1.35rem 0 4rem;
 }
 
 .history-charismatic-timeline::before {
@@ -942,8 +942,8 @@ img {
   position: absolute;
   top: 0;
   left: -2.85rem;
-  width: 2.9rem;
-  height: 2.9rem;
+  width: 2.55rem;
+  height: 2.55rem;
   display: grid;
   place-items: center;
   border: 1.5px solid var(--color-highlight);
@@ -951,14 +951,14 @@ img {
   background: #071936;
   color: var(--color-highlight);
   font-family: var(--font-display), serif;
-  font-size: 1.45rem;
+  font-size: 1.22rem;
 }
 
 .history-charismatic-step h2 {
   margin: 0;
   color: var(--color-highlight);
   font-family: var(--font-display), serif;
-  font-size: clamp(1.55rem, 6vw, 2.5rem);
+  font-size: clamp(1.3rem, 5vw, 2rem);
   font-weight: 600;
   line-height: 1.05;
 }
@@ -966,12 +966,12 @@ img {
 .history-charismatic-step p {
   margin: 0.75rem 0 0;
   color: var(--color-ink);
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.45;
 }
 
 .history-azusa-card {
-  min-height: 7.5rem;
+  min-height: 6rem;
   display: grid;
   place-items: center;
   margin-top: 0.8rem;
@@ -1006,7 +1006,7 @@ img {
   padding: 0.75rem 0.9rem;
   color: var(--color-ink);
   font-family: var(--font-display), serif;
-  font-size: 1.25rem;
+  font-size: 1.05rem;
 }
 
 .history-denomination-list b {
@@ -1017,7 +1017,7 @@ img {
 .history-study-sections {
   display: grid;
   gap: 0.75rem;
-  padding: 1.1rem 1.15rem 0;
+  padding: 0.95rem 1.35rem 0;
 }
 
 .history-study-sections article {
