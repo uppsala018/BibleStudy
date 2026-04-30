@@ -246,8 +246,8 @@
     "slug": "jesus-prayer",
     "title": "The Jesus Prayer",
     "category": "Prayer",
-    "summary": "A practical and theological introduction to the Jesus Prayer in Orthodox spirituality.",
-    "source": "App-authored study overview using free Orthodox reference resources.",
+    "summary": "A practical and theological introduction to the Jesus Prayer, now connected to Gospel passages on mercy, repentance, watchfulness, and continual prayer.",
+    "source": "App-authored study overview using free Orthodox reference resources, especially OCA's Jesus Prayer material.",
     "sections": [
       {
         "id": "prayer",
@@ -263,26 +263,77 @@
         ]
       },
       {
-        "id": "study-links",
-        "title": "How To Study It In The App",
+        "id": "gospel-roots",
+        "title": "Gospel Roots Of The Prayer",
         "paragraphs": [
-          "This page should later connect to Gospel passages about mercy, the publican's prayer, the blind man's cry to Jesus, Pauline prayer without ceasing, and patristic teaching on watchfulness."
+          "The Jesus Prayer is not an isolated formula. It gathers several Gospel cries into one disciplined prayer: the publican's repentance, the blind man's plea for mercy, the confession of Jesus as Lord and Son, and the continual turning of the heart toward Christ.",
+          "The prayer's words are short because the point is not verbal complexity. It teaches the worshipper to stand truthfully before Christ: confessing who He is, confessing personal need, and asking for mercy."
         ],
         "bullets": [
-          "Luke 18:13: God, be merciful to me a sinner.",
-          "Mark 10:47: Jesus, Son of David, have mercy on me.",
-          "1 Thessalonians 5:17: Pray without ceasing."
+          "Luke 18:13: the publican prays, God, be merciful to me a sinner.",
+          "Mark 10:47: blind Bartimaeus cries, Jesus, Son of David, have mercy on me.",
+          "Luke 18:38: the blind man near Jericho repeats the same cry for mercy.",
+          "Matthew 16:16: Peter confesses Jesus as the Christ, the Son of the living God.",
+          "Luke 23:42: the thief turns to Jesus in remembrance and hope."
+        ]
+      },
+      {
+        "id": "how-to-practice",
+        "title": "How To Approach The Prayer",
+        "paragraphs": [
+          "The Jesus Prayer should be approached with humility, not as a spiritual technique. Orthodox teachers commonly place it within repentance, sacramental life, obedience, and guidance. Its aim is attention to Christ, not self-generated religious experience.",
+          "For a beginner, the app should present the prayer as a simple rule of remembrance: pray slowly, reverently, and without forcing emotional states. The words train attention, but the mercy belongs to Christ."
+        ],
+        "bullets": [
+          "Begin with a short, consistent time rather than ambition.",
+          "Pray the words with attention and repentance.",
+          "Do not chase visions, sensations, or unusual experiences.",
+          "Connect the prayer to confession, Eucharistic life, Scripture, and acts of mercy."
+        ]
+      },
+      {
+        "id": "app-study-links",
+        "title": "App Study Connections",
+        "paragraphs": [
+          "This prayer section now connects directly to Gospel passages in the KJV reader. Later, when Church Fathers are expanded, this page can link to patristic and monastic texts on watchfulness, humility, and prayer of the heart.",
+          "The prayer also belongs with the Hesychasm page, because hesychasm gives the wider Orthodox language of stillness, attention, and guarding the heart."
+        ],
+        "bullets": [
+          "Read Luke 18 for the publican's prayer and the blind man's cry.",
+          "Read Mark 10 for Bartimaeus and the repeated plea for mercy.",
+          "Read Matthew 16 for confession of Christ as Son of God.",
+          "Read 1 Thessalonians 5 for prayer without ceasing."
         ]
       }
     ],
     "links": [
       {
-        "label": "OCA Orthodox Faith resources",
-        "href": "https://www.oca.org/orthodoxy"
+        "label": "KJV Luke 18",
+        "href": "/library/kjv?book=Luk&chapter=18"
       },
       {
-        "label": "Greek Orthodox Archdiocese resources",
-        "href": "https://www.goarch.org/"
+        "label": "KJV Mark 10",
+        "href": "/library/kjv?book=Mar&chapter=10"
+      },
+      {
+        "label": "KJV Matthew 16",
+        "href": "/library/kjv?book=Mat&chapter=16"
+      },
+      {
+        "label": "KJV 1 Thessalonians 5",
+        "href": "/library/kjv?book=1Th&chapter=5"
+      },
+      {
+        "label": "Hesychasm study",
+        "href": "/library/orthodox/hesychasm"
+      },
+      {
+        "label": "OCA: The Jesus Prayer",
+        "href": "https://www.oca.org/orthodoxy/the-orthodox-faith/spirituality/prayer-fasting-and-almsgiving/the-jesus-prayer"
+      },
+      {
+        "label": "OCA: Prayer, Fasting, and Almsgiving",
+        "href": "https://www.oca.org/orthodoxy/the-orthodox-faith/spirituality/prayer-fasting-and-almsgiving"
       }
     ]
   },
@@ -290,8 +341,8 @@
     "slug": "akathist-hymn-study",
     "title": "Akathist And Hymn Study",
     "category": "Prayer",
-    "summary": "A study path for Orthodox hymnography, akathists, and theological poetry.",
-    "source": "App-authored study overview with source-safe expansion plan.",
+    "summary": "A study path for Orthodox hymnography, akathists, and theological poetry with source-safe resources and links to Scripture, feasts, and worship.",
+    "source": "App-authored study overview using free Orthodox reference resources; hymn texts should only be imported when public-domain or openly licensed.",
     "sections": [
       {
         "id": "what-hymns-do",
@@ -305,16 +356,102 @@
           "Connect hymns to feasts and Scripture readings.",
           "Import public-domain texts only after source verification."
         ]
+      },
+      {
+        "id": "akathist-structure",
+        "title": "What An Akathist Is",
+        "paragraphs": [
+          "An akathist is a hymn of praise normally prayed standing. The best-known example is the Akathist Hymn to the Theotokos, but the form is also used for Christ, saints, feasts, and particular devotional themes.",
+          "Akathists commonly move through repeated poetic units that combine praise, biblical images, doctrinal confession, and prayer. This makes them useful for study because they teach theology through worship rather than through abstract outline alone."
+        ],
+        "bullets": [
+          "Kontakion: a short stanza or introductory hymn.",
+          "Ikos: an expanded stanza often containing a sequence of praises.",
+          "Refrain: a repeated phrase that forms memory through prayer.",
+          "Standing prayer: the word akathist means not sitting."
+        ]
+      },
+      {
+        "id": "hymn-types",
+        "title": "Major Orthodox Hymn Types",
+        "paragraphs": [
+          "Orthodox hymnography has several recurring forms. A beginner does not need to master all of them immediately, but knowing the basic names helps the user understand what they are reading or hearing.",
+          "The app should introduce hymn types through short explanations, Scripture links, feast connections, and verified resources. Full hymn text import should come only after copyright/source review."
+        ],
+        "bullets": [
+          "Troparion: a short hymn summarizing a feast, saint, or doctrinal theme.",
+          "Kontakion: a concise hymn that often gives the theological center of a feast.",
+          "Canon: a larger hymn cycle arranged in odes and biblical imagery.",
+          "Akathist: a standing hymn of praise and prayer, often with repeated salutations.",
+          "Prokeimenon: a psalm refrain connected to readings."
+        ]
+      },
+      {
+        "id": "scripture-and-feasts",
+        "title": "Scripture, Feasts, And Memory",
+        "paragraphs": [
+          "Hymns interpret Scripture liturgically. They connect biblical events to Christ, the Theotokos, saints, fasting seasons, and feasts. For example, Nativity hymns teach the Incarnation, Paschal hymns teach death and resurrection, and Theophany hymns teach Christ's baptism and the revelation of the Trinity.",
+          "The app should connect hymn study to the LXX reader and KJV reader: Psalms, Isaiah, Gospel feast passages, Philippians 2, and resurrection texts all belong in this study path."
+        ],
+        "bullets": [
+          "Psalms supply much of the prayer language of Orthodox worship.",
+          "Isaiah shapes many messianic and feast hymns.",
+          "Luke 1-2 connects to Annunciation and Nativity hymnography.",
+          "John 1 connects to Incarnation and the Word made flesh.",
+          "1 Corinthians 15 connects to Paschal resurrection theology."
+        ]
+      },
+      {
+        "id": "source-safe-plan",
+        "title": "Source-Safe App Plan",
+        "paragraphs": [
+          "Because many modern liturgical translations are copyrighted, this app should not copy full hymn texts unless the source is clearly public-domain or openly licensed. The safe implementation is to provide study summaries, structure, Scripture links, and external resources first.",
+          "A later import pass can add public-domain hymn texts, verified open translations, and a feast calendar. Until then, this page gives the user a real study framework without creating copyright risk."
+        ],
+        "bullets": [
+          "Use summaries and explanations freely authored for the app.",
+          "Link to official/free Orthodox resources for full liturgical texts.",
+          "Import full texts only after source license verification.",
+          "Connect hymn forms to Scripture and feast themes already in the app."
+        ]
       }
     ],
     "links": [
       {
-        "label": "OCA liturgical resources",
-        "href": "https://www.oca.org/orthodoxy"
+        "label": "Brenton LXX Psalms",
+        "href": "/library/orthodox/lxx?book=psalms&chapter=1"
+      },
+      {
+        "label": "Brenton LXX Isaiah",
+        "href": "/library/orthodox/lxx?book=esaias&chapter=9"
+      },
+      {
+        "label": "KJV Luke 1",
+        "href": "/library/kjv?book=Luk&chapter=1"
+      },
+      {
+        "label": "KJV John 1",
+        "href": "/library/kjv?book=Jhn&chapter=1"
+      },
+      {
+        "label": "KJV 1 Corinthians 15",
+        "href": "/library/kjv?book=1Co&chapter=15"
+      },
+      {
+        "label": "Divine Liturgy guide",
+        "href": "/library/orthodox/divine-liturgy"
       },
       {
         "label": "GOARCH worship resources",
         "href": "https://www.goarch.org/"
+      },
+      {
+        "label": "OCA liturgical resources",
+        "href": "https://www.oca.org/liturgics"
+      },
+      {
+        "label": "OrthodoxWiki: Akathist",
+        "href": "https://orthodoxwiki.org/Akathist"
       }
     ]
   },
