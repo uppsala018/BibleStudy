@@ -67,6 +67,11 @@ const catholicSections = [
         detail: "Incarnation, Mary, and obedience through Luke 1.",
       },
       {
+        label: "Catholic Saints & Devotions",
+        href: "/library/catechism",
+        detail: "Catholic devotional study path connected to catechesis, prayer, canonized saints, and the life of holiness.",
+      },
+      {
         label: "USCCB Daily Readings",
         href: "https://bible.usccb.org/",
         detail: "Official U.S. Catholic daily readings site.",

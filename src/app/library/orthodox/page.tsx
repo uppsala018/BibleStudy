@@ -96,6 +96,27 @@ const orthodoxMobileSections = [
   },
   {
     icon: "5",
+    title: "Orthodox Saints & Devotions",
+    items: [
+      {
+        title: "Shared ancient saints",
+        detail: "Many saints before the major divisions are honored across Catholic and Orthodox traditions.",
+        href: "/library/fathers",
+      },
+      {
+        title: "Orthodox saints and feasts",
+        detail: "Orthodox recognition is received through local and synodal glorification, liturgy, icons, and feast days.",
+        href: "/library/orthodox/liturgical-study",
+      },
+      {
+        title: "Canonization differences",
+        detail: "Catholic canonization is normally a centralized papal process; Orthodox glorification is received through the life of the Church.",
+        href: "/library/history/timeline",
+      },
+    ],
+  },
+  {
+    icon: "6",
     title: "Oriental Orthodox",
     items: [
       {
@@ -253,6 +274,8 @@ export default function OrthodoxPage() {
                 {[
                   ["/library/catholic", "Catholic Bible", "Douay-Rheims reader with Catholic canon"],
                   ["/library/catechism", "Roman Catechism", "Catholic doctrinal study library"],
+                  ["/library/fathers", "Shared Ancient Saints", "Fathers and saints honored across ancient Christian traditions"],
+                  ["/library/orthodox/liturgical-study", "Orthodox Saints & Devotions", "Orthodox holiness through liturgy, icons, feast days, and glorification"],
                   ["/library/history/great-schism", "Great Schism", "History page relevant to East-West study"],
                   ["/library/oriental-orthodox", "Oriental Orthodox", "Dedicated page with Oriental Orthodox texts and study expansion"],
                 ].map(([href, label, detail]) => (

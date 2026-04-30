@@ -48,9 +48,9 @@ const homeCards = [
     icon: "🙏",
   },
   {
-    title: "Saints & Devotions",
-    href: "/library/catechism",
-    icon: "☧",
+    title: "Donate",
+    href: "https://www.paypal.com/ncp/payment/CCWF6ADJJK5CL",
+    icon: "☩",
   },
 ];
 
@@ -65,12 +65,19 @@ export default function Home() {
       </section>
 
       <section className="mobile-home__grid" aria-label="Study sections">
-        {homeCards.map((card) => (
-          <Link key={card.title} href={card.href} className="mobile-home-card">
-            <span className="mobile-home-card__icon">{card.icon}</span>
-            <span className="mobile-home-card__title">{card.title}</span>
-          </Link>
-        ))}
+        {homeCards.map((card) =>
+          card.href.startsWith("https://") ? (
+            <a key={card.title} href={card.href} className="mobile-home-card">
+              <span className="mobile-home-card__icon">{card.icon}</span>
+              <span className="mobile-home-card__title">{card.title}</span>
+            </a>
+          ) : (
+            <Link key={card.title} href={card.href} className="mobile-home-card">
+              <span className="mobile-home-card__icon">{card.icon}</span>
+              <span className="mobile-home-card__title">{card.title}</span>
+            </Link>
+          ),
+        )}
       </section>
 
       <MobileBottomNav active="Home" />
