@@ -19,6 +19,13 @@ const pillars = [
     status: "Full reader",
   },
   {
+    title: "Roman Catechism",
+    href: "/library/catechism",
+    summary:
+      "The full Catechism of Trent is now available as a route-based study library inside the app.",
+    status: "Full library",
+  },
+  {
     title: "Church Fathers",
     href: "/library/fathers",
     summary:

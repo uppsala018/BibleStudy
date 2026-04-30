@@ -426,6 +426,9 @@ export default function StudyWorkspace({
         setActiveTab("catholic");
         setSelectedCatholicVerseId(result.target.verseId);
         break;
+      case "catechism":
+        void router.push(`/library/catechism/${result.target.slug}`);
+        break;
       case "father":
         setActiveTab("fathers");
         break;

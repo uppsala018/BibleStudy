@@ -9,6 +9,7 @@ const SHELL_URLS = [
   "/library",
   "/library/kjv",
   "/library/catholic",
+  "/library/catechism",
   "/library/fathers",
   "/library/history",
   "/library/notes",

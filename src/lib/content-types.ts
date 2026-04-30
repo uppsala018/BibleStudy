@@ -61,6 +61,22 @@ export type CatholicStudyEntry = CatholicReading & {
   summary: string;
 };
 
+export type CatechismSection = {
+  id: string;
+  title?: string;
+  paragraphs: string[];
+};
+
+export type CatechismEntry = {
+  slug: string;
+  part: string;
+  order: number;
+  title: string;
+  source: string;
+  summary: string;
+  sections: CatechismSection[];
+};
+
 export type ArticleCard = {
   id: string;
   title: string;
@@ -123,6 +139,7 @@ export type SearchResult = {
   target:
     | { kind: "kjv-verse"; verseId: string }
     | { kind: "catholic-verse"; verseId: string }
+    | { kind: "catechism"; slug: string }
     | { kind: "strongs"; strongsId: string }
     | { kind: "father"; cardId: string }
     | { kind: "history"; cardId: string };

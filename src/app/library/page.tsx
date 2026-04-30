@@ -15,6 +15,12 @@ const modules = [
       "Read the full Douay-Rheims canon with chapter search, bookmarks, notes, and catechism-linked companion studies.",
   },
   {
+    title: "Roman Catechism",
+    href: "/library/catechism",
+    summary:
+      "Read the full public-domain Catechism of Trent organized by creed, sacraments, commandments, and prayer.",
+  },
+  {
     title: "Church Fathers",
     href: "/library/fathers",
     summary:

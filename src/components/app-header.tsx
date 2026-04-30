@@ -22,6 +22,7 @@ export default function AppHeader() {
           <Link href="/library">Library</Link>
           <Link href="/library/kjv">KJV + Strong&apos;s</Link>
           <Link href="/library/catholic">Catholic Bible</Link>
+          <Link href="/library/catechism">Catechism</Link>
           <Link href="/library/fathers">Fathers</Link>
           <Link href="/library/history">History</Link>
           <Link href="/library/notes">Notes</Link>

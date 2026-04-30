@@ -606,6 +606,12 @@ export default function CatholicReader({
                     The full Catholic Bible now sits beside doctrine-linked study entries.
                     Use the companion cards below to move from a chapter into catechism-focused reading.
                   </p>
+                  <Link
+                    href="/library/catechism"
+                    className="mt-5 inline-flex rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-highlight)]"
+                  >
+                    Open full catechism
+                  </Link>
                 </div>
 
                 <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">

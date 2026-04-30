@@ -10,7 +10,8 @@
     "import:kjv": "node scripts/import-kjv.mjs",
     "import:catholic": "node scripts/import-catholic.mjs",
     "import:full-kjv": "node scripts/import-full-kjv.mjs",
-    "import:full-catholic": "node scripts/import-full-catholic.mjs"
+    "import:full-catholic": "node scripts/import-full-catholic.mjs",
+    "import:roman-catechism": "node scripts/import-roman-catechism.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.105.1",

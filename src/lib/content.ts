@@ -2,11 +2,13 @@ import catholicLibraryJson from "@/content/catholic-library.json";
 import fathersLibraryJson from "@/content/fathers-library.json";
 import historyLibraryJson from "@/content/history-library.json";
 import kjvChapterJson from "@/content/kjv/genesis-1.json";
+import romanCatechismLibraryJson from "@/content/roman-catechism-library.json";
 import strongsJson from "@/content/strongs.json";
 import type {
   ArticleCard,
   CatholicReading,
   CatholicStudyEntry,
+  CatechismEntry,
   FatherProfile,
   HistoryTopic,
   LexiconEntry,
@@ -22,6 +24,13 @@ export const catholicTopics: ArticleCard[] = catholicLibrary.map((entry) => ({
   title: entry.title,
   summary: entry.summary,
   era: entry.translation,
+}));
+export const romanCatechismLibrary = romanCatechismLibraryJson as CatechismEntry[];
+export const catechismTopics: ArticleCard[] = romanCatechismLibrary.map((entry) => ({
+  id: entry.slug,
+  title: entry.title,
+  summary: entry.summary,
+  era: entry.part,
 }));
 export const fathersLibrary = fathersLibraryJson as FatherProfile[];
 export const fathers: ArticleCard[] = fathersLibrary.map((father) => ({
@@ -54,6 +63,10 @@ export function getCatholicStudyEntry(slug: string) {
   return catholicLibrary.find((entry) => entry.slug === slug) ?? null;
 }
 
+export function getCatechismEntry(slug: string) {
+  return romanCatechismLibrary.find((entry) => entry.slug === slug) ?? null;
+}
+
 export function getFatherProfile(slug: string) {
   return fathersLibrary.find((father) => father.slug === slug) ?? null;
 }
@@ -83,6 +96,12 @@ export const searchIndex: SearchResult[] = [
       target: { kind: "catholic-verse", verseId: verse.id } as const,
     })),
   ),
+  ...romanCatechismLibrary.map((entry) => ({
+    id: entry.slug,
+    title: entry.title,
+    detail: `${entry.summary} (${entry.part})`,
+    target: { kind: "catechism", slug: entry.slug } as const,
+  })),
   ...fathers.map((card) => ({
     id: card.id,
     title: card.title,
