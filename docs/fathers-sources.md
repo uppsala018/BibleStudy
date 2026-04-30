@@ -26,6 +26,9 @@ Current full-text imports in the app:
 - Athanasius: On the Incarnation
 - Cyril of Jerusalem: Catechetical Lectures
 - Augustine of Hippo: Confessions
+- Basil the Great: On the Holy Spirit
+- Gregory Nazianzen: Theological Orations
+- John Chrysostom: On the Priesthood
 
 Tradition tracks now exposed in the app:
 

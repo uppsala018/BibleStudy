@@ -153,6 +153,84 @@ const libraryConfig = [
     ],
   },
   {
+    slug: "basil-great",
+    name: "Basil the Great",
+    era: "c. 329-379",
+    region: "Cappadocia",
+    tradition: "Cappadocian Father",
+    stream: "orthodox",
+    studyTracks: ["orthodox", "catholic"],
+    summary:
+      "Basil is one of the central Cappadocian fathers and a major voice on the Trinity, ascetic life, and the Holy Spirit.",
+    bio:
+      "Basil the Great is foundational for Eastern Christian theology, liturgical memory, and monastic formation. He is especially important for Orthodox study, but he also stands as a major saint and doctor in the Catholic tradition.",
+    themes: ["trinity", "holy-spirit", "asceticism", "cappadocian"],
+    works: [
+      makeSingleWork("on-the-holy-spirit", "On the Holy Spirit", "basil-holy-spirit.html", "3203", "4th century", "A major defense of the divinity and worship of the Holy Spirit in Trinitarian theology."),
+    ],
+  },
+  {
+    slug: "gregory-nazianzen",
+    name: "Gregory Nazianzen",
+    era: "c. 329-390",
+    region: "Cappadocia and Constantinople",
+    tradition: "Cappadocian Father",
+    stream: "orthodox",
+    studyTracks: ["orthodox", "catholic"],
+    summary:
+      "Gregory Nazianzen is one of the great Cappadocian theologians, especially revered for his Trinitarian preaching.",
+    bio:
+      "Gregory Nazianzen, often called 'the Theologian' in the East, is central to Orthodox doctrinal study and remains a major patristic authority for Catholic theology as well. His theological orations are among the classic texts on the Trinity.",
+    themes: ["trinity", "theology", "orations", "cappadocian"],
+    works: [
+      makeSeriesWork(
+        "theological-orations",
+        "Theological Orations",
+        [
+          "gregory-nazianzen-oration-27.html",
+          "gregory-nazianzen-oration-28.html",
+          "gregory-nazianzen-oration-29.html",
+          "gregory-nazianzen-oration-30.html",
+          "gregory-nazianzen-oration-31.html",
+        ],
+        "310227",
+        "4th century",
+        "Gregory's classic five orations on the right manner of theology and the Trinitarian mystery.",
+      ),
+    ],
+  },
+  {
+    slug: "john-chrysostom",
+    name: "John Chrysostom",
+    era: "c. 347-407",
+    region: "Antioch and Constantinople",
+    tradition: "Golden-Mouthed Father",
+    stream: "orthodox",
+    studyTracks: ["orthodox", "catholic"],
+    summary:
+      "Chrysostom is one of the most influential Greek fathers, known for preaching, pastoral theology, and moral instruction.",
+    bio:
+      "John Chrysostom is central to Orthodox liturgical and pastoral memory and remains deeply important in Catholic patristic reading. His writings join scriptural preaching with direct pastoral instruction and moral seriousness.",
+    themes: ["preaching", "priesthood", "pastoral-care", "scripture"],
+    works: [
+      makeSeriesWork(
+        "on-the-priesthood",
+        "On the Priesthood",
+        [
+          "chrysostom-priesthood-1.html",
+          "chrysostom-priesthood-2.html",
+          "chrysostom-priesthood-3.html",
+          "chrysostom-priesthood-4.html",
+          "chrysostom-priesthood-5.html",
+          "chrysostom-priesthood-6.html",
+        ],
+        "19221",
+        "4th century",
+        "A major pastoral and theological work on ministry, responsibility, and the burden of priestly office.",
+      ),
+    ],
+  },
+  {
     slug: "cyril-jerusalem",
     name: "Cyril of Jerusalem",
     era: "c. 313-386",
