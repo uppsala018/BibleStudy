@@ -19,6 +19,13 @@ const pillars = [
     status: "Track hub",
   },
   {
+    title: "Protestant Texts",
+    href: "/library/protestant/texts",
+    summary:
+      "Confessions and catechisms now have their own route-backed library for Lutheran, Reformed, Anglican, and Baptist study.",
+    status: "Text library",
+  },
+  {
     title: "Catholic Bible",
     href: "/library/catholic",
     summary:

@@ -1,7 +1,11 @@
 import Link from "next/link";
 import AppHeader from "@/components/app-header";
 import SectionHeading from "@/components/section-heading";
-import { getFathersForTrack, protestantLibrary } from "@/lib/content";
+import {
+  getFathersForTrack,
+  protestantLibrary,
+  protestantWorks,
+} from "@/lib/content";
 
 export default function ProtestantPage() {
   const fathers = getFathersForTrack("protestant");
@@ -68,6 +72,44 @@ export default function ProtestantPage() {
                     </p>
                     <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
                       {entry.summary}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-highlight)]">
+                    Confessions and Catechisms
+                  </p>
+                  <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl text-[var(--color-ink)]">
+                    Doctrinal standards
+                  </h2>
+                </div>
+                <Link
+                  href="/library/protestant/texts"
+                  className="inline-flex rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-highlight)]"
+                >
+                  Open text library
+                </Link>
+              </div>
+              <div className="mt-5 grid gap-4">
+                {protestantWorks.slice(0, 4).map((work) => (
+                  <Link
+                    key={work.slug}
+                    href={`/library/protestant/texts/${work.slug}`}
+                    className="rounded-[1.5rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.52)] p-5"
+                  >
+                    <h3 className="font-[family-name:var(--font-display)] text-2xl text-[var(--color-ink)]">
+                      {work.title}
+                    </h3>
+                    <p className="mt-2 text-xs uppercase tracking-[0.18em] text-[var(--color-soft)]">
+                      {work.tradition} · {work.yearLabel}
+                    </p>
+                    <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
+                      {work.summary}
                     </p>
                   </Link>
                 ))}

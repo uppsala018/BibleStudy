@@ -9,6 +9,12 @@ const modules = [
       "Open a Protestant-focused hub for the KJV reader, Strong's study, and Reformation-related history.",
   },
   {
+    title: "Protestant Texts",
+    href: "/library/protestant/texts",
+    summary:
+      "Browse confessions, catechisms, and doctrinal standards such as Augsburg, Heidelberg, Westminster, and the Thirty-Nine Articles.",
+  },
+  {
     title: "KJV + Strong's",
     href: "/library/kjv",
     summary:

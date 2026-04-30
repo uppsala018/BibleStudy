@@ -4,6 +4,7 @@ import historyLibraryJson from "@/content/history-library.json";
 import kjvChapterJson from "@/content/kjv/genesis-1.json";
 import orientalOrthodoxLibraryJson from "@/content/oriental-orthodox-library.json";
 import protestantLibraryJson from "@/content/protestant-library.json";
+import protestantWorksJson from "@/content/protestant-works.json";
 import romanCatechismLibraryJson from "@/content/roman-catechism-library.json";
 import strongsJson from "@/content/strongs.json";
 import type {
@@ -14,6 +15,7 @@ import type {
   FatherProfile,
   OrientalOrthodoxEntry,
   ProtestantEntry,
+  ProtestantWork,
   StudyTradition,
   HistoryTopic,
   LexiconEntry,
@@ -66,6 +68,13 @@ export const protestantTopics: ArticleCard[] = protestantLibrary.map((entry) => 
   summary: entry.summary,
   era: entry.era,
 }));
+export const protestantWorks = protestantWorksJson as ProtestantWork[];
+export const protestantWorkCards: ArticleCard[] = protestantWorks.map((entry) => ({
+  id: entry.slug,
+  title: entry.title,
+  summary: entry.summary,
+  era: entry.tradition,
+}));
 export const strongsLexicon = strongsJson as Record<string, LexiconEntry>;
 
 export function getKjvVerse(verseId: string) {
@@ -111,6 +120,10 @@ export function getOrientalOrthodoxEntry(slug: string) {
 
 export function getProtestantEntry(slug: string) {
   return protestantLibrary.find((entry) => entry.slug === slug) ?? null;
+}
+
+export function getProtestantWork(slug: string) {
+  return protestantWorks.find((entry) => entry.slug === slug) ?? null;
 }
 
 export function getHistoryTopic(slug: string) {

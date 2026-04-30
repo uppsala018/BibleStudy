@@ -10,6 +10,12 @@ External resources referenced in the Protestant library:
 - https://www.ccel.org/ccel/calvin
 - https://www.gutenberg.org/ebooks/author/31438
 - https://www.ccel.org/
+- https://bookofconcord.org/augsburg-confession/
+- https://anglican.net/doctrines/thirty-nine-articles/
+- https://www.ccel.org/anonymous/heidelberg
+- https://www.ccel.org/creeds/westminster-shorter-cat.html
+- https://www.ccel.org/creeds/bcf.htm
+- https://www.gutenberg.org/ebooks/1670
 - https://www.coreknowledge.org/free-resource/ckhg-unit-05-reformation/
 - https://www.gordonconwell.edu/center-for-global-christianity/resources/status-of-global-christianity/
 - https://www.azusastreet.org/

@@ -162,6 +162,25 @@ export type ProtestantEntry = {
   }>;
 };
 
+export type ProtestantWorkSection = {
+  id: string;
+  title: string;
+  paragraphs: string[];
+  bullets?: string[];
+};
+
+export type ProtestantWork = {
+  slug: string;
+  title: string;
+  tradition: string;
+  yearLabel: string;
+  category: string;
+  summary: string;
+  source: string;
+  sourceUrl: string;
+  sections: ProtestantWorkSection[];
+};
+
 export type HistorySection = {
   id: string;
   title: string;
