@@ -13,7 +13,7 @@ const orthodoxMobileSections = [
       {
         title: "Septuagint study path",
         detail: "Public-domain Brenton LXX resources and app build plan.",
-        href: "/library/orthodox/septuagint-study-path",
+        href: "/library/orthodox/lxx",
       },
       {
         title: "KJV reference reader",
@@ -23,7 +23,7 @@ const orthodoxMobileSections = [
       {
         title: "Canon and deuterocanonical notes",
         detail: "Orthodox canon notes and deuterocanonical study path.",
-        href: "/library/orthodox/orthodox-canon-notes",
+        href: "/library/orthodox/lxx?group=deuterocanonical",
       },
     ],
   },

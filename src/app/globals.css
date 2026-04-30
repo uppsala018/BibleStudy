@@ -376,6 +376,215 @@ img {
   line-height: 1.6;
 }
 
+.lxx-reader {
+  padding: 0 1rem 6.5rem;
+  background:
+    linear-gradient(180deg, rgba(4, 17, 38, 0.88), rgba(4, 17, 38, 0.98)),
+    radial-gradient(circle at top right, rgba(92, 69, 35, 0.34), transparent 26rem),
+    #041126;
+}
+
+.lxx-reader__topbar {
+  position: sticky;
+  top: 0;
+  z-index: 35;
+  min-height: 4.8rem;
+  display: grid;
+  grid-template-columns: 3rem 1fr 3rem;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 -1rem;
+  border-bottom: 1px solid rgba(229, 197, 122, 0.2);
+  background: rgba(4, 17, 38, 0.94);
+  padding: 0 1rem;
+  backdrop-filter: blur(16px);
+}
+
+.lxx-reader__topbar p {
+  color: var(--color-soft);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.lxx-reader__topbar h1 {
+  color: var(--color-highlight);
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.45rem, 6.6vw, 2.35rem);
+  line-height: 1;
+  text-align: center;
+}
+
+.lxx-reader__icon {
+  color: var(--color-highlight);
+  font-family: var(--font-display), serif;
+  font-size: 2.4rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.lxx-reader__controls {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.lxx-reader__controls label,
+.lxx-reader__search {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.lxx-reader__controls span {
+  color: var(--color-highlight);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.lxx-reader__controls select,
+.lxx-reader__search input {
+  width: 100%;
+  border: 1px solid rgba(229, 197, 122, 0.38);
+  border-radius: 1rem;
+  background: rgba(5, 17, 34, 0.78);
+  color: var(--color-ink);
+  padding: 0.85rem 1rem;
+  outline: none;
+}
+
+.lxx-reader__search {
+  position: relative;
+  margin-top: 0.85rem;
+}
+
+.lxx-reader__results {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  right: 0;
+  left: 0;
+  z-index: 30;
+  display: grid;
+  gap: 0.35rem;
+  border: 1px solid rgba(229, 197, 122, 0.28);
+  border-radius: 1rem;
+  background: rgba(4, 17, 38, 0.98);
+  padding: 0.4rem;
+}
+
+.lxx-reader__results button {
+  display: grid;
+  gap: 0.2rem;
+  border-radius: 0.8rem;
+  padding: 0.65rem;
+  text-align: left;
+}
+
+.lxx-reader__results strong {
+  color: var(--color-highlight);
+}
+
+.lxx-reader__results span {
+  color: var(--color-muted);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.lxx-reader__chapter-heading,
+.lxx-reader__selected {
+  margin-top: 1rem;
+  border: 1px solid rgba(229, 197, 122, 0.32);
+  border-radius: 1.2rem;
+  background: rgba(7, 27, 55, 0.72);
+  padding: 1rem;
+}
+
+.lxx-reader__chapter-heading p,
+.lxx-reader__chapter-heading span {
+  color: var(--color-soft);
+  font-size: 0.78rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.lxx-reader__chapter-heading h2 {
+  color: var(--color-highlight);
+  font-family: var(--font-display), serif;
+  font-size: clamp(2rem, 9vw, 3.2rem);
+}
+
+.lxx-reader__status {
+  color: var(--color-muted);
+  padding: 1rem 0;
+}
+
+.lxx-reader__chapter {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.lxx-verse {
+  scroll-margin-top: 8rem;
+}
+
+.lxx-verse > button {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2.4rem 1fr;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.lxx-verse span {
+  color: var(--color-highlight);
+  font-family: var(--font-display), serif;
+  font-size: 1.55rem;
+}
+
+.lxx-verse p {
+  color: var(--color-ink);
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.35rem, 5.8vw, 2.25rem);
+  line-height: 1.28;
+}
+
+.lxx-verse--active p {
+  color: #fff8e8;
+}
+
+.lxx-reader__selected {
+  margin-bottom: 1rem;
+}
+
+.lxx-reader__selected strong {
+  color: var(--color-highlight);
+}
+
+.lxx-reader__selected p {
+  margin-top: 0.45rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.lxx-reader__chapter-nav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.lxx-reader__chapter-nav button {
+  border: 1px solid rgba(229, 197, 122, 0.4);
+  border-radius: 999px;
+  color: var(--color-highlight);
+  padding: 0.8rem;
+}
+
+.lxx-reader__chapter-nav button:disabled {
+  opacity: 0.38;
+}
+
 .kjv-mobile {
   padding-bottom: 6rem;
 }

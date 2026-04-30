@@ -21,19 +21,23 @@
       },
       {
         "id": "implementation",
-        "title": "App Implementation Plan",
+        "title": "Implemented Reader Path",
         "paragraphs": [
-          "The first practical build should be a route-backed Brenton LXX reader, similar to the KJV reader: book selector, chapter selector, full chapter scroll, bookmarks, notes, and links into Orthodox fathers where a passage is discussed.",
+          "The app now has a route-backed Brenton LXX reader similar to the KJV reader: book selector, chapter selector, canon-group filtering, full chapter scroll, and search/reference lookup.",
           "The OSB can be mentioned as a modern printed study Bible for users to buy or consult elsewhere, but its Bible text and notes should not be bundled in the app."
         ],
         "bullets": [
-          "Add Brenton LXX data from a public-domain/open source text package.",
-          "Build an Orthodox Bible reader route under /library/orthodox/lxx.",
-          "Connect Genesis, Psalms, Isaiah, and Wisdom/Sirach study paths first."
+          "Open the Brenton LXX reader at /library/orthodox/lxx.",
+          "Use the Deuterocanonical And Orthodox Books filter for Tobit, Judith, Wisdom, Sirach, Baruch, Maccabees, and related books.",
+          "Next expansion: add per-book Orthodox introductions and patristic references."
         ]
       }
     ],
     "links": [
+      {
+        "label": "Open the app's Brenton LXX reader",
+        "href": "/library/orthodox/lxx"
+      },
       {
         "label": "eBible Brenton Septuagint project page",
         "href": "https://ebible.org/find/details.php?id=eng-Brenton"
@@ -77,6 +81,10 @@
       }
     ],
     "links": [
+      {
+        "label": "Open deuterocanonical books in the Brenton LXX reader",
+        "href": "/library/orthodox/lxx?group=deuterocanonical"
+      },
       {
         "label": "Orthodox Study overview at OCA",
         "href": "https://www.oca.org/orthodoxy"
