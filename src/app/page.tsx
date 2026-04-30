@@ -29,8 +29,8 @@ const pillars = [
     title: "Church Fathers",
     href: "/library/fathers",
     summary:
-      "Structured father profiles and excerpted works now give the patristic library a real foundation.",
-    status: "Ready for import",
+      "Browse full public-domain patristic works, including all seven letters of Ignatius and expanded apostolic fathers.",
+    status: "Full-text library",
   },
   {
     title: "Church History",

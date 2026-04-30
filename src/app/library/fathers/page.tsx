@@ -10,8 +10,8 @@ export default function FathersPage() {
       <main className="mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:px-12">
         <SectionHeading
           eyebrow="Church Fathers"
-          title="Patristic texts are now organized as a real library."
-          body="This section has moved beyond placeholder cards. You can browse major early fathers, see their key works, and read structured public-domain excerpts that anchor future full-text imports."
+          title="Patristic texts are now organized as a full-text library."
+          body="This section now uses public-domain primary texts instead of excerpt cards. Open a father, choose a work, and read the full document chapter by chapter."
         />
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
@@ -59,7 +59,7 @@ export default function FathersPage() {
                 <ul className="mt-3 space-y-2 text-sm text-[var(--color-muted)]">
                   {father.works.map((work) => (
                     <li key={work.slug}>
-                      {work.title} ({work.sections.length} sections)
+                      {work.title} ({work.stats.sectionCount} sections, {work.stats.paragraphCount} paragraphs)
                     </li>
                   ))}
                 </ul>

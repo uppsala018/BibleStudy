@@ -24,7 +24,7 @@ const modules = [
     title: "Church Fathers",
     href: "/library/fathers",
     summary:
-      "Browse structured father profiles, major works, and anchored public-domain excerpts.",
+      "Browse father profiles and read full public-domain primary texts, including Ignatius, Clement, Polycarp, Justin, and Athanasius.",
   },
   {
     title: "Church History",

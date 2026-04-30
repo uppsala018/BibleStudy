@@ -85,35 +85,17 @@ export default async function FatherDetailPage({
                 {work.summary}
               </p>
 
-              <div className="mt-6 grid gap-5">
-                {work.sections.map((section) => (
-                  <section
-                    key={section.id}
-                    className="rounded-[1.5rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.52)] p-5"
-                  >
-                    <div className="flex flex-wrap items-center justify-between gap-3">
-                      <h3 className="font-semibold text-[var(--color-highlight)]">
-                        {section.title}
-                      </h3>
-                      <span className="text-xs uppercase tracking-[0.18em] text-[var(--color-soft)]">
-                        {section.citation}
-                      </span>
-                    </div>
-                    <p className="mt-4 text-sm leading-8 text-[var(--color-ink)]">
-                      {section.excerpt}
-                    </p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {section.themes.map((theme) => (
-                        <span
-                          key={theme}
-                          className="rounded-full border border-[var(--color-border)] px-3 py-1 text-xs text-[var(--color-soft)]"
-                        >
-                          {theme}
-                        </span>
-                      ))}
-                    </div>
-                  </section>
-                ))}
+              <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-[1.5rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.52)] p-5">
+                <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.18em] text-[var(--color-soft)]">
+                  <span>{work.stats.sectionCount} sections</span>
+                  <span>{work.stats.paragraphCount} paragraphs</span>
+                </div>
+                <Link
+                  href={`/library/fathers/${father.slug}/${work.slug}`}
+                  className="inline-flex rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-highlight)]"
+                >
+                  Read full text
+                </Link>
               </div>
             </article>
           ))}

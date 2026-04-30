@@ -71,6 +71,16 @@ export function getFatherProfile(slug: string) {
   return fathersLibrary.find((father) => father.slug === slug) ?? null;
 }
 
+export function getFatherWork(profileSlug: string, workSlug: string) {
+  const father = getFatherProfile(profileSlug);
+
+  if (!father) {
+    return null;
+  }
+
+  return father.works.find((work) => work.slug === workSlug) ?? null;
+}
+
 export function getHistoryTopic(slug: string) {
   return historyLibrary.find((topic) => topic.slug === slug) ?? null;
 }

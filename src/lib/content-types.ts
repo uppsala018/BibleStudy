@@ -87,18 +87,22 @@ export type ArticleCard = {
 export type FatherSection = {
   id: string;
   title: string;
-  citation: string;
-  excerpt: string;
-  themes: string[];
+  citation?: string | null;
+  paragraphs: string[];
 };
 
 export type FatherWork = {
   slug: string;
   title: string;
   source: string;
+  sourceUrl?: string;
   yearLabel: string;
   summary: string;
   sections: FatherSection[];
+  stats: {
+    sectionCount: number;
+    paragraphCount: number;
+  };
 };
 
 export type FatherProfile = {
