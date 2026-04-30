@@ -198,7 +198,7 @@ export default function StudyWorkspace({
         setBookCatalog(payload.books);
       })
       .catch(() => {
-        setBookCatalog([]);
+        setBookCatalog([{ code: "Gen", name: "Genesis", chapterCount: 50 }]);
       });
   }, []);
 
@@ -474,7 +474,7 @@ export default function StudyWorkspace({
       </div>
 
       {activeTab === "reader" ? (
-        <section className="kjv-mobile mobile-app-shell lg:hidden">
+        <section className="kjv-mobile mobile-app-shell">
           <header className="kjv-mobile__topbar">
             <Link href="/" className="kjv-mobile__icon-button" aria-label="Back home">
               ‹
@@ -667,7 +667,7 @@ export default function StudyWorkspace({
         </section>
       ) : null}
 
-      <section className="mx-auto hidden max-w-7xl px-6 py-14 sm:px-8 lg:block lg:px-12">
+      <section className="mx-auto hidden max-w-7xl px-6 py-14 sm:px-8 lg:px-12">
         <div className="mb-8 flex flex-wrap items-center gap-3 text-sm text-[var(--color-soft)]">
           <Link
             href="/library"

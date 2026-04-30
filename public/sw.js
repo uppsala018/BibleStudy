@@ -1,4 +1,4 @@
-const VERSION = "logos-legacy-v5";
+const VERSION = "logos-legacy-v6";
 const SHELL_CACHE = `${VERSION}-shell`;
 const PAGE_CACHE = `${VERSION}-pages`;
 const API_CACHE = `${VERSION}-api`;
