@@ -222,15 +222,10 @@ export default function StudyWorkspace({
           payload.verses[0] ??
           null;
         setSelectedVerseId(matchingVerse?.id ?? null);
-        const nextStrongsId =
-          matchingVerse?.strongs?.some((word) => word.strongsId === selectedStrongsId)
-            ? selectedStrongsId
-            : matchingVerse?.strongs?.[0]?.strongsId;
-        if (
-          nextStrongsId &&
-          nextStrongsId !== selectedStrongsId
-        ) {
+        const nextStrongsId = matchingVerse?.strongs?.[0]?.strongsId;
+        if (nextStrongsId) {
           setLexiconLoading(true);
+          setSelectedEntry(null);
           setSelectedStrongsId(nextStrongsId);
         }
         if (matchingVerse) {
@@ -254,7 +249,7 @@ export default function StudyWorkspace({
       .finally(() => {
         setChapterLoading(false);
       });
-  }, [pendingVerseNumber, selectedBookCode, selectedChapterNumber, selectedStrongsId]);
+  }, [pendingVerseNumber, selectedBookCode, selectedChapterNumber]);
 
   useEffect(() => {
     if (!selectedStrongsId) {
@@ -559,13 +554,18 @@ export default function StudyWorkspace({
                 <article key={verse.id} className="kjv-mobile-verse">
                   <button
                     type="button"
-                    onClick={() => {
+                    onClick={(event) => {
                       setSelectedVerseId(verse.id);
                       const nextStrongsId = verse.strongs?.[0]?.strongsId;
                       if (nextStrongsId) {
                         setLexiconLoading(true);
+                        setSelectedEntry(null);
                         setSelectedStrongsId(nextStrongsId);
                       }
+                      const article = event.currentTarget.closest(".kjv-mobile-verse");
+                      window.setTimeout(() => {
+                        article?.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }, 80);
                       setProgress({
                         tab: "reader",
                         book: selectedBookCode,
@@ -588,10 +588,15 @@ export default function StudyWorkspace({
                         <button
                           key={`${verse.id}-${word.strongsId}-${word.label}-${index}`}
                           type="button"
-                          onClick={() => {
+                          onClick={(event) => {
                             setSelectedVerseId(verse.id);
                             setLexiconLoading(true);
+                            setSelectedEntry(null);
                             setSelectedStrongsId(word.strongsId);
+                            const article = event.currentTarget.closest(".kjv-mobile-verse");
+                            window.setTimeout(() => {
+                              article?.scrollIntoView({ behavior: "smooth", block: "start" });
+                            }, 80);
                             setProgress({
                               tab: "reader",
                               book: selectedBookCode,
