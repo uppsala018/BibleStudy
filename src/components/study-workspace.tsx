@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import AppHeader from "@/components/app-header";
+import MobileBottomNav from "@/components/mobile-bottom-nav";
 import {
   catholicReading,
   fathers,
@@ -468,8 +469,205 @@ export default function StudyWorkspace({
 
   return (
     <>
-      <AppHeader />
-      <section className="mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:px-12">
+      <div className="hidden lg:block">
+        <AppHeader />
+      </div>
+
+      {activeTab === "reader" ? (
+        <section className="kjv-mobile mobile-app-shell lg:hidden">
+          <header className="kjv-mobile__topbar">
+            <Link href="/" className="kjv-mobile__icon-button" aria-label="Back home">
+              ‹
+            </Link>
+            <h1>KJV Bible + Strong&apos;s</h1>
+            <Link href="/library/notes" className="kjv-mobile__icon-button" aria-label="Settings">
+              ⚙
+            </Link>
+          </header>
+
+          <div className="kjv-mobile__chapterbar">
+            <button
+              type="button"
+              onClick={() => previousChapterTarget && jumpToChapter(previousChapterTarget)}
+              disabled={!previousChapterTarget}
+              aria-label="Previous chapter"
+            >
+              ‹
+            </button>
+            <div>
+              <span>▱</span>
+              <strong>
+                {chapterData?.book ?? selectedBook?.name ?? "Genesis"}{" "}
+                {chapterData?.chapter ?? selectedChapterNumber}
+              </strong>
+            </div>
+            <button
+              type="button"
+              onClick={() => nextChapterTarget && jumpToChapter(nextChapterTarget)}
+              disabled={!nextChapterTarget}
+              aria-label="Next chapter"
+            >
+              ›
+            </button>
+          </div>
+
+          <div className="kjv-mobile__selectors">
+            <select
+              value={selectedBookCode}
+              onChange={(event) => {
+                const nextBookCode = event.target.value;
+                setChapterLoading(true);
+                setChapterError(null);
+                setSelectedBookCode(nextBookCode);
+                setSelectedChapterNumber(1);
+                setPendingVerseNumber(null);
+              }}
+              aria-label="Book"
+            >
+              {bookCatalog.map((book) => (
+                <option key={book.code} value={book.code}>
+                  {book.name}
+                </option>
+              ))}
+            </select>
+            <select
+              value={selectedChapterNumber}
+              onChange={(event) => {
+                setChapterLoading(true);
+                setChapterError(null);
+                setSelectedChapterNumber(Number(event.target.value));
+                setPendingVerseNumber(null);
+              }}
+              aria-label="Chapter"
+            >
+              {chapterOptions.map((chapterNumber) => (
+                <option key={chapterNumber} value={chapterNumber}>
+                  Chapter {chapterNumber}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {chapterLoading ? (
+            <p className="kjv-mobile__status">Loading chapter...</p>
+          ) : null}
+          {chapterError ? <p className="kjv-mobile__status">{chapterError}</p> : null}
+
+          {chapterData ? (
+            <div className="kjv-mobile__verses">
+              {chapterData.verses.map((verse) => (
+                <article key={verse.id} className="kjv-mobile-verse">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedVerseId(verse.id);
+                      const nextStrongsId = verse.strongs?.[0]?.strongsId;
+                      if (nextStrongsId) {
+                        setLexiconLoading(true);
+                        setSelectedStrongsId(nextStrongsId);
+                      }
+                      setProgress({
+                        tab: "reader",
+                        book: selectedBookCode,
+                        chapter: selectedChapterNumber,
+                        verse: verse.number,
+                        reference: verse.reference,
+                        strongsId: nextStrongsId,
+                        updatedAt: new Date().toISOString(),
+                      });
+                    }}
+                    className="kjv-mobile-verse__text"
+                  >
+                    <span className="kjv-mobile-verse__number">{verse.number}</span>
+                    <span>{verse.text}</span>
+                  </button>
+
+                  {verse.strongs?.length ? (
+                    <div className="kjv-mobile-verse__strongs">
+                      {verse.strongs.slice(0, 8).map((word, index) => (
+                        <button
+                          key={`${verse.id}-${word.strongsId}-${word.label}-${index}`}
+                          type="button"
+                          onClick={() => {
+                            setSelectedVerseId(verse.id);
+                            setLexiconLoading(true);
+                            setSelectedStrongsId(word.strongsId);
+                            setProgress({
+                              tab: "reader",
+                              book: selectedBookCode,
+                              chapter: selectedChapterNumber,
+                              verse: verse.number,
+                              reference: verse.reference,
+                              strongsId: word.strongsId,
+                              updatedAt: new Date().toISOString(),
+                            });
+                          }}
+                          className={`kjv-mobile-strong ${
+                            selectedVerseId === verse.id &&
+                            selectedStrongsId === word.strongsId
+                              ? "kjv-mobile-strong--active"
+                              : ""
+                          }`}
+                        >
+                          <span>{word.label}</span>
+                          <small>{word.strongsId}</small>
+                        </button>
+                      ))}
+                    </div>
+                  ) : null}
+
+                  {selectedVerseId === verse.id ? (
+                    <div className="kjv-mobile-concordance">
+                      <div className="kjv-mobile-concordance__header">
+                        <span>▰⌕</span>
+                        <strong>Strong&apos;s Concordance</strong>
+                        <button
+                          type="button"
+                          onClick={() => toggleBookmark(verse.reference)}
+                        >
+                          {bookmarkSet.has(verse.reference) ? "Saved" : "Save"}
+                        </button>
+                      </div>
+                      {selectedEntry ? (
+                        <div className="kjv-mobile-concordance__body">
+                          <div className="kjv-mobile-concordance__badge">
+                            {selectedEntry.id}
+                          </div>
+                          <div>
+                            <h2>
+                              {selectedEntry.id} - {selectedEntry.transliteration}
+                              {selectedEntry.lemma ? ` (${selectedEntry.lemma})` : ""}
+                            </h2>
+                            <p>{selectedEntry.definition}</p>
+                          </div>
+                          <div className="kjv-mobile-concordance__meta">
+                            <div>
+                              <span>Pronunciation</span>
+                              <strong>{selectedEntry.pronunciation || "Not listed"}</strong>
+                            </div>
+                            <div>
+                              <span>Root Word</span>
+                              <strong>{selectedEntry.root || selectedEntry.lemma}</strong>
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        <p className="kjv-mobile-concordance__loading">
+                          {lexiconLoading ? "Loading Strong's entry..." : "No entry found."}
+                        </p>
+                      )}
+                    </div>
+                  ) : null}
+                </article>
+              ))}
+            </div>
+          ) : null}
+
+          <MobileBottomNav active="Home" />
+        </section>
+      ) : null}
+
+      <section className="mx-auto hidden max-w-7xl px-6 py-14 sm:px-8 lg:block lg:px-12">
         <div className="mb-8 flex flex-wrap items-center gap-3 text-sm text-[var(--color-soft)]">
           <Link
             href="/library"
