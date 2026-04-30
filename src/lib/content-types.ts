@@ -123,6 +123,24 @@ export type FatherProfile = {
   works: FatherWork[];
 };
 
+export type OrientalOrthodoxSection = {
+  id: string;
+  title: string;
+  paragraphs: string[];
+};
+
+export type OrientalOrthodoxEntry = {
+  slug: string;
+  title: string;
+  author: string;
+  era: string;
+  tradition: string;
+  summary: string;
+  source: string;
+  sourceUrl: string;
+  sections: OrientalOrthodoxSection[];
+};
+
 export type HistorySection = {
   id: string;
   title: string;

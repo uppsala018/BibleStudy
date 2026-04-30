@@ -2,6 +2,7 @@ import catholicLibraryJson from "@/content/catholic-library.json";
 import fathersLibraryJson from "@/content/fathers-library.json";
 import historyLibraryJson from "@/content/history-library.json";
 import kjvChapterJson from "@/content/kjv/genesis-1.json";
+import orientalOrthodoxLibraryJson from "@/content/oriental-orthodox-library.json";
 import romanCatechismLibraryJson from "@/content/roman-catechism-library.json";
 import strongsJson from "@/content/strongs.json";
 import type {
@@ -10,6 +11,7 @@ import type {
   CatholicStudyEntry,
   CatechismEntry,
   FatherProfile,
+  OrientalOrthodoxEntry,
   StudyTradition,
   HistoryTopic,
   LexiconEntry,
@@ -46,6 +48,14 @@ export const historyTopics: ArticleCard[] = historyLibrary.map((topic) => ({
   title: topic.title,
   summary: topic.summary,
   era: topic.era,
+}));
+export const orientalOrthodoxLibrary =
+  orientalOrthodoxLibraryJson as OrientalOrthodoxEntry[];
+export const orientalOrthodoxTopics: ArticleCard[] = orientalOrthodoxLibrary.map((entry) => ({
+  id: entry.slug,
+  title: entry.title,
+  summary: entry.summary,
+  era: entry.author,
 }));
 export const strongsLexicon = strongsJson as Record<string, LexiconEntry>;
 
@@ -84,6 +94,10 @@ export function getFatherWork(profileSlug: string, workSlug: string) {
 
 export function getFathersForTrack(track: StudyTradition) {
   return fathersLibrary.filter((father) => father.studyTracks.includes(track));
+}
+
+export function getOrientalOrthodoxEntry(slug: string) {
+  return orientalOrthodoxLibrary.find((entry) => entry.slug === slug) ?? null;
 }
 
 export function getHistoryTopic(slug: string) {

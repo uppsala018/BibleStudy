@@ -12,7 +12,8 @@
     "import:full-kjv": "node scripts/import-full-kjv.mjs",
     "import:full-catholic": "node scripts/import-full-catholic.mjs",
     "import:roman-catechism": "node scripts/import-roman-catechism.mjs",
-    "import:fathers": "node scripts/import-fathers-library.mjs"
+    "import:fathers": "node scripts/import-fathers-library.mjs",
+    "import:oriental": "node scripts/import-oriental-orthodox.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.105.1",

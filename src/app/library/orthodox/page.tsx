@@ -91,7 +91,7 @@ export default function OrthodoxPage() {
                   ["/library/catholic", "Catholic Bible", "Douay-Rheims reader with Catholic canon"],
                   ["/library/catechism", "Roman Catechism", "Catholic doctrinal study library"],
                   ["/library/history/great-schism", "Great Schism", "History page relevant to East-West study"],
-                  ["/library/oriental-orthodox", "Oriental Orthodox", "Dedicated page for Oriental Orthodox source expansion"],
+                  ["/library/oriental-orthodox", "Oriental Orthodox", "Dedicated page with imported Oriental Orthodox texts and source expansion"],
                 ].map(([href, label, detail]) => (
                   <Link
                     key={href}

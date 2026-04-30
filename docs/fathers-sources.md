@@ -30,6 +30,12 @@ Current full-text imports in the app:
 - Gregory Nazianzen: Theological Orations
 - John Chrysostom: On the Priesthood
 
+Current Oriental Orthodox internal imports:
+
+- Emperor Claudius of Ethiopia: `Confession of Faith`
+- Origen of Alexandria: `Letter to Friends in Alexandria`
+- Pope Matthew IV of Alexandria: `Against the Calvinists`
+
 Tradition tracks now exposed in the app:
 
 - `Catholic`
