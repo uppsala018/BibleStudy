@@ -253,6 +253,30 @@ const libraryConfig = [
     ],
   },
   {
+    slug: "cyprian-carthage",
+    name: "Cyprian of Carthage",
+    era: "c. 200-258",
+    region: "Carthage",
+    tradition: "Latin Ante-Nicene Father",
+    stream: "shared",
+    studyTracks: sharedTracks,
+    summary:
+      "Cyprian was bishop of Carthage during persecution and controversy, writing with lasting influence on church unity, episcopal order, repentance, martyrdom, prayer, and Christian discipline.",
+    bio:
+      "Cyprian led the church in Carthage through plague, persecution, schism, and disputes over the lapsed. His writings are essential for studying early Latin ecclesiology, pastoral discipline, martyr theology, and the concrete life of the third-century Church.",
+    themes: ["church-unity", "episcopacy", "martyrdom", "repentance", "prayer", "pastoral-discipline"],
+    works: [
+      makeSingleWork("on-the-unity-of-the-church", "On the Unity of the Church", "cyprian-on-unity.html", "050701", "c. 251", "A major treatise on the unity of the Church, episcopal communion, schism, and the visible bonds of Christian fellowship."),
+      makeSingleWork("on-the-dress-of-virgins", "On the Dress of Virgins", "cyprian-on-dress-of-virgins.html", "050702", "3rd century", "A pastoral exhortation on consecrated life, modesty, discipline, and spiritual integrity."),
+      makeSingleWork("on-the-lapsed", "On the Lapsed", "cyprian-on-the-lapsed.html", "050703", "c. 251", "Cyprian's pastoral treatment of Christians who denied the faith under persecution and sought restoration."),
+      makeSingleWork("on-the-lords-prayer", "On the Lord's Prayer", "cyprian-on-the-lords-prayer.html", "050704", "3rd century", "A theological and pastoral exposition of the prayer taught by Christ."),
+      makeSingleWork("on-mortality", "On Mortality", "cyprian-on-mortality.html", "050707", "c. 252", "A Christian response to plague, death, hope, and the discipline of faith under suffering."),
+      makeSingleWork("on-works-and-alms", "On Works and Alms", "cyprian-on-works-and-alms.html", "050708", "3rd century", "A call to mercy, generosity, repentance, and active love in Christian life."),
+      makeSingleWork("on-patience", "On Patience", "cyprian-on-patience.html", "050709", "3rd century", "A meditation on patience as a mark of Christian endurance and imitation of God."),
+      makeSingleWork("exhortation-to-martyrdom", "Exhortation to Martyrdom", "cyprian-exhortation-to-martyrdom.html", "050711", "3rd century", "A scriptural and pastoral preparation for confession, endurance, and martyr witness."),
+    ],
+  },
+  {
     slug: "athanasius",
     name: "Athanasius",
     era: "c. 296-373",

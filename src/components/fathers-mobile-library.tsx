@@ -27,12 +27,14 @@ function classifyFather(father: FatherProfile) {
     name.includes("irenaeus") ||
     name.includes("tertullian") ||
     name.includes("origen") ||
+    name.includes("cyprian") ||
     era.includes("1st") ||
     era.includes("2nd") ||
     era.includes("100") ||
     era.includes("165") ||
     era.includes("220") ||
     era.includes("254") ||
+    era.includes("258") ||
     era.includes("202")
   ) {
     return "Ante-Nicene";
