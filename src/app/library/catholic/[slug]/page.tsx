@@ -29,7 +29,7 @@ export default async function CatholicStudyEntryPage({
           href="/library/catholic"
           className="inline-flex rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-soft)]"
         >
-          Back to Catholic Study
+          Back to Catholic Bible
         </Link>
 
         <section className="mt-8 rounded-[2.4rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-8">

@@ -1,4 +1,4 @@
-const VERSION = "logos-legacy-v4";
+const VERSION = "logos-legacy-v5";
 const SHELL_CACHE = `${VERSION}-shell`;
 const PAGE_CACHE = `${VERSION}-pages`;
 const API_CACHE = `${VERSION}-api`;
@@ -140,7 +140,11 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  if (url.pathname.startsWith("/api/kjv/") || url.pathname.startsWith("/api/strongs/")) {
+  if (
+    url.pathname.startsWith("/api/kjv/") ||
+    url.pathname.startsWith("/api/strongs/") ||
+    url.pathname.startsWith("/api/catholic/")
+  ) {
     event.respondWith(staleWhileRevalidate(request, API_CACHE));
     return;
   }

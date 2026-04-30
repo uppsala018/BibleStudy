@@ -12,11 +12,11 @@ const pillars = [
     status: "Working route",
   },
   {
-    title: "Catholic Study",
+    title: "Catholic Bible",
     href: "/library/catholic",
     summary:
-      "Catholic study now has a real library structure with doctrine-focused readings and catechism-linked pages.",
-    status: "Working library",
+      "The Catholic section now includes the full Douay-Rheims canon plus companion catechism-linked study pages.",
+    status: "Full reader",
   },
   {
     title: "Church Fathers",

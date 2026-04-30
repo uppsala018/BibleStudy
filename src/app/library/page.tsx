@@ -9,10 +9,10 @@ const modules = [
       "Read a structured KJV chapter and inspect linked Strong's entries with notes and bookmarks.",
   },
   {
-    title: "Catholic Study",
+    title: "Catholic Bible",
     href: "/library/catholic",
     summary:
-      "Browse structured Catholic study entries with scripture, catechism references, and cross-links.",
+      "Read the full Douay-Rheims canon with chapter search, bookmarks, notes, and catechism-linked companion studies.",
   },
   {
     title: "Church Fathers",

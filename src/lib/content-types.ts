@@ -3,12 +3,24 @@ export type StrongWord = {
   strongsId: string;
 };
 
+export type VerseNote = {
+  label?: string;
+  text: string;
+};
+
+export type VerseCrossReference = {
+  text: string;
+};
+
 export type Verse = {
   id: string;
   reference: string;
   number: number;
   text: string;
   strongs?: StrongWord[];
+  notes?: VerseNote[];
+  crossRefs?: VerseCrossReference[];
+  summary?: string | null;
 };
 
 export type LexiconEntry = {
