@@ -34,6 +34,20 @@ export default function FathersPage() {
                 </span>
               </div>
 
+              <div className="mt-4 flex flex-wrap gap-2">
+                <span className="rounded-full border border-[var(--color-border)] px-3 py-1 text-xs uppercase tracking-[0.16em] text-[var(--color-soft)]">
+                  {father.stream === "shared" ? "Shared Catholic/Orthodox" : father.stream}
+                </span>
+                {father.studyTracks.map((track) => (
+                  <span
+                    key={`${father.slug}-${track}`}
+                    className="rounded-full border border-[var(--color-border)] px-3 py-1 text-xs text-[var(--color-soft)]"
+                  >
+                    {track}
+                  </span>
+                ))}
+              </div>
+
               <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
                 {father.summary}
               </p>

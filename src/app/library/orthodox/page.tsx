@@ -1,0 +1,133 @@
+import Link from "next/link";
+import AppHeader from "@/components/app-header";
+import SectionHeading from "@/components/section-heading";
+import { getFathersForTrack } from "@/lib/content";
+
+const orthodoxResources = [
+  {
+    title: "Orthodox Church Fathers",
+    href: "https://orthodoxchurchfathers.com/",
+    detail: "Modern Orthodox resource hub for patristic reading and discovery.",
+  },
+  {
+    title: "Greek Orthodox Archdiocese",
+    href: "https://www.goarch.org/",
+    detail: "Free Orthodox articles, liturgical resources, and educational material.",
+  },
+  {
+    title: "Oriental Orthodoxy Library",
+    href: "https://www.orientalorthodoxy.com/library/texts/",
+    detail: "Oriental Orthodox source archive for free texts and study materials.",
+  },
+];
+
+export default function OrthodoxPage() {
+  const fathers = getFathersForTrack("orthodox");
+
+  return (
+    <>
+      <AppHeader />
+      <main className="mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:px-12">
+        <SectionHeading
+          eyebrow="Orthodox Study"
+          title="An Orthodox track now sits beside the Catholic and Protestant paths."
+          body="This hub groups shared patristic texts, Orthodox-oriented catechetical material, and free external resources for continued study. Shared fathers remain shared, but they are now easy to approach through an Orthodox reading path."
+        />
+
+        <div className="mt-12 grid gap-6 lg:grid-cols-[0.58fr_0.42fr]">
+          <section className="space-y-6 rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-highlight)]">
+                  Core Reading
+                </p>
+                <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl text-[var(--color-ink)]">
+                  Orthodox and shared fathers
+                </h2>
+              </div>
+              <Link
+                href="/library/fathers"
+                className="inline-flex rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-highlight)]"
+              >
+                Open full Fathers library
+              </Link>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              {fathers.map((father) => (
+                <Link
+                  key={father.slug}
+                  href={`/library/fathers/${father.slug}`}
+                  className="rounded-[1.5rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.52)] p-5"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <h3 className="font-[family-name:var(--font-display)] text-2xl text-[var(--color-ink)]">
+                        {father.name}
+                      </h3>
+                      <p className="mt-2 text-xs uppercase tracking-[0.18em] text-[var(--color-soft)]">
+                        {father.era} - {father.tradition}
+                      </p>
+                    </div>
+                    <span className="rounded-full border border-[var(--color-border)] px-3 py-1 text-xs text-[var(--color-soft)]">
+                      {father.stream === "shared" ? "Shared" : "Orthodox"}
+                    </span>
+                  </div>
+                  <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
+                    {father.summary}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          <aside className="space-y-6">
+            <section className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
+              <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-highlight)]">
+                Internal Links
+              </p>
+              <div className="mt-4 grid gap-3">
+                {[
+                  ["/library/catholic", "Catholic Bible", "Douay-Rheims reader with Catholic canon"],
+                  ["/library/catechism", "Roman Catechism", "Catholic doctrinal study library"],
+                  ["/library/history/great-schism", "Great Schism", "History page relevant to East-West study"],
+                ].map(([href, label, detail]) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className="rounded-[1.4rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.52)] p-4"
+                  >
+                    <p className="font-semibold text-[var(--color-ink)]">{label}</p>
+                    <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">{detail}</p>
+                  </Link>
+                ))}
+              </div>
+            </section>
+
+            <section className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
+              <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-highlight)]">
+                Free Resources
+              </p>
+              <div className="mt-4 space-y-3">
+                {orthodoxResources.map((resource) => (
+                  <a
+                    key={resource.href}
+                    href={resource.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block rounded-[1.4rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.52)] p-4"
+                  >
+                    <p className="font-semibold text-[var(--color-ink)]">{resource.title}</p>
+                    <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">
+                      {resource.detail}
+                    </p>
+                  </a>
+                ))}
+              </div>
+            </section>
+          </aside>
+        </div>
+      </main>
+    </>
+  );
+}

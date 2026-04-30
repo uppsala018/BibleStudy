@@ -3,6 +3,12 @@ import AppHeader from "@/components/app-header";
 
 const modules = [
   {
+    title: "Protestant Study",
+    href: "/library/protestant",
+    summary:
+      "Open a Protestant-focused hub for the KJV reader, Strong's study, and Reformation-related history.",
+  },
+  {
     title: "KJV + Strong's",
     href: "/library/kjv",
     summary:
@@ -25,6 +31,12 @@ const modules = [
     href: "/library/fathers",
     summary:
       "Browse father profiles and read full public-domain primary texts, including Ignatius, Clement, Polycarp, Justin, and Athanasius.",
+  },
+  {
+    title: "Orthodox Study",
+    href: "/library/orthodox",
+    summary:
+      "Open an Orthodox-focused hub with shared fathers, Cyril, Athanasius, liturgical catechesis, and curated external resources.",
   },
   {
     title: "Church History",

@@ -414,6 +414,24 @@ export default function CatholicReader({
                 )}
               </div>
             </div>
+
+            <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-highlight)]">
+                Free Resources
+              </p>
+              <a
+                href="https://www.catholicculture.org/"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 block rounded-2xl border border-[var(--color-border)] bg-[rgba(5,17,34,0.58)] px-4 py-4 transition hover:bg-[rgba(7,22,44,0.92)]"
+              >
+                <p className="font-semibold text-[var(--color-ink)]">Catholic Culture</p>
+                <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">
+                  Free Catholic articles, liturgical material, and study resources to pair
+                  with the Douay-Rheims reader and catechism library.
+                </p>
+              </a>
+            </div>
           </aside>
 
           <div className="space-y-6">

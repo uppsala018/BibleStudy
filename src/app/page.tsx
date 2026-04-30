@@ -12,6 +12,13 @@ const pillars = [
     status: "Working route",
   },
   {
+    title: "Protestant Study",
+    href: "/library/protestant",
+    summary:
+      "A Protestant study track now groups the KJV reader, Strong's tools, and Reformation-oriented history into one hub.",
+    status: "Track hub",
+  },
+  {
     title: "Catholic Bible",
     href: "/library/catholic",
     summary:
@@ -31,6 +38,13 @@ const pillars = [
     summary:
       "Browse full public-domain patristic works, including all seven letters of Ignatius and expanded apostolic fathers.",
     status: "Full-text library",
+  },
+  {
+    title: "Orthodox Study",
+    href: "/library/orthodox",
+    summary:
+      "An Orthodox hub now pulls together shared fathers, Orthodox-oriented patristic reading, and curated external free resources.",
+    status: "Track hub",
   },
   {
     title: "Church History",

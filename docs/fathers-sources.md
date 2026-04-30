@@ -4,6 +4,10 @@ The Fathers library is built from free public-domain texts.
 
 - Discovery catalog: `https://earlychurch.org.uk/index.php#gsc.tab=0`
 - Imported text source for this phase: `https://www.newadvent.org/fathers/`
+- Orthodox discovery/resource hub: `https://orthodoxchurchfathers.com/`
+- Catholic resource hub: `https://www.catholicculture.org/`
+- Greek Orthodox Archdiocese resource hub: `https://www.goarch.org/`
+- Oriental Orthodox text library: `https://www.orientalorthodoxy.com/library/texts/`
 
 Why both:
 
@@ -20,3 +24,16 @@ Current full-text imports in the app:
 - The Letter to Diognetus
 - Justin Martyr: First Apology
 - Athanasius: On the Incarnation
+- Cyril of Jerusalem: Catechetical Lectures
+- Augustine of Hippo: Confessions
+
+Tradition tracks now exposed in the app:
+
+- `Catholic`
+- `Orthodox`
+- `Protestant`
+
+Track notes:
+
+- Many early fathers are intentionally marked as `shared` between Catholic and Orthodox study paths.
+- Augustine is currently used as a major Catholic and Protestant crossover figure.

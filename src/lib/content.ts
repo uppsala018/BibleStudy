@@ -10,6 +10,7 @@ import type {
   CatholicStudyEntry,
   CatechismEntry,
   FatherProfile,
+  StudyTradition,
   HistoryTopic,
   LexiconEntry,
   ScriptureChapter,
@@ -79,6 +80,10 @@ export function getFatherWork(profileSlug: string, workSlug: string) {
   }
 
   return father.works.find((work) => work.slug === workSlug) ?? null;
+}
+
+export function getFathersForTrack(track: StudyTradition) {
+  return fathersLibrary.filter((father) => father.studyTracks.includes(track));
 }
 
 export function getHistoryTopic(slug: string) {

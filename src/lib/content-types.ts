@@ -84,6 +84,10 @@ export type ArticleCard = {
   era: string;
 };
 
+export type StudyTradition = "catholic" | "orthodox" | "protestant";
+
+export type FatherStream = "shared" | "catholic" | "orthodox";
+
 export type FatherSection = {
   id: string;
   title: string;
@@ -111,6 +115,8 @@ export type FatherProfile = {
   era: string;
   region: string;
   tradition: string;
+  stream: FatherStream;
+  studyTracks: StudyTradition[];
   summary: string;
   bio: string;
   themes: string[];
