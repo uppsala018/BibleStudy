@@ -341,6 +341,30 @@ const libraryConfig = [
     ],
   },
   {
+    slug: "gregory-nyssa",
+    name: "Gregory of Nyssa",
+    era: "c. 335-395",
+    region: "Cappadocia",
+    tradition: "Cappadocian Father",
+    stream: "orthodox",
+    studyTracks: ["orthodox", "catholic"],
+    summary:
+      "Gregory of Nyssa is one of the great Cappadocian theologians, known for Trinitarian theology, theological anthropology, spiritual ascent, and profound reflection on resurrection and the Christian life.",
+    bio:
+      "Gregory of Nyssa, brother of Basil the Great and friend of Gregory Nazianzen, helped shape Nicene and Cappadocian theology. His writings are especially important for Orthodox and Catholic study of the Trinity, creation, the image of God, ascetic life, resurrection, and the soul's movement toward God.",
+    themes: ["trinity", "cappadocian", "image-of-god", "resurrection", "asceticism", "spiritual-ascent"],
+    works: [
+      makeSingleWork("the-great-catechism", "The Great Catechism", "gregory-nyssa-great-catechism.html", "2908", "4th century", "A compact doctrinal work on creation, fall, incarnation, redemption, baptism, and Eucharist."),
+      makeSingleWork("on-the-making-of-man", "On the Making of Man", "gregory-nyssa-making-of-man.html", "2914", "4th century", "A theological anthropology on creation, the image of God, human nature, soul, body, and vocation."),
+      makeSingleWork("on-the-soul-and-the-resurrection", "On the Soul and the Resurrection", "gregory-nyssa-soul-resurrection.html", "2915", "4th century", "A dialogue with Macrina on death, the soul, purification, hope, and resurrection."),
+      makeSingleWork("on-not-three-gods", "On Not Three Gods", "gregory-nyssa-not-three-gods.html", "2905", "4th century", "A concise Trinitarian argument explaining why Christians confess Father, Son, and Spirit without teaching three gods."),
+      makeSingleWork("on-the-holy-spirit", "On the Holy Spirit, Against the Macedonians", "gregory-nyssa-holy-spirit.html", "2903", "4th century", "A defense of the Holy Spirit's divinity against Macedonian teaching."),
+      makeSingleWork("on-virginity", "On Virginity", "gregory-nyssa-virginity.html", "2907", "4th century", "An ascetical treatise on purity, detachment, and the undivided pursuit of God."),
+      makeSingleWork("on-pilgrimages", "On Pilgrimages", "gregory-nyssa-pilgrimages.html", "2913", "4th century", "A pastoral reflection on pilgrimage, holiness, and the dangers of confusing travel with transformation."),
+      makeSingleWork("on-the-baptism-of-christ", "On the Baptism of Christ", "gregory-nyssa-baptism-of-christ.html", "2910", "4th century", "A liturgical sermon for the feast of the Lord's baptism and the mystery of illumination."),
+    ],
+  },
+  {
     slug: "john-chrysostom",
     name: "John Chrysostom",
     era: "c. 347-407",
