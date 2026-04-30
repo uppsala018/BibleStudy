@@ -133,6 +133,32 @@ const protestantMobileSections = [
       },
     ],
   },
+  {
+    icon: "6",
+    title: "Shared Christian Topics",
+    items: [
+      {
+        title: "Catholic Resources",
+        detail: "Catechesis, saints, sacraments, and Catholic theology.",
+        href: "/library/catholic/resources",
+      },
+      {
+        title: "Orthodox Resources",
+        detail: "Liturgy, fathers, saints, and Orthodox theology.",
+        href: "/library/orthodox",
+      },
+      {
+        title: "Ecumenical Councils",
+        detail: "Shared doctrinal councils of the historic Church.",
+        href: "/library/councils",
+      },
+      {
+        title: "Church History Timeline",
+        detail: "See the wider splits and branches across Christian history.",
+        href: "/library/history/timeline",
+      },
+    ],
+  },
 ];
 
 const protestantSections = [
@@ -268,6 +294,33 @@ const protestantSections = [
         label: "CCEL",
         href: "https://www.ccel.org/",
         detail: "Christian classics and theological texts.",
+      },
+    ],
+  },
+  {
+    title: "Shared Christian Topics",
+    summary:
+      "Protestant study often crosses directly into Catholic and Orthodox material when reading the early Church, councils, and shared ancient sources.",
+    links: [
+      {
+        label: "Catholic Resources",
+        href: "/library/catholic/resources",
+        detail: "Catechesis, saints, sacraments, and Catholic theology.",
+      },
+      {
+        label: "Orthodox Resources",
+        href: "/library/orthodox",
+        detail: "Liturgy, fathers, saints, and Orthodox theology.",
+      },
+      {
+        label: "Ecumenical Councils",
+        href: "/library/councils",
+        detail: "Shared doctrinal councils of the historic Church.",
+      },
+      {
+        label: "Church History Timeline",
+        href: "/library/history/timeline",
+        detail: "See the wider splits and branches across Christian history.",
       },
     ],
   },

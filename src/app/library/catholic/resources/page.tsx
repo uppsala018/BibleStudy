@@ -108,6 +108,32 @@ const catholicMobileSections = [
       },
     ],
   },
+  {
+    icon: "5",
+    title: "Shared Christian Topics",
+    items: [
+      {
+        title: "Orthodox Resources",
+        detail: "Shared fathers, councils, liturgy, and saints from the Orthodox side.",
+        href: "/library/orthodox",
+      },
+      {
+        title: "Protestant Resources",
+        detail: "Reformers, confessions, and Protestant history in a parallel study path.",
+        href: "/library/protestant",
+      },
+      {
+        title: "Ecumenical Councils",
+        detail: "The seven councils shared across the historic Church.",
+        href: "/library/councils",
+      },
+      {
+        title: "Church History Timeline",
+        detail: "The major splits and continuities in one vertical timeline.",
+        href: "/library/history/timeline",
+      },
+    ],
+  },
 ];
 
 const catholicSections = [
@@ -216,6 +242,33 @@ const catholicSections = [
         label: "Ecumenical Councils",
         href: "/library/councils",
         detail: "The seven councils in one study path.",
+      },
+    ],
+  },
+  {
+    title: "Shared Christian Topics",
+    summary:
+      "When Catholic study overlaps with Orthodox and Protestant history, the app now points directly to the related study path instead of leaving the user stuck.",
+    links: [
+      {
+        label: "Orthodox Resources",
+        href: "/library/orthodox",
+        detail: "Shared fathers, councils, liturgy, and saints from the Orthodox side.",
+      },
+      {
+        label: "Protestant Resources",
+        href: "/library/protestant",
+        detail: "Reformers, confessions, and Protestant history in a parallel study path.",
+      },
+      {
+        label: "Ecumenical Councils",
+        href: "/library/councils",
+        detail: "The seven councils shared across the historic Church.",
+      },
+      {
+        label: "Church History Timeline",
+        href: "/library/history/timeline",
+        detail: "The major splits and continuities in one vertical timeline.",
       },
     ],
   },

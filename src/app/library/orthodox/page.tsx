@@ -131,6 +131,32 @@ const orthodoxMobileSections = [
       },
     ],
   },
+  {
+    icon: "7",
+    title: "Shared Christian Topics",
+    items: [
+      {
+        title: "Catholic Resources",
+        detail: "Catechesis, saints, sacraments, and Catholic theology.",
+        href: "/library/catholic/resources",
+      },
+      {
+        title: "Protestant Resources",
+        detail: "Reformers, confessions, and Protestant history.",
+        href: "/library/protestant/resources",
+      },
+      {
+        title: "Ecumenical Councils",
+        detail: "Shared doctrinal councils of the historic Church.",
+        href: "/library/councils",
+      },
+      {
+        title: "Church History Timeline",
+        detail: "The major splits and continuities across Christian history.",
+        href: "/library/history/timeline",
+      },
+    ],
+  },
 ];
 
 const orthodoxResources = [
@@ -278,6 +304,29 @@ export default function OrthodoxPage() {
                   ["/library/orthodox/saints-devotions", "Orthodox Saints & Devotions", "Orthodox holiness through liturgy, icons, feast days, and glorification"],
                   ["/library/history/great-schism", "Great Schism", "History page relevant to East-West study"],
                   ["/library/oriental-orthodox", "Oriental Orthodox", "Dedicated page with Oriental Orthodox texts and study expansion"],
+                ].map(([href, label, detail]) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className="rounded-[1.4rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.52)] p-4"
+                  >
+                    <p className="font-semibold text-[var(--color-ink)]">{label}</p>
+                    <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">{detail}</p>
+                  </Link>
+                ))}
+              </div>
+            </section>
+
+            <section className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
+              <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-highlight)]">
+                Shared Christian Topics
+              </p>
+              <div className="mt-4 grid gap-3">
+                {[
+                  ["/library/catholic/resources", "Catholic Resources", "Catechesis, saints, sacraments, and Catholic theology."],
+                  ["/library/protestant/resources", "Protestant Resources", "Reformers, confessions, and Protestant history."],
+                  ["/library/councils", "Ecumenical Councils", "Shared doctrinal councils of the historic Church."],
+                  ["/library/history/timeline", "Church History Timeline", "The major splits and continuities across Christian history."],
                 ].map(([href, label, detail]) => (
                   <Link
                     key={href}
