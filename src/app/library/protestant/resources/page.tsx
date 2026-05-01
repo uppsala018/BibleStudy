@@ -9,12 +9,12 @@ const protestantMobileSections = [
     items: [
       {
         title: "KJV Bible + Strong's",
-        detail: "Full KJV reader with Strong's lexicon integration.",
+        detail: "KJV reader with Strong's integration.",
         href: "/library/kjv",
       },
       {
         title: "Genesis 1 With Strong's",
-        detail: "Start with the current KJV + Strong's reading experience.",
+        detail: "Start with Genesis 1 and Strong's.",
         href: "/library/kjv?book=Gen&chapter=1",
       },
       {
@@ -24,7 +24,7 @@ const protestantMobileSections = [
       },
       {
         title: "Romans",
-        detail: "Key Protestant study book for sin, grace, faith, and righteousness.",
+        detail: "Key study book for sin, grace, and faith.",
         href: "/library/kjv?book=Rom&chapter=1",
       },
     ],
@@ -35,22 +35,22 @@ const protestantMobileSections = [
     items: [
       {
         title: "Protestant Figures",
-        detail: "Luther, Calvin, Wesley, and figure-based study paths.",
+        detail: "Luther, Calvin, Wesley, and study paths.",
         href: "/library/protestant/figures",
       },
       {
         title: "Martin Luther",
-        detail: "Reformation preaching, catechesis, and justification debates.",
+        detail: "Reformation preaching and justification debates.",
         href: "/library/protestant/figures/martin-luther",
       },
       {
         title: "John Calvin",
-        detail: "Institutes, doctrine of God, Scripture, and church order.",
+        detail: "Institutes, doctrine, Scripture, church order.",
         href: "/library/protestant/figures/john-calvin",
       },
       {
         title: "John Wesley",
-        detail: "Methodist theology, holiness, grace, and preaching.",
+        detail: "Methodist theology, holiness, and grace.",
         href: "/library/protestant/figures/john-wesley",
       },
     ],
@@ -61,7 +61,7 @@ const protestantMobileSections = [
     items: [
       {
         title: "Protestant Text Library",
-        detail: "Internal confessions, catechisms, and doctrinal standards.",
+        detail: "Confessions, catechisms, and standards.",
         href: "/library/protestant/texts",
       },
       {
@@ -87,17 +87,17 @@ const protestantMobileSections = [
     items: [
       {
         title: "Reformation History",
-        detail: "Historical context for reform, confessional conflict, and church renewal.",
+        detail: "Historical context for reform and conflict.",
         href: "/library/history/reformation",
       },
       {
         title: "Reformation Era Study",
-        detail: "Internal analysis page on the Reformation movement.",
+        detail: "Internal analysis page on the Reformation.",
         href: "/library/protestant/reformation-era",
       },
       {
         title: "Post-Reformation Movements",
-        detail: "Later Protestant development and theological streams.",
+        detail: "Later Protestant development.",
         href: "/library/protestant/post-reformation-movements",
       },
       {
@@ -118,12 +118,12 @@ const protestantMobileSections = [
       },
       {
         title: "Augustine: Confessions",
-        detail: "Major text for grace, conversion, memory, and prayer.",
+        detail: "Text for grace, conversion, memory, prayer.",
         href: "/library/fathers/augustine-hippo/confessions",
       },
       {
         title: "Athanasius",
-        detail: "Christology, incarnation, and Nicene theology.",
+        detail: "Christology, incarnation, Nicene theology.",
         href: "/library/fathers/athanasius",
       },
       {
@@ -139,22 +139,22 @@ const protestantMobileSections = [
     items: [
       {
         title: "Catholic Resources",
-        detail: "Catechesis, saints, sacraments, and Catholic theology.",
+        detail: "Catechesis, saints, sacraments, theology.",
         href: "/library/catholic/resources",
       },
       {
         title: "Orthodox Resources",
-        detail: "Liturgy, fathers, saints, and Orthodox theology.",
+        detail: "Liturgy, fathers, saints, theology.",
         href: "/library/orthodox",
       },
       {
         title: "Ecumenical Councils",
-        detail: "Shared doctrinal councils of the historic Church.",
+        detail: "Shared doctrinal councils.",
         href: "/library/councils",
       },
       {
         title: "Church History Timeline",
-        detail: "See the wider splits and branches across Christian history.",
+        detail: "Wider splits and branches.",
         href: "/library/history/timeline",
       },
     ],

@@ -10,7 +10,7 @@ const catholicMobileSections = [
     items: [
       {
         title: "Catholic Bible Reader",
-        detail: "Full Catholic Bible reader with deuterocanonical books.",
+        detail: "Catholic Bible reader with deuterocanonical books.",
         href: "/library/catholic",
       },
       {
@@ -25,7 +25,7 @@ const catholicMobileSections = [
       },
       {
         title: "Peter And The Keys",
-        detail: "Matthew 16, authority, and the visible Church.",
+        detail: "Matthew 16, authority, and the Church.",
         href: "/library/catholic/matthew-16-keys",
       },
     ],
@@ -36,17 +36,17 @@ const catholicMobileSections = [
     items: [
       {
         title: "Roman Catechism",
-        detail: "The catechism of the Council of Trent.",
+        detail: "Catechism of Trent.",
         href: "/library/catechism",
       },
       {
         title: "Catholic Theology",
-        detail: "Creed, grace, Mary, saints, and authority in one study page.",
+        detail: "Creed, grace, Mary, saints, authority.",
         href: "/library/catholic/theology",
       },
       {
         title: "Catholic Sacraments",
-        detail: "Sacramental life, liturgy, and the means of grace.",
+        detail: "Sacramental life, liturgy, and grace.",
         href: "/library/catholic/sacraments",
       },
       {
@@ -58,16 +58,16 @@ const catholicMobileSections = [
   },
   {
     icon: "3",
-    title: "Saints And Devotions",
+    title: "Saints & Devotions",
     items: [
       {
         title: "Catholic Saints & Devotions",
-        detail: "Saints, feast days, Marian devotion, and prayer.",
+        detail: "Saints, feast days, Marian devotion, prayer.",
         href: "/library/catholic/saints-devotions",
       },
       {
         title: "Marian Study",
-        detail: "Annunciation, Theotokos, and Catholic Marian devotion.",
+        detail: "Annunciation, Theotokos, Marian devotion.",
         href: "/library/catholic/annunciation-luke-1",
       },
       {
@@ -84,16 +84,16 @@ const catholicMobileSections = [
   },
   {
     icon: "4",
-    title: "Fathers And Councils",
+    title: "Fathers & Councils",
     items: [
       {
         title: "Church Fathers",
-        detail: "Shared patristic library with full primary texts.",
+        detail: "Shared patristic library with primary texts.",
         href: "/library/fathers",
       },
       {
         title: "Ignatius of Antioch",
-        detail: "Early witness to unity, bishop, Eucharist, and martyrdom.",
+        detail: "Witness to unity, bishop, Eucharist, martyrdom.",
         href: "/library/fathers/ignatius-antioch",
       },
       {
@@ -114,12 +114,12 @@ const catholicMobileSections = [
     items: [
       {
         title: "Orthodox Resources",
-        detail: "Shared fathers, councils, liturgy, and saints from the Orthodox side.",
+        detail: "Shared fathers, councils, liturgy, saints.",
         href: "/library/orthodox",
       },
       {
         title: "Protestant Resources",
-        detail: "Reformers, confessions, and Protestant history in a parallel study path.",
+        detail: "Reformers, confessions, Protestant history.",
         href: "/library/protestant",
       },
       {
@@ -129,7 +129,7 @@ const catholicMobileSections = [
       },
       {
         title: "Church History Timeline",
-        detail: "The major splits and continuities in one vertical timeline.",
+        detail: "Major splits and continuities.",
         href: "/library/history/timeline",
       },
     ],
