@@ -328,7 +328,7 @@ export default function CatholicReader({
             ‹
           </Link>
           <h1>Douay-Rheims Catholic Bible</h1>
-          <Link href="/library/notes" className="catholic-mobile__icon-button" aria-label="Settings">
+          <Link href="/library/settings" className="catholic-mobile__icon-button" aria-label="Settings">
             ⚙
           </Link>
         </header>
@@ -444,7 +444,40 @@ export default function CatholicReader({
                     <span>{verse.reference}</span>
                   </div>
                 ) : null}
+                {selectedVerseId === verse.id && verse.notes?.length ? (
+                  <div className="catholic-mobile-verse__notes">
+                    {verse.notes.map((note, index) => (
+                      <div
+                        key={`${verse.id}-mobile-note-${index}`}
+                        className="catholic-mobile-verse__note"
+                      >
+                        <strong>{note.label ? note.label : String.fromCharCode(65 + index)}</strong>
+                        <p>{note.text}</p>
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
               </article>
+            ))}
+          </section>
+        ) : null}
+
+        {(featuredStudy || visibleCrossReferences.length) ? (
+          <section className="catholic-mobile__study-strip">
+            {featuredStudy ? (
+              <Link
+                href={`/library/catholic/${featuredStudy.slug}`}
+                className="catholic-mobile__study-chip"
+              >
+                <span>Roman Catechism</span>
+                <strong>{featuredStudy.catechismReference}</strong>
+              </Link>
+            ) : null}
+            {visibleCrossReferences.slice(0, 3).map((reference) => (
+              <div key={reference} className="catholic-mobile__study-chip">
+                <span>Cross Reference</span>
+                <strong>{reference}</strong>
+              </div>
             ))}
           </section>
         ) : null}
