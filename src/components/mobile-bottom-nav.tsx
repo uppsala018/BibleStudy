@@ -2,9 +2,9 @@ import Link from "next/link";
 
 const items = [
   { href: "/", icon: "⌂", label: "Home" },
-  { href: "/library", icon: "⌕", label: "Search" },
-  { href: "/library/notes", icon: "□", label: "Bookmarks" },
-  { href: "/library/notes", icon: "⚙", label: "Settings" },
+  { href: "/library", icon: "⏕", label: "Search" },
+  { href: "/library/notes", icon: "▇", label: "Bookmarks" },
+  { href: "/library/settings", icon: "⚙", label: "Settings" },
 ];
 
 export default function MobileBottomNav({ active = "Home" }: { active?: string }) {

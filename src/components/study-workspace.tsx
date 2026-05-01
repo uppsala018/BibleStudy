@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import AppHeader from "@/components/app-header";
 import MobileBottomNav from "@/components/mobile-bottom-nav";
+import { readPreferences } from "@/lib/user-preferences";
 import {
   catholicReading,
   fathers,
@@ -121,6 +122,43 @@ function isRemoteSearchResult(result: WorkspaceSearchResult): result is RemoteSe
   return "kind" in result;
 }
 
+function normalizeKjvBookCode(bookCode: string | undefined, catalog: BookMeta[]) {
+  const normalized = (bookCode ?? "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "");
+
+  if (!normalized) {
+    return "Gen";
+  }
+
+  const match = catalog.find((book) => {
+    const bookCodeNormalized = book.code.toLowerCase().replace(/[^a-z0-9]+/g, "");
+    const bookNameNormalized = book.name.toLowerCase().replace(/[^a-z0-9]+/g, "");
+    return normalized === bookCodeNormalized || normalized === bookNameNormalized;
+  });
+
+  if (match) {
+    return match.code;
+  }
+
+  if (normalized === "psalm" || normalized === "psalms" || normalized === "psa" || normalized === "ps") {
+    return catalog.find((book) => book.code === "Psa")?.code ?? "Gen";
+  }
+
+  if (
+    normalized === "song" ||
+    normalized === "sos" ||
+    normalized === "songofsongs" ||
+    normalized === "songofsolomon"
+  ) {
+    return catalog.find((book) => book.code === "Sng")?.code ?? "Gen";
+  }
+
+  if (normalized === "rev" || normalized === "revelation" || normalized === "revelations") {
+    return catalog.find((book) => book.code === "Rev")?.code ?? "Gen";
+  }
+
+  return catalog.length ? catalog[0].code : "Gen";
+}
+
 export default function StudyWorkspace({
   initialTab = "reader",
   initialReference,
@@ -139,6 +177,8 @@ export default function StudyWorkspace({
   const initialVerse = Number(initialReference?.verse);
   const [activeTab, setActiveTab] = useState<WorkspaceTab>(initialTab);
   const [bookCatalog, setBookCatalog] = useState<BookMeta[]>([]);
+  const [bookCatalogLoaded, setBookCatalogLoaded] = useState(false);
+  const [studyStateLoaded, setStudyStateLoaded] = useState(false);
   const [selectedBookCode, setSelectedBookCode] = useState(initialReference?.book || "Gen");
   const [selectedChapterNumber, setSelectedChapterNumber] = useState(
     Number.isFinite(initialChapter) && initialChapter > 0 ? initialChapter : 1,
@@ -153,6 +193,7 @@ export default function StudyWorkspace({
   const [selectedStrongsId, setSelectedStrongsId] = useState("H430");
   const [selectedEntry, setSelectedEntry] = useState<LexiconEntry | null>(null);
   const [lexiconLoading, setLexiconLoading] = useState(true);
+  const [preferences] = useState(() => readPreferences());
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState<WorkspaceSearchResult[]>([]);
   const [searchLoading, setSearchLoading] = useState(false);
@@ -199,13 +240,20 @@ export default function StudyWorkspace({
       })
       .catch(() => {
         setBookCatalog([{ code: "Gen", name: "Genesis", chapterCount: 50 }]);
+      })
+      .finally(() => {
+        setBookCatalogLoaded(true);
       });
   }, []);
 
   useEffect(() => {
+    if (!bookCatalogLoaded || !studyStateLoaded) {
+      return;
+    }
+
     void fetch(
       `/api/kjv/chapter?book=${encodeURIComponent(
-        selectedBookCode,
+        normalizeKjvBookCode(selectedBookCode, bookCatalog),
       )}&chapter=${selectedChapterNumber}`,
     )
       .then(async (response) => {
@@ -249,7 +297,7 @@ export default function StudyWorkspace({
       .finally(() => {
         setChapterLoading(false);
       });
-  }, [pendingVerseNumber, selectedBookCode, selectedChapterNumber]);
+  }, [bookCatalog, bookCatalogLoaded, pendingVerseNumber, selectedBookCode, selectedChapterNumber, studyStateLoaded]);
 
   useEffect(() => {
     if (!selectedStrongsId) {
@@ -277,6 +325,7 @@ export default function StudyWorkspace({
     void persistence.load().then((state) => {
       applyLoadedStudyState(state);
       setHydrated(true);
+      setStudyStateLoaded(true);
     });
   }, [applyLoadedStudyState, persistence]);
 
@@ -352,8 +401,10 @@ export default function StudyWorkspace({
   const selectedVerse =
     chapterData?.verses.find((verse) => verse.id === selectedVerseId) ?? chapterData?.verses[0] ?? null;
   const selectedCatholicVerse = getCatholicVerse(selectedCatholicVerseId);
-  const selectedBook = bookCatalog.find((book) => book.code === selectedBookCode);
-  const selectedBookIndex = bookCatalog.findIndex((book) => book.code === selectedBookCode);
+  const resolvedSelectedBookCode = normalizeKjvBookCode(selectedBookCode, bookCatalog);
+  const selectedBook = bookCatalog.find((book) => book.code === resolvedSelectedBookCode);
+  const selectedBookIndex = bookCatalog.findIndex((book) => book.code === resolvedSelectedBookCode);
+  const showStrongs = preferences.showStrongs;
   const chapterOptions = Array.from(
     { length: selectedBook?.chapterCount ?? chapterData?.chapterCount ?? 1 },
     (_, index) => index + 1,
@@ -397,8 +448,8 @@ export default function StudyWorkspace({
   }
 
   function handleSearchSelection(result: WorkspaceSearchResult) {
-    setSearchTerm("");
-    setSearchResults([]);
+      setSearchTerm("");
+      setSearchResults([]);
 
     if (isRemoteSearchResult(result)) {
       if (result.kind === "strongs") {
@@ -452,7 +503,7 @@ export default function StudyWorkspace({
     }
 
     const params = new URLSearchParams();
-    params.set("book", selectedBookCode);
+    params.set("book", resolvedSelectedBookCode);
     params.set("chapter", String(selectedChapterNumber));
 
     if (selectedVerseNumber) {
@@ -460,7 +511,7 @@ export default function StudyWorkspace({
     }
 
     router.replace(`${pathname}?${params.toString()}`, { scroll: false });
-  }, [pathname, router, selectedBookCode, selectedChapterNumber, selectedVerseNumber]);
+  }, [pathname, resolvedSelectedBookCode, router, selectedChapterNumber, selectedVerseNumber]);
 
   return (
     <>
@@ -469,13 +520,17 @@ export default function StudyWorkspace({
       </div>
 
       {activeTab === "reader" ? (
-        <section className="kjv-mobile mobile-app-shell">
+        <section
+          className={`kjv-mobile mobile-app-shell ${
+            preferences.compactReader ? "kjv-mobile--compact" : ""
+          }`}
+        >
           <header className="kjv-mobile__topbar">
             <Link href="/" className="kjv-mobile__icon-button" aria-label="Back home">
               ‹
             </Link>
             <h1>KJV Bible + Strong&apos;s</h1>
-            <Link href="/library/notes" className="kjv-mobile__icon-button" aria-label="Settings">
+            <Link href="/library/settings" className="kjv-mobile__icon-button" aria-label="Settings">
               ⚙
             </Link>
           </header>
@@ -508,7 +563,7 @@ export default function StudyWorkspace({
 
           <div className="kjv-mobile__selectors">
             <select
-              value={selectedBookCode}
+              value={resolvedSelectedBookCode}
               onChange={(event) => {
                 const nextBookCode = event.target.value;
                 setChapterLoading(true);
@@ -562,7 +617,7 @@ export default function StudyWorkspace({
                       }, 80);
                       setProgress({
                         tab: "reader",
-                        book: selectedBookCode,
+                        book: resolvedSelectedBookCode,
                         chapter: selectedChapterNumber,
                         verse: verse.number,
                         reference: verse.reference,
@@ -576,7 +631,7 @@ export default function StudyWorkspace({
                     <span>{verse.text}</span>
                   </button>
 
-                  {verse.strongs?.length ? (
+                  {showStrongs && verse.strongs?.length ? (
                     <div className="kjv-mobile-verse__strongs">
                       {verse.strongs.slice(0, 8).map((word, index) => (
                         <button
@@ -593,7 +648,7 @@ export default function StudyWorkspace({
                             }, 80);
                             setProgress({
                               tab: "reader",
-                              book: selectedBookCode,
+                              book: resolvedSelectedBookCode,
                               chapter: selectedChapterNumber,
                               verse: verse.number,
                               reference: verse.reference,
@@ -615,7 +670,7 @@ export default function StudyWorkspace({
                     </div>
                   ) : null}
 
-                  {selectedVerseId === verse.id ? (
+                  {showStrongs && selectedVerseId === verse.id ? (
                     <div className="kjv-mobile-concordance">
                       <div className="kjv-mobile-concordance__header">
                         <span>▰⌕</span>
@@ -780,6 +835,7 @@ export default function StudyWorkspace({
                 ["fathers", "Church Fathers", "/library/fathers"],
                 ["history", "Church History", "/library/history"],
                 ["notes", "Notes", "/library/notes"],
+                ["settings", "Settings", "/library/settings"],
               ].map(([id, label, href]) => (
                 <Link
                   key={id}
@@ -829,7 +885,7 @@ export default function StudyWorkspace({
                           Book
                         </span>
                         <select
-                          value={selectedBookCode}
+                          value={resolvedSelectedBookCode}
                           onChange={(event) => {
                             const nextBookCode = event.target.value;
                             setChapterLoading(true);
@@ -919,7 +975,7 @@ export default function StudyWorkspace({
                             }
                             setProgress({
                               tab: "reader",
-                              book: selectedBookCode,
+                              book: resolvedSelectedBookCode,
                               chapter: selectedChapterNumber,
                               verse: verse.number,
                               reference: verse.reference,
@@ -939,7 +995,7 @@ export default function StudyWorkspace({
                             </span>
                             {verse.text}
                           </p>
-                          {verse.strongs?.length ? (
+                          {showStrongs && verse.strongs?.length ? (
                             <span className="mt-4 flex flex-wrap gap-2">
                               {verse.strongs.map((word, index) => (
                                 <span
@@ -972,6 +1028,7 @@ export default function StudyWorkspace({
                 </div>
 
                 <div className="space-y-6">
+                  {showStrongs ? (
                   <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
                     <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-highlight)]">
                       Strong&apos;s Concordance
@@ -1014,6 +1071,7 @@ export default function StudyWorkspace({
                       </p>
                     )}
                   </div>
+                  ) : null}
 
                   <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
                     <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-highlight)]">

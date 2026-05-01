@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Source_Sans_3 } from "next/font/google";
 import PwaBoot from "@/components/pwa-boot";
+import PreferencesBoot from "@/components/preferences-boot";
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -52,6 +53,7 @@ export default function RootLayout({
     >
       <body className="min-h-full">
         <PwaBoot />
+        <PreferencesBoot />
         {children}
       </body>
     </html>

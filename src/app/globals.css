@@ -120,6 +120,13 @@ html[data-theme="light"] .mobile-app-shell {
   text-align: center;
 }
 
+.mobile-home__logo {
+  width: clamp(260px, 80vw, 460px);
+  height: auto;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 4px 24px rgba(229, 197, 122, 0.35));
+}
+
 .mobile-home__cross {
   color: var(--color-highlight);
   font-family: var(--font-display), serif;

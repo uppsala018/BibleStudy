@@ -1,5 +1,6 @@
 import Link from "next/link";
 import AppHeader from "@/components/app-header";
+import MobileBottomNav from "@/components/mobile-bottom-nav";
 
 const modules = [
   {
@@ -86,6 +87,18 @@ const modules = [
     summary:
       "Open a small prayer board where signed-in users can share requests and pray for one another.",
   },
+  {
+    title: "Oriental Orthodox",
+    href: "/library/oriental-orthodox",
+    summary:
+      "Explore Oriental Orthodox Christianity — Ethiopian, Coptic, Armenian, and Syriac traditions with primary sources.",
+  },
+  {
+    title: "Settings",
+    href: "/library/settings",
+    summary:
+      "Adjust theme, Strong's display, and reader preferences for the whole app.",
+  },
 ];
 
 export default function LibraryPage() {
@@ -98,12 +111,10 @@ export default function LibraryPage() {
             Library
           </p>
           <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl text-[var(--color-ink)]">
-            Route-based study sections are now in place.
+            Study Library
           </h1>
           <p className="mt-5 text-lg leading-8 text-[var(--color-muted)]">
-            The app is no longer a single landing page with embedded demo content. Each major
-            study area now has a dedicated route, which is the right base for importing larger
-            route-backed libraries and shipping a real installable app.
+            Scripture readers, church fathers, councils, history, and tradition-specific study hubs — all in one place.
           </p>
         </div>
 
@@ -124,6 +135,7 @@ export default function LibraryPage() {
           ))}
         </div>
       </main>
+      <MobileBottomNav active="Search" />
     </>
   );
 }
