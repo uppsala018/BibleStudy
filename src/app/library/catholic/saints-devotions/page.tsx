@@ -36,7 +36,7 @@ const devotionPaths = [
     summary:
       "Catholic devotion to Mary is rooted in Christology: Mary is honored because of her role in the incarnation and her witness of obedient faith.",
     study: ["Annunciation", "Theotokos", "Magnificat", "Maternal intercession"],
-    href: "/library/catholic/annunciation-luke-1",
+    href: "/library/catholic/rosary",
   },
   {
     title: "Rosary",
@@ -44,7 +44,7 @@ const devotionPaths = [
     summary:
       "The rosary is a biblical and contemplative prayer centered on the mysteries of Christ's life, death, and resurrection.",
     study: ["Joyful mysteries", "Sorrowful mysteries", "Glorious mysteries", "Luminous mysteries"],
-    href: "/library/catholic/annunciation-luke-1",
+    href: "/library/catholic/rosary",
   },
   {
     title: "Relics And Holy Memory",
@@ -60,7 +60,7 @@ const devotionPaths = [
     summary:
       "The liturgical calendar teaches the faith through the life of Christ, Mary, martyrs, apostles, pastors, virgins, and holy men and women.",
     study: ["Advent", "Christmas", "Lent", "Easter", "Saints' days"],
-    href: "/library/catholic",
+    href: "/library/catholic/feast-days",
   },
 ];
 

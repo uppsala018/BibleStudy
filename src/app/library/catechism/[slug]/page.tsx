@@ -51,10 +51,28 @@ export default async function CatechismEntryPage({
           </p>
         </section>
 
+        <section className="mt-8 rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
+          <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-highlight)]">
+            Jump to section
+          </p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {entry.sections.map((section) => (
+              <a
+                key={section.id}
+                href={`#${section.id}`}
+                className="rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-ink)]"
+              >
+                {section.title ?? "Intro"}
+              </a>
+            ))}
+          </div>
+        </section>
+
         <section className="mt-10 space-y-5">
           {entry.sections.map((section) => (
             <article
               key={section.id}
+              id={section.id}
               className="rounded-[1.8rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6"
             >
               {section.title ? (

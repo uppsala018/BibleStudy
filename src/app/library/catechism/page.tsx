@@ -3,6 +3,10 @@ import AppHeader from "@/components/app-header";
 import SectionHeading from "@/components/section-heading";
 import { romanCatechismLibrary } from "@/lib/content";
 
+function toPartId(part: string) {
+  return part.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+}
+
 function groupByPart() {
   const grouped = new Map<string, typeof romanCatechismLibrary>();
 
@@ -25,12 +29,34 @@ export default function CatechismPage() {
         <SectionHeading
           eyebrow="Roman Catechism"
           title="The full Catechism of Trent is now a real library inside the app."
-          body="This section carries the Roman Catechism as a route-backed library. The structure follows the Creed, the Sacraments, the Decalogue, and Prayer."
+          body="This section carries the public-domain Catechism of the Council of Trent as a route-backed library. The modern Catechism of the Catholic Church can be read free online at the Vatican website, but the embedded full text here is the Roman Catechism of Trent."
         />
+
+        <section className="mt-10 rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
+          <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-highlight)]">
+            Table of Contents
+          </p>
+          <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            {groups.map(([part, entries]) => (
+              <a
+                key={part}
+                href={`#${toPartId(part)}`}
+                className="rounded-[1.4rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.52)] p-4"
+              >
+                <p className="font-[family-name:var(--font-display)] text-2xl text-[var(--color-ink)]">
+                  {part}
+                </p>
+                <p className="mt-2 text-sm text-[var(--color-muted)]">
+                  {entries.length} entries
+                </p>
+              </a>
+            ))}
+          </div>
+        </section>
 
         <div className="mt-12 space-y-10">
           {groups.map(([part, entries]) => (
-            <section key={part}>
+            <section key={part} id={toPartId(part)}>
               <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
                 <h2 className="font-[family-name:var(--font-display)] text-3xl text-[var(--color-ink)]">
                   {part}

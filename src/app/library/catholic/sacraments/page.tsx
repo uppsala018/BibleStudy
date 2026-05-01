@@ -7,37 +7,55 @@ const sacraments = [
     title: "Baptism",
     summary:
       "The sacrament of initiation and new birth, tied to cleansing, incorporation into Christ, and entry into the Church.",
-    links: ["/library/catholic/john-prologue", "/library/catechism"],
+    links: [
+      { label: "John Prologue Study", href: "/library/catholic/john-prologue" },
+      { label: "Roman Catechism", href: "/library/catechism" },
+    ],
   },
   {
     title: "Confirmation",
     summary:
       "Strengthening by the Holy Spirit, often studied together with Christian maturity and mission.",
-    links: ["/library/catechism", "/library/councils/constantinople-381"],
+    links: [
+      { label: "Roman Catechism", href: "/library/catechism" },
+      { label: "Constantinople I", href: "/library/councils/constantinople-381" },
+    ],
   },
   {
     title: "Eucharist",
     summary:
       "The central sacramental act of Catholic worship, connected to sacrifice, communion, thanksgiving, and real participation in Christ.",
-    links: ["/library/catholic/matthew-16-keys", "/library/councils/nicaea-325"],
+    links: [
+      { label: "Peter And The Keys", href: "/library/catholic/matthew-16-keys" },
+      { label: "Nicaea I", href: "/library/councils/nicaea-325" },
+    ],
   },
   {
     title: "Penance And Reconciliation",
     summary:
       "Confession, repentance, and restoration after sin, understood as real ecclesial and spiritual healing.",
-    links: ["/library/catechism", "/library/fathers"],
+    links: [
+      { label: "Roman Catechism", href: "/library/catechism" },
+      { label: "Church Fathers", href: "/library/fathers" },
+    ],
   },
   {
     title: "Anointing, Orders, And Matrimony",
     summary:
       "The remaining sacraments of healing and vocation: sickness, ordained ministry, and covenant marriage.",
-    links: ["/library/catechism", "/library/history/timeline"],
+    links: [
+      { label: "Roman Catechism", href: "/library/catechism" },
+      { label: "Church History Timeline", href: "/library/history/timeline" },
+    ],
   },
   {
     title: "Liturgical Life",
     summary:
       "Sacraments belong to the Church's worship, calendar, prayer, and public confession of faith.",
-    links: ["/library/catholic/saints-devotions", "/library/history"],
+    links: [
+      { label: "Catholic Saints & Devotions", href: "/library/catholic/saints-devotions" },
+      { label: "Church History", href: "/library/history" },
+    ],
   },
 ];
 
@@ -79,13 +97,13 @@ export default function CatholicSacramentsPage() {
               </h2>
               <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">{item.summary}</p>
               <div className="mt-5 grid gap-3">
-                {item.links.map((href) => (
+                {item.links.map((link) => (
                   <Link
-                    key={href}
-                    href={href}
+                    key={link.href}
+                    href={link.href}
                     className="rounded-[1.4rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.52)] p-4 text-sm text-[var(--color-ink)]"
                   >
-                    {href}
+                    {link.label}
                   </Link>
                 ))}
               </div>

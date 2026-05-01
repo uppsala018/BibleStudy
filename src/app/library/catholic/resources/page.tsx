@@ -6,11 +6,11 @@ import SectionHeading from "@/components/section-heading";
 const catholicMobileSections = [
   {
     icon: "1",
-    title: "Bible And Canon",
+    title: "Bible & Canon",
     items: [
       {
         title: "Catholic Bible Reader",
-        detail: "Catholic Bible reader with deuterocanonical books.",
+        detail: "Catholic Bible with deuterocanonical books.",
         href: "/library/catholic",
       },
       {
@@ -25,33 +25,33 @@ const catholicMobileSections = [
       },
       {
         title: "Peter And The Keys",
-        detail: "Matthew 16, authority, and the Church.",
+        detail: "Matthew 16, authority, Church.",
         href: "/library/catholic/matthew-16-keys",
       },
     ],
   },
   {
     icon: "2",
-    title: "Catechesis And Doctrine",
+    title: "Catechesis & Doctrine",
     items: [
       {
         title: "Roman Catechism",
-        detail: "Catechism of Trent.",
+        detail: "Catechism of Trent, the public-domain Roman catechism used in this app.",
         href: "/library/catechism",
       },
       {
         title: "Catholic Theology",
-        detail: "Creed, grace, Mary, saints, authority.",
+        detail: "Creed, grace, Mary, saints.",
         href: "/library/catholic/theology",
       },
       {
         title: "Catholic Sacraments",
-        detail: "Sacramental life, liturgy, and grace.",
+        detail: "Sacramental life, liturgy, grace.",
         href: "/library/catholic/sacraments",
       },
       {
         title: "CCC Online",
-        detail: "Official Catechism reference text.",
+        detail: "Free online access to the modern Catechism at the Vatican website.",
         href: "https://www.vatican.va/archive/ENG0015/_INDEX.HTM",
       },
     ],
@@ -62,7 +62,7 @@ const catholicMobileSections = [
     items: [
       {
         title: "Catholic Saints & Devotions",
-        detail: "Saints, feast days, Marian devotion, prayer.",
+        detail: "Saints, feast days, Marian devotion.",
         href: "/library/catholic/saints-devotions",
       },
       {
@@ -77,7 +77,7 @@ const catholicMobileSections = [
       },
       {
         title: "Church History",
-        detail: "Councils, schism, and the larger historical context.",
+        detail: "Councils, schism, historical context.",
         href: "/library/history",
       },
     ],
@@ -88,12 +88,12 @@ const catholicMobileSections = [
     items: [
       {
         title: "Church Fathers",
-        detail: "Shared patristic library with primary texts.",
+        detail: "Shared patristic library.",
         href: "/library/fathers",
       },
       {
         title: "Ignatius of Antioch",
-        detail: "Witness to unity, bishop, Eucharist, martyrdom.",
+        detail: "Unity, bishop, Eucharist, martyrdom.",
         href: "/library/fathers/ignatius-antioch",
       },
       {
@@ -114,7 +114,7 @@ const catholicMobileSections = [
     items: [
       {
         title: "Orthodox Resources",
-        detail: "Shared fathers, councils, liturgy, saints.",
+        detail: "Shared fathers, councils, liturgy.",
         href: "/library/orthodox",
       },
       {
@@ -140,12 +140,12 @@ const catholicSections = [
   {
     title: "Bible And Canon",
     summary:
-      "The Catholic reader already holds the full canonical Bible, including deuterocanonical books, inside the app.",
+      "The Catholic reader already holds the full canonical Bible, including deuterocanonical books.",
     links: [
       {
         label: "Catholic Bible Reader",
         href: "/library/catholic",
-        detail: "Full Catholic Bible reader with deuterocanonical books.",
+        detail: "Catholic Bible with deuterocanonical books.",
       },
       {
         label: "John Prologue Study",
@@ -160,51 +160,51 @@ const catholicSections = [
       {
         label: "Peter And The Keys",
         href: "/library/catholic/matthew-16-keys",
-        detail: "Matthew 16, authority, and the visible Church.",
+        detail: "Matthew 16, authority, Church.",
       },
     ],
   },
   {
     title: "Catechesis And Doctrine",
     summary:
-      "Catholic doctrine should be read through the Catechism, Trent, and the core internal teaching pages built around Scripture.",
+      "Catholic doctrine should be read through the Catechism, Trent, and Scripture-based study pages.",
     links: [
       {
         label: "Roman Catechism",
         href: "/library/catechism",
-        detail: "Catechism of the Council of Trent.",
+        detail: "The Catechism of the Council of Trent, public domain.",
       },
       {
         label: "Catholic Theology",
         href: "/library/catholic/theology",
-        detail: "Creed, grace, Mary, saints, and authority in one study page.",
+        detail: "Creed, grace, Mary, saints.",
       },
       {
         label: "Catholic Sacraments",
         href: "/library/catholic/sacraments",
-        detail: "Sacramental life, liturgy, and the means of grace.",
+        detail: "Sacramental life, liturgy, grace.",
       },
       {
         label: "CCC Online",
         href: "https://www.vatican.va/archive/ENG0015/_INDEX.HTM",
-        detail: "Official Catechism reference text.",
+        detail: "Free online access to the modern Catechism at the Vatican website.",
       },
     ],
   },
   {
     title: "Saints And Devotions",
     summary:
-      "Catholic devotional life belongs beside doctrine, not after it. This section keeps saints, feast days, and prayer close to the Bible and catechesis.",
+      "Catholic devotional life belongs beside doctrine, not after it.",
     links: [
       {
         label: "Catholic Saints & Devotions",
         href: "/library/catholic/saints-devotions",
-        detail: "Saints, feast days, Marian devotion, and prayer.",
+        detail: "Saints, feast days, Marian devotion.",
       },
       {
         label: "Marian Study",
         href: "/library/catholic/annunciation-luke-1",
-        detail: "Annunciation, Theotokos, and Catholic Marian devotion.",
+        detail: "Annunciation, Theotokos, Marian devotion.",
       },
       {
         label: "Shared Ancient Saints",
@@ -214,24 +214,24 @@ const catholicSections = [
       {
         label: "Church History",
         href: "/library/history",
-        detail: "Councils, schism, and the larger historical context.",
+        detail: "Councils, schism, historical context.",
       },
     ],
   },
   {
     title: "Fathers And Councils",
     summary:
-      "The Catholic path should stay anchored in the ancient Church, its fathers, and the councils that shaped orthodoxy.",
+      "The Catholic path should stay anchored in the ancient Church, fathers, and councils.",
     links: [
       {
         label: "Church Fathers",
         href: "/library/fathers",
-        detail: "Shared patristic library with full primary texts.",
+        detail: "Shared patristic library.",
       },
       {
         label: "Ignatius of Antioch",
         href: "/library/fathers/ignatius-antioch",
-        detail: "Early witness to unity, bishop, Eucharist, and martyrdom.",
+        detail: "Unity, bishop, Eucharist, martyrdom.",
       },
       {
         label: "Council Of Nicaea",
@@ -248,17 +248,17 @@ const catholicSections = [
   {
     title: "Shared Christian Topics",
     summary:
-      "When Catholic study overlaps with Orthodox and Protestant history, the app now points directly to the related study path instead of leaving the user stuck.",
+      "When Catholic study overlaps with Orthodox and Protestant history, the app points directly to the related path.",
     links: [
       {
         label: "Orthodox Resources",
         href: "/library/orthodox",
-        detail: "Shared fathers, councils, liturgy, and saints from the Orthodox side.",
+        detail: "Shared fathers, councils, liturgy.",
       },
       {
         label: "Protestant Resources",
         href: "/library/protestant",
-        detail: "Reformers, confessions, and Protestant history in a parallel study path.",
+        detail: "Reformers, confessions, Protestant history.",
       },
       {
         label: "Ecumenical Councils",
@@ -268,7 +268,7 @@ const catholicSections = [
       {
         label: "Church History Timeline",
         href: "/library/history/timeline",
-        detail: "The major splits and continuities in one vertical timeline.",
+        detail: "Major splits and continuities.",
       },
     ],
   },
@@ -292,9 +292,9 @@ export default function CatholicResourcesPage() {
 
         <section className="orthodox-mobile__intro">
           <p>Catholic Resources</p>
-          <h2>Catholic study hub for Bible, catechesis, saints, liturgy, and tradition.</h2>
+          <h2>Catholic study hub for Bible, catechesis, saints, and tradition.</h2>
           <span>
-            Explore Scripture, doctrine, saints, devotion, and the Fathers in one focused study path.
+            Explore Scripture, doctrine, saints, devotion, and the Fathers in one study path.
           </span>
         </section>
 
@@ -342,11 +342,11 @@ export default function CatholicResourcesPage() {
         <MobileBottomNav active="Home" />
       </main>
 
-      <main className="mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:px-12">
+      <main className="hidden lg:block mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:px-12">
         <SectionHeading
           eyebrow="Catholic Resources"
           title="Catholic study hub for Bible, catechesis, saints, liturgy, and tradition"
-          body="Catholic Resources now sits at the same depth as the Orthodox and Protestant tracks: numbered mobile sections, internal study pages, and a clear path through Scripture, doctrine, devotion, and history."
+          body="Catholic Resources now sits at the same depth as the Orthodox and Protestant tracks with numbered mobile sections and internal study pages."
         />
 
         <section className="mt-12 grid gap-6 lg:grid-cols-2">
