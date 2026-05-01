@@ -12,7 +12,7 @@ export default function AppHeader() {
             href="/"
             className="font-[family-name:var(--font-display)] text-2xl tracking-wide text-[var(--color-highlight)]"
           >
-            Logos &amp; Legacy
+            One In Him
           </Link>
           <p className="text-sm text-[var(--color-muted)]">
             Bible Study and Church History

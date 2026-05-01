@@ -1,6 +1,5 @@
 import Link from "next/link";
 import AppHeader from "@/components/app-header";
-import SectionHeading from "@/components/section-heading";
 import { historyLibrary } from "@/lib/content";
 
 const hubCards = [
@@ -41,33 +40,40 @@ export default function HistoryHubPage() {
     <>
       <AppHeader />
       <main className="mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:px-12">
-        <SectionHeading
-          eyebrow="Church History"
-          title="A study hub for splits, continuities, councils, and modern renewal movements."
-          body="This page is the doorway into the historical branches of the app. Start with the timeline, then move into the East-West Schism, the Reformation, and the Charismatic movement as distinct study paths."
-        />
+        <section className="rounded-[2.4rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6 md:p-8">
+          <p className="text-xs uppercase tracking-[0.3em] text-[var(--color-highlight)]">
+            Church History
+          </p>
+          <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl text-[var(--color-ink)] md:text-5xl">
+            A study hub for splits, continuities, councils, and modern renewal movements.
+          </h1>
+          <p className="mt-5 max-w-4xl text-base leading-8 text-[var(--color-muted)]">
+            Start with the timeline, then move into the East-West Schism, Chalcedon, the
+            Reformation, and the Charismatic movement as distinct study paths.
+          </p>
+        </section>
 
-        <section className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <section className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {hubCards.map((card) => (
             <Link
               key={card.href}
               href={card.href}
-              className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6 transition hover:bg-[rgba(8,26,57,0.88)]"
+              className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-5 transition hover:bg-[rgba(8,26,57,0.88)] md:p-6"
             >
               <p className="text-xs uppercase tracking-[0.3em] text-[var(--color-highlight)]">
                 Church History
               </p>
-              <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl text-[var(--color-ink)]">
+              <h2 className="mt-3 font-[family-name:var(--font-display)] text-2xl text-[var(--color-ink)] md:text-3xl">
                 {card.title}
               </h2>
-              <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
+              <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
                 {card.summary}
               </p>
             </Link>
           ))}
         </section>
 
-        <section className="mt-12 rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
+        <section className="mt-8 rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-5 md:p-6">
           <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-highlight)]">
             Study Links
           </p>

@@ -16,14 +16,14 @@ const body = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: "Logos & Legacy",
+  title: "One In Him Bible Study and Church History",
   description:
     "An installable Bible study and church history app for Scripture, theology, and church history.",
-  applicationName: "Logos & Legacy",
+  applicationName: "One In Him Bible Study and Church History",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Logos & Legacy",
+    title: "One In Him Bible Study and Church History",
   },
   formatDetection: {
     telephone: false,

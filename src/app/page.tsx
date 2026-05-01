@@ -59,9 +59,9 @@ export default function Home() {
     <main className="mobile-app-shell mobile-home">
       <section className="mobile-home__hero">
         <div className="mobile-home__cross">✝</div>
-        <h1>Logos &amp; Legacy</h1>
+        <h1>One In Him</h1>
         <div className="mobile-home__book">⌁ ▱ ▱ ⌁</div>
-        <p>Bible Study &amp; Church History</p>
+        <p>Bible Study and Church History</p>
       </section>
 
       <section className="mobile-home__grid" aria-label="Study sections">
