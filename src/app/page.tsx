@@ -58,8 +58,8 @@ const homeCards = [
     icon: "🙏",
   },
   {
-    title: "Donate",
-    href: "https://www.paypal.com/ncp/payment/CCWF6ADJJK5CL",
+    title: "Support",
+    href: "/donate",
     icon: "☩",
   },
 ];
