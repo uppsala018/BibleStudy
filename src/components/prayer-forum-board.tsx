@@ -7,369 +7,379 @@ import {
   subscribeToAuthChanges,
 } from "@/lib/supabase";
 
-type PrayerRequest = {
+type Category = "prayer" | "praise" | "question";
+type FilterTab = "all" | Category;
+
+type Post = {
   id: string;
   created_at: string;
   display_name: string;
   request_text: string;
+  category: Category;
   amen_count: number;
   user_id: string | null;
   status: "open" | "answered";
 };
 
-function formatDate(value: string) {
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) {
-    return "";
-  }
+const CATEGORY_META: Record<Category, { label: string; badge: string; color: string }> = {
+  prayer:   { label: "Prayer Request", badge: "Prayer",   color: "rgba(229,197,122,0.18)" },
+  praise:   { label: "Praise Report",  badge: "Praise",   color: "rgba(120,200,160,0.18)" },
+  question: { label: "Question",       badge: "Question", color: "rgba(120,160,220,0.18)" },
+};
 
-  return date.toLocaleString(undefined, {
-    dateStyle: "medium",
-    timeStyle: "short",
-  });
+const TABS: { id: FilterTab; label: string }[] = [
+  { id: "all",      label: "All" },
+  { id: "prayer",   label: "Prayer" },
+  { id: "praise",   label: "Praise" },
+  { id: "question", label: "Questions" },
+];
+
+function timeAgo(value: string) {
+  const diff = Date.now() - new Date(value).getTime();
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1) return "just now";
+  if (mins < 60) return `${mins}m ago`;
+  const hours = Math.floor(mins / 60);
+  if (hours < 24) return `${hours}h ago`;
+  const days = Math.floor(hours / 24);
+  if (days < 7) return `${days}d ago`;
+  return new Date(value).toLocaleDateString(undefined, { month: "short", day: "numeric" });
 }
 
-export default function PrayerForumBoard() {
-  const [userId, setUserId] = useState<string | null>(null);
-  const [userEmail, setUserEmail] = useState<string | null>(null);
-  const [displayName, setDisplayName] = useState("");
-  const [requestText, setRequestText] = useState("");
-  const [requests, setRequests] = useState<PrayerRequest[]>([]);
-  const [loading, setLoading] = useState(() => hasSupabaseEnv());
-  const [posting, setPosting] = useState(false);
-  const [prayingId, setPrayingId] = useState<string | null>(null);
-  const [message, setMessage] = useState<string | null>(null);
+function InlineSignIn() {
+  const [email, setEmail] = useState("");
+  const [pending, setPending] = useState(false);
+  const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const defaultDisplayName = useMemo(() => {
-    if (!userEmail) {
-      return "";
-    }
-
-    return userEmail.split("@")[0] || "";
-  }, [userEmail]);
-
-  useEffect(() => {
+  async function send() {
     const supabase = createSupabaseBrowserClient();
-
-    if (!supabase) {
-      return;
-    }
-
-    void supabase.auth.getUser().then(({ data }) => {
-      setUserId(data.user?.id ?? null);
-      const email = data.user?.email ?? null;
-      setUserEmail(email);
-      setDisplayName((current) => current || (email ? email.split("@")[0] ?? "" : ""));
-    });
-
-    return subscribeToAuthChanges((_event, session) => {
-      setUserId(session?.user?.id ?? null);
-      const email = session?.user?.email ?? null;
-      setUserEmail(email);
-      setDisplayName((current) => current || (email ? email.split("@")[0] ?? "" : ""));
-    });
-  }, []);
-
-  const loadRequests = useCallback(async () => {
-    const supabase = createSupabaseBrowserClient();
-
-    if (!supabase) {
-      setMessage("Supabase is not configured yet. Add the prayer_requests table to enable the forum.");
-      return;
-    }
-
-    setLoading(true);
+    if (!supabase || !email.trim()) return;
+    setPending(true);
     setError(null);
-
-    const { data, error: fetchError } = await supabase
-      .from("prayer_requests")
-      .select("id, created_at, display_name, request_text, amen_count, user_id, status")
-      .order("created_at", { ascending: false })
-      .limit(50);
-
-    if (fetchError) {
-      setError(
-        "Prayer forum is not connected yet. Create the prayer_requests table and RLS policy in Supabase.",
-      );
-      setRequests([]);
-      setLoading(false);
-      return;
-    }
-
-    setRequests((data ?? []) as PrayerRequest[]);
-    setLoading(false);
-  }, []);
-
-  useEffect(() => {
-    const timeout = window.setTimeout(() => {
-      void loadRequests();
-    }, 0);
-
-    return () => window.clearTimeout(timeout);
-  }, [loadRequests]);
-
-  async function handleSubmit() {
-    const supabase = createSupabaseBrowserClient();
-
-    if (!supabase) {
-      setError("Supabase is not configured yet.");
-      return;
-    }
-
-    if (!userEmail) {
-      setError("Sign in first, then post a prayer request.");
-      return;
-    }
-
-    const trimmed = requestText.trim();
-
-    if (trimmed.length < 10) {
-      setError("Write at least a short sentence so other people can pray with clarity.");
-      return;
-    }
-
-    setPosting(true);
-    setError(null);
-    setMessage(null);
-
-    const name = displayName.trim() || defaultDisplayName || "Anonymous";
-    const { data, error: insertError } = await supabase
-      .from("prayer_requests")
-      .insert({
-        display_name: name,
-        request_text: trimmed,
-        user_id: userId,
-        status: "open",
-        amen_count: 0,
-      })
-      .select("id, created_at, display_name, request_text, amen_count, user_id, status")
-      .single();
-
-    setPosting(false);
-
-    if (insertError || !data) {
-      setError(insertError?.message ?? "Could not post the request.");
-      return;
-    }
-
-    setRequests((current) => [data as PrayerRequest, ...current]);
-    setRequestText("");
-    setMessage("Prayer request posted.");
+    const { error: err } = await supabase.auth.signInWithOtp({
+      email: email.trim(),
+      options: { emailRedirectTo: typeof window === "undefined" ? undefined : window.location.origin },
+    });
+    setPending(false);
+    if (err) { setError(err.message); return; }
+    setSent(true);
   }
 
-  async function handlePray(id: string) {
-    const supabase = createSupabaseBrowserClient();
-
-    if (!supabase) {
-      setError("Supabase is not configured yet.");
-      return;
-    }
-
-    if (!userEmail) {
-      setError("Sign in first so the forum can track your prayer encouragement.");
-      return;
-    }
-
-    setPrayingId(id);
-    setError(null);
-
-    const { error: rpcError } = await supabase.rpc("increment_prayer_count", {
-      target_id: id,
-    });
-
-    setPrayingId(null);
-
-    if (rpcError) {
-      setError(
-        "The prayer-count helper is missing. Run the supplied Supabase SQL to finish the forum setup.",
-      );
-      return;
-    }
-
-    setRequests((current) =>
-      current.map((request) =>
-        request.id === id
-          ? { ...request, amen_count: request.amen_count + 1 }
-          : request,
-      ),
+  if (sent) {
+    return (
+      <div className="forum-signin-card">
+        <p className="forum-signin-card__title">Check your email ✓</p>
+        <p className="forum-signin-card__body">
+          We sent a sign-in link to <strong>{email}</strong>. Open it to join the conversation.
+        </p>
+      </div>
     );
   }
 
   return (
-    <div className="space-y-6">
-      <section className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
-        <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-highlight)]">
-          Prayer Forum
-        </p>
-        <h2 className="mt-3 font-[family-name:var(--font-display)] text-4xl text-[var(--color-ink)]">
-          Post a request, pray for others, and keep the board focused.
-        </h2>
-        <p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--color-muted)]">
-          Keep requests brief and respectful. Avoid private medical details, full names, or anything
-          you would not want visible to other users. This is a small prayer board, not a counseling
-          service.
-        </p>
-      </section>
+    <div className="forum-signin-card">
+      <p className="forum-signin-card__title">Sign in to post</p>
+      <p className="forum-signin-card__body">
+        No password needed — enter your email and we'll send a one-click sign-in link.
+      </p>
+      <div className="forum-signin-card__row">
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && void send()}
+          placeholder="your@email.com"
+          className="forum-signin-card__input"
+        />
+        <button
+          type="button"
+          onClick={() => void send()}
+          disabled={pending || !email.trim()}
+          className="forum-signin-card__button"
+        >
+          {pending ? "Sending…" : "Send link"}
+        </button>
+      </div>
+      {error ? <p className="forum-signin-card__error">{error}</p> : null}
+    </div>
+  );
+}
 
-      <section className="grid gap-6 lg:grid-cols-[0.52fr_0.48fr]">
-        <article className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
-          <h3 className="font-[family-name:var(--font-display)] text-3xl text-[var(--color-highlight)]">
-            Submit a request
-          </h3>
+export default function PrayerForumBoard() {
+  const [userId, setUserId]       = useState<string | null>(null);
+  const [userEmail, setUserEmail] = useState<string | null>(null);
+  const [posts, setPosts]         = useState<Post[]>([]);
+  const [loading, setLoading]     = useState(true);
+  const [activeTab, setActiveTab] = useState<FilterTab>("all");
+  const [composing, setComposing] = useState(false);
 
-          <div className="mt-5 rounded-[1.4rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.52)] p-4">
-            <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-soft)]">Sign in</p>
-            <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">
-              Use the email sign-in in the header. Signed-in users can post requests and press Pray.
-            </p>
-          </div>
+  const [displayName, setDisplayName]   = useState("");
+  const [postText, setPostText]         = useState("");
+  const [category, setCategory]         = useState<Category>("prayer");
+  const [posting, setPosting]           = useState(false);
+  const [postError, setPostError]       = useState<string | null>(null);
+  const [postMessage, setPostMessage]   = useState<string | null>(null);
 
-          <label className="mt-5 block">
-            <span className="mb-2 block text-sm text-[var(--color-soft)]">Display name</span>
-            <input
-              value={displayName}
-              onChange={(event) => setDisplayName(event.target.value)}
-              placeholder={defaultDisplayName || "Your name"}
-              className="w-full rounded-[1.2rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.78)] px-4 py-3 text-sm text-[var(--color-ink)] outline-none placeholder:text-[var(--color-soft)]"
-            />
-          </label>
+  const [prayingId, setPrayingId]       = useState<string | null>(null);
+  const [loadError, setLoadError]       = useState<string | null>(null);
 
-          <label className="mt-4 block">
-            <span className="mb-2 block text-sm text-[var(--color-soft)]">Prayer request</span>
-            <textarea
-              value={requestText}
-              onChange={(event) => setRequestText(event.target.value)}
-              rows={6}
-              placeholder="Share your prayer request in a few sentences..."
-              className="w-full rounded-[1.2rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.78)] px-4 py-3 text-sm text-[var(--color-ink)] outline-none placeholder:text-[var(--color-soft)]"
-            />
-          </label>
+  const defaultName = useMemo(() => userEmail?.split("@")[0] ?? "", [userEmail]);
 
-          <div className="mt-4 flex flex-wrap gap-3">
-            <button
-              type="button"
-              onClick={handleSubmit}
-              disabled={posting || !requestText.trim()}
-              className="rounded-full bg-[linear-gradient(180deg,#f0cf84,#cba45b)] px-5 py-3 text-sm font-semibold text-[#0a1530] disabled:opacity-60"
-            >
-              {posting ? "Posting..." : "Post request"}
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                setRequestText("");
-                setError(null);
-                setMessage(null);
-              }}
-              className="rounded-full border border-[var(--color-border)] px-5 py-3 text-sm text-[var(--color-ink)]"
-            >
-              Clear
-            </button>
-          </div>
+  useEffect(() => {
+    const supabase = createSupabaseBrowserClient();
+    if (!supabase) return;
+    void supabase.auth.getUser().then(({ data }) => {
+      setUserId(data.user?.id ?? null);
+      setUserEmail(data.user?.email ?? null);
+    });
+    return subscribeToAuthChanges((_event, session) => {
+      setUserId(session?.user?.id ?? null);
+      setUserEmail(session?.user?.email ?? null);
+    });
+  }, []);
 
-          {message ? <p className="mt-4 text-sm text-[var(--color-highlight)]">{message}</p> : null}
-          {error ? <p className="mt-4 text-sm text-[#e6a5a5]">{error}</p> : null}
-          {!hasSupabaseEnv() ? (
-            <p className="mt-4 text-sm text-[var(--color-soft)]">
-              Supabase environment variables are missing, so the forum cannot save posts yet.
-            </p>
-          ) : null}
-        </article>
+  const loadPosts = useCallback(async () => {
+    const supabase = createSupabaseBrowserClient();
+    if (!supabase) {
+      setLoading(false);
+      return;
+    }
+    setLoading(true);
+    setLoadError(null);
+    const { data, error } = await supabase
+      .from("prayer_requests")
+      .select("id, created_at, display_name, request_text, category, amen_count, user_id, status")
+      .order("created_at", { ascending: false })
+      .limit(60);
+    setLoading(false);
+    if (error) { setLoadError("Could not load posts. Check your Supabase setup."); return; }
+    setPosts((data ?? []) as Post[]);
+  }, []);
 
-        <aside className="space-y-6">
-          <article className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
-            <h3 className="font-[family-name:var(--font-display)] text-3xl text-[var(--color-highlight)]">
-              How it works
-            </h3>
-            <ul className="mt-4 space-y-3 text-sm leading-7 text-[var(--color-muted)]">
-              <li>- Read requests without logging in.</li>
-              <li>- Sign in with email to post or tap Pray.</li>
-              <li>- Keep the board focused on encouragement and intercession.</li>
-            </ul>
-          </article>
+  useEffect(() => { void loadPosts(); }, [loadPosts]);
 
-          <article className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
-            <h3 className="font-[family-name:var(--font-display)] text-3xl text-[var(--color-highlight)]">
-              Prayer focus
-            </h3>
-            <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
-              The goal is simple: a small, clean place where people can ask for prayer and respond
-              with encouragement. If you want comments or threads later, that can be added as a second
-              step.
-            </p>
-          </article>
-        </aside>
-      </section>
+  const visiblePosts = useMemo(
+    () => activeTab === "all" ? posts : posts.filter((p) => p.category === activeTab),
+    [posts, activeTab],
+  );
 
-      <section className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div>
-            <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-highlight)]">
-              Latest Requests
-            </p>
-            <h3 className="mt-2 font-[family-name:var(--font-display)] text-3xl text-[var(--color-ink)]">
-              Pray for one another
-            </h3>
-          </div>
+  async function handlePost() {
+    const supabase = createSupabaseBrowserClient();
+    if (!supabase || !userEmail) return;
+    const text = postText.trim();
+    if (text.length < 10) { setPostError("Write at least a sentence."); return; }
+    setPosting(true);
+    setPostError(null);
+    setPostMessage(null);
+    const name = displayName.trim() || defaultName || "Anonymous";
+    const { data, error } = await supabase
+      .from("prayer_requests")
+      .insert({ display_name: name, request_text: text, category, user_id: userId, status: "open", amen_count: 0 })
+      .select("id, created_at, display_name, request_text, category, amen_count, user_id, status")
+      .single();
+    setPosting(false);
+    if (error || !data) { setPostError(error?.message ?? "Could not post."); return; }
+    setPosts((prev) => [data as Post, ...prev]);
+    setPostText("");
+    setComposing(false);
+    setPostMessage("Posted.");
+  }
+
+  async function handlePray(id: string) {
+    const supabase = createSupabaseBrowserClient();
+    if (!supabase || !userEmail) return;
+    setPrayingId(id);
+    const { error } = await supabase.rpc("increment_prayer_count", { target_id: id });
+    setPrayingId(null);
+    if (!error) {
+      setPosts((prev) => prev.map((p) => p.id === id ? { ...p, amen_count: p.amen_count + 1 } : p));
+    }
+  }
+
+  async function handleMarkAnswered(id: string) {
+    const supabase = createSupabaseBrowserClient();
+    if (!supabase) return;
+    const { error } = await supabase
+      .from("prayer_requests")
+      .update({ status: "answered" })
+      .eq("id", id)
+      .eq("user_id", userId);
+    if (!error) {
+      setPosts((prev) => prev.map((p) => p.id === id ? { ...p, status: "answered" } : p));
+    }
+  }
+
+  return (
+    <div className="forum">
+
+      {/* Sign-in / user bar */}
+      {!hasSupabaseEnv() ? (
+        <div className="forum-notice">Supabase not configured — posts will not save yet.</div>
+      ) : userEmail ? (
+        <div className="forum-user-bar">
+          <span className="forum-user-bar__email">{userEmail}</span>
           <button
             type="button"
-            onClick={() => void loadRequests()}
-            disabled={loading}
-            className="rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-soft)]"
+            className="forum-user-bar__signout"
+            onClick={() => void createSupabaseBrowserClient()?.auth.signOut()}
           >
-            {loading ? "Refreshing..." : "Refresh"}
+            Sign out
           </button>
         </div>
+      ) : (
+        <InlineSignIn />
+      )}
 
-        <div className="mt-5 space-y-4">
-          {loading ? (
-            <p className="text-sm text-[var(--color-muted)]">Loading prayer requests...</p>
-          ) : null}
-          {!loading && requests.length === 0 ? (
-            <p className="text-sm text-[var(--color-muted)]">
-              No prayer requests yet. Be the first to post one.
-            </p>
-          ) : null}
-          {requests.map((request) => (
-            <article
-              key={request.id}
-              className="rounded-[1.5rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.52)] p-5"
+      {/* Compose toggle */}
+      {userEmail && !composing && (
+        <button
+          type="button"
+          className="forum-compose-trigger"
+          onClick={() => { setComposing(true); setPostError(null); setPostMessage(null); }}
+        >
+          + Share with the community
+        </button>
+      )}
+      {postMessage && !composing ? (
+        <p className="forum-post-message">{postMessage}</p>
+      ) : null}
+
+      {/* Compose form */}
+      {composing && (
+        <div className="forum-compose">
+          <p className="forum-compose__heading">New post</p>
+
+          <div className="forum-compose__category-row">
+            {(Object.keys(CATEGORY_META) as Category[]).map((c) => (
+              <button
+                key={c}
+                type="button"
+                onClick={() => setCategory(c)}
+                className={`forum-compose__cat-btn${category === c ? " forum-compose__cat-btn--active" : ""}`}
+              >
+                {CATEGORY_META[c].label}
+              </button>
+            ))}
+          </div>
+
+          <input
+            value={displayName}
+            onChange={(e) => setDisplayName(e.target.value)}
+            placeholder={defaultName || "Your name"}
+            className="forum-input"
+          />
+          <textarea
+            value={postText}
+            onChange={(e) => setPostText(e.target.value)}
+            rows={5}
+            placeholder={
+              category === "prayer" ? "Share your prayer request…" :
+              category === "praise" ? "Share what God has done…" :
+              "Ask your question or start a discussion…"
+            }
+            className="forum-input forum-input--textarea"
+          />
+
+          {postError ? <p className="forum-error">{postError}</p> : null}
+
+          <div className="forum-compose__actions">
+            <button
+              type="button"
+              onClick={() => void handlePost()}
+              disabled={posting || !postText.trim()}
+              className="forum-btn forum-btn--primary"
             >
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-soft)]">
-                    {request.display_name}
-                  </p>
-                  <p className="mt-2 text-sm leading-7 text-[var(--color-ink)]">
-                    {request.request_text}
-                  </p>
-                </div>
-                <div className="text-right">
-                  <p className="text-xs text-[var(--color-soft)]">{formatDate(request.created_at)}</p>
-                  <p className="mt-2 text-sm text-[var(--color-highlight)]">
-                    {request.amen_count} prayed
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-4 flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  onClick={() => void handlePray(request.id)}
-                  disabled={prayingId === request.id}
-                  className="rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-highlight)] disabled:opacity-60"
-                >
-                  {prayingId === request.id ? "Praying..." : "Pray"}
-                </button>
-                <span className="rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-soft)]">
-                  {request.status === "answered" ? "Answered" : "Open"}
-                </span>
-              </div>
-            </article>
-          ))}
+              {posting ? "Posting…" : "Post"}
+            </button>
+            <button
+              type="button"
+              onClick={() => { setComposing(false); setPostError(null); }}
+              className="forum-btn forum-btn--ghost"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
-      </section>
+      )}
+
+      {/* Category tabs */}
+      <div className="forum-tabs">
+        {TABS.map((tab) => (
+          <button
+            key={tab.id}
+            type="button"
+            onClick={() => setActiveTab(tab.id)}
+            className={`forum-tab${activeTab === tab.id ? " forum-tab--active" : ""}`}
+          >
+            {tab.label}
+          </button>
+        ))}
+        <button
+          type="button"
+          onClick={() => void loadPosts()}
+          disabled={loading}
+          className="forum-tab forum-tab--refresh"
+          aria-label="Refresh"
+        >
+          ↻
+        </button>
+      </div>
+
+      {/* Feed */}
+      {loading ? (
+        <p className="forum-status">Loading…</p>
+      ) : loadError ? (
+        <p className="forum-status forum-status--error">{loadError}</p>
+      ) : visiblePosts.length === 0 ? (
+        <p className="forum-status">Nothing here yet — be the first to post.</p>
+      ) : (
+        <div className="forum-feed">
+          {visiblePosts.map((post) => {
+            const meta = CATEGORY_META[post.category] ?? CATEGORY_META.prayer;
+            const isOwn = post.user_id === userId;
+            return (
+              <article key={post.id} className="forum-card" style={{ "--cat-color": meta.color } as React.CSSProperties}>
+                <div className="forum-card__top">
+                  <div className="forum-card__meta">
+                    <span className="forum-card__name">{post.display_name}</span>
+                    <span className="forum-card__time">{timeAgo(post.created_at)}</span>
+                  </div>
+                  <div className="forum-card__badges">
+                    <span className="forum-card__badge">{meta.badge}</span>
+                    {post.status === "answered" && (
+                      <span className="forum-card__badge forum-card__badge--answered">Answered</span>
+                    )}
+                  </div>
+                </div>
+
+                <p className="forum-card__text">{post.request_text}</p>
+
+                <div className="forum-card__actions">
+                  <button
+                    type="button"
+                    onClick={() => userEmail ? void handlePray(post.id) : undefined}
+                    disabled={prayingId === post.id || !userEmail}
+                    className="forum-card__pray-btn"
+                    title={userEmail ? undefined : "Sign in to pray"}
+                  >
+                    🙏 {post.amen_count > 0 ? post.amen_count : ""} Amen
+                  </button>
+                  {isOwn && post.status === "open" && (
+                    <button
+                      type="button"
+                      onClick={() => void handleMarkAnswered(post.id)}
+                      className="forum-card__answered-btn"
+                    >
+                      Mark answered
+                    </button>
+                  )}
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

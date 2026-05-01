@@ -1,13 +1,24 @@
-import AppHeader from "@/components/app-header";
+import Link from "next/link";
 import PrayerForumBoard from "@/components/prayer-forum-board";
+import MobileBottomNav from "@/components/mobile-bottom-nav";
 
 export default function PrayerForumPage() {
   return (
-    <>
-      <AppHeader />
-      <main className="mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:px-12">
+    <main className="mobile-app-shell" style={{ paddingBottom: "7rem" }}>
+      <header className="mobile-section-header">
+        <Link href="/" className="mobile-section-header__back" aria-label="Back">‹</Link>
+        <div>
+          <h1>Community</h1>
+          <span>Prayer · Praise · Discussion</span>
+        </div>
+        <span />
+      </header>
+
+      <div className="px-4 pt-4 pb-2">
         <PrayerForumBoard />
-      </main>
-    </>
+      </div>
+
+      <MobileBottomNav />
+    </main>
   );
 }

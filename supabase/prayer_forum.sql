@@ -5,14 +5,23 @@ create table if not exists public.prayer_requests (
   user_id uuid references auth.users (id) on delete set null,
   display_name text not null,
   request_text text not null,
+  category text not null default 'prayer' check (category in ('prayer', 'praise', 'question')),
   amen_count integer not null default 0,
   status text not null default 'open' check (status in ('open', 'answered')),
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
 
+-- Migration: add category column if upgrading from the earlier schema
+alter table public.prayer_requests
+  add column if not exists category text not null default 'prayer'
+  check (category in ('prayer', 'praise', 'question'));
+
 create index if not exists prayer_requests_created_at_idx
   on public.prayer_requests (created_at desc);
+
+create index if not exists prayer_requests_category_idx
+  on public.prayer_requests (category);
 
 alter table public.prayer_requests enable row level security;
 
