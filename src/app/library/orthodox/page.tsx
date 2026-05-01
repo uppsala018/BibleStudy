@@ -11,24 +11,24 @@ const orthodoxMobileSections = [
     items: [
       {
         title: "Septuagint study path",
-        detail: "Septuagint reader and Orthodox study path.",
+        detail: "Brenton LXX and Orthodox study path.",
         href: "/library/orthodox/lxx",
       },
       {
         title: "KJV reference reader",
-        detail: "Compare readings through the existing KJV + Strong's tools.",
+        detail: "Compare readings through the KJV + Strong's tools.",
         href: "/library/kjv",
       },
       {
         title: "Canon and deuterocanonical notes",
-        detail: "Orthodox canon notes and deuterocanonical study path.",
+        detail: "Orthodox canon and deuterocanonical notes.",
         href: "/library/orthodox/lxx?group=deuterocanonical",
       },
     ],
   },
   {
     icon: "2",
-    title: "Orthodox Church Fathers",
+    title: "Orthodox Fathers",
     items: [
       {
         title: "St. John Chrysostom",
@@ -54,28 +54,28 @@ const orthodoxMobileSections = [
   },
   {
     icon: "3",
-    title: "Divine Liturgy & Prayers",
+    title: "Liturgy & Prayer",
     items: [
       {
         title: "Liturgical study",
-        detail: "Step-by-step annotated Divine Liturgy guide.",
+        detail: "Annotated Divine Liturgy guide.",
         href: "/library/orthodox/divine-liturgy",
       },
       {
         title: "Jesus Prayer",
-        detail: "Prayer and hesychasm study path.",
+        detail: "Prayer and hesychasm study.",
         href: "/library/orthodox/jesus-prayer",
       },
       {
         title: "Akathist and hymn study",
-        detail: "Orthodox hymnography, akathists, and theology in worship.",
+        detail: "Orthodox hymnography and akathists.",
         href: "/library/orthodox/akathist-hymn-study",
       },
     ],
   },
   {
     icon: "4",
-    title: "Orthodox Theology",
+    title: "Theology",
     items: [
       {
         title: "Theosis",
@@ -84,33 +84,33 @@ const orthodoxMobileSections = [
       },
       {
         title: "Hesychasm",
-        detail: "Eastern prayer and contemplative theology.",
+        detail: "Prayer of the heart and stillness.",
         href: "/library/orthodox/hesychasm",
       },
       {
         title: "Icons & iconography",
-        detail: "Theology of image, worship, and incarnation.",
+        detail: "Image, worship, and the Incarnation.",
         href: "/library/orthodox/icons-iconography",
       },
     ],
   },
   {
     icon: "5",
-    title: "Orthodox Saints & Devotions",
+    title: "Saints & Devotions",
     items: [
       {
         title: "Shared ancient saints",
-        detail: "Many saints before the major divisions are honored across Catholic and Orthodox traditions.",
+        detail: "Ancient saints shared across traditions.",
         href: "/library/fathers",
       },
       {
         title: "Orthodox saints and feasts",
-        detail: "Orthodox recognition is received through local and synodal glorification, liturgy, icons, and feast days.",
+        detail: "Glorification, liturgy, icons, and feast days.",
         href: "/library/orthodox/saints-devotions",
       },
       {
         title: "Canonization differences",
-        detail: "Catholic canonization is normally a centralized papal process; Orthodox glorification is received through the life of the Church.",
+        detail: "Catholic canonization and Orthodox glorification.",
         href: "/library/history/timeline",
       },
     ],
@@ -126,7 +126,7 @@ const orthodoxMobileSections = [
       },
       {
         title: "Coptic and Ethiopian studies",
-        detail: "Dedicated branch for non-Byzantine Orthodox material.",
+        detail: "Coptic and Ethiopian study branch.",
         href: "/library/orthodox/oriental-coptic-ethiopian-studies",
       },
     ],
@@ -137,7 +137,7 @@ const orthodoxMobileSections = [
     items: [
       {
         title: "Catholic Resources",
-        detail: "Catechesis, saints, sacraments, and Catholic theology.",
+        detail: "Catechesis, saints, sacraments, theology.",
         href: "/library/catholic/resources",
       },
       {
@@ -147,12 +147,12 @@ const orthodoxMobileSections = [
       },
       {
         title: "Ecumenical Councils",
-        detail: "Shared doctrinal councils of the historic Church.",
+        detail: "Shared doctrinal councils.",
         href: "/library/councils",
       },
       {
         title: "Church History Timeline",
-        detail: "The major splits and continuities across Christian history.",
+        detail: "Major splits and continuities.",
         href: "/library/history/timeline",
       },
     ],
