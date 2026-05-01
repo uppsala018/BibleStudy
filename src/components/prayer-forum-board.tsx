@@ -19,6 +19,13 @@ type Post = {
   amen_count: number;
   user_id: string | null;
   status: "open" | "answered";
+  admin_reply: string | null;
+  is_deleted: boolean;
+};
+
+type Restriction = {
+  status: "warned" | "restricted" | "blocked";
+  reason: string | null;
 };
 
 const CATEGORY_META: Record<Category, { label: string; badge: string; color: string }> = {
@@ -123,6 +130,8 @@ export default function PrayerForumBoard() {
 
   const [prayingId, setPrayingId]       = useState<string | null>(null);
   const [loadError, setLoadError]       = useState<string | null>(null);
+  const [restriction, setRestriction]   = useState<Restriction | null>(null);
+  const [warningDismissed, setWarningDismissed] = useState(false);
 
   const defaultName = useMemo(() => userEmail?.split("@")[0] ?? "", [userEmail]);
 
@@ -139,6 +148,19 @@ export default function PrayerForumBoard() {
     });
   }, []);
 
+  // Check if signed-in user has a restriction
+  useEffect(() => {
+    if (!userId) { setRestriction(null); return; }
+    const supabase = createSupabaseBrowserClient();
+    if (!supabase) return;
+    void supabase
+      .from("user_restrictions")
+      .select("status, reason")
+      .eq("user_id", userId)
+      .maybeSingle()
+      .then(({ data }) => setRestriction(data as Restriction | null));
+  }, [userId]);
+
   const loadPosts = useCallback(async () => {
     const supabase = createSupabaseBrowserClient();
     if (!supabase) {
@@ -149,7 +171,8 @@ export default function PrayerForumBoard() {
     setLoadError(null);
     const { data, error } = await supabase
       .from("prayer_requests")
-      .select("id, created_at, display_name, request_text, category, amen_count, user_id, status")
+      .select("id, created_at, display_name, request_text, category, amen_count, user_id, status, admin_reply, is_deleted")
+      .eq("is_deleted", false)
       .order("created_at", { ascending: false })
       .limit(60);
     setLoading(false);
@@ -213,6 +236,23 @@ export default function PrayerForumBoard() {
   return (
     <div className="forum">
 
+      {/* Blocked */}
+      {restriction?.status === "blocked" && (
+        <div className="forum-notice" style={{ borderColor: "rgba(230,165,165,0.4)", color: "#e6a5a5" }}>
+          Your account has been suspended from this forum.
+          {restriction.reason ? ` Reason: ${restriction.reason}` : ""}{" "}
+          Contact support if you believe this is an error.
+        </div>
+      )}
+
+      {/* Warning banner */}
+      {restriction?.status === "warned" && !warningDismissed && (
+        <div className="forum-notice" style={{ borderColor: "rgba(229,197,122,0.4)", display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "0.5rem" }}>
+          <span>⚠ You have received a warning from the admin.{restriction.reason ? ` "${restriction.reason}"` : ""}</span>
+          <button type="button" onClick={() => setWarningDismissed(true)} style={{ flexShrink: 0, color: "var(--color-soft)", fontSize: "0.8rem", textDecoration: "underline" }}>Dismiss</button>
+        </div>
+      )}
+
       {/* Sign-in / user bar */}
       {!hasSupabaseEnv() ? (
         <div className="forum-notice">Supabase not configured — posts will not save yet.</div>
@@ -232,7 +272,7 @@ export default function PrayerForumBoard() {
       )}
 
       {/* Compose toggle */}
-      {userEmail && !composing && (
+      {userEmail && !composing && !restriction?.status?.match(/restricted|blocked/) && (
         <button
           type="button"
           className="forum-compose-trigger"
@@ -354,6 +394,13 @@ export default function PrayerForumBoard() {
                 </div>
 
                 <p className="forum-card__text">{post.request_text}</p>
+
+                {post.admin_reply && (
+                  <div className="forum-card__admin-reply">
+                    <p className="forum-card__admin-reply-label">Admin ✓</p>
+                    <p className="forum-card__admin-reply-text">{post.admin_reply}</p>
+                  </div>
+                )}
 
                 <div className="forum-card__actions">
                   <button

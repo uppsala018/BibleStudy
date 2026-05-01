@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import AppHeader from "@/components/app-header";
+import AdminPanel from "@/components/admin-panel";
 import MobileBottomNav from "@/components/mobile-bottom-nav";
+import { createSupabaseBrowserClient, hasSupabaseEnv, subscribeToAuthChanges } from "@/lib/supabase";
 import {
   applyTheme,
   readPreferences,
@@ -28,6 +30,15 @@ function togglePreference<T extends keyof UserPreferences>(
 
 export default function SettingsPage() {
   const [preferences, setPreferences] = useState<UserPreferences>(() => readPreferences());
+  const [userEmail, setUserEmail] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!hasSupabaseEnv()) return;
+    const sb = createSupabaseBrowserClient();
+    if (!sb) return;
+    void sb.auth.getUser().then(({ data }) => setUserEmail(data.user?.email ?? null));
+    return subscribeToAuthChanges((_e, session) => setUserEmail(session?.user?.email ?? null));
+  }, []);
 
   useEffect(() => {
     applyTheme(preferences.theme);
@@ -153,6 +164,9 @@ export default function SettingsPage() {
               </p>
             </button>
           </section>
+          {userEmail === "mosegaard622@gmail.com" && (
+            <AdminPanel userEmail={userEmail} />
+          )}
         </main>
 
         <MobileBottomNav active="Settings" />
