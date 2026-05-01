@@ -11,7 +11,7 @@ export default function PrayerForumPage() {
           <h1>Community</h1>
           <span>Prayer · Praise · Discussion</span>
         </div>
-        <span />
+        <Link href="/library/prayer-forum/support" className="mobile-section-header__back" aria-label="Support" style={{ fontSize: "1.5rem" }}>?</Link>
       </header>
 
       <div className="px-4 pt-4 pb-2">

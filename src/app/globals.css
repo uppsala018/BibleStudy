@@ -2907,6 +2907,48 @@ html[data-theme="light"] .mobile-app-shell {
   text-align: center;
 }
 
+.support-topics {
+  border: 1px solid rgba(229, 197, 122, 0.2);
+  border-radius: 1.4rem;
+  background: rgba(7, 25, 54, 0.62);
+  padding: 1.2rem 1.3rem;
+}
+
+.support-topics__heading {
+  margin: 0 0 0.75rem;
+  color: var(--color-highlight);
+  font-family: var(--font-display), serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.support-topics__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.support-topics__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: var(--color-muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.support-topics__list li::before {
+  content: "›";
+  color: var(--color-highlight);
+  font-family: var(--font-display), serif;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
 /* ── Prayer Forum ─────────────────────────────────────────── */
 
 .forum {
