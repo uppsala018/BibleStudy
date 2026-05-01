@@ -17,22 +17,22 @@ const body = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: "One In Him Bible Study and Church History",
+  title: "One In Him Biblestudy & Church History",
   description:
-    "An installable Bible study and church history app for Scripture, theology, and church history.",
-  applicationName: "One In Him Bible Study and Church History",
+    "An installable Bible study and church history app covering Scripture, theology, church fathers, councils, and Christian traditions.",
+  applicationName: "One In Him Biblestudy & Church History",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "One In Him Bible Study and Church History",
+    title: "One In Him",
   },
   formatDetection: {
     telephone: false,
   },
   manifest: "/manifest.webmanifest",
   icons: {
-    icon: "/assets/art/catholic-icon.png",
-    apple: "/assets/art/catholic-icon.png",
+    icon: "/assets/art/icon-192.png",
+    apple: "/assets/art/icon-192.png",
   },
 };
 

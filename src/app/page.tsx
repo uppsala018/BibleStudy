@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import MobileBottomNav from "@/components/mobile-bottom-nav";
 
@@ -69,14 +68,10 @@ export default function Home() {
   return (
     <main className="mobile-app-shell mobile-home">
       <section className="mobile-home__hero">
-        <Image
-          src="/assets/art/Logo.png"
-          alt="One In Him — Biblestudy & Church History"
-          width={560}
-          height={184}
-          className="mobile-home__logo"
-          priority
-        />
+        <div className="mobile-home__cross">✝</div>
+        <h1>One In Him</h1>
+        <div className="mobile-home__book">⌁ ▱ ▱ ⌁</div>
+        <p>Biblestudy &amp; Church History</p>
       </section>
 
       <section className="mobile-home__grid" aria-label="Study sections">
