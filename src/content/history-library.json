@@ -32,6 +32,38 @@
     "relatedTopics": ["great-schism", "reformation"]
   },
   {
+    "slug": "chalcedon-451",
+    "title": "Chalcedon and the Oriental Orthodox Split",
+    "era": "451 and after",
+    "summary": "The Council of Chalcedon clarified Christ's two natures for the Byzantine world, while several ancient churches rejected the definition and continued as the Oriental Orthodox traditions.",
+    "overview": "Chalcedon is one of the most important Christological turning points after Nicaea. It sought to confess Christ as one person in two natures, fully divine and fully human, without confusion or division. The council's definition was received in the imperial and Byzantine churches, but not by all ancient Christian communities.",
+    "significance": "The debate shaped the identity of the Coptic, Syriac, Armenian, Ethiopian, Eritrean, and Malankara traditions, which should be studied on their own terms rather than treated as a footnote to later East-West history.",
+    "sections": [
+      {
+        "id": "chalcedon-background",
+        "title": "Why Chalcedon Was Called",
+        "summary": "The church needed language that would protect both Christ's full divinity and full humanity.",
+        "detail": "The controversy after Ephesus and the Christological debates of the fifth century forced the bishops to say more precisely how the incarnate Son should be confessed. Chalcedon answered against both confusion of natures and separation of persons.",
+        "tags": ["chalcedon", "christology", "incarnation"]
+      },
+      {
+        "id": "chalcedon-definition",
+        "title": "The Chalcedonian Definition",
+        "summary": "The council taught one and the same Christ, Son, Lord, and only-begotten, acknowledged in two natures.",
+        "detail": "The definition was meant to preserve the unity of Christ's person while safeguarding the integrity of His divinity and humanity. It became standard for Byzantine, Latin, and many later Protestant traditions.",
+        "tags": ["definition", "two-natures", "orthodoxy"]
+      },
+      {
+        "id": "chalcedon-reception",
+        "title": "Reception and Division",
+        "summary": "Some ancient churches rejected Chalcedon and continued as the Oriental Orthodox communions.",
+        "detail": "The split was not simply a matter of politics or a quick misunderstanding. It was a real Christological disagreement that developed into separate ecclesial histories. The Coptic, Syriac, Armenian, Ethiopian, Eritrean, and Malankara churches should be read as continuing ancient apostolic traditions, not as modern offshoots.",
+        "tags": ["oriental-orthodox", "coptic", "syriac"]
+      }
+    ],
+    "relatedTopics": ["nicaea", "great-schism"]
+  },
+  {
     "slug": "great-schism",
     "title": "Great Schism",
     "era": "1054 and after",

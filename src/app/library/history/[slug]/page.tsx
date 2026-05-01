@@ -133,6 +133,7 @@ function TraditionTimelinePanel() {
           <strong>451</strong>
           <h3>Oriental Orthodox churches</h3>
           <p>After Chalcedon, the Armenian, Coptic, Syriac, Ethiopian, Eritrean, and Malankara traditions continue as ancient churches.</p>
+          <Link href="/library/history/chalcedon-451">Study Chalcedon</Link>
         </article>
 
         <article className="history-tradition-split">
@@ -237,6 +238,62 @@ function SchismPanel() {
           <p>
             Catholic and Orthodox churches remain distinct, but modern dialogue has continued,
             especially after the lifting of mutual excommunications in 1965.
+          </p>
+        </article>
+      </section>
+    </>
+  );
+}
+
+function ChalcedonPanel() {
+  return (
+    <>
+      <section className="history-schism-map">
+        <div className="history-schism-map__top">
+          <span>✦</span>
+          <h2>The Council of Chalcedon (451)</h2>
+        </div>
+        <div className="history-schism-map__split" aria-hidden="true">
+          <span />
+          <span />
+        </div>
+        <div className="history-schism-map__churches">
+          <article>
+            <div>☩</div>
+            <h3>Chalcedonian Churches</h3>
+            <p>Byzantine, Latin, and later Western traditions</p>
+          </article>
+          <article>
+            <div>☦</div>
+            <h3>Oriental Orthodox Churches</h3>
+            <p>Coptic, Syriac, Armenian, Ethiopian, Eritrean, and Malankara traditions</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="history-card-grid">
+        <article className="history-mini-card">
+          <span>✦</span>
+          <h3>Key Question</h3>
+          <p>
+            How should the one incarnate Christ be confessed so that both His full divinity and
+            full humanity are protected?
+          </p>
+        </article>
+        <article className="history-mini-card">
+          <span>☩</span>
+          <h3>Chalcedonian Definition</h3>
+          <p>
+            One and the same Christ, Son, Lord, and only-begotten, acknowledged in two natures,
+            without confusion, change, division, or separation.
+          </p>
+        </article>
+        <article className="history-mini-card">
+          <span>☦</span>
+          <h3>Oriental Orthodox Continuity</h3>
+          <p>
+            The non-Chalcedonian churches remained ancient apostolic communities with their own
+            liturgical, linguistic, and theological traditions.
           </p>
         </article>
       </section>
@@ -349,6 +406,7 @@ function CharismaticPanel() {
 
 function TopicPanel({ slug }: { slug: string }) {
   if (slug === "timeline") return <TraditionTimelinePanel />;
+  if (slug === "chalcedon-451") return <ChalcedonPanel />;
   if (slug === "great-schism") return <SchismPanel />;
   if (slug === "reformation") return <ReformationPanel />;
   if (slug === "charismatic-movement") return <CharismaticPanel />;
@@ -395,7 +453,7 @@ export default async function HistoryTopicPage({
       <section className="history-topic-title">
         <p>{topic.era}</p>
         <h2>{topic.title === "Great Schism" ? "The Great Schism of 1054" : topic.title}</h2>
-        <p>{topic.summary}</p>
+          <p>{topic.summary}</p>
       </section>
 
       <TopicPanel slug={topic.slug} />

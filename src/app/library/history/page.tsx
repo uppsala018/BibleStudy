@@ -17,6 +17,12 @@ const hubCards = [
       "Study the long rupture between Rome and Constantinople, including the Filioque, papal claims, and the later hardening of East and West.",
   },
   {
+    title: "Chalcedon / Oriental Orthodox",
+    href: "/library/history/chalcedon-451",
+    summary:
+      "Read the 451 Christological split and the continuation of the ancient Oriental Orthodox churches on their own historical path.",
+  },
+  {
     title: "Reformation",
     href: "/library/history/reformation",
     summary:
