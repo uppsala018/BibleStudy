@@ -167,6 +167,18 @@ export default function SettingsPage() {
           {userEmail === "mosegaard622@gmail.com" && (
             <AdminPanel userEmail={userEmail} />
           )}
+
+          <div className="flex flex-wrap gap-4 pt-2 text-sm text-[var(--color-soft)]">
+            <Link href="/privacy" className="hover:text-[var(--color-highlight)]">
+              Privacy Policy
+            </Link>
+            <Link href="/donate" className="hover:text-[var(--color-highlight)]">
+              Support the app
+            </Link>
+            <Link href="/library/prayer-forum/support" className="hover:text-[var(--color-highlight)]">
+              Contact
+            </Link>
+          </div>
         </main>
 
         <MobileBottomNav active="Settings" />
