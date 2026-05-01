@@ -1082,16 +1082,21 @@ html[data-theme="light"] .mobile-app-shell {
 }
 
 .history-reformer-strip article,
-.history-charismatic-figures article {
+.history-reformer-strip a,
+.history-charismatic-figures article,
+.history-charismatic-figures a {
   border: 1.5px solid rgba(229, 197, 122, 0.5);
   border-radius: 1.1rem;
   background: rgba(7, 31, 64, 0.72);
   padding: 0.68rem;
   text-align: center;
+  text-decoration: none;
 }
 
 .history-reformer-strip article > div,
-.history-charismatic-figures article > div {
+.history-reformer-strip a > div,
+.history-charismatic-figures article > div,
+.history-charismatic-figures a > div {
   width: 3.9rem;
   height: 3.9rem;
   display: grid;
@@ -1224,10 +1229,11 @@ html[data-theme="light"] .mobile-app-shell {
   margin-top: 0.8rem;
 }
 
-.history-denomination-list p {
+.history-denomination-list p,
+.history-denomination-list a {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin: 0;
   border: 1px solid rgba(229, 197, 122, 0.34);
   border-radius: 0.8rem;
@@ -1236,6 +1242,13 @@ html[data-theme="light"] .mobile-app-shell {
   color: var(--color-ink);
   font-family: var(--font-display), serif;
   font-size: 1.05rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.history-denomination-list span,
+.history-denomination-list b {
+  display: none;
 }
 
 .history-denomination-list b {

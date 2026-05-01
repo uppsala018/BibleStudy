@@ -7,7 +7,7 @@ import { protestantFigures } from "@/lib/content";
 const protestantFigureSections = [
   {
     icon: "1",
-    title: "Luther, Calvin, Wesley",
+    title: "Reformation Figures",
     items: protestantFigures.map((figure) => ({
       title: figure.name,
       detail: `${figure.era} - ${figure.tradition}`,
@@ -27,6 +27,16 @@ const protestantFigureSections = [
         title: "John Calvin",
         detail: "Institutes of the Christian Religion and key doctrinal texts.",
         href: "/library/protestant/figures/john-calvin",
+      },
+      {
+        title: "Huldrych Zwingli",
+        detail: "Swiss reform, Scripture, worship, and Eucharistic controversy.",
+        href: "/library/protestant/figures/huldrych-zwingli",
+      },
+      {
+        title: "John Knox",
+        detail: "Scottish Reformation and Presbyterian church order.",
+        href: "/library/protestant/figures/john-knox",
       },
       {
         title: "John Wesley",

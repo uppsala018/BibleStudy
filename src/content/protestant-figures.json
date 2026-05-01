@@ -1241,5 +1241,39 @@
         }
       }
     ]
+  },
+  {
+    "slug": "huldrych-zwingli",
+    "name": "Huldrych Zwingli",
+    "era": "1484-1531",
+    "region": "Zurich and the Swiss Confederation",
+    "tradition": "Swiss Reformation",
+    "summary": "Swiss reformer whose preaching in Zurich shaped the Reformed tradition, especially through biblical reform of worship, civic church life, and controversy over the Eucharist.",
+    "bio": "Huldrych Zwingli was a priest, preacher, and reformer in Zurich whose reform program developed alongside Luther's but took a distinct Swiss shape. He argued that worship and doctrine should be reformed according to Scripture, challenged late medieval devotional practices, and worked with Zurich's civic authorities to reshape church life. His disagreement with Luther over the Lord's Supper became one of the early dividing lines inside Protestantism. Zwingli's influence continued through the Swiss Reformed tradition, even though he died in battle in 1531 before the movement reached its mature confessional form.",
+    "themes": [
+      "Scripture",
+      "worship reform",
+      "Eucharist",
+      "Swiss Reformation",
+      "Reformed tradition"
+    ],
+    "works": []
+  },
+  {
+    "slug": "john-knox",
+    "name": "John Knox",
+    "era": "1513-1572",
+    "region": "Scotland, Geneva, and the British Isles",
+    "tradition": "Scottish Reformation",
+    "summary": "Scottish reformer, preacher, and organizer whose work helped form Presbyterian Christianity and the Reformed identity of Scotland.",
+    "bio": "John Knox became the most forceful public voice of the Scottish Reformation. After imprisonment, exile, and time in Geneva, he returned to Scotland with a Reformed vision of preaching, discipline, education, and church order. Knox's legacy is especially important for Presbyterian history because he helped move Scottish Protestantism toward elder-led church government and a disciplined Reformed public theology. His career also shows how the Reformation was not only a German or Swiss event, but a wider European reshaping of worship, politics, Scripture, and authority.",
+    "themes": [
+      "Presbyterianism",
+      "preaching",
+      "church order",
+      "Scottish Reformation",
+      "Reformed theology"
+    ],
+    "works": []
   }
 ]

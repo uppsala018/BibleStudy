@@ -16,54 +16,85 @@ const reformers = [
     years: "1483-1546",
     note: "German monk whose protest against indulgences became a wider reform movement.",
     doctrine: "Justification, Scripture, reform of abuses",
+    href: "/library/protestant/figures/martin-luther",
   },
   {
     name: "John Calvin",
     years: "1509-1564",
     note: "French theologian whose work shaped Reformed theology and church order.",
     doctrine: "Sovereignty of God, covenant, disciplined church life",
+    href: "/library/protestant/figures/john-calvin",
   },
   {
     name: "Huldrych Zwingli",
     years: "1484-1531",
     note: "Swiss reformer in Zurich who emphasized biblical reform of worship.",
     doctrine: "Scripture, preaching, reform of worship",
+    href: "/library/protestant/figures/huldrych-zwingli",
   },
   {
     name: "John Knox",
     years: "1513-1572",
     note: "Scottish reformer and major voice behind Presbyterian Christianity.",
     doctrine: "Reformed preaching and Presbyterian order",
+    href: "/library/protestant/figures/john-knox",
+  },
+  {
+    name: "John Wesley",
+    years: "1703-1791",
+    note: "Anglican priest whose Methodist movement shaped later evangelical and holiness Protestantism.",
+    doctrine: "Conversion, grace, holiness, and disciplined societies",
+    href: "/library/protestant/figures/john-wesley",
   },
 ];
 
 const charismaticFigures = [
-  ["Charles Parham", "1873-1929", "Pioneer of early Pentecostal teaching"],
-  ["William J. Seymour", "1870-1922", "Led the Azusa Street Revival"],
-  ["Aimee Semple McPherson", "1890-1944", "Founded Foursquare Church"],
-  ["Oral Roberts", "1918-2009", "Healing evangelist and media preacher"],
+  {
+    name: "Charles Parham",
+    years: "1873-1929",
+    note: "Pioneer of early Pentecostal teaching",
+    href: "/library/protestant/charles-parham",
+  },
+  {
+    name: "William J. Seymour",
+    years: "1870-1922",
+    note: "Led the Azusa Street Revival",
+    href: "/library/protestant/william-j-seymour",
+  },
+  {
+    name: "Aimee Semple McPherson",
+    years: "1890-1944",
+    note: "Founded Foursquare Church",
+    href: "/library/protestant/aimee-semple-mcpherson",
+  },
+  {
+    name: "Oral Roberts",
+    years: "1918-2009",
+    note: "Healing evangelist and media preacher",
+    href: "/library/protestant/oral-roberts",
+  },
 ];
 
 const charismaticDenominations = [
   {
     name: "Assemblies of God",
     href: "/library/protestant/assemblies-of-god",
-    note: "Largest classical Pentecostal fellowship.",
+    note: "",
   },
   {
     name: "Church of God in Christ",
     href: "/library/protestant/church-of-god-in-christ",
-    note: "Major Holiness-Pentecostal body.",
+    note: "",
   },
   {
     name: "Foursquare Church",
     href: "/library/protestant/foursquare-church",
-    note: "Aimee Semple McPherson's denomination.",
+    note: "",
   },
   {
     name: "Vineyard Movement",
     href: "/library/protestant/vineyard-movement",
-    note: "Later charismatic network and church-planting stream.",
+    note: "",
   },
 ];
 
@@ -314,13 +345,13 @@ function ReformationPanel() {
 
       <section className="history-reformer-strip" aria-label="Major reformers">
         {reformers.map((reformer) => (
-          <article key={reformer.name}>
+          <Link key={reformer.name} href={reformer.href}>
             <div>{reformer.name.charAt(0)}</div>
             <h3>{reformer.name}</h3>
             <p>({reformer.years})</p>
             <p>{reformer.note}</p>
             <strong>{reformer.doctrine}</strong>
-          </article>
+          </Link>
         ))}
       </section>
 
@@ -346,9 +377,9 @@ function CharismaticPanel() {
         <span>1</span>
         <div>
           <h2>Origins - Azusa Street Revival (1906)</h2>
-          <div className="history-azusa-card">
+          <Link href="/library/protestant/apostolic-faith-mission" className="history-azusa-card">
             <strong>Apostolic Faith Mission</strong>
-          </div>
+          </Link>
           <p>
             Led by William J. Seymour in Los Angeles, with emphasis on baptism in the
             Holy Spirit, tongues, divine healing, prayer, and mission.
@@ -361,13 +392,13 @@ function CharismaticPanel() {
         <div>
           <h2>Key Leaders and Figures</h2>
           <div className="history-charismatic-figures">
-            {charismaticFigures.map(([name, years, note]) => (
-              <article key={name}>
-                <div>{name.charAt(0)}</div>
-                <h3>{name}</h3>
-                <p>({years})</p>
-                <small>{note}</small>
-              </article>
+            {charismaticFigures.map((figure) => (
+              <Link key={figure.name} href={figure.href}>
+                <div>{figure.name.charAt(0)}</div>
+                <h3>{figure.name}</h3>
+                <p>({figure.years})</p>
+                <small>{figure.note}</small>
+              </Link>
             ))}
           </div>
         </div>

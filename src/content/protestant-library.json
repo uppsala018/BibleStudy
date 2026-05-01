@@ -3,7 +3,7 @@
     "slug": "reformation-era",
     "title": "The Reformation Era",
     "era": "16th century",
-    "summary": "A study entry on Luther, Calvin, Zwingli, and the early fracture points of the Protestant Reformation.",
+    "summary": "A study entry on Luther, Calvin, Zwingli, Knox, Wesley, and the early fracture points of Protestant history.",
     "focus": "Origins of Protestant theology and ecclesial separation",
     "source": "Historical Analysis of Protestantism: From the Reformation to the Present Day",
     "sections": [
@@ -45,6 +45,32 @@
           "Believer's baptism",
           "Separation of church and state"
         ]
+      },
+      {
+        "id": "section-4",
+        "title": "John Knox and the Scottish Reformation",
+        "paragraphs": [
+          "John Knox carried Reformed Protestantism into the Scottish setting after exile, imprisonment, and contact with Geneva. His preaching and organizing helped give Scottish Protestantism its Presbyterian shape.",
+          "Knox is important because he shows how the Reformation moved from individual reformers into church order, discipline, education, and national religious identity."
+        ],
+        "bullets": [
+          "Presbyterian church order",
+          "Reformed preaching",
+          "Scottish Protestant identity"
+        ]
+      },
+      {
+        "id": "section-5",
+        "title": "John Wesley and the Methodist Renewal",
+        "paragraphs": [
+          "John Wesley belongs later than the first Reformation generation, but he is essential for understanding the Protestant family tree. Methodism grew from Anglican and Pietist roots and emphasized conversion, assurance, disciplined societies, and holiness of heart and life.",
+          "Including Wesley in the Reformation study path helps users see the development from confessional Protestantism into revival, holiness, and later Pentecostal streams."
+        ],
+        "bullets": [
+          "Methodist societies and disciplined devotion",
+          "Conversion and assurance",
+          "Holiness as a bridge toward later renewal movements"
+        ]
       }
     ],
     "links": [
@@ -55,6 +81,10 @@
       {
         "label": "CCEL - John Calvin",
         "href": "https://www.ccel.org/ccel/calvin"
+      },
+      {
+        "label": "John Wesley profile",
+        "href": "/library/protestant/figures/john-wesley"
       }
     ]
   },
@@ -204,12 +234,259 @@
         "href": "/library/protestant/vineyard-movement"
       },
       {
+        "label": "Apostolic Faith Mission",
+        "href": "/library/protestant/apostolic-faith-mission"
+      },
+      {
+        "label": "Charles Parham",
+        "href": "/library/protestant/charles-parham"
+      },
+      {
+        "label": "William J. Seymour",
+        "href": "/library/protestant/william-j-seymour"
+      },
+      {
+        "label": "Aimee Semple McPherson",
+        "href": "/library/protestant/aimee-semple-mcpherson"
+      },
+      {
+        "label": "Oral Roberts",
+        "href": "/library/protestant/oral-roberts"
+      },
+      {
         "label": "Charismatic Movement",
         "href": "/library/history/charismatic-movement"
       },
       {
         "label": "Azusa Street Heritage",
         "href": "https://www.azusastreet.org/"
+      }
+    ]
+  },
+  {
+    "slug": "apostolic-faith-mission",
+    "title": "Apostolic Faith Mission",
+    "era": "1906 onward",
+    "summary": "The Azusa Street mission in Los Angeles where William J. Seymour led a revival that became a major center for early Pentecostal spread.",
+    "focus": "Azusa Street, revival, interracial worship, Spirit baptism, and mission",
+    "source": "App-authored historical study from public historical references.",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "What It Was",
+        "paragraphs": [
+          "The Apostolic Faith Mission was the name associated with the Azusa Street revival in Los Angeles. It gathered in a modest mission space at 312 Azusa Street and became one of the best-known centers of early Pentecostalism.",
+          "The mission was led by William J. Seymour, an African American holiness preacher. Its meetings were marked by prayer, preaching, testimonies, tongues, healing claims, interracial worship, and a strong expectation that the Holy Spirit was empowering the Church for mission."
+        ],
+        "bullets": [
+          "Location: 312 Azusa Street, Los Angeles",
+          "Central leader: William J. Seymour",
+          "Main themes: Holy Spirit baptism, tongues, healing, prayer, and mission"
+        ]
+      },
+      {
+        "id": "section-2",
+        "title": "How It Happened",
+        "paragraphs": [
+          "The revival grew from the Holiness and early Pentecostal streams that preceded it. Seymour had been influenced by teaching connected to Charles Parham, especially the expectation that speaking in tongues was evidence of Spirit baptism.",
+          "After Seymour came to Los Angeles, prayer meetings intensified and reports of tongues and healing drew attention. The movement soon outgrew earlier meeting places and centered at Azusa Street, where visitors came from many regions and carried Pentecostal teaching outward."
+        ],
+        "bullets": [
+          "Holiness teaching prepared the ground",
+          "Los Angeles prayer meetings became the immediate setting",
+          "Visitors carried the message into new churches and missions"
+        ]
+      },
+      {
+        "id": "section-3",
+        "title": "Why It Matters",
+        "paragraphs": [
+          "Azusa Street became a symbolic birthplace of global Pentecostalism, though Pentecostal beginnings were broader than one building or one leader. Its importance comes from the way people from different backgrounds gathered, reported spiritual experiences, and then spread the movement through preaching and mission.",
+          "The Apostolic Faith Mission also matters because it shows how modern charismatic Protestantism developed from revival, holiness, race, migration, and global mission rather than from academic theology alone."
+        ],
+        "bullets": [
+          "Major center for early Pentecostal spread",
+          "Important example of interracial revival in the segregated United States",
+          "Directly connected to later Pentecostal and charismatic denominations"
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "William J. Seymour",
+        "href": "/library/protestant/william-j-seymour"
+      },
+      {
+        "label": "Pentecostal and Charismatic Protestantism",
+        "href": "/library/protestant/pentecostal-and-charismatic"
+      },
+      {
+        "label": "Charismatic Movement",
+        "href": "/library/history/charismatic-movement"
+      }
+    ]
+  },
+  {
+    "slug": "charles-parham",
+    "title": "Charles Parham",
+    "era": "1873-1929",
+    "summary": "Early Pentecostal teacher whose Bible school and theology helped shape the link between Spirit baptism and speaking in tongues.",
+    "focus": "Holiness roots, Topeka Bible school, tongues, and early Pentecostal teaching",
+    "source": "App-authored historical biography from public historical references.",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "Biography",
+        "paragraphs": [
+          "Charles Fox Parham was an American holiness preacher and teacher associated with the earliest phase of Pentecostalism. His ministry developed in the atmosphere of late nineteenth-century holiness religion, revivalism, healing teaching, and expectation of a deeper work of the Holy Spirit.",
+          "Parham is especially remembered for his Bible school in Topeka, Kansas, where students studied the book of Acts and concluded that speaking in tongues was connected to baptism in the Holy Spirit. This teaching became one of the most influential ideas in classical Pentecostalism."
+        ],
+        "bullets": [
+          "American holiness preacher and Bible teacher",
+          "Associated with Topeka, Kansas, and early Pentecostal teaching",
+          "Linked Spirit baptism with tongues in a way that shaped later Pentecostal doctrine"
+        ]
+      },
+      {
+        "id": "section-2",
+        "title": "Place In Protestant History",
+        "paragraphs": [
+          "Parham's importance is not that he created all of Pentecostalism by himself, but that he gave a doctrinal form to a movement already drawing from holiness, healing, revival, and missionary expectation.",
+          "His influence reached William J. Seymour, even though Seymour's Azusa Street work became the more famous global center of Pentecostal spread."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Apostolic Faith Mission",
+        "href": "/library/protestant/apostolic-faith-mission"
+      },
+      {
+        "label": "William J. Seymour",
+        "href": "/library/protestant/william-j-seymour"
+      }
+    ]
+  },
+  {
+    "slug": "william-j-seymour",
+    "title": "William J. Seymour",
+    "era": "1870-1922",
+    "summary": "African American holiness preacher and leader of the Azusa Street revival, one of the central figures in early global Pentecostalism.",
+    "focus": "Azusa Street, prayer, Spirit baptism, interracial worship, and mission",
+    "source": "App-authored historical biography from public historical references.",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "Biography",
+        "paragraphs": [
+          "William J. Seymour was an African American holiness preacher who became the central leader of the Azusa Street revival in Los Angeles. His ministry was shaped by holiness religion, prayer, expectation of Spirit baptism, and a deep concern for humble Christian life.",
+          "In 1906 Seymour's Los Angeles meetings became a major gathering point for early Pentecostal experience. People came to Azusa Street to pray, worship, testify, seek healing, and report speaking in tongues. The revival's interracial character was especially notable in the segregated social world of the early twentieth-century United States."
+        ],
+        "bullets": [
+          "Leader of the Azusa Street revival",
+          "Preached Spirit baptism and holiness",
+          "Helped make Pentecostalism a global missionary movement"
+        ]
+      },
+      {
+        "id": "section-2",
+        "title": "Why He Matters",
+        "paragraphs": [
+          "Seymour matters because Azusa Street became one of the most important launching points for Pentecostalism worldwide. Many later Pentecostal leaders and missionaries traced their inspiration, contacts, or theology back to the revival.",
+          "His life also shows the complexity of Protestant renewal: the movement was evangelical and revivalist, but it also crossed racial, social, and denominational boundaries in ways that made it difficult to contain."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Apostolic Faith Mission",
+        "href": "/library/protestant/apostolic-faith-mission"
+      },
+      {
+        "label": "Charismatic Movement",
+        "href": "/library/history/charismatic-movement"
+      }
+    ]
+  },
+  {
+    "slug": "aimee-semple-mcpherson",
+    "title": "Aimee Semple McPherson",
+    "era": "1890-1944",
+    "summary": "Pentecostal evangelist, media pioneer, and founder of the Foursquare Church.",
+    "focus": "Evangelism, healing, media ministry, and the Foursquare gospel",
+    "source": "App-authored historical biography from public historical references.",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "Biography",
+        "paragraphs": [
+          "Aimee Semple McPherson was a Canadian-born Pentecostal evangelist who became one of the most famous religious figures in early twentieth-century America. She preached widely, emphasized salvation, healing, Spirit-filled life, and the return of Christ, and used public events and media with unusual skill for her time.",
+          "She founded the Foursquare Church in Los Angeles, organizing her preaching around the fourfold gospel: Jesus Christ as Savior, Baptizer with the Holy Spirit, Healer, and Coming King."
+        ],
+        "bullets": [
+          "Founder of the Foursquare Church",
+          "Major Pentecostal evangelist and media figure",
+          "Associated with the fourfold gospel"
+        ]
+      },
+      {
+        "id": "section-2",
+        "title": "Why She Matters",
+        "paragraphs": [
+          "McPherson matters because she shows how Pentecostalism moved from small revival meetings into mass evangelism, media, urban ministry, and organized denominational life.",
+          "Her ministry also demonstrates the unusually visible role some women held in early Pentecostal leadership, preaching, and church founding."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Foursquare Church",
+        "href": "/library/protestant/foursquare-church"
+      },
+      {
+        "label": "Pentecostal and Charismatic Protestantism",
+        "href": "/library/protestant/pentecostal-and-charismatic"
+      }
+    ]
+  },
+  {
+    "slug": "oral-roberts",
+    "title": "Oral Roberts",
+    "era": "1918-2009",
+    "summary": "Pentecostal healing evangelist, broadcaster, university founder, and major figure in modern charismatic Christianity.",
+    "focus": "Healing evangelism, media, education, and charismatic expansion",
+    "source": "App-authored historical biography from public historical references.",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "Biography",
+        "paragraphs": [
+          "Oral Roberts was an American Pentecostal and charismatic evangelist known for healing campaigns, radio and television ministry, and large-scale public evangelism. His preaching connected divine healing, faith, prayer, and expectation of God's work in everyday life.",
+          "Roberts also founded Oral Roberts University, which connected charismatic spirituality with higher education and institutional development. His influence reached beyond classical Pentecostal circles into the broader charismatic and evangelical world."
+        ],
+        "bullets": [
+          "Healing evangelist and media preacher",
+          "Founder of Oral Roberts University",
+          "Important bridge between Pentecostalism and broader charismatic Christianity"
+        ]
+      },
+      {
+        "id": "section-2",
+        "title": "Why He Matters",
+        "paragraphs": [
+          "Roberts matters because he represents the mid-twentieth-century move from revival tent meetings into television, universities, publishing, and broad charismatic influence.",
+          "His career shows how Pentecostal themes entered the religious mainstream through media and institutions, not only through local church planting."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Charismatic Movement",
+        "href": "/library/history/charismatic-movement"
+      },
+      {
+        "label": "Pentecostal and Charismatic Protestantism",
+        "href": "/library/protestant/pentecostal-and-charismatic"
       }
     ]
   },

@@ -84,17 +84,27 @@ export default async function ProtestantEntryPage({
               Resources
             </p>
             <div className="mt-4 grid gap-3 md:grid-cols-2">
-              {entry.links.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-[1.4rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.52)] p-4 text-sm text-[var(--color-ink)]"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {entry.links.map((link) =>
+                link.href.startsWith("/") ? (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="rounded-[1.4rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.52)] p-4 text-sm text-[var(--color-ink)]"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-[1.4rem] border border-[var(--color-border)] bg-[rgba(5,17,34,0.52)] p-4 text-sm text-[var(--color-ink)]"
+                  >
+                    {link.label}
+                  </a>
+                ),
+              )}
             </div>
           </section>
         ) : null}

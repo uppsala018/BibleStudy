@@ -35,7 +35,7 @@ const protestantMobileSections = [
     items: [
       {
         title: "Protestant Figures",
-        detail: "Luther, Calvin, Wesley, and study paths.",
+        detail: "Luther, Calvin, Zwingli, Knox, Wesley, and study paths.",
         href: "/library/protestant/figures",
       },
       {
@@ -47,6 +47,16 @@ const protestantMobileSections = [
         title: "John Calvin",
         detail: "Institutes, doctrine, Scripture, church order.",
         href: "/library/protestant/figures/john-calvin",
+      },
+      {
+        title: "Huldrych Zwingli",
+        detail: "Swiss Reformation and worship reform.",
+        href: "/library/protestant/figures/huldrych-zwingli",
+      },
+      {
+        title: "John Knox",
+        detail: "Scottish Reformation and Presbyterian order.",
+        href: "/library/protestant/figures/john-knox",
       },
       {
         title: "John Wesley",
@@ -197,7 +207,7 @@ const protestantSections = [
       {
         label: "Protestant Figures",
         href: "/library/protestant/figures",
-        detail: "Luther, Calvin, Wesley, and figure-based study paths.",
+        detail: "Luther, Calvin, Zwingli, Knox, Wesley, and figure-based study paths.",
       },
       {
         label: "Martin Luther",
@@ -208,6 +218,16 @@ const protestantSections = [
         label: "John Calvin",
         href: "/library/protestant/figures/john-calvin",
         detail: "Institutes, doctrine of God, Scripture, and church order.",
+      },
+      {
+        label: "Huldrych Zwingli",
+        href: "/library/protestant/figures/huldrych-zwingli",
+        detail: "Swiss reform, Scripture, worship, and Eucharistic controversy.",
+      },
+      {
+        label: "John Knox",
+        href: "/library/protestant/figures/john-knox",
+        detail: "Scottish Reformation, preaching, and Presbyterian order.",
       },
       {
         label: "John Wesley",
@@ -394,7 +414,7 @@ export default function ProtestantResourcesPage() {
         <MobileBottomNav active="Home" />
       </main>
 
-      <main className="mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:px-12">
+      <main className="hidden lg:block mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:px-12">
         <section className="rounded-[2.4rem] border border-[var(--color-border)] bg-[var(--color-panel)] p-8">
           <p className="text-xs uppercase tracking-[0.3em] text-[var(--color-highlight)]">
             Protestant Resources

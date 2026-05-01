@@ -39,6 +39,11 @@ const reformationMobileSections = [
         href: "/library/protestant/figures/john-calvin",
       },
       {
+        title: "Huldrych Zwingli",
+        detail: "Zurich reform, worship, and Eucharistic controversy.",
+        href: "/library/protestant/figures/huldrych-zwingli",
+      },
+      {
         title: "Augsburg Confession",
         detail: "Lutheran doctrine organized into a public confession.",
         href: "/library/protestant/texts/augsburg-confession",
@@ -54,6 +59,11 @@ const reformationMobileSections = [
     icon: "3",
     title: "England, Scotland, And Confessional Protestantism",
     items: [
+      {
+        title: "John Knox",
+        detail: "Scottish Reformation and Presbyterian church order.",
+        href: "/library/protestant/figures/john-knox",
+      },
       {
         title: "Thirty-Nine Articles",
         detail: "Classical Anglican doctrinal identity.",
