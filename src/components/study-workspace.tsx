@@ -18,6 +18,7 @@ import type {
   SearchResult,
   Verse,
 } from "@/lib/content-types";
+import { shareVerse } from "@/lib/share";
 import { createStudyPersistence, type StudyState } from "@/lib/persistence";
 import { hasSupabaseEnv, subscribeToAuthChanges } from "@/lib/supabase";
 
@@ -606,7 +607,7 @@ export default function StudyWorkspace({
           {chapterData ? (
             <div className="kjv-mobile__verses">
               {chapterData.verses.map((verse) => (
-                <article key={verse.id} className="kjv-mobile-verse">
+                <article key={verse.id} className={`kjv-mobile-verse${bookmarkSet.has(verse.reference) ? " kjv-mobile-verse--bookmarked" : ""}`}>
                   <button
                     type="button"
                     onClick={(event) => {
@@ -630,6 +631,20 @@ export default function StudyWorkspace({
                     <span className="kjv-mobile-verse__number">{verse.number}</span>
                     <span>{verse.text}</span>
                   </button>
+
+                  {selectedVerseId === verse.id && (
+                    <div className="kjv-mobile-verse__quick-actions">
+                      <button type="button"
+                        className={`kjv-mobile-verse__quick-btn${bookmarkSet.has(verse.reference) ? " kjv-mobile-verse__quick-btn--saved" : ""}`}
+                        onClick={() => toggleBookmark(verse.reference)}>
+                        {bookmarkSet.has(verse.reference) ? "★ Saved" : "☆ Save"}
+                      </button>
+                      <button type="button" className="kjv-mobile-verse__quick-btn"
+                        onClick={() => void shareVerse(verse.reference, verse.text)}>
+                        Share
+                      </button>
+                    </div>
+                  )}
 
                   {showStrongs && verse.strongs?.length ? (
                     <div className="kjv-mobile-verse__strongs">

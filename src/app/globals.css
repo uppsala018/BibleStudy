@@ -2806,6 +2806,73 @@ html[data-theme="light"] .mobile-app-shell {
   opacity: 0.38;
 }
 
+/* ── Shared verse bookmark color ─────────────────────────── */
+
+.kjv-mobile-verse--bookmarked {
+  border-left: 3px solid rgba(229, 197, 122, 0.7);
+  background: rgba(229, 197, 122, 0.05);
+}
+
+.catholic-mobile-verse--bookmarked {
+  border-left: 3px solid rgba(229, 197, 122, 0.7);
+  background: rgba(229, 197, 122, 0.05);
+}
+
+.lxx-verse--bookmarked {
+  border-left: 3px solid rgba(229, 197, 122, 0.7);
+  background: rgba(229, 197, 122, 0.05);
+}
+
+/* KJV quick bookmark/share row */
+.kjv-mobile-verse__quick-actions {
+  display: flex;
+  gap: 0.45rem;
+  padding: 0.35rem 0.5rem 0.25rem;
+}
+
+.kjv-mobile-verse__quick-btn {
+  border: 1px solid rgba(229, 197, 122, 0.28);
+  border-radius: 999px;
+  background: transparent;
+  padding: 0.28rem 0.75rem;
+  color: var(--color-soft);
+  font-size: 0.78rem;
+  transition: all 140ms ease;
+}
+
+.kjv-mobile-verse__quick-btn--saved {
+  border-color: rgba(229, 197, 122, 0.6);
+  color: var(--color-highlight);
+}
+
+/* Catholic verse action saved state */
+.catholic-mobile-verse__actions-saved {
+  color: var(--color-highlight) !important;
+}
+
+/* LXX bookmark/share row */
+.lxx-reader__verse-actions {
+  display: flex;
+  gap: 0.45rem;
+  padding-top: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.lxx-reader__action-btn {
+  border: 1px solid rgba(229, 197, 122, 0.28);
+  border-radius: 999px;
+  background: transparent;
+  padding: 0.32rem 0.85rem;
+  color: var(--color-soft);
+  font-size: 0.8rem;
+  transition: all 140ms ease;
+}
+
+.lxx-reader__action-btn--active {
+  border-color: rgba(229, 197, 122, 0.65);
+  color: var(--color-highlight);
+}
+
 /* ── Donate Page ──────────────────────────────────────────── */
 
 .donate-page {

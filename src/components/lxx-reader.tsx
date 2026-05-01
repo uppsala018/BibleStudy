@@ -5,6 +5,8 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import MobileBottomNav from "@/components/mobile-bottom-nav";
 import type { Verse } from "@/lib/content-types";
+import { createStudyPersistence } from "@/lib/persistence";
+import { shareVerse } from "@/lib/share";
 
 type LxxBookMeta = {
   code: string;
@@ -54,6 +56,9 @@ export default function LxxReader() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const persistence = useMemo(() => createStudyPersistence(), []);
+  const [bookmarks, setBookmarks] = useState<string[]>([]);
+  const [hydrated, setHydrated] = useState(false);
   const [bookCatalog, setBookCatalog] = useState<LxxBookMeta[]>([]);
   const [selectedGroup, setSelectedGroup] = useState(searchParams.get("group") ?? "All");
   const [selectedBookCode, setSelectedBookCode] = useState(searchParams.get("book") ?? "genesis");
@@ -155,6 +160,30 @@ export default function LxxReader() {
     router.replace(`${pathname}?${params.toString()}`, { scroll: false });
   }, [pathname, router, selectedBookCode, selectedChapterNumber, selectedGroup]);
 
+  // Load bookmarks from shared persistence
+  useEffect(() => {
+    void persistence.load().then((state) => {
+      setBookmarks(state.bookmarks);
+      setHydrated(true);
+    });
+  }, [persistence]);
+
+  // Save bookmarks whenever they change
+  useEffect(() => {
+    if (!hydrated) return;
+    void persistence.load().then((state) => {
+      void persistence.save({ ...state, bookmarks });
+    });
+  }, [bookmarks, hydrated, persistence]);
+
+  function toggleBookmark(reference: string) {
+    setBookmarks((current) =>
+      current.includes(reference)
+        ? current.filter((b) => b !== reference)
+        : [...current, reference],
+    );
+  }
+
   useEffect(() => {
     const normalized = query.trim();
     if (normalized.length < 2) {
@@ -200,6 +229,7 @@ export default function LxxReader() {
   };
 
   const selectedVerse = chapterData?.verses.find((verse) => verse.id === selectedVerseId);
+  const bookmarkSet = new Set(bookmarks);
 
   return (
     <main className="lxx-reader mobile-app-shell">
@@ -346,7 +376,7 @@ export default function LxxReader() {
           {chapterData.verses.map((verse) => (
             <article
               key={verse.id}
-              className={`lxx-verse ${selectedVerseId === verse.id ? "lxx-verse--active" : ""}`}
+              className={`lxx-verse ${selectedVerseId === verse.id ? "lxx-verse--active" : ""}${bookmarkSet.has(verse.reference ?? "") ? " lxx-verse--bookmarked" : ""}`}
             >
               <button
                 type="button"
@@ -370,6 +400,17 @@ export default function LxxReader() {
         <section className="lxx-reader__selected">
           <strong>{selectedVerse.reference}</strong>
           <p>{selectedVerse.text}</p>
+          <div className="lxx-reader__verse-actions">
+            <button type="button"
+              className={`lxx-reader__action-btn${bookmarkSet.has(selectedVerse.reference ?? "") ? " lxx-reader__action-btn--active" : ""}`}
+              onClick={() => toggleBookmark(selectedVerse.reference ?? "")}>
+              {bookmarkSet.has(selectedVerse.reference ?? "") ? "★ Saved" : "☆ Save"}
+            </button>
+            <button type="button" className="lxx-reader__action-btn"
+              onClick={() => void shareVerse(selectedVerse.reference ?? "", selectedVerse.text)}>
+              Share
+            </button>
+          </div>
         </section>
       ) : null}
 

@@ -8,6 +8,7 @@ import MobileBottomNav from "@/components/mobile-bottom-nav";
 import { catholicLibrary } from "@/lib/content";
 import type { Verse } from "@/lib/content-types";
 import { createStudyPersistence, type StudyState } from "@/lib/persistence";
+import { shareVerse } from "@/lib/share";
 import { hasSupabaseEnv, subscribeToAuthChanges } from "@/lib/supabase";
 
 type BookMeta = {
@@ -392,11 +393,9 @@ export default function CatholicReader({
               >
                 ♡
               </button>
-              <button type="button" aria-label="Share">
+              <button type="button" aria-label="Share"
+                onClick={() => void shareVerse(selectedVerse.reference, selectedVerse.text)}>
                 ⇧
-              </button>
-              <button type="button" aria-label="Copy">
-                ⧉
               </button>
             </div>
           </section>
@@ -409,7 +408,7 @@ export default function CatholicReader({
                 key={verse.id}
                 className={`catholic-mobile-verse ${
                   selectedVerseId === verse.id ? "catholic-mobile-verse--active" : ""
-                }`}
+                }${bookmarkSet.has(verse.reference) ? " catholic-mobile-verse--bookmarked" : ""}`}
               >
                 <button
                   type="button"
@@ -435,11 +434,12 @@ export default function CatholicReader({
 
                 {selectedVerseId === verse.id ? (
                   <div className="catholic-mobile-verse__actions">
-                    <button
-                      type="button"
-                      onClick={() => toggleBookmark(verse.reference)}
-                    >
-                      {bookmarkSet.has(verse.reference) ? "Saved" : "Bookmark"}
+                    <button type="button" onClick={() => toggleBookmark(verse.reference)}
+                      className={bookmarkSet.has(verse.reference) ? "catholic-mobile-verse__actions-saved" : ""}>
+                      {bookmarkSet.has(verse.reference) ? "★ Saved" : "☆ Save"}
+                    </button>
+                    <button type="button" onClick={() => void shareVerse(verse.reference, verse.text)}>
+                      Share
                     </button>
                     <span>{verse.reference}</span>
                   </div>
