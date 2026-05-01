@@ -99,15 +99,15 @@ const charismaticDenominations = [
 ];
 
 const protestantBranches = [
-  "Lutheran",
-  "Reformed",
-  "Anglican",
-  "Anabaptist",
-  "Baptist",
-  "Methodist",
-  "Pentecostal",
-  "Charismatic",
-  "Non-denominational",
+  { label: "Lutheran", href: "/library/history/lutheran-tradition" },
+  { label: "Reformed", href: "/library/history/reformed-tradition" },
+  { label: "Anglican", href: "/library/history/anglican-tradition" },
+  { label: "Anabaptist", href: "/library/history/anabaptist-tradition" },
+  { label: "Baptist", href: "/library/history/baptist-tradition" },
+  { label: "Methodist", href: "/library/history/methodist-tradition" },
+  { label: "Pentecostal", href: "/library/history/pentecostal-tradition" },
+  { label: "Charismatic", href: "/library/history/charismatic-tradition" },
+  { label: "Non-denominational", href: "/library/history/non-denominational-tradition" },
 ];
 
 export function generateStaticParams() {
@@ -141,58 +141,56 @@ function TraditionTimelinePanel() {
       </div>
 
       <div className="history-tradition-tree__trunk">
-        <article className="history-tradition-event history-tradition-event--root">
+        <Link href="/library/history/apostolic-catholic-church" className="history-tradition-event history-tradition-event--root">
           <strong>33 AD</strong>
           <h3>Apostolic Catholic Church</h3>
           <p>The Church begins from the apostolic witness to Christ&apos;s death and resurrection: one ancient, episcopal, sacramental Church spread across East and West.</p>
-        </article>
+        </Link>
 
-        <article className="history-tradition-event">
+        <Link href="/library/fathers/ignatius-antioch" className="history-tradition-event">
           <strong>c. 107-110</strong>
           <h3>Catholic means universal</h3>
           <p>Ignatius of Antioch uses the phrase Catholic Church very early, meaning the universal Church gathered around Christ, bishops, Eucharist, and apostolic faith.</p>
-        </article>
+        </Link>
 
-        <article className="history-tradition-event">
+        <Link href="/library/councils" className="history-tradition-event">
           <strong>325-787</strong>
           <h3>Ecumenical councils</h3>
           <p>Core doctrine on Trinity, Christ, worship, and icons is clarified through the great councils.</p>
-          <Link href="/library/councils">Study councils</Link>
-        </article>
+        </Link>
 
-        <article className="history-tradition-split history-tradition-split--oriental">
+        <Link href="/library/history/chalcedon-451" className="history-tradition-split history-tradition-split--oriental">
           <strong>451</strong>
           <h3>Oriental Orthodox churches</h3>
           <p>After Chalcedon, the Armenian, Coptic, Syriac, Ethiopian, Eritrean, and Malankara traditions continue as ancient churches.</p>
-          <Link href="/library/history/chalcedon-451">Study Chalcedon</Link>
-        </article>
+        </Link>
 
-        <article className="history-tradition-split">
+        <Link href="/library/history/great-schism" className="history-tradition-split">
           <strong>1054</strong>
           <h3>East-West Schism</h3>
           <p>The one ancient catholic Church in East and West suffers a lasting rupture. The Latin West continues in communion with Rome; the Greek East continues as the Eastern Orthodox communion.</p>
-        </article>
+        </Link>
 
         <div className="history-tradition-lines history-tradition-lines--traditional">
-          <article>
+          <Link href="/library/catholic/resources">
             <span>☩</span>
             <h3>Roman Catholic Church</h3>
             <p>Western catholic line centered on Rome</p>
             <strong>ancient root, continues to 2026</strong>
-          </article>
-          <article>
+          </Link>
+          <Link href="/library/orthodox">
             <span>♜</span>
             <h3>Eastern Orthodox Church</h3>
             <p>Eastern catholic/orthodox line through the patriarchates</p>
             <strong>ancient root, continues to 2026</strong>
-          </article>
+          </Link>
         </div>
 
-        <article className="history-tradition-split history-tradition-split--reformation">
+        <Link href="/library/history/reformation" className="history-tradition-split history-tradition-split--reformation">
           <strong>1517</strong>
           <h3>Protestant Reformation</h3>
           <p>Western Christianity divides further through disputes about authority, justification, Scripture, sacraments, and reform.</p>
-        </article>
+        </Link>
 
         <div className="history-protestant-branching">
           <div>
@@ -201,16 +199,18 @@ function TraditionTimelinePanel() {
           </div>
           <div className="history-protestant-branching__grid">
             {protestantBranches.map((branch) => (
-              <span key={branch}>{branch}</span>
+              <Link key={branch.href} href={branch.href}>
+                {branch.label}
+              </Link>
             ))}
           </div>
         </div>
 
-        <article className="history-tradition-event history-tradition-event--today">
+        <Link href="/library/history/christianity-today-resources" className="history-tradition-event history-tradition-event--today">
           <strong>2026</strong>
           <h3>Christianity today</h3>
           <p>Catholic, Eastern Orthodox, Oriental Orthodox, Protestant, Pentecostal, and Charismatic communities all continue, with very different structures and histories.</p>
-        </article>
+        </Link>
       </div>
     </section>
   );
@@ -338,9 +338,13 @@ function ReformationPanel() {
       <section className="history-reformation-hero">
         <p>1517 - Present</p>
         <h2>The Protestant Reformation</h2>
-        <div className="history-reformation-hero__image" aria-hidden="true">
+        <Link
+          href="/library/protestant/figures/martin-luther/ninety-five-theses"
+          className="history-reformation-hero__image"
+          aria-label="Read Martin Luther's 95 Theses"
+        >
           <span>95 Theses</span>
-        </div>
+        </Link>
       </section>
 
       <section className="history-reformer-strip" aria-label="Major reformers">
@@ -459,7 +463,13 @@ export default async function HistoryTopicPage({
           era: "33 AD - 2026",
           summary:
             "A vertical overview of the ancient catholic apostolic Church, the major East-West and Reformation divisions, and the continuing Catholic, Orthodox, Oriental Orthodox, Protestant, Pentecostal, and Charismatic communities today.",
+          overview:
+            "A vertical overview of the ancient catholic apostolic Church, the major East-West and Reformation divisions, and the continuing Catholic, Orthodox, Oriental Orthodox, Protestant, Pentecostal, and Charismatic communities today.",
+          significance:
+            "The timeline helps users see both continuity and division across Christian history.",
           sections: [],
+          relatedTopics: [],
+          links: [],
         }
       : getHistoryTopic(slug);
 
@@ -498,6 +508,28 @@ export default async function HistoryTopicPage({
                 <h3>{section.title}</h3>
                 <p>{section.summary}</p>
                 <p>{section.detail}</p>
+              </div>
+            </article>
+          ))}
+        </section>
+      ) : null}
+
+      {topic.links?.length ? (
+        <section className="history-study-sections">
+          {topic.links.map((link, index) => (
+            <article key={link.href}>
+              <span>{index + 1}</span>
+              <div>
+                {link.href.startsWith("/") ? (
+                  <Link href={link.href}>
+                    <h3>{link.label}</h3>
+                  </Link>
+                ) : (
+                  <a href={link.href} target="_blank" rel="noreferrer">
+                    <h3>{link.label}</h3>
+                  </a>
+                )}
+                <p>Continue study</p>
               </div>
             </article>
           ))}

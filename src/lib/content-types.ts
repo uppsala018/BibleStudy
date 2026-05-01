@@ -273,6 +273,10 @@ export type HistoryTopic = {
   significance: string;
   sections: HistorySection[];
   relatedTopics: string[];
+  links?: Array<{
+    label: string;
+    href: string;
+  }>;
 };
 
 export type CouncilTopic = {
