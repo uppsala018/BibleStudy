@@ -25,7 +25,7 @@ const saintGroups = [
     summary:
       "Orthodox devotion remembers saints in the liturgical calendar, troparia, kontakia, feast days, fasts, and holy images.",
     examples: ["Great Feasts", "Namedays", "Martyrs", "Confessors", "Monastics", "The Theotokos"],
-    href: "/library/orthodox/divine-liturgy",
+    href: "/library/orthodox/feast-days",
   },
 ];
 
@@ -60,7 +60,7 @@ const devotionPaths = [
     summary:
       "Relics, feasts, and memorials are part of Orthodox holy memory and the Church's life in time.",
     study: ["Martyr witness", "Liturgical calendar", "Synaxis", "Commemoration"],
-    href: "/library/orthodox/liturgical-study",
+    href: "/library/orthodox/feast-days",
   },
 ];
 
