@@ -1,5 +1,6 @@
 import Link from "next/link";
 import MobileBottomNav from "@/components/mobile-bottom-nav";
+import PwaInstallBanner from "@/components/pwa-install-banner";
 
 const homeCards = [
   {
@@ -92,6 +93,7 @@ export default function Home() {
       </section>
 
       <MobileBottomNav active="Home" />
+      <PwaInstallBanner />
     </main>
   );
 }

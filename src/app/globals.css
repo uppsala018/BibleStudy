@@ -3502,3 +3502,79 @@ html[data-theme="light"] .mobile-app-shell {
   font-size: 0.88rem;
   line-height: 1.5;
 }
+
+/* ─── PWA Install Banner ──────────────────────────────────────── */
+
+.pwa-install-banner {
+  position: fixed;
+  bottom: 5.5rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid rgba(229, 197, 122, 0.5);
+  border-radius: 1rem;
+  background: rgba(4, 14, 32, 0.97);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  padding: 0.85rem 1rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  animation: slideUp 320ms ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(1.5rem); opacity: 0; }
+  to   { transform: translateY(0);      opacity: 1; }
+}
+
+.pwa-install-banner__icon {
+  color: var(--color-highlight);
+  font-family: var(--font-display), serif;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.pwa-install-banner__text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.pwa-install-banner__text strong {
+  color: var(--color-ink);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.pwa-install-banner__text span {
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.pwa-install-banner__btn {
+  flex-shrink: 0;
+  border: none;
+  border-radius: 0.55rem;
+  background: var(--color-highlight);
+  color: #041126;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.48rem 0.95rem;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+}
+
+.pwa-install-banner__dismiss {
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+}
